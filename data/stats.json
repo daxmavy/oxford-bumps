@@ -926,10 +926,12 @@
     },
     "luck_skill": {
       "blades_rate_observed": 0.085,
-      "blades_rate_pure_luck_floor": 0.004,
-      "excess_ratio": 21,
+      "blades_rate_pure_luck_floor": 0.008,
+      "excess_ratio": 11,
       "blades_share_to_stronger_half": 0.9,
-      "interpretation": "Blades cannot be fluked: if every crew were equally fast, blades would happen ~0.4% of the time; in reality ~8.5%, about 20x more. The excess is genuine speed. But most fast crews still miss out \u2014 finishing all four depends on the draw (catchable boats ahead, targets not bumping out). So: a good crew is necessary; a kind draw decides which good crews complete the set."
+      "blades_repeat_rate": 0.158,
+      "blades_repeat_base": 0.074,
+      "interpretation": "Blades cannot be fluked: if every crew were equally fast, blades would happen under ~1% of the time (two independent simulators put the floor at 0.4-0.8%); in reality ~8.5%, more than ten times as often. The excess is genuine speed. But blades barely repeat (15.8% of past blade-winners blade again vs 7.4% base) and 86% of blade-winners did NOT blade the year before \u2014 completing all four depends on the draw (catchable boats ahead, targets not bumping out). So: a good crew is necessary; a kind draw decides which good crews complete the set."
     },
     "factors_controlled_per_place": [
       {
