@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eights 2026 — the bump board</title>
+<meta name="description" content="Live bump probabilities for Oxford Summer Eights 2026, and what two centuries of results say about skill and luck.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<script src="../js/vendor/d3.min.js"></script>
+<script src="../js/vendor/plot.umd.min.js"></script>
+<style>
+:root{
+  --ink:#16130f; --paper:#fbf9f5; --paper2:#f3eee5; --line:#e3dccf; --line2:#d6cdba;
+  --oxford:#002147; --oxford2:#1b3a63;
+  --up:#1a7f57; --down:#c0392b; --row:#a99f8c; --gold:#b8893b; --muted:#6b6357;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px}
+.narrow{max-width:680px}
+
+/* ---- type ---- */
+h1{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;line-height:1.04;
+  font-size:clamp(2.4rem,6.4vw,4.4rem);margin:.1em 0 .2em}
+h2{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.1;
+  font-size:clamp(1.5rem,3.2vw,2.1rem);margin:0 0 .15em}
+a{color:var(--oxford2)}
+.kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.18em;
+  font-size:.7rem;font-weight:800;color:var(--gold)}
+.muted{color:var(--muted)}
+.small{font-size:.84rem;color:var(--muted);line-height:1.5}
+.serif{font-family:var(--serif)}
+
+/* ---- masthead ---- */
+.masthead{border-bottom:1px solid var(--line);background:
+  radial-gradient(140% 120% at 78% -10%, #fff 0%, var(--paper) 55%)}
+.masthead .wrap{padding-top:4.4vh;padding-bottom:1.6vh}
+.live{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;color:var(--down)}
+.live .dot{width:8px;height:8px;border-radius:50%;background:var(--down);
+  box-shadow:0 0 0 0 rgba(192,57,43,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(192,57,43,.45)}70%{box-shadow:0 0 0 7px rgba(192,57,43,0)}100%{box-shadow:0 0 0 0 rgba(192,57,43,0)}}
+.masthead .sub{font-family:var(--serif);font-size:clamp(1.05rem,2.2vw,1.3rem);
+  color:#403a31;max-width:30em;margin:.1em 0 1.2em}
+
+/* ---- section scaffolding ---- */
+section{padding:3.2em 0}
+section + section{border-top:1px solid var(--line)}
+.eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;
+  font-size:.7rem;font-weight:800;color:var(--gold);margin-bottom:.5em}
+.lede{font-size:1.04rem;color:#403a31;max-width:34em;margin:.2em 0 0}
+.lede strong{font-weight:700;color:var(--ink)}
+
+/* ---- the board (hero) ---- */
+.boardhead{display:flex;align-items:flex-end;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;margin-bottom:1.1em}
+.tabs{display:flex;gap:6px}
+.tab{padding:6px 15px;border:1px solid var(--line2);background:#fff;border-radius:20px;
+  cursor:pointer;font-size:.86rem;font-weight:700;color:var(--muted)}
+.tab.active{background:var(--oxford);color:#fff;border-color:var(--oxford)}
+
+.board{display:grid;gap:3px}
+.brow{display:grid;grid-template-columns:34px 1fr 168px 58px;align-items:center;
+  gap:10px;padding:7px 10px;border-radius:8px;background:#fff;border:1px solid var(--line);
+  cursor:pointer;transition:border-color .12s,box-shadow .12s}
+.brow:hover{border-color:var(--line2);box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.brow.open{border-color:var(--oxford);box-shadow:0 2px 14px rgba(0,33,71,.08)}
+.brow .pos{font-family:var(--mono);font-size:.82rem;color:var(--muted);text-align:right}
+.brow .name{font-weight:600;font-size:.96rem;display:flex;align-items:baseline;gap:7px;min-width:0}
+.brow .name b{font-weight:600}
+.brow .name .chase{font-size:.76rem;color:var(--muted);font-weight:400;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+.brow .name .arr{color:var(--up);font-weight:700}
+.brow .pct{font-family:var(--mono);font-size:.92rem;font-weight:700;text-align:right;
+  font-variant-numeric:tabular-nums}
+
+/* probability track: chance of bumping the boat ahead */
+.track{height:18px;border-radius:4px;background:var(--paper2);position:relative;overflow:hidden}
+.track .fill{position:absolute;left:0;top:0;bottom:0;border-radius:4px;
+  background:linear-gradient(90deg,#2a9d6f,#1a7f57)}
+.track.head{background:repeating-linear-gradient(45deg,#f3eee5,#f3eee5 5px,#ece5d6 5px,#ece5d6 10px)}
+.track .headlbl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+
+.brow.blades .name b::after{content:"◇";color:var(--gold);font-size:.8rem;margin-left:5px}
+
+/* expanded attribution panel */
+.attr{grid-column:1/-1;display:none;padding:6px 4px 10px 44px}
+.brow.open + .attr{display:block}
+.attr .why{font-size:.86rem;color:var(--muted);margin:2px 0 12px}
+.attr .why b{color:var(--ink);font-weight:600}
+.fbar{display:grid;grid-template-columns:160px 1fr;align-items:center;gap:12px;margin:5px 0}
+.fbar .flab{font-size:.82rem;text-align:right;color:#3a352d}
+.ftrack{position:relative;height:16px}
+.ftrack .axis{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--line2)}
+.ftrack .seg{position:absolute;top:1px;bottom:1px;border-radius:3px}
+.ftrack .seg.pos{background:var(--up);left:50%}
+.ftrack .seg.neg{background:var(--down);right:50%}
+.ftrack .val{position:absolute;top:0;font-size:.7rem;font-family:var(--mono);color:var(--muted);
+  line-height:16px}
+.attr .scale{display:grid;grid-template-columns:160px 1fr;gap:12px;margin-top:8px}
+.attr .scaleinner{display:flex;justify-content:space-between;font-size:.68rem;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.06em}
+
+/* blades strip */
+.bladestrip{margin-top:1.6em;padding:14px 16px;background:#fcf7ec;border:1px solid #ecdcb8;
+  border-radius:10px}
+.bladestrip .bt{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;
+  color:var(--gold);margin-bottom:.5em}
+.blades-grid{display:flex;flex-wrap:wrap;gap:7px}
+.bchip{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #ecdcb8;
+  border-radius:7px;padding:5px 10px;font-size:.85rem}
+.bchip b{font-weight:600}
+.bchip .p{font-family:var(--mono);font-weight:700;color:var(--gold)}
+
+/* ---- annotated figures ---- */
+figure{margin:0}
+.fig-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:.1em}
+.chart{width:100%;min-height:60px;margin-top:1.2em}
+.chart svg{max-width:100%;height:auto;font-family:var(--sans)!important}
+figcaption{font-size:.82rem;color:var(--muted);margin-top:.9em;line-height:1.5;
+  border-left:2px solid var(--line2);padding-left:.9em;max-width:40em}
+.takeaway{font-family:var(--serif);font-size:1.05rem;color:var(--oxford);margin-top:.3em}
+
+/* two-up grid for paired charts */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+@media (max-width:760px){.duo{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding:2.4em 0 4em;color:var(--muted);font-size:.82rem}
+
+@media (max-width:560px){
+  body{font-size:16px}
+  .brow{grid-template-columns:26px 1fr 92px 46px;gap:7px;padding:7px 8px}
+  .brow .name .chase{display:none}
+  .attr{padding-left:10px}
+  .fbar,.attr .scale{grid-template-columns:96px 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="live"><span class="dot"></span> Live · 2026 races</p>
+    <h1>The bump board</h1>
+    <p class="sub">Two days rowed. Here is every Division&nbsp;1 crew's chance of catching the boat ahead on <b id="day-label">Friday</b> — and exactly what's driving it.</p>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO: live head-to-head board ============ -->
+<section id="sec-board">
+  <div class="wrap">
+    <div class="boardhead">
+      <div>
+        <p class="eyebrow">Head-to-head · each boat vs the one ahead</p>
+        <h2 style="margin:0">Friday's bumps, in probabilities</h2>
+      </div>
+      <div class="tabs">
+        <div class="tab active" data-g="men">Men</div>
+        <div class="tab" data-g="women">Women</div>
+      </div>
+    </div>
+    <div id="board" class="board"></div>
+    <div id="blades" class="bladestrip" hidden></div>
+    <p class="small" style="margin-top:1.4em">Bars show the modelled chance of bumping the crew immediately ahead (out-of-sample AUC 0.81). Tap any crew for the factor breakdown. The Head of the River has no one to chase. ◇ = still on for blades.</p>
+  </div>
+</section>
+
+<!-- ============ FINDING 1: day 1 coin toss -> day 4 settled ============ -->
+<section id="sec-perday">
+  <div class="wrap narrow">
+    <p class="eyebrow">Why the board sharpens as the week goes on</p>
+    <h2>Day one is a coin toss. By Saturday it's nearly decided.</h2>
+    <p class="takeaway">Crews line up by last year's order, so each one chases its nearest equal — until racing reveals who's actually quick.</p>
+    <figure>
+      <div id="chart-perday" class="chart"></div>
+      <figcaption>How well the model calls each day's bumps, out of sample. 0.5 is a coin toss. The jump after day&nbsp;1 isn't a streak — it's revealed strength: once a crew shows its pace, the rest of its week comes into focus.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ FINDING 2: blades can't be fluked + where they happen ============ -->
+<section id="sec-blades">
+  <div class="wrap">
+    <p class="eyebrow">The proverb, checked</p>
+    <h2>Blades can't be fluked — but they barely repeat.</h2>
+    <div class="duo" style="margin-top:1.4em">
+      <figure>
+        <div id="chart-luck" class="chart" style="margin-top:.2em"></div>
+        <figcaption>Give every crew identical speed and let only luck decide: blades almost never happen. They occur ~11× more often in reality. You cannot stumble into four bumps.</figcaption>
+      </figure>
+      <figure>
+        <div id="chart-blades-div" class="chart" style="margin-top:.2em"></div>
+        <figcaption>Yet blades are rarest at the top, where the best crews are packed and evenly matched, and commonest in the lower divisions, where a fast crew meets an uneven field. 86% of winners hadn't bladed the year before — speed gets you in; the draw completes the set.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINDING 3: what actually moves a crew (forest plot) ============ -->
+<section id="sec-effects">
+  <div class="wrap narrow">
+    <p class="eyebrow">After holding starting position fixed</p>
+    <h2>What actually moves a crew</h2>
+    <p class="takeaway">Four edges separate "always going to be high" from "this helped." Two don't.</p>
+    <figure>
+      <div id="chart-effects" class="chart"></div>
+      <figcaption>Extra places gained over a regatta per unit of each factor, holding start position, division, gender and year fixed. Bars are 95% intervals; any crossing the dashed line is indistinguishable from no effect. Weather doesn't register.</figcaption>
+    </figure>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="small">Prototype · concept: chart-forward. Data: Anu Dudhia's Oxford bumps archive; bumps.live; OURCs; Wikipedia; Radcliffe Meteorological Station. Two independent records, 99.99% agreement across 20,617 cross-checked crew-races. Live predictions are a position-and-form model and don't know who's fit this week.</p>
+    <p class="small" id="footer-updated"></p>
+  </div>
+</footer>
+
+<script src="chart_forward.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Bump Board — Oxford Summer Eights 2026</title>
+<meta name="description" content="A live head-to-head explorer for Oxford Summer Eights. Every boat versus the one directly ahead, with the model's odds and the factors behind them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<script src="../js/vendor/d3.min.js"></script>
+<script src="../js/vendor/plot.umd.min.js"></script>
+<style>
+:root{
+  --ink:#16130f; --paper:#fbf9f5; --paper2:#f3eee5; --line:#e3dccf;
+  --oxford:#002147; --oxford2:#1b3a63;
+  --bump:#1a7f57; --down:#c0392b; --row:#8a8170; --gold:#b8893b; --muted:#6b6357;
+  --maxw:760px;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.wide{max-width:1040px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.14;letter-spacing:-.01em}
+h1{font-size:clamp(2.1rem,5.4vw,3.4rem);margin:.1em 0 .12em}
+h2{font-size:clamp(1.5rem,3.2vw,2.1rem);margin:0 0 .2em}
+h3{font-size:1.05rem;margin:0 0 .3em}
+p{margin:0 0 1em}
+a{color:var(--oxford2);text-underline-offset:2px}
+.kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:700;color:var(--oxford);margin-bottom:.6em}
+.dek{font-family:var(--serif);font-size:clamp(1.1rem,2.3vw,1.4rem);line-height:1.38;color:#403a31;font-weight:400;margin-bottom:1.2em}
+.muted{color:var(--muted)}
+.small{font-size:.84rem;color:var(--muted);line-height:1.5}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* hero */
+header.hero{padding:7vh 0 2.4vh;border-bottom:1px solid var(--line);background:radial-gradient(120% 80% at 50% 0%,#fff 0%,var(--paper) 62%)}
+.daypill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:30px;padding:5px 14px 5px 8px;font-size:.82rem;font-weight:600;color:var(--oxford);margin-bottom:1.4em}
+.daypill .dot{width:9px;height:9px;border-radius:50%;background:var(--bump);box-shadow:0 0 0 4px rgba(26,127,87,.16)}
+
+/* tabs */
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin:.4em 0 1.4em}
+.seg{display:inline-flex;background:var(--paper2);border:1px solid var(--line);border-radius:24px;padding:3px}
+.seg button{font-family:var(--sans);font-size:.9rem;font-weight:600;padding:7px 18px;border:none;background:transparent;border-radius:20px;cursor:pointer;color:var(--muted)}
+.seg button.active{background:var(--oxford);color:#fff}
+.divnav{display:flex;flex-wrap:wrap;gap:6px}
+.divnav button{font-family:var(--sans);font-size:.8rem;font-weight:600;padding:5px 11px;border:1px solid var(--line);background:#fff;border-radius:7px;cursor:pointer;color:var(--muted)}
+.divnav button.active{background:var(--oxford);color:#fff;border-color:var(--oxford)}
+
+/* the board */
+.board{margin:0 0 1em}
+.match{background:#fff;border:1px solid var(--line);border-radius:11px;margin:9px 0;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+.match:hover{border-color:#cdc4b2}
+.match.open{border-color:var(--oxford);box-shadow:0 6px 20px -12px rgba(0,33,71,.4)}
+.match.head{background:linear-gradient(90deg,#fff,#fdfaf2);border-color:var(--gold)}
+.matchrow{display:grid;grid-template-columns:42px 1fr 132px 30px;align-items:center;gap:12px;padding:11px 14px;cursor:pointer}
+.match.head .matchrow{cursor:default}
+.pos{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--oxford);text-align:center;font-variant-numeric:tabular-nums}
+.crew .nm{font-weight:600;font-size:1rem}
+.crew .chase{font-size:.82rem;color:var(--muted)}
+.crew .chase b{color:var(--ink);font-weight:600}
+.pcell{text-align:right}
+.pbar{height:11px;border-radius:6px;background:var(--paper2);position:relative;margin-top:5px;overflow:hidden}
+.pbar>span{position:absolute;left:0;top:0;bottom:0;border-radius:6px;background:linear-gradient(90deg,#36a374,var(--bump))}
+.pval{font-family:var(--serif);font-weight:600;font-size:1.05rem;font-variant-numeric:tabular-nums;line-height:1}
+.pval.hi{color:var(--bump)} .pval.mid{color:var(--gold)} .pval.lo{color:var(--muted)}
+.caret{justify-self:center;color:var(--muted);transition:transform .18s;font-size:.9rem}
+.match.open .caret{transform:rotate(90deg);color:var(--oxford)}
+.headtag{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--gold)}
+
+/* expanded attribution */
+.detail{border-top:1px solid var(--line);padding:14px 16px 16px;background:#fdfbf6;display:none}
+.match.open .detail{display:block}
+.detail .lead{font-size:.9rem;color:#3a352d;margin-bottom:.7em}
+.detail .lead b{color:var(--oxford)}
+.factorrow{display:grid;grid-template-columns:150px 1fr 56px;align-items:center;gap:10px;font-size:.85rem;padding:3px 0}
+.factorrow .flab{color:#3a352d;text-align:right}
+.factortrack{position:relative;height:16px;background:var(--paper2);border-radius:4px}
+.factortrack .mid{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:#c9bfad}
+.factortrack .b{position:absolute;top:2px;bottom:2px;border-radius:3px}
+.factortrack .b.pos{background:var(--bump)} .factortrack .b.neg{background:var(--down)}
+.factorrow .fval{font-variant-numeric:tabular-nums;text-align:left;color:var(--muted);font-size:.8rem}
+.detail .axis{display:grid;grid-template-columns:150px 1fr 56px;gap:10px;font-size:.72rem;color:var(--muted);margin-top:6px}
+.detail .axis .ends{display:flex;justify-content:space-between}
+
+/* annotation cards woven into the tools */
+.note{border-left:3px solid var(--gold);background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 9px 9px 0;padding:14px 18px;margin:1.4em 0}
+.note .lab{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:.35em}
+.note p{margin:0;font-size:.94rem;line-height:1.55;color:#3a352d}
+.note p+p{margin-top:.6em}
+.note b{color:var(--oxford)}
+.inlinechart{margin:.6em 0 0}
+.inlinechart svg{max-width:100%;height:auto}
+
+/* college lookup */
+section{padding:2.2em 0;border-top:1px solid var(--line)}
+.lookbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:.6em 0 1.4em}
+select{font-family:var(--sans);font-size:.98rem;font-weight:600;padding:10px 14px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);min-width:210px}
+.recordline{display:flex;flex-wrap:wrap;gap:10px;margin:.4em 0 1.2em}
+.rec{background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 15px;min-width:96px}
+.rec .num{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--oxford);line-height:1}
+.rec .lab{font-size:.75rem;color:var(--muted);margin-top:.3em}
+.predline{display:flex;flex-wrap:wrap;gap:10px;margin:.2em 0 0}
+.predcard{flex:1;min-width:150px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 15px}
+.predcard .t{font-size:.78rem;color:var(--muted);font-weight:600}
+.predcard .row3{display:flex;gap:14px;margin-top:.5em}
+.predcard .row3 div{font-size:.8rem;color:var(--muted)}
+.predcard .row3 b{display:block;font-family:var(--serif);font-size:1.15rem;color:var(--oxford)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin:.6em 0 0}
+.legend .key{display:inline-flex;align-items:center;gap:6px}
+.legend .sw{width:12px;height:3px;border-radius:2px;display:inline-block}
+
+figure{margin:1.2em 0}
+.chart svg{max-width:100%;height:auto;font-family:var(--sans)!important}
+footer{border-top:1px solid var(--line);margin-top:2em;padding:2em 0 4em;color:var(--muted);font-size:.84rem}
+.protonote{background:#fff8e9;border:1px dashed var(--gold);border-radius:8px;padding:9px 14px;font-size:.8rem;color:#7a5a1e;margin:1.2em 0}
+@media(max-width:620px){
+  body{font-size:16px}
+  .matchrow{grid-template-columns:34px 1fr 96px 24px;gap:8px}
+  .factorrow,.detail .axis{grid-template-columns:104px 1fr 44px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap wide">
+    <p class="kicker">Oxford Summer Eights · 2026</p>
+    <div class="daypill"><span class="dot"></span><span id="daylabel">Loading…</span></div>
+    <h1>The Bump Board</h1>
+    <p class="dek">Every boat against the one directly ahead of it — and what our model gives it for the next race. Tap any matchup to see why.</p>
+  </div>
+</header>
+
+<main class="wrap wide">
+
+  <div class="protonote">Prototype — concept <b>“explorer-first”</b>. Hero is the live head-to-head explorer; the college tool follows. Findings appear as annotations inside the tools. Copy is placeholder-grade.</div>
+
+  <!-- ============ HERO TOOL: HEAD-TO-HEAD BOARD ============ -->
+  <div class="controls">
+    <div class="seg" id="sex-seg">
+      <button data-sex="men" class="active">Men</button>
+      <button data-sex="women">Women</button>
+    </div>
+    <div class="divnav" id="div-nav"></div>
+    <span class="small" id="board-meta"></span>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <!-- annotation woven into the board: why Friday's numbers are trustworthy -->
+  <div class="note">
+    <div class="lab">Why these odds are worth reading on Friday</div>
+    <p>On <b>Day 1</b> a single bump is barely better than a coin toss to call (AUC&nbsp;0.54). By <b>Friday</b> it’s 0.82 — not because crews build momentum, but because four days of racing have <b>revealed</b> who is actually fast. The board sharpens as the week goes on.</p>
+    <figure class="inlinechart chart" id="chart-perday"></figure>
+  </div>
+
+  <div class="note">
+    <div class="lab">Reading the factor bars</div>
+    <p>Each matchup’s odds are a sum of pieces. <b>Form so far this week</b> is the heaviest by far (×3.3 per standard deviation) — it’s the live read on speed. <b>Last year’s finish</b>, <b>Torpids form</b>, <b>squad continuity</b> and <b>Blues in the boat</b> add smaller, steadier nudges. Green pushes a bump toward likely; red pulls it back.</p>
+  </div>
+
+  <!-- ============ SECOND TOOL: COLLEGE LOOKUP ============ -->
+  <section>
+    <p class="kicker">Look up a college</p>
+    <h2>Where a crew sits in the long run</h2>
+    <p class="muted" style="max-width:640px">Two centuries of starts and finishes for any college, men or women — with this year’s two live predictions marked on the end of the line.</p>
+    <div class="lookbar">
+      <select id="college-sel"></select>
+      <div class="seg" id="csex-seg">
+        <button data-csex="m" class="active">Men</button>
+        <button data-csex="w">Women</button>
+      </div>
+    </div>
+    <div class="recordline" id="college-record"></div>
+    <div class="predline" id="college-pred"></div>
+    <figure class="chart" id="chart-college"></figure>
+    <div class="legend">
+      <span class="key"><span class="sw" style="background:var(--oxford)"></span>Finishing position (rank)</span>
+      <span class="key"><span class="sw" style="background:var(--bump)"></span>Moved up that year</span>
+      <span class="key"><span class="sw" style="background:var(--down)"></span>Moved down</span>
+      <span class="key"><span class="sw" style="background:var(--gold)"></span>Blades</span>
+    </div>
+    <div class="note">
+      <div class="lab">Annotation · what the trajectory shows</div>
+      <p id="college-annot">—</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Prototype for layout review. Live predictions from <code>headtohead_2026.json</code> · <code>predictions.json</code>; histories from <code>colleges.json</code>; per-day predictability from <code>extras.json</code>. Model: pairwise logistic, out-of-sample AUC 0.805.</p>
+  </footer>
+</main>
+
+<script>
+const P = window.Plot, d3 = window.d3;
+const C = { up:"#1a7f57", down:"#c0392b", row:"#b8b0a0", oxford:"#002147", gold:"#b8893b", muted:"#9a9182" };
+const pct = x => (x==null?"—":Math.round(x*100)+"%");
+const load = f => fetch("../data/"+f).then(r=>r.json());
+const W = el => Math.min(el.clientWidth||720, 1000);
+
+const STATE = { sex:"men", div:"all", csex:"m", college:null };
+let H2H=null, PREDS=null, COLLEGES=null, EXTRAS=null;
+
+/* ---------- ordinal helper ---------- */
+function ord(n){ const s=["th","st","nd","rd"], v=n%100; return n+(s[(v-20)%10]||s[v]||s[0]); }
+function crewName(c,b){ return c + (b>1? " "+b : ""); }
+
+/* ============================================================
+   HERO TOOL — head-to-head board
+============================================================ */
+function pBucket(p){ return p>=0.6?"hi":p>=0.3?"mid":"lo"; }
+
+function renderDivNav(){
+  const arr = H2H[STATE.sex];
+  const divs = [...new Set(arr.filter(e=>e.division).map(e=>e.division))].sort((a,b)=>a-b);
+  const nav = document.getElementById("div-nav");
+  nav.innerHTML = "";
+  const mk = (val,label)=>{
+    const b=document.createElement("button");
+    b.textContent=label; b.dataset.div=val;
+    if(String(STATE.div)===String(val)) b.classList.add("active");
+    b.onclick=()=>{ STATE.div=val; renderDivNav(); renderBoard(); };
+    nav.appendChild(b);
+  };
+  mk("all","All divisions");
+  divs.forEach(d=>mk(d,"Div "+d));
+}
+
+function renderBoard(){
+  const arr = H2H[STATE.sex];
+  const board = document.getElementById("board");
+  board.innerHTML = "";
+  const rows = STATE.div==="all" ? arr : arr.filter(e=>String(e.division)===String(STATE.div));
+
+  // board meta line
+  const withC = arr.filter(e=>e.chasing);
+  const likely = withC.filter(e=>e.p_bump>=0.5).length;
+  document.getElementById("board-meta").textContent =
+    `${withC.length} matchups · ${likely} where the chasing boat is odds-on`;
+
+  rows.forEach(e=>{
+    const div = document.createElement("div");
+    div.className = "match" + (e.chasing? "" : " head");
+    if(!e.chasing){
+      div.innerHTML = `
+        <div class="matchrow">
+          <div class="pos">${e.cur_pos}</div>
+          <div class="crew"><div class="nm">${crewName(e.college,e.boat)}</div>
+            <div class="chase"><span class="headtag">Head of the River</span> — nothing ahead to bump</div></div>
+          <div class="pcell"><span class="pval lo">—</span></div>
+          <div></div>
+        </div>`;
+      board.appendChild(div);
+      return;
+    }
+    const bk = pBucket(e.p_bump);
+    div.innerHTML = `
+      <div class="matchrow" role="button" tabindex="0">
+        <div class="pos">${e.cur_pos}</div>
+        <div class="crew">
+          <div class="nm">${crewName(e.college,e.boat)}</div>
+          <div class="chase">chasing <b>${e.chasing}</b> &nbsp;·&nbsp; ${ord(e.cur_pos)} on the river</div>
+        </div>
+        <div class="pcell">
+          <span class="pval ${bk}">${pct(e.p_bump)}</span>
+          <div class="pbar"><span style="width:${Math.max(3,e.p_bump*100)}%"></span></div>
+        </div>
+        <div class="caret">▶</div>
+      </div>
+      <div class="detail">${detailHTML(e)}</div>`;
+    const rowEl = div.querySelector(".matchrow");
+    const toggle = ()=>div.classList.toggle("open");
+    rowEl.addEventListener("click", toggle);
+    rowEl.addEventListener("keydown", ev=>{ if(ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); toggle(); }});
+    board.appendChild(div);
+  });
+}
+
+function detailHTML(e){
+  const contribs = (e.contributions||[]).slice().sort((a,b)=>Math.abs(b.logodds)-Math.abs(a.logodds));
+  if(!contribs.length) return `<div class="lead">No factor breakdown available for this matchup.</div>`;
+  const maxAbs = Math.max(0.6, ...contribs.map(c=>Math.abs(c.logodds)));
+  const verb = e.p_bump>=0.5 ? "favoured to bump" : "more likely to row over";
+  let rows = contribs.map(c=>{
+    const pos = c.logodds>=0;
+    const w = (Math.abs(c.logodds)/maxAbs)*50; // % of half-track
+    const left = pos ? 50 : 50-w;
+    const sign = pos? "+" : "−";
+    return `<div class="factorrow">
+        <div class="flab">${c.factor}</div>
+        <div class="factortrack"><div class="mid"></div>
+          <div class="b ${pos?'pos':'neg'}" style="left:${left}%;width:${w}%"></div></div>
+        <div class="fval">${sign}${Math.abs(c.logodds).toFixed(2)}</div>
+      </div>`;
+  }).join("");
+  return `
+    <div class="lead"><b>${crewName(e.college,e.boat)}</b> is ${verb} <b>${e.chasing}</b> — model probability <b>${pct(e.p_bump)}</b>. Where that comes from:</div>
+    ${rows}
+    <div class="axis"><div></div><div class="ends"><span>← pulls bump back</span><span>pushes bump on →</span></div><div>log-odds</div></div>`;
+}
+
+/* per-day predictability inline chart (annotation) */
+function drawPerDay(){
+  const el = document.getElementById("chart-perday"); if(!el||!EXTRAS) return;
+  const data = (EXTRAS.per_day||[]).map(d=>({day:"Day "+d.day, auc:d.auc_bump}));
+  el.innerHTML="";
+  el.append(P.plot({
+    width: W(el), height: 168, marginLeft:38, marginBottom:28, marginTop:14,
+    x:{label:null, domain:data.map(d=>d.day)},
+    y:{label:"AUC", domain:[0.5,0.85], grid:true, ticks:[0.5,0.6,0.7,0.8]},
+    marks:[
+      P.ruleY([0.5],{stroke:C.muted, strokeDasharray:"3 3"}),
+      P.lineY(data,{x:"day",y:"auc",stroke:C.oxford,strokeWidth:2.5,curve:"monotone-x"}),
+      P.dot(data,{x:"day",y:"auc",fill:C.oxford,r:4}),
+      P.text(data,{x:"day",y:"auc",text:d=>d.auc.toFixed(2),dy:-12,fontSize:11,fill:C.oxford}),
+      P.text([{day:"Day 1",auc:0.5}],{x:"Day 1",y:0.5,text:["coin toss"],dy:13,dx:6,fontSize:10,fill:C.muted,textAnchor:"start"}),
+    ]
+  }));
+}
+
+/* ============================================================
+   SECOND TOOL — college lookup
+============================================================ */
+function buildCollegeSelect(){
+  const sel = document.getElementById("college-sel");
+  // only colleges that have at least some history in either gender
+  const names = Object.keys(COLLEGES).filter(n=>{
+    const c=COLLEGES[n]; return (c.m&&c.m.history&&c.m.history.length)||(c.w&&c.w.history&&c.w.history.length);
+  }).sort();
+  sel.innerHTML = names.map(n=>`<option value="${n}">${n}</option>`).join("");
+  // default to a college with a good story
+  STATE.college = names.includes("Pembroke") ? "Pembroke" : names[0];
+  sel.value = STATE.college;
+  sel.onchange = ()=>{ STATE.college=sel.value; renderCollege(); };
+}
+
+function predFor(college, csex){
+  // pull this year's live prediction from predictions.json (first boat only)
+  const sexKey = csex==="m" ? "men" : "women";
+  const arr = (PREDS&&PREDS[sexKey])||[];
+  return arr.find(e=>e.college===college && e.boat===1) || null;
+}
+
+function renderCollege(){
+  const c = COLLEGES[STATE.college]; if(!c) return;
+  const sx = c[STATE.csex] || {history:[]};
+  const hist = (sx.history||[]).filter(h=>h.finish!=null);
+
+  // record cards
+  const recEl = document.getElementById("college-record");
+  const headships = sx.headships||0, blades = sx.blades||0, first = sx.first_year||"—";
+  const apps = sx.appearances || hist.length;
+  recEl.innerHTML = [
+    ["First raced", first],
+    ["Years on the river", apps],
+    ["Headships", headships],
+    ["Blades won", blades],
+  ].map(([l,v])=>`<div class="rec"><div class="num tnum">${v}</div><div class="lab">${l}</div></div>`).join("");
+
+  // live prediction card (Friday)
+  const predEl = document.getElementById("college-pred");
+  const pr = predFor(STATE.college, STATE.csex);
+  if(pr){
+    predEl.innerHTML = `
+      <div class="predcard">
+        <div class="t">${PREDS.day_label} · ${crewName(STATE.college,1)} (currently ${ord(pr.current_pos)})</div>
+        <div class="row3">
+          <div>Bump up<b class="tnum" style="color:var(--bump)">${pct(pr.p_bump_up)}</b></div>
+          <div>Row over<b class="tnum">${pct(pr.p_row_over)}</b></div>
+          <div>Bumped<b class="tnum" style="color:var(--down)">${pct(pr.p_bumped)}</b></div>
+          ${pr.on_for_blades?`<div>Complete blades<b class="tnum" style="color:var(--gold)">${pct(pr.p_complete_blades)}</b></div>`:``}
+        </div>
+      </div>`;
+  } else {
+    predEl.innerHTML = `<div class="predcard"><div class="t">No first-boat entry in ${PREDS.day_label} this year.</div></div>`;
+  }
+
+  drawCollegeChart(hist, pr);
+  writeCollegeAnnotation(hist, sx);
+}
+
+function drawCollegeChart(hist, pr){
+  const el = document.getElementById("chart-college"); el.innerHTML="";
+  if(!hist.length){ el.innerHTML=`<p class="muted small">No finishing data for this crew.</p>`; return; }
+  // y = rank (1 = top). invert so up is good.
+  const maxRank = d3.max(hist, d=>d.finish);
+  const fillFor = d => d.blades ? C.gold : d.net>0 ? C.up : d.net<0 ? C.down : C.row;
+  el.append(P.plot({
+    width: W(el), height: 340, marginLeft:46, marginBottom:34, marginTop:16,
+    x:{label:null, tickFormat:"d", grid:false},
+    y:{label:"Position on the river (1 = Head) ↑", reverse:true, domain:[maxRank+2,1], grid:true},
+    marks:[
+      P.line(hist,{x:"year",y:"finish",stroke:C.oxford,strokeWidth:1.6,curve:"monotone-x"}),
+      P.dot(hist,{x:"year",y:"finish",fill:fillFor,r:d=>d.blades?4.5:2.6,stroke:"#fff",strokeWidth:.6,
+        title:d=>`${d.year}: ${ord(d.start)} → ${ord(d.finish)}${d.blades?" · blades":""}`}),
+      // mark this year's live forecast as an open ring at current position
+      pr ? P.dot([{year: hist[hist.length-1].year, finish: pr.current_pos}],
+            {x:"year",y:"finish",r:7,stroke:C.oxford,strokeWidth:1.5,fill:"none"}) : null,
+      pr ? P.text([{year: hist[hist.length-1].year, finish: pr.current_pos}],
+            {x:"year",y:"finish",text:["now"],dy:-13,fontSize:10,fill:C.oxford}) : null,
+    ].filter(Boolean)
+  }));
+}
+
+function writeCollegeAnnotation(hist, sx){
+  const el = document.getElementById("college-annot");
+  if(!hist.length){ el.textContent="No history to summarise."; return; }
+  const last = hist[hist.length-1];
+  const recent = hist.slice(-12);
+  const moves = recent.map(h=>h.net).filter(n=>n!=null);
+  const climbed = recent.length>1 ? (recent[0].finish - last.finish) : 0;
+  const blades = sx.blades||0;
+  let trend = climbed>3 ? `climbed about ${climbed} places over the last ${recent.length} years` :
+              climbed<-3 ? `slipped about ${Math.abs(climbed)} places over the last ${recent.length} years` :
+              `held roughly steady over the last ${recent.length} years`;
+  el.innerHTML = `Most recent finish: <b>${ord(last.finish)}</b> (${last.year}). This crew has ${trend}` +
+    (blades?`, and has taken blades <b>${blades}</b> time${blades>1?"s":""} in its history` : ``) +
+    `. Year-to-year, the typical Oxford crew moves about <b>3 places</b> — most of a college’s position is inherited, not earned afresh each May.`;
+}
+
+/* ============================================================
+   wire up
+============================================================ */
+function wireSegs(){
+  document.querySelectorAll("#sex-seg button").forEach(b=>{
+    b.onclick=()=>{
+      document.querySelectorAll("#sex-seg button").forEach(x=>x.classList.remove("active"));
+      b.classList.add("active"); STATE.sex=b.dataset.sex; STATE.div="all";
+      renderDivNav(); renderBoard();
+    };
+  });
+  document.querySelectorAll("#csex-seg button").forEach(b=>{
+    b.onclick=()=>{
+      document.querySelectorAll("#csex-seg button").forEach(x=>x.classList.remove("active"));
+      b.classList.add("active"); STATE.csex=b.dataset.csex; renderCollege();
+    };
+  });
+}
+
+(async function(){
+  try{
+    [H2H, PREDS, COLLEGES, EXTRAS] = await Promise.all([
+      load("headtohead_2026.json"), load("predictions.json"),
+      load("colleges.json"), load("extras.json")
+    ]);
+  }catch(err){ console.error("data load failed", err);
+    document.getElementById("board").innerHTML='<p class="muted">Could not load data (run from a local server so fetch works).</p>'; return; }
+
+  document.getElementById("daylabel").textContent =
+    `${H2H.day_label} — next race predictions`;
+
+  wireSegs();
+  renderDivNav();
+  renderBoard();
+  drawPerDay();
+  buildCollegeSelect();
+  renderCollege();
+
+  // redraw charts responsively
+  let t; window.addEventListener("resize",()=>{ clearTimeout(t); t=setTimeout(()=>{ drawPerDay(); renderCollege(); },180); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,3964 @@
+{
+  "predict_day": 3,
+  "day_label": "Friday (Day 3)",
+  "factors": {
+    "d_revealed": "form so far this week",
+    "d_prev_form": "last year's form",
+    "d_torpids": "Torpids form",
+    "d_blues": "Blues in the boat",
+    "d_continuity": "squad continuity",
+    "t_revealed": "target's own pace (recession risk)"
+  },
+  "men": [
+    {
+      "college": "Oriel",
+      "boat": 1,
+      "cur_pos": 1,
+      "chasing": null,
+      "p_bump": 0.0,
+      "contributions": {}
+    },
+    {
+      "college": "Wolfson",
+      "boat": 1,
+      "cur_pos": 2,
+      "division": 1,
+      "chasing": "Oriel",
+      "p_bump": 0.084,
+      "contributions": [
+        {
+          "factor": "Blues in the boat",
+          "logodds": -1.131
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.633
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        }
+      ]
+    },
+    {
+      "college": "Pembroke",
+      "boat": 1,
+      "cur_pos": 3,
+      "division": 1,
+      "chasing": "Wolfson",
+      "p_bump": 0.408,
+      "contributions": [
+        {
+          "factor": "Blues in the boat",
+          "logodds": 0.569
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "University",
+      "boat": 1,
+      "cur_pos": 4,
+      "division": 1,
+      "chasing": "Pembroke",
+      "p_bump": 0.282,
+      "contributions": [
+        {
+          "factor": "Blues in the boat",
+          "logodds": -0.564
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        }
+      ]
+    },
+    {
+      "college": "Christ Church",
+      "boat": 1,
+      "cur_pos": 5,
+      "division": 1,
+      "chasing": "University",
+      "p_bump": 0.046,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.835
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "New College",
+      "boat": 1,
+      "cur_pos": 6,
+      "division": 1,
+      "chasing": "Christ Church",
+      "p_bump": 0.806,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.984
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.633
+        },
+        {
+          "factor": "Blues in the boat",
+          "logodds": 0.569
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.216
+        }
+      ]
+    },
+    {
+      "college": "Keble",
+      "boat": 1,
+      "cur_pos": 7,
+      "division": 1,
+      "chasing": "New College",
+      "p_bump": 0.078,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "Blues in the boat",
+          "logodds": -0.564
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.258
+        }
+      ]
+    },
+    {
+      "college": "Magdalen",
+      "boat": 1,
+      "cur_pos": 8,
+      "division": 1,
+      "chasing": "Keble",
+      "p_bump": 0.308,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Balliol",
+      "boat": 1,
+      "cur_pos": 9,
+      "division": 1,
+      "chasing": "Magdalen",
+      "p_bump": 0.46,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        }
+      ]
+    },
+    {
+      "college": "Trinity",
+      "boat": 1,
+      "cur_pos": 10,
+      "division": 1,
+      "chasing": "Balliol",
+      "p_bump": 0.114,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.216
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "St Edmund Hall",
+      "boat": 1,
+      "cur_pos": 11,
+      "division": 1,
+      "chasing": "Trinity",
+      "p_bump": 0.491,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.984
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.258
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Merton",
+      "boat": 1,
+      "cur_pos": 12,
+      "division": 1,
+      "chasing": "St Edmund Hall",
+      "p_bump": 0.069,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.835
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.302
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Wadham",
+      "boat": 1,
+      "cur_pos": 13,
+      "division": 2,
+      "chasing": "Merton",
+      "p_bump": 0.474,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": 0.633
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.258
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Hertford",
+      "boat": 1,
+      "cur_pos": 14,
+      "division": 2,
+      "chasing": "Wadham",
+      "p_bump": 0.612,
+      "contributions": [
+        {
+          "factor": "Blues in the boat",
+          "logodds": 0.569
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.216
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        }
+      ]
+    },
+    {
+      "college": "Worcester",
+      "boat": 1,
+      "cur_pos": 15,
+      "division": 2,
+      "chasing": "Hertford",
+      "p_bump": 0.238,
+      "contributions": [
+        {
+          "factor": "Blues in the boat",
+          "logodds": -0.564
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Jesus",
+      "boat": 1,
+      "cur_pos": 16,
+      "division": 2,
+      "chasing": "Worcester",
+      "p_bump": 0.054,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "Blues in the boat",
+          "logodds": 0.569
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        }
+      ]
+    },
+    {
+      "college": "Lady Margaret Hall",
+      "boat": 1,
+      "cur_pos": 17,
+      "division": 2,
+      "chasing": "Jesus",
+      "p_bump": 0.289,
+      "contributions": [
+        {
+          "factor": "Blues in the boat",
+          "logodds": -0.564
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        }
+      ]
+    },
+    {
+      "college": "St Hugh's",
+      "boat": 1,
+      "cur_pos": 18,
+      "division": 2,
+      "chasing": "Lady Margaret Hall",
+      "p_bump": 0.355,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Exeter",
+      "boat": 1,
+      "cur_pos": 19,
+      "division": 2,
+      "chasing": "St Hugh's",
+      "p_bump": 0.542,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.984
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.216
+        }
+      ]
+    },
+    {
+      "college": "Oriel",
+      "boat": 2,
+      "cur_pos": 20,
+      "division": 2,
+      "chasing": "Exeter",
+      "p_bump": 0.043,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        }
+      ]
+    },
+    {
+      "college": "St Catherine's",
+      "boat": 1,
+      "cur_pos": 21,
+      "division": 2,
+      "chasing": "Oriel 2",
+      "p_bump": 0.309,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.258
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Lincoln",
+      "boat": 1,
+      "cur_pos": 22,
+      "division": 2,
+      "chasing": "St Catherine's",
+      "p_bump": 0.445,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Queen's",
+      "boat": 1,
+      "cur_pos": 23,
+      "division": 2,
+      "chasing": "Lincoln",
+      "p_bump": 0.296,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        }
+      ]
+    },
+    {
+      "college": "St John's",
+      "boat": 1,
+      "cur_pos": 24,
+      "division": 2,
+      "chasing": "Queen's",
+      "p_bump": 0.113,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "St Peter's",
+      "boat": 1,
+      "cur_pos": 25,
+      "division": 3,
+      "chasing": "St John's",
+      "p_bump": 0.466,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.13
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Brasenose",
+      "boat": 1,
+      "cur_pos": 26,
+      "division": 3,
+      "chasing": "St Peter's",
+      "p_bump": 0.197,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.172
+        }
+      ]
+    },
+    {
+      "college": "Mansfield",
+      "boat": 1,
+      "cur_pos": 27,
+      "division": 3,
+      "chasing": "Brasenose",
+      "p_bump": 0.363,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        }
+      ]
+    },
+    {
+      "college": "University",
+      "boat": 2,
+      "cur_pos": 28,
+      "division": 3,
+      "chasing": "Mansfield",
+      "p_bump": 0.192,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.216
+        }
+      ]
+    },
+    {
+      "college": "Pembroke",
+      "boat": 2,
+      "cur_pos": 29,
+      "division": 3,
+      "chasing": "University 2",
+      "p_bump": 0.28,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        }
+      ]
+    },
+    {
+      "college": "Wolfson",
+      "boat": 2,
+      "cur_pos": 30,
+      "division": 3,
+      "chasing": "Pembroke 2",
+      "p_bump": 0.39,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        }
+      ]
+    },
+    {
+      "college": "St Hilda's",
+      "boat": 1,
+      "cur_pos": 31,
+      "division": 3,
+      "chasing": "Wolfson 2",
+      "p_bump": 0.499,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Green Templeton",
+      "boat": 1,
+      "cur_pos": 32,
+      "division": 3,
+      "chasing": "St Hilda's",
+      "p_bump": 0.016,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.388
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "St Anne's",
+      "boat": 1,
+      "cur_pos": 33,
+      "division": 3,
+      "chasing": "Green Templeton",
+      "p_bump": 0.864,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.96
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.633
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Christ Church",
+      "boat": 2,
+      "cur_pos": 34,
+      "division": 3,
+      "chasing": "St Anne's",
+      "p_bump": 0.013,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -1.045
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.215
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "New College",
+      "boat": 2,
+      "cur_pos": 35,
+      "division": 3,
+      "chasing": "Christ Church 2",
+      "p_bump": 0.845,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 1.053
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        }
+      ]
+    },
+    {
+      "college": "Linacre",
+      "boat": 1,
+      "cur_pos": 36,
+      "division": 3,
+      "chasing": "New College 2",
+      "p_bump": 0.037,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "St Antony's",
+      "boat": 1,
+      "cur_pos": 37,
+      "division": 4,
+      "chasing": "Linacre",
+      "p_bump": 0.737,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.259
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Somerville",
+      "boat": 1,
+      "cur_pos": 38,
+      "division": 4,
+      "chasing": "St Antony's",
+      "p_bump": 0.285,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.258
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Corpus Christi",
+      "boat": 1,
+      "cur_pos": 39,
+      "division": 4,
+      "chasing": "Somerville",
+      "p_bump": 0.038,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Balliol",
+      "boat": 2,
+      "cur_pos": 40,
+      "division": 4,
+      "chasing": "Corpus Christi",
+      "p_bump": 0.687,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.984
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.633
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        }
+      ]
+    },
+    {
+      "college": "Wadham",
+      "boat": 2,
+      "cur_pos": 41,
+      "division": 4,
+      "chasing": "Balliol 2",
+      "p_bump": 0.254,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        }
+      ]
+    },
+    {
+      "college": "Keble",
+      "boat": 2,
+      "cur_pos": 42,
+      "division": 4,
+      "chasing": "Wadham 2",
+      "p_bump": 0.126,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Brasenose",
+      "boat": 2,
+      "cur_pos": 43,
+      "division": 4,
+      "chasing": "Keble 2",
+      "p_bump": 0.583,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Hertford",
+      "boat": 2,
+      "cur_pos": 44,
+      "division": 4,
+      "chasing": "Brasenose 2",
+      "p_bump": 0.094,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.13
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "Reuben",
+      "boat": 1,
+      "cur_pos": 45,
+      "division": 4,
+      "chasing": "Hertford 2",
+      "p_bump": 0.277,
+      "contributions": [
+        {
+          "factor": "last year's form",
+          "logodds": 0.216
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Queen's",
+      "boat": 2,
+      "cur_pos": 46,
+      "division": 5,
+      "chasing": "Reuben",
+      "p_bump": 0.881,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 2.937
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.172
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Exeter",
+      "boat": 2,
+      "cur_pos": 47,
+      "division": 5,
+      "chasing": "Queen's 2",
+      "p_bump": 0.044,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.296
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        }
+      ]
+    },
+    {
+      "college": "St Peter's",
+      "boat": 2,
+      "cur_pos": 48,
+      "division": 4,
+      "chasing": "Exeter 2",
+      "p_bump": 0.054,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "St Edmund Hall",
+      "boat": 2,
+      "cur_pos": 49,
+      "division": 4,
+      "chasing": "St Peter's 2",
+      "p_bump": 0.112,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Merton",
+      "boat": 2,
+      "cur_pos": 50,
+      "division": 4,
+      "chasing": "St Edmund Hall 2",
+      "p_bump": 0.506,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.179
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        }
+      ]
+    },
+    {
+      "college": "Worcester",
+      "boat": 2,
+      "cur_pos": 51,
+      "division": 5,
+      "chasing": "Merton 2",
+      "p_bump": 0.749,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.96
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Magdalen",
+      "boat": 2,
+      "cur_pos": 52,
+      "division": 5,
+      "chasing": "Worcester 2",
+      "p_bump": 0.034,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.258
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "St Catherine's",
+      "boat": 2,
+      "cur_pos": 53,
+      "division": 5,
+      "chasing": "Magdalen 2",
+      "p_bump": 0.302,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Lincoln",
+      "boat": 2,
+      "cur_pos": 54,
+      "division": 5,
+      "chasing": "St Catherine's 2",
+      "p_bump": 0.627,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.984
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "University",
+      "boat": 3,
+      "cur_pos": 55,
+      "division": 5,
+      "chasing": "Lincoln 2",
+      "p_bump": 0.347,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Regent's Park",
+      "boat": 1,
+      "cur_pos": 56,
+      "division": 5,
+      "chasing": "University 3",
+      "p_bump": 0.049,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        }
+      ]
+    },
+    {
+      "college": "New College",
+      "boat": 3,
+      "cur_pos": 57,
+      "division": 6,
+      "chasing": "Regent's Park",
+      "p_bump": 0.844,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 2.937
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Wolfson",
+      "boat": 3,
+      "cur_pos": 58,
+      "division": 5,
+      "chasing": "New College 3",
+      "p_bump": 0.018,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -2.923
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.237
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        }
+      ]
+    },
+    {
+      "college": "St Edmund Hall",
+      "boat": 3,
+      "cur_pos": 59,
+      "division": 5,
+      "chasing": "Wolfson 3",
+      "p_bump": 0.804,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.432
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Green Templeton",
+      "boat": 2,
+      "cur_pos": 60,
+      "division": 5,
+      "chasing": "St Edmund Hall 3",
+      "p_bump": 0.046,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.345
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Mansfield",
+      "boat": 2,
+      "cur_pos": 61,
+      "division": 6,
+      "chasing": "Green Templeton 2",
+      "p_bump": 0.715,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Jesus",
+      "boat": 2,
+      "cur_pos": 62,
+      "division": 5,
+      "chasing": "Mansfield 2",
+      "p_bump": 0.012,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -2.923
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.302
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "Oriel",
+      "boat": 3,
+      "cur_pos": 63,
+      "division": 6,
+      "chasing": "Jesus 2",
+      "p_bump": 0.816,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 2.449
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.238
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        }
+      ]
+    },
+    {
+      "college": "Keble",
+      "boat": 3,
+      "cur_pos": 64,
+      "division": 6,
+      "chasing": "Oriel 3",
+      "p_bump": 0.099,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.13
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "St Hilda's",
+      "boat": 2,
+      "cur_pos": 65,
+      "division": 6,
+      "chasing": "Keble 3",
+      "p_bump": 0.446,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.984
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.13
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Christ Church",
+      "boat": 3,
+      "cur_pos": 66,
+      "division": 6,
+      "chasing": "St Hilda's 2",
+      "p_bump": 0.34,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        }
+      ]
+    },
+    {
+      "college": "St John's",
+      "boat": 2,
+      "cur_pos": 67,
+      "division": 6,
+      "chasing": "Christ Church 3",
+      "p_bump": 0.37,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.13
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Somerville",
+      "boat": 2,
+      "cur_pos": 68,
+      "division": 6,
+      "chasing": "St John's 2",
+      "p_bump": 0.563,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Linacre",
+      "boat": 2,
+      "cur_pos": 69,
+      "division": 6,
+      "chasing": "Somerville 2",
+      "p_bump": 0.005,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -3.411
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.237
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        }
+      ]
+    },
+    {
+      "college": "New College",
+      "boat": 4,
+      "cur_pos": 70,
+      "division": 6,
+      "chasing": "Linacre 2",
+      "p_bump": 0.76,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.96
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.179
+        }
+      ]
+    },
+    {
+      "college": "Pembroke",
+      "boat": 3,
+      "cur_pos": 71,
+      "division": 6,
+      "chasing": "New College 4",
+      "p_bump": 0.166,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.633
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.302
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "University",
+      "boat": 4,
+      "cur_pos": 72,
+      "division": 6,
+      "chasing": "Pembroke 3",
+      "p_bump": 0.133,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.345
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Wolfson",
+      "boat": 4,
+      "cur_pos": 73,
+      "division": 7,
+      "chasing": "University 4",
+      "p_bump": 0.666,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.13
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Exeter",
+      "boat": 3,
+      "cur_pos": 74,
+      "division": 7,
+      "chasing": "Wolfson 4",
+      "p_bump": 0.126,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Worcester",
+      "boat": 3,
+      "cur_pos": 75,
+      "division": 7,
+      "chasing": "Exeter 3",
+      "p_bump": 0.383,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "St Anne's",
+      "boat": 2,
+      "cur_pos": 76,
+      "division": 7,
+      "chasing": "Worcester 3",
+      "p_bump": 0.573,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.984
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.13
+        }
+      ]
+    },
+    {
+      "college": "Pembroke",
+      "boat": 4,
+      "cur_pos": 77,
+      "division": 7,
+      "chasing": "St Anne's 2",
+      "p_bump": 0.041,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "Brasenose",
+      "boat": 3,
+      "cur_pos": 78,
+      "division": 7,
+      "chasing": "Pembroke 4",
+      "p_bump": 0.643,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Queen's",
+      "boat": 3,
+      "cur_pos": 79,
+      "division": 7,
+      "chasing": "Brasenose 3",
+      "p_bump": 0.038,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "University",
+      "boat": 5,
+      "cur_pos": 80,
+      "division": 7,
+      "chasing": "Queen's 3",
+      "p_bump": 0.8,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.96
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.13
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "St Hilda's",
+      "boat": 3,
+      "cur_pos": 81,
+      "division": 7,
+      "chasing": "University 5",
+      "p_bump": 0.038,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        }
+      ]
+    },
+    {
+      "college": "Lady Margaret Hall",
+      "boat": 2,
+      "cur_pos": 82,
+      "division": 7,
+      "chasing": "St Hilda's 3",
+      "p_bump": 0.427,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        }
+      ]
+    },
+    {
+      "college": "Christ Church",
+      "boat": 4,
+      "cur_pos": 83,
+      "division": 7,
+      "chasing": "Lady Margaret Hall 2",
+      "p_bump": 0.572,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "St Catherine's",
+      "boat": 3,
+      "cur_pos": 84,
+      "division": 7,
+      "chasing": "Christ Church 4",
+      "p_bump": 0.069,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "St Anne's",
+      "boat": 3,
+      "cur_pos": 85,
+      "division": 7,
+      "chasing": "St Catherine's 3",
+      "p_bump": 0.276,
+      "contributions": [
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    }
+  ],
+  "women": [
+    {
+      "college": "Pembroke",
+      "boat": 1,
+      "cur_pos": 1,
+      "chasing": null,
+      "p_bump": 0.0,
+      "contributions": {}
+    },
+    {
+      "college": "University",
+      "boat": 1,
+      "cur_pos": 2,
+      "division": 1,
+      "chasing": "Pembroke",
+      "p_bump": 0.439,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        }
+      ]
+    },
+    {
+      "college": "Wadham",
+      "boat": 1,
+      "cur_pos": 3,
+      "division": 1,
+      "chasing": "University",
+      "p_bump": 0.094,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Balliol",
+      "boat": 1,
+      "cur_pos": 4,
+      "division": 1,
+      "chasing": "Wadham",
+      "p_bump": 0.627,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.984
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Wolfson",
+      "boat": 1,
+      "cur_pos": 5,
+      "division": 1,
+      "chasing": "Balliol",
+      "p_bump": 0.064,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Christ Church",
+      "boat": 1,
+      "cur_pos": 6,
+      "division": 1,
+      "chasing": "Wolfson",
+      "p_bump": 0.315,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.302
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Magdalen",
+      "boat": 1,
+      "cur_pos": 7,
+      "division": 1,
+      "chasing": "Christ Church",
+      "p_bump": 0.557,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.345
+        }
+      ]
+    },
+    {
+      "college": "Keble",
+      "boat": 1,
+      "cur_pos": 8,
+      "division": 1,
+      "chasing": "Magdalen",
+      "p_bump": 0.074,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "St Edmund Hall",
+      "boat": 1,
+      "cur_pos": 9,
+      "division": 1,
+      "chasing": "Keble",
+      "p_bump": 0.407,
+      "contributions": [
+        {
+          "factor": "Blues in the boat",
+          "logodds": 0.569
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.258
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        }
+      ]
+    },
+    {
+      "college": "Oriel",
+      "boat": 1,
+      "cur_pos": 10,
+      "division": 1,
+      "chasing": "St Edmund Hall",
+      "p_bump": 0.394,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": 0.633
+        },
+        {
+          "factor": "Blues in the boat",
+          "logodds": -0.564
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        }
+      ]
+    },
+    {
+      "college": "Lincoln",
+      "boat": 1,
+      "cur_pos": 11,
+      "division": 1,
+      "chasing": "Oriel",
+      "p_bump": 0.123,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.302
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "New College",
+      "boat": 1,
+      "cur_pos": 12,
+      "division": 1,
+      "chasing": "Lincoln",
+      "p_bump": 0.454,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Linacre",
+      "boat": 1,
+      "cur_pos": 13,
+      "division": 2,
+      "chasing": "New College",
+      "p_bump": 0.305,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.13
+        }
+      ]
+    },
+    {
+      "college": "Jesus",
+      "boat": 1,
+      "cur_pos": 14,
+      "division": 2,
+      "chasing": "Linacre",
+      "p_bump": 0.276,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.302
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "St John's",
+      "boat": 1,
+      "cur_pos": 15,
+      "division": 2,
+      "chasing": "Jesus",
+      "p_bump": 0.049,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Exeter",
+      "boat": 1,
+      "cur_pos": 16,
+      "division": 2,
+      "chasing": "St John's",
+      "p_bump": 0.666,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.13
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "St Anne's",
+      "boat": 1,
+      "cur_pos": 17,
+      "division": 2,
+      "chasing": "Exeter",
+      "p_bump": 0.234,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.172
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Green Templeton",
+      "boat": 1,
+      "cur_pos": 18,
+      "division": 2,
+      "chasing": "St Anne's",
+      "p_bump": 0.105,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "Blues in the boat",
+          "logodds": 0.569
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        }
+      ]
+    },
+    {
+      "college": "Somerville",
+      "boat": 1,
+      "cur_pos": 19,
+      "division": 2,
+      "chasing": "Green Templeton",
+      "p_bump": 0.745,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.96
+        },
+        {
+          "factor": "Blues in the boat",
+          "logodds": -0.564
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        }
+      ]
+    },
+    {
+      "college": "Hertford",
+      "boat": 1,
+      "cur_pos": 20,
+      "division": 2,
+      "chasing": "Somerville",
+      "p_bump": 0.021,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "Merton",
+      "boat": 1,
+      "cur_pos": 21,
+      "division": 2,
+      "chasing": "Hertford",
+      "p_bump": 0.672,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": 1.053
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        }
+      ]
+    },
+    {
+      "college": "Lady Margaret Hall",
+      "boat": 1,
+      "cur_pos": 22,
+      "division": 2,
+      "chasing": "Merton",
+      "p_bump": 0.256,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.172
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "St Catherine's",
+      "boat": 1,
+      "cur_pos": 23,
+      "division": 3,
+      "chasing": "Lady Margaret Hall",
+      "p_bump": 0.577,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        }
+      ]
+    },
+    {
+      "college": "Mansfield",
+      "boat": 1,
+      "cur_pos": 24,
+      "division": 2,
+      "chasing": "St Catherine's",
+      "p_bump": 0.043,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.178
+        }
+      ]
+    },
+    {
+      "college": "Queen's",
+      "boat": 1,
+      "cur_pos": 25,
+      "division": 2,
+      "chasing": "Mansfield",
+      "p_bump": 0.216,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.302
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Brasenose",
+      "boat": 1,
+      "cur_pos": 26,
+      "division": 3,
+      "chasing": "Queen's",
+      "p_bump": 0.726,
+      "contributions": [
+        {
+          "factor": "squad continuity",
+          "logodds": 1.053
+        },
+        {
+          "factor": "form so far this week",
+          "logodds": 0.984
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "St Peter's",
+      "boat": 1,
+      "cur_pos": 27,
+      "division": 3,
+      "chasing": "Brasenose",
+      "p_bump": 0.021,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -1.255
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Worcester",
+      "boat": 1,
+      "cur_pos": 28,
+      "division": 3,
+      "chasing": "St Peter's",
+      "p_bump": 0.743,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.633
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "University",
+      "boat": 2,
+      "cur_pos": 29,
+      "division": 3,
+      "chasing": "Worcester",
+      "p_bump": 0.458,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.216
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Trinity",
+      "boat": 1,
+      "cur_pos": 30,
+      "division": 3,
+      "chasing": "University 2",
+      "p_bump": 0.026,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.302
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "St Hugh's",
+      "boat": 1,
+      "cur_pos": 31,
+      "division": 3,
+      "chasing": "Trinity",
+      "p_bump": 0.82,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.96
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.259
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "St Antony's",
+      "boat": 1,
+      "cur_pos": 32,
+      "division": 3,
+      "chasing": "St Hugh's",
+      "p_bump": 0.018,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.835
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        }
+      ]
+    },
+    {
+      "college": "St Hilda's",
+      "boat": 1,
+      "cur_pos": 33,
+      "division": 3,
+      "chasing": "St Antony's",
+      "p_bump": 0.788,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.843
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        }
+      ]
+    },
+    {
+      "college": "Wolfson",
+      "boat": 2,
+      "cur_pos": 34,
+      "division": 3,
+      "chasing": "St Hilda's",
+      "p_bump": 0.034,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.835
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Christ Church",
+      "boat": 2,
+      "cur_pos": 35,
+      "division": 3,
+      "chasing": "Wolfson 2",
+      "p_bump": 0.815,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.843
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        }
+      ]
+    },
+    {
+      "college": "Wadham",
+      "boat": 2,
+      "cur_pos": 36,
+      "division": 4,
+      "chasing": "Christ Church 2",
+      "p_bump": 0.328,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Pembroke",
+      "boat": 2,
+      "cur_pos": 37,
+      "division": 3,
+      "chasing": "Wadham 2",
+      "p_bump": 0.022,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        }
+      ]
+    },
+    {
+      "college": "Oriel",
+      "boat": 2,
+      "cur_pos": 38,
+      "division": 4,
+      "chasing": "Pembroke 2",
+      "p_bump": 0.627,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Corpus Christi",
+      "boat": 1,
+      "cur_pos": 39,
+      "division": 4,
+      "chasing": "Oriel 2",
+      "p_bump": 0.11,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.633
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.172
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Green Templeton",
+      "boat": 2,
+      "cur_pos": 40,
+      "division": 4,
+      "chasing": "Corpus Christi",
+      "p_bump": 0.699,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.96
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.216
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Magdalen",
+      "boat": 2,
+      "cur_pos": 41,
+      "division": 4,
+      "chasing": "Green Templeton 2",
+      "p_bump": 0.061,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "Keble",
+      "boat": 2,
+      "cur_pos": 42,
+      "division": 4,
+      "chasing": "Magdalen 2",
+      "p_bump": 0.618,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.984
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.259
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Linacre",
+      "boat": 2,
+      "cur_pos": 43,
+      "division": 4,
+      "chasing": "Keble 2",
+      "p_bump": 0.049,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.215
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Reuben",
+      "boat": 1,
+      "cur_pos": 44,
+      "division": 4,
+      "chasing": "Linacre 2",
+      "p_bump": 0.781,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.96
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.432
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Brasenose",
+      "boat": 2,
+      "cur_pos": 45,
+      "division": 4,
+      "chasing": "Reuben",
+      "p_bump": 0.19,
+      "contributions": [
+        {
+          "factor": "last year's form",
+          "logodds": -0.517
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "Worcester",
+      "boat": 2,
+      "cur_pos": 46,
+      "division": 4,
+      "chasing": "Brasenose 2",
+      "p_bump": 0.051,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "Lincoln",
+      "boat": 2,
+      "cur_pos": 47,
+      "division": 4,
+      "chasing": "Worcester 2",
+      "p_bump": 0.254,
+      "contributions": [
+        {
+          "factor": "last year's form",
+          "logodds": -0.172
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "St Edmund Hall",
+      "boat": 2,
+      "cur_pos": 48,
+      "division": 5,
+      "chasing": "Lincoln 2",
+      "p_bump": 0.78,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.96
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.216
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "St John's",
+      "boat": 2,
+      "cur_pos": 49,
+      "division": 4,
+      "chasing": "St Edmund Hall 2",
+      "p_bump": 0.058,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.172
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "New College",
+      "boat": 2,
+      "cur_pos": 50,
+      "division": 5,
+      "chasing": "St John's 2",
+      "p_bump": 0.662,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Wolfson",
+      "boat": 3,
+      "cur_pos": 51,
+      "division": 5,
+      "chasing": "New College 2",
+      "p_bump": 0.047,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.129
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "Somerville",
+      "boat": 2,
+      "cur_pos": 52,
+      "division": 5,
+      "chasing": "Wolfson 3",
+      "p_bump": 0.728,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.216
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Hertford",
+      "boat": 2,
+      "cur_pos": 53,
+      "division": 5,
+      "chasing": "Somerville 2",
+      "p_bump": 0.047,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.258
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Merton",
+      "boat": 2,
+      "cur_pos": 54,
+      "division": 5,
+      "chasing": "Hertford 2",
+      "p_bump": 0.775,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.259
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "St Hugh's",
+      "boat": 2,
+      "cur_pos": 55,
+      "division": 5,
+      "chasing": "Merton 2",
+      "p_bump": 0.071,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.302
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Jesus",
+      "boat": 2,
+      "cur_pos": 56,
+      "division": 5,
+      "chasing": "St Hugh's 2",
+      "p_bump": 0.519,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.215
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Regent's Park",
+      "boat": 1,
+      "cur_pos": 57,
+      "division": 5,
+      "chasing": "Jesus 2",
+      "p_bump": 0.146,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.633
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.216
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "St Hilda's",
+      "boat": 2,
+      "cur_pos": 58,
+      "division": 5,
+      "chasing": "Regent's Park",
+      "p_bump": 0.575,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.626
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.432
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Exeter",
+      "boat": 2,
+      "cur_pos": 59,
+      "division": 5,
+      "chasing": "St Hilda's 2",
+      "p_bump": 0.027,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        }
+      ]
+    },
+    {
+      "college": "University",
+      "boat": 3,
+      "cur_pos": 60,
+      "division": 6,
+      "chasing": "Exeter 2",
+      "p_bump": 0.934,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 3.914
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.345
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Balliol",
+      "boat": 2,
+      "cur_pos": 61,
+      "division": 5,
+      "chasing": "University 3",
+      "p_bump": 0.006,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -3.9
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.356
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        }
+      ]
+    },
+    {
+      "college": "St Catherine's",
+      "boat": 2,
+      "cur_pos": 62,
+      "division": 6,
+      "chasing": "Balliol 2",
+      "p_bump": 0.618,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.13
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Lady Margaret Hall",
+      "boat": 2,
+      "cur_pos": 63,
+      "division": 6,
+      "chasing": "St Catherine's 2",
+      "p_bump": 0.478,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Queen's",
+      "boat": 2,
+      "cur_pos": 64,
+      "division": 6,
+      "chasing": "Lady Margaret Hall 2",
+      "p_bump": 0.03,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        }
+      ]
+    },
+    {
+      "college": "Oriel",
+      "boat": 3,
+      "cur_pos": 65,
+      "division": 6,
+      "chasing": "Queen's 2",
+      "p_bump": 0.92,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 2.937
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.633
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.215
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "St Anne's",
+      "boat": 2,
+      "cur_pos": 66,
+      "division": 6,
+      "chasing": "Oriel 3",
+      "p_bump": 0.049,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.458
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.237
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        }
+      ]
+    },
+    {
+      "college": "St Peter's",
+      "boat": 2,
+      "cur_pos": 67,
+      "division": 6,
+      "chasing": "St Anne's 2",
+      "p_bump": 0.007,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -3.411
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.215
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Mansfield",
+      "boat": 2,
+      "cur_pos": 68,
+      "division": 6,
+      "chasing": "St Peter's 2",
+      "p_bump": 0.617,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.984
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.357
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        }
+      ]
+    },
+    {
+      "college": "Wadham",
+      "boat": 3,
+      "cur_pos": 69,
+      "division": 6,
+      "chasing": "Mansfield 2",
+      "p_bump": 0.736,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.345
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.238
+        }
+      ]
+    },
+    {
+      "college": "St John's",
+      "boat": 3,
+      "cur_pos": 70,
+      "division": 6,
+      "chasing": "Wadham 3",
+      "p_bump": 0.661,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "University",
+      "boat": 4,
+      "cur_pos": 71,
+      "division": 7,
+      "chasing": "St John's 3",
+      "p_bump": 0.279,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.118
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        }
+      ]
+    },
+    {
+      "college": "Worcester",
+      "boat": 3,
+      "cur_pos": 72,
+      "division": 6,
+      "chasing": "University 4",
+      "p_bump": 0.031,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.178
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        }
+      ]
+    },
+    {
+      "college": "Exeter",
+      "boat": 3,
+      "cur_pos": 73,
+      "division": 7,
+      "chasing": "Worcester 3",
+      "p_bump": 0.413,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Pembroke",
+      "boat": 3,
+      "cur_pos": 74,
+      "division": 6,
+      "chasing": "Exeter 3",
+      "p_bump": 0.041,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -1.946
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        }
+      ]
+    },
+    {
+      "college": "St Edmund Hall",
+      "boat": 3,
+      "cur_pos": 75,
+      "division": 7,
+      "chasing": "Pembroke 3",
+      "p_bump": 0.778,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.96
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.238
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        }
+      ]
+    },
+    {
+      "college": "Somerville",
+      "boat": 3,
+      "cur_pos": 76,
+      "division": 7,
+      "chasing": "St Edmund Hall 3",
+      "p_bump": 0.299,
+      "contributions": [
+        {
+          "factor": "last year's form",
+          "logodds": 0.173
+        }
+      ]
+    },
+    {
+      "college": "Brasenose",
+      "boat": 3,
+      "cur_pos": 77,
+      "division": 7,
+      "chasing": "Somerville 3",
+      "p_bump": 0.428,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.423
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.172
+        }
+      ]
+    },
+    {
+      "college": "St Hilda's",
+      "boat": 3,
+      "cur_pos": 78,
+      "division": 7,
+      "chasing": "Brasenose 3",
+      "p_bump": 0.071,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.416
+        },
+        {
+          "factor": "last year's form",
+          "logodds": -0.086
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Lady Margaret Hall",
+      "boat": 3,
+      "cur_pos": 79,
+      "division": 7,
+      "chasing": "St Hilda's 3",
+      "p_bump": 0.404,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        },
+        {
+          "factor": "last year's form",
+          "logodds": 0.087
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    },
+    {
+      "college": "Magdalen",
+      "boat": 3,
+      "cur_pos": 80,
+      "division": 7,
+      "chasing": "Lady Margaret Hall 3",
+      "p_bump": 0.369,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 0.495
+        }
+      ]
+    },
+    {
+      "college": "Worcester",
+      "boat": 4,
+      "cur_pos": 81,
+      "division": 7,
+      "chasing": "Magdalen 3",
+      "p_bump": 0.594,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "Wadham",
+      "boat": 4,
+      "cur_pos": 82,
+      "division": 7,
+      "chasing": "Worcester 4",
+      "p_bump": 0.015,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -2.923
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.237
+        }
+      ]
+    },
+    {
+      "college": "Green Templeton",
+      "boat": 3,
+      "cur_pos": 83,
+      "division": 7,
+      "chasing": "Wadham 4",
+      "p_bump": 0.684,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": 1.472
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": 0.214
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.119
+        }
+      ]
+    },
+    {
+      "college": "Magdalen",
+      "boat": 4,
+      "cur_pos": 84,
+      "division": 7,
+      "chasing": "Green Templeton 3",
+      "p_bump": 0.094,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "squad continuity",
+          "logodds": -0.206
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": -0.059
+        }
+      ]
+    },
+    {
+      "college": "St Anne's",
+      "boat": 3,
+      "cur_pos": 85,
+      "division": 7,
+      "chasing": "Magdalen 4",
+      "p_bump": 0.126,
+      "contributions": [
+        {
+          "factor": "form so far this week",
+          "logodds": -0.97
+        },
+        {
+          "factor": "target's own pace (recession risk)",
+          "logodds": 0.06
+        }
+      ]
+    }
+  ]
+}

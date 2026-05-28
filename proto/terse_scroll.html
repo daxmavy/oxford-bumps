@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oxford Eights 2026 — live bump probabilities</title>
+<meta name="description" content="Live bump probabilities for Oxford Summer Eights 2026, with per-crew factor attribution and what two centuries of results reveal about skill and luck.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<script src="../js/vendor/d3.min.js"></script>
+<script src="../js/vendor/plot.umd.min.js"></script>
+<style>
+:root{
+  --ink:#16130f; --paper:#fbf9f5; --paper2:#f3eee5; --line:#e3dccf;
+  --oxford:#002147; --oxford2:#1b3a63;
+  --up:#1a7f57; --down:#c0392b; --row:#8a8170; --gold:#b8893b; --muted:#6b6357;
+  --serif:"Source Serif 4",Georgia,serif;
+  --sans:"Inter",system-ui,-apple-system,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 22px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;letter-spacing:-.01em;margin:0}
+a{color:var(--oxford2)}
+em{font-style:italic}
+.mono{font-variant-numeric:tabular-nums}
+
+/* ---------- HERO: predictions lead ---------- */
+header.hero{border-bottom:1px solid var(--line);
+  background:radial-gradient(130% 90% at 50% -10%, #fff 0%, var(--paper) 55%);
+  padding:5.5vh 0 3vh}
+.kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:800;color:var(--oxford)}
+.live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--up);margin-right:7px;
+  box-shadow:0 0 0 0 rgba(26,127,87,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(26,127,87,.5)}70%{box-shadow:0 0 0 7px rgba(26,127,87,0)}100%{box-shadow:0 0 0 0 rgba(26,127,87,0)}}
+h1.hero-h{font-size:clamp(2.1rem,5.2vw,3.4rem);margin:.25em 0 .2em}
+.hero .dek{font-family:var(--serif);font-size:clamp(1.05rem,2.2vw,1.32rem);color:#403a31;max-width:34em;margin:0}
+
+/* tabs */
+.tabs{display:flex;gap:8px;margin:1.6em 0 1.1em}
+.tab{padding:6px 16px;border:1px solid var(--line);background:#fff;border-radius:20px;cursor:pointer;
+  font-size:.88rem;font-weight:600;color:var(--ink)}
+.tab.active{background:var(--oxford);color:#fff;border-color:var(--oxford)}
+
+/* ---------- head-to-head ladder ---------- */
+.h2h{display:flex;flex-direction:column;gap:6px}
+.matchup{display:grid;grid-template-columns:30px 1fr 92px;align-items:center;gap:12px;
+  background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 13px;cursor:pointer;
+  transition:border-color .12s,box-shadow .12s}
+.matchup:hover{border-color:#c9bfa8;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.matchup.open{border-color:var(--oxford);box-shadow:0 2px 14px rgba(0,33,71,.07)}
+.mpos{font-family:var(--serif);font-size:1.15rem;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.mteams{min-width:0}
+.mchaser{font-weight:700;font-size:1rem}
+.mtarget{font-size:.84rem;color:var(--muted)}
+.mtarget b{color:var(--ink);font-weight:600}
+.mchase-icon{color:var(--up);font-weight:700}
+.mprob{text-align:right}
+.mprob .pv{font-family:var(--serif);font-size:1.45rem;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.mprob .pl{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.blade-chip{display:inline-block;font-size:.64rem;font-weight:800;letter-spacing:.04em;
+  padding:1px 6px;border-radius:9px;background:#f6efe0;color:var(--gold);margin-left:7px;vertical-align:1px}
+
+/* attribution drawer */
+.drawer{grid-column:1 / -1;overflow:hidden;max-height:0;transition:max-height .22s ease}
+.matchup.open .drawer{max-height:340px}
+.drawer-in{padding:12px 2px 4px;margin-top:9px;border-top:1px dashed var(--line)}
+.attr-head{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:9px}
+.attr{display:grid;grid-template-columns:150px 1fr;gap:8px 12px;align-items:center;padding-right:44px}
+.attr-label{font-size:.82rem;text-align:right;color:#3a352d}
+.attr-bar{position:relative;height:15px;background:linear-gradient(90deg,transparent 0,transparent 50%,transparent 50%);}
+.attr-bar .mid{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--line)}
+.attr-bar .seg{position:absolute;top:1px;bottom:1px;border-radius:3px}
+.attr-foot{font-size:.78rem;color:var(--muted);margin-top:10px;padding-left:2px}
+
+/* methods note line */
+.note{font-size:.82rem;color:var(--muted);line-height:1.5;border-left:2px solid var(--line);padding-left:.9em;margin:1.2em 0 0}
+
+/* ---------- findings sections ---------- */
+section{padding:2.4em 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:none}
+.eyebrow{font-family:var(--sans);font-weight:800;color:var(--gold);letter-spacing:.05em;font-size:.74rem;text-transform:uppercase}
+h2.find{font-size:clamp(1.5rem,3vw,2.05rem);margin:.25em 0 .5em;max-width:18em}
+.find-sub{font-size:1.02rem;color:#403a31;max-width:40em;margin:0 0 1.3em}
+figure{margin:0}
+.chart{width:100%;min-height:60px}
+.chart svg{max-width:100%;height:auto;font-family:var(--sans)!important}
+figcaption{font-size:.8rem;color:var(--muted);margin-top:.7em;line-height:1.45;border-left:2px solid var(--line);padding-left:.9em;max-width:42em}
+.kept{font-family:var(--serif);font-size:1.05rem;color:var(--oxford);margin:1.1em 0 0}
+
+footer{border-top:1px solid var(--line);padding:2em 0 4em;color:var(--muted);font-size:.82rem}
+.proto-flag{position:fixed;bottom:10px;right:10px;z-index:50;background:var(--oxford);color:#fff;
+  font-size:.66rem;font-weight:700;letter-spacing:.05em;padding:4px 9px;border-radius:6px;opacity:.78}
+@media(max-width:600px){
+  body{font-size:16px}
+  .matchup{grid-template-columns:26px 1fr 80px;gap:9px;padding:8px 11px}
+  .attr{grid-template-columns:110px 1fr}
+  .attr-label{font-size:.76rem}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker"><span class="live"></span>Oxford Summer Eights 2026 — live</p>
+    <h1 class="hero-h" id="hero-h">Who bumps on Friday?</h1>
+    <p class="dek" id="hero-dek">Two days rowed, two to go. Every boat chases the one directly ahead — here are the odds it catches them, and the factors driving each call.</p>
+
+    <div class="tabs">
+      <div class="tab active" data-g="men">Men</div>
+      <div class="tab" data-g="women">Women</div>
+      <div class="tab active" data-div="1" data-kind="div">Div 1</div>
+      <div class="tab" data-div="all" data-kind="div">All divisions</div>
+    </div>
+
+    <div id="ladder" class="h2h"></div>
+    <p class="note" id="ladder-note"></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <p class="eyebrow">What the model leans on</p>
+  <h2 class="find">A single bump is a coin toss — until a crew shows its pace</h2>
+  <p class="find-sub">Before racing, one day's bump is barely more predictable than a flip. Each day a crew reveals its real speed, so the call sharpens. This is revealed strength, not a hot streak.</p>
+  <figure>
+    <div id="chart-perday" class="chart"></div>
+    <figcaption>Out-of-sample AUC for a single day's bump, day by day (0.5 = coin toss). Day 1 is near chance; by Saturday the week has largely sorted itself. The lift is information, not momentum.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <p class="eyebrow">Blades</p>
+  <h2 class="find">Blades can't be fluked — but they barely repeat</h2>
+  <p class="find-sub">Give every crew identical speed and let luck alone decide: blades almost never happen. They occur about eleven times more often in reality. That gap is genuine pace.</p>
+  <figure>
+    <div id="chart-luck" class="chart"></div>
+    <figcaption>Share of crews winning blades if all crews were equally fast (a calibrated race simulator) versus what actually happens. The excess is skill — you can't stumble into four bumps.</figcaption>
+  </figure>
+  <p class="kept" id="blades-kept"></p>
+</section>
+
+<section>
+  <p class="eyebrow">What actually moves a crew</p>
+  <h2 class="find">Form carries; a Blue is worth most of a place</h2>
+  <p class="find-sub">Holding starting position fixed, four edges show up and two don't. The strongest read on a crew is its own recent form — at Torpids and last May — and the Oxford Blues in the boat.</p>
+  <figure>
+    <div id="chart-effects" class="chart"></div>
+    <figcaption>Extra places gained over a regatta per unit of each factor, after fixing starting position, division, gender and year. Bars are 95% intervals; bars crossing zero aren't distinguishable from no effect.</figcaption>
+  </figure>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Prototype — <em>terse_scroll</em> concept. Data: Anu Dudhia's Oxford bumps archive; bumps.live; the Radcliffe Meteorological Station. Predictions from a pairwise head-to-head model (out-of-sample AUC 0.805), validated on held-out years.</p>
+    <p id="footer-updated" class="mono"></p>
+  </div>
+</footer>
+
+<div class="proto-flag">PROTOTYPE</div>
+
+<script>
+const P = window.Plot;
+const C = { up:"#1a7f57", down:"#c0392b", row:"#b8b0a0", oxford:"#002147", gold:"#b8893b", grey:"#9a9182" };
+const pct = x => x==null ? "—" : Math.round(x*100)+"%";
+const W = el => Math.min(el.clientWidth||840, 980);
+function ordinal(n){const s=["th","st","nd","rd"],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0]);}
+function draw(id,fn){const el=document.getElementById(id);if(!el)return;try{el.innerHTML="";el.append(fn(W(el)));}catch(e){console.error(id,e);}}
+
+async function load(f){const r=await fetch("../data/"+f);if(!r.ok)throw new Error(f+" "+r.status);return r.json();}
+
+(async function(){
+  let preds, h2h, stats, extras;
+  try{ [preds,h2h,stats,extras] = await Promise.all([
+    load("predictions.json"), load("headtohead_2026.json"), load("stats.json"), load("extras.json")
+  ]); }catch(e){ console.error("data load failed",e); return; }
+
+  /* ---------- HERO COPY ---------- */
+  document.getElementById("hero-h").textContent = "Who bumps on " + (preds.day_label||"Friday").split(" ")[0] + "?";
+  const fu = document.getElementById("footer-updated");
+  if (fu) fu.textContent = "Generated after day " + preds.as_of_day + " · predicting " + preds.day_label + ".";
+
+  /* ---------- HEAD-TO-HEAD LADDER + ATTRIBUTION ---------- */
+  // index predictions for blades/outcome lookups by college+boat
+  const predIndex = {};
+  ["men","women"].forEach(g => (preds[g]||[]).forEach(r => predIndex[g+"|"+r.college+"|"+r.boat] = r));
+
+  // factor -> short label + colour (positive helps the chaser)
+  const factorMeta = {
+    "form so far this week":            { short:"Form this week",   pos:true },
+    "Torpids form":                     { short:"Torpids form",     pos:true },
+    "last year's form":                 { short:"Last year's form", pos:true },
+    "squad continuity":                 { short:"Squad continuity", pos:true },
+    "Blues in the boat":                { short:"Blues in boat",    pos:true },
+    "target's own pace (recession risk)": { short:"Target's pace",  pos:true },
+  };
+
+  let G = "men", DIV = "1";
+  const ladder = document.getElementById("ladder");
+  const note = document.getElementById("ladder-note");
+
+  function chaserKey(g, m){ return g+"|"+m.college+"|"+m.boat; }
+
+  function renderLadder(){
+    const rows = (h2h[G]||[]).filter(m => m.chasing);          // drop the head boat (nothing to chase)
+    const list = DIV==="all" ? rows : rows.filter(m => m.division == +DIV);
+    ladder.innerHTML = list.map(m => {
+      const pr = predIndex[chaserKey(G,m)] || {};
+      const blade = pr.on_for_blades ? `<span class="blade-chip">BLADES ${pct(pr.p_complete_blades)}</span>` : "";
+      const tgt = m.chasing;
+      return `<div class="matchup" data-id="${m.college}|${m.boat}">
+        <div class="mpos">${m.cur_pos}</div>
+        <div class="mteams">
+          <div class="mchaser">${m.college}${m.boat>1?" "+m.boat:""}${blade}</div>
+          <div class="mtarget"><span class="mchase-icon">&uarr;</span> chasing <b>${tgt}</b></div>
+        </div>
+        <div class="mprob"><div class="pv" style="color:${probColour(m.p_bump)}">${pct(m.p_bump)}</div><div class="pl">bump</div></div>
+        <div class="drawer"><div class="drawer-in">${attrHTML(m)}</div></div>
+      </div>`;
+    }).join("");
+    // wire open/close
+    ladder.querySelectorAll(".matchup").forEach(el => el.addEventListener("click", () => {
+      const wasOpen = el.classList.contains("open");
+      ladder.querySelectorAll(".matchup.open").forEach(o => o.classList.remove("open"));
+      if (!wasOpen) el.classList.add("open");
+    }));
+    const n = list.length;
+    note.innerHTML = `Each row is a crew and the boat immediately ahead of it. Tap any matchup to see which factors push the bump probability up or down. `
+      + (DIV==="all" ? `Showing all ${n} ${G==="men"?"men's":"women's"} chasing crews.` : `Showing Division ${DIV}.`);
+  }
+
+  function probColour(p){ return p>=0.5 ? C.up : p<=0.18 ? C.down : "#7a6f59"; }
+
+  // build the attribution mini-chart as a diverging bar set (log-odds contributions)
+  function attrHTML(m){
+    const contribs = Array.isArray(m.contributions) ? m.contributions.slice() : [];
+    if (!contribs.length) return `<div class="attr-head">No standout factors — close to an even matchup.</div>`;
+    contribs.sort((a,b)=> Math.abs(b.logodds)-Math.abs(a.logodds));
+    const max = Math.max(0.6, ...contribs.map(c=>Math.abs(c.logodds)));
+    const rows = contribs.map(c => {
+      const meta = factorMeta[c.factor] || { short:c.factor };
+      const v = c.logodds, w = (Math.abs(v)/max)*40; // % of half-width (cap leaves room for value label)
+      const up = v>=0;
+      const seg = up
+        ? `<span class="seg" style="left:50%;width:${w}%;background:${C.up}"></span>`
+        : `<span class="seg" style="right:50%;width:${w}%;background:${C.down}"></span>`;
+      const val = (up?"+":"")+v.toFixed(2);
+      return `<div class="attr-label">${meta.short}</div>
+        <div class="attr-bar"><span class="mid"></span>${seg}
+          <span style="position:absolute;${up?"left:calc(50% + "+w+"%);margin-left:5px":"right:calc(50% + "+w+"%);margin-right:5px"};top:0;font-size:.74rem;color:${up?C.up:C.down};font-variant-numeric:tabular-nums">${val}</span>
+        </div>`;
+    }).join("");
+    return `<div class="attr-head">Factors shifting the bump probability &nbsp;·&nbsp; <span style="color:${C.up}">helps&nbsp;&rarr;</span> &nbsp; <span style="color:${C.down}">&larr;&nbsp;hurts</span></div>
+      <div class="attr">${rows}</div>
+      <div class="attr-foot">Bars are log-odds contributions vs the boat ahead. Positive favours <b>${m.college}${m.boat>1?" "+m.boat:""}</b> closing the gap; the bump probability is what these add up to.</div>`;
+  }
+
+  // tab wiring (gender + division share the bar)
+  document.querySelectorAll(".tab[data-g]").forEach(t => t.addEventListener("click", () => {
+    document.querySelectorAll(".tab[data-g]").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active"); G = t.dataset.g; renderLadder();
+  }));
+  document.querySelectorAll(".tab[data-kind='div']").forEach(t => t.addEventListener("click", () => {
+    document.querySelectorAll(".tab[data-kind='div']").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active"); DIV = t.dataset.div; renderLadder();
+  }));
+  renderLadder();
+
+  /* ---------- FINDING 1: per-day predictability ---------- */
+  if (extras.per_day){
+    const d = extras.per_day, DAY = {1:"Wed",2:"Thu",3:"Fri",4:"Sat"};
+    draw("chart-perday", w => P.plot({
+      width:w, height:300, marginLeft:54, marginBottom:44,
+      x:{ label:"Day of racing →", domain:[1,2,3,4], tickFormat:v=>DAY[v]||v },
+      y:{ label:"Predictability (AUC)", grid:true, domain:[0.5,0.9] },
+      marks:[
+        P.ruleY([0.5], { stroke:C.row, strokeDasharray:"3 3" }),
+        P.line(d, { x:"day", y:"auc_bump", stroke:C.oxford, strokeWidth:2.4, curve:"monotone-x" }),
+        P.dot(d, { x:"day", y:"auc_bump", fill:C.oxford, r:5 }),
+        P.text(d, { x:"day", y:"auc_bump", text:v=>v.auc_bump.toFixed(2), dy:-13, fontSize:12, fontWeight:600 }),
+        P.text([{}], { x:1, y:0.5, text:["coin toss"], dy:-8, dx:4, fill:C.row, fontSize:11, textAnchor:"start" }),
+      ],
+    }));
+  }
+
+  /* ---------- FINDING 2: luck floor vs reality ---------- */
+  const ls = (stats.reconciled||{}).luck_skill || {};
+  if (ls.blades_rate_observed != null){
+    const data = [
+      { k:"If all crews equal\n(luck only)", v:ls.blades_rate_pure_luck_floor, c:C.row },
+      { k:"What actually\nhappens", v:ls.blades_rate_observed, c:C.gold },
+    ];
+    draw("chart-luck", w => P.plot({
+      width:w, height:300, marginLeft:58, marginBottom:54, marginRight:18,
+      x:{ label:null, domain:data.map(d=>d.k) },
+      y:{ label:"Share winning blades", grid:true, percent:true, domain:[0, Math.max(0.1, ls.blades_rate_observed*1.25)] },
+      marks:[
+        P.barY(data, { x:"k", y:"v", fill:"c", rx:3 }),
+        P.text(data, { x:"k", y:"v", text:d=> d.v<0.01 ? (d.v*100).toFixed(1)+"%" : Math.round(d.v*100)+"%", dy:-10, fontSize:15, fontWeight:700 }),
+        P.ruleY([0]),
+      ],
+    }));
+    document.getElementById("blades-kept").innerHTML =
+      `Yet <b>86%</b> of crews that win blades hadn't won them the year before. Pace gets you into contention; the draw — four catchable boats, four days running — decides which fast crew completes the set.`;
+  }
+
+  /* ---------- FINDING 3: factor effects with CIs ---------- */
+  if (stats.effects){
+    const short = {
+      "n_blues (+1 Blue-Boat rower)":"Each Blue in the boat",
+      "tor_net (same-year Torpids)":"Each place gained at Torpids",
+      "prev_net_places (last year)":"Each place gained last year",
+      "same_coach (continuity)":"Same coach as last year",
+      "race-week rainfall (mm)":"Race-week rain (per mm)",
+      "race-week mean Tmax (C)":"Race-week warmth (per °C)",
+    };
+    const eff = stats.effects
+      .map(e => ({ ...e, label: short[e.term]||e.term, sig:(e.lo>0||e.hi<0) }))
+      .sort((a,b)=> a.coef-b.coef);
+    draw("chart-effects", w => P.plot({
+      width:w, height:300, marginLeft:200, marginBottom:44, marginRight:54,
+      x:{ label:"Extra places gained over a regatta →", grid:true, zero:true },
+      y:{ label:null, domain:eff.map(d=>d.label) },
+      marks:[
+        P.ruleX([0], { stroke:"#000", strokeDasharray:"3 3", strokeOpacity:.5 }),
+        P.link(eff, { y:"label", x1:"lo", x2:"hi", stroke:d=>d.sig?C.oxford:C.grey, strokeWidth:2 }),
+        P.dot(eff, { y:"label", x:"coef", fill:d=>d.sig?C.oxford:C.grey, r:5 }),
+        P.text(eff, { y:"label", x:"hi", text:d=>(d.coef>0?"+":"")+d.coef, dx:12, fontSize:12, fill:"#444" }),
+      ],
+    }));
+  }
+})();
+</script>
+</body>
+</html>

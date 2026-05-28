@@ -1,0 +1,64 @@
+{
+  "_status": "v2 working source-of-truth — corrected after user feedback; to be finalised with Workflow A (24+24) synthesis.",
+  "cross_source": {"overlap": 20617, "finish_agreement": 0.9999},
+  "head_to_head": {
+    "_note": "The natural unit: each boat vs the boat directly ahead. OOS AUC 0.805 (modern, 18,340 pairs). Factors by odds ratio per SD:",
+    "oos_auc": 0.805,
+    "factors_or_per_sd": {
+      "form_so_far_this_week": 3.31,
+      "torpids_form": 1.40,
+      "squad_continuity": 1.31,
+      "last_year_form": 1.19,
+      "blues_in_boat": 1.16,
+      "target_own_pace_recession": 0.92
+    }
+  },
+  "momentum_correction": {
+    "_note": "NOT momentum. 'Bumped yesterday' raw OR 6.8 collapses to 1.7 once you control for crew quality (other-day results) => ~3/4 is revealed strength, not a streak. Residual ~1.7 is partly mechanical (target recession).",
+    "or_raw": 6.8, "or_controlled_for_quality": 1.7
+  },
+  "composition": {
+    "_note": "Roster continuity (share of last year's rowers retained, bumps.live 2007+) drives predictability.",
+    "corr_retained_vs_absmove": -0.13,
+    "mean_abs_move_high_retention_ge0.6": 2.03,
+    "mean_abs_move_low_retention_le0.3": 2.43,
+    "p_value": "<0.001"
+  },
+  "predictability": {
+    "single_bump_prerace_auc": 0.59,
+    "per_day_auc": {"day1": 0.54, "day2": 0.77, "day3": 0.81, "day4": 0.82},
+    "per_day_note": "Day 1 ~ coin toss; predictability rises as crews reveal pace (revealed strength), not as a streak.",
+    "final_position_movement_r2": 0.078,
+    "within_1_place_model_vs_naive": [0.365, 0.325]
+  },
+  "luck_skill": {
+    "blades_rate_observed": 0.085,
+    "blades_rate_pure_luck_floor": 0.008,
+    "excess_ratio": 11,
+    "blades_repeat_rate": 0.158,
+    "blades_repeat_base": 0.074,
+    "blades_share_didnt_blade_prior_year": 0.86,
+    "interpretation": "Blades aren't flukes (>10x the equal-crews floor => genuine speed needed) but barely repeat (86% of winners hadn't bladed the year before) => being good is necessary; the draw decides which good crews complete the set."
+  },
+  "factors_controlled_per_place": [
+    {"factor": "Each place gained at same-year Torpids", "effect": 0.21, "ci": [0.17, 0.25], "verdict": "strong"},
+    {"factor": "Each Oxford Blue Boat rower in the crew", "effect": 0.83, "ci": [0.55, 1.12], "verdict": "strong (robust to college FE, division restriction)"},
+    {"factor": "Each place gained the previous year", "effect": 0.15, "ci": [0.10, 0.20], "verdict": "strong"},
+    {"factor": "Same coach as last year", "effect": 0.26, "ci": [-0.04, 0.57], "verdict": "weak/uncertain"},
+    {"factor": "Race-week weather (rain, temperature)", "effect": 0.0, "ci": [-0.05, 0.05], "verdict": "no detectable effect on predictability"}
+  ],
+  "stability_interpretable": {
+    "_note": "NO correlation. Place-scale + transition measures.",
+    "median_abs_yoy_move": 3.0,
+    "share_within_1_place": 0.313,
+    "share_move_gt_5": 0.10,
+    "mean_reversion_slope": 0.154,
+    "p_top3_stays_top3": 0.779,
+    "p_div1_stays_div1": 0.898,
+    "head_change_rate": {"m": 0.5, "w": 0.458}
+  },
+  "dynamics": {
+    "st_hildas_men": "70th (2009) -> 31st (2026), climbing almost every year since men joined the college in 2008",
+    "new_crew_maturation": "first eights gain most ground in their opening 3-4 seasons, then settle"
+  }
+}

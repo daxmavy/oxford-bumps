@@ -604,11 +604,21 @@
     ]
   },
   "stability": {
-    "yoy_position_corr": 0.987,
+    "median_abs_yoy_move": 3.0,
+    "mean_abs_yoy_move": 2.95,
+    "share_within_1_place": 0.313,
+    "share_within_2_places": 0.497,
+    "share_move_gt_5": 0.1,
+    "mean_reversion_slope": 0.154,
+    "p_top3_stays_top3": 0.779,
+    "n_top3": 476,
+    "p_div1_stays_div1": 0.898,
+    "n_div1": 1900,
     "head_change_rate": {
       "m": 0.5,
       "w": 0.458
     },
-    "n_consecutive_pairs": 10498
+    "n_consecutive_pairs": 10498,
+    "note": "Place-moves + transition rates, not correlation."
   }
 }

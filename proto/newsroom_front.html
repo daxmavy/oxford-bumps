@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Isis — Summer Eights 2026</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<script src="../js/vendor/d3.min.js"></script>
+<script src="../js/vendor/plot.umd.min.js"></script>
+<style>
+:root{
+  --ink:#16130f; --paper:#fbf9f5; --paper2:#f3eee5; --line:#e3dccf; --line2:#cfc6b5;
+  --oxford:#002147; --oxford2:#1b3a63;
+  --up:#1a7f57; --down:#c0392b; --row:#8a8170; --gold:#b8893b; --muted:#6b6357;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.page{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ---------- masthead ---------- */
+.masthead{border-bottom:3px double var(--ink);padding:22px 0 12px;margin-top:18px}
+.masthead .top{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--line2);padding-bottom:8px;margin-bottom:10px}
+.wordmark{font-family:var(--serif);font-weight:700;font-size:clamp(2.2rem,6vw,3.6rem);letter-spacing:-.02em;line-height:.9}
+.wordmark .sub{display:block;font-family:var(--sans);font-weight:600;text-transform:uppercase;letter-spacing:.34em;font-size:.6rem;color:var(--oxford);margin-top:.7em}
+.dateline{font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);text-align:right;line-height:1.5}
+.dateline b{color:var(--ink)}
+.edition{font-size:.7rem;text-transform:uppercase;letter-spacing:.18em;color:var(--muted);display:flex;justify-content:space-between}
+
+/* ---------- lead block ---------- */
+.lead{display:grid;grid-template-columns:1fr;gap:0;padding:26px 0 10px}
+.lead-head{max-width:880px;margin:0 auto;text-align:center;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.lead .kicker{font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--down)}
+.lead h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.1rem,5.4vw,3.5rem);line-height:1.04;letter-spacing:-.02em;margin:.18em 0 .12em}
+.lead .deck{font-family:var(--serif);font-size:clamp(1.05rem,2.2vw,1.35rem);line-height:1.4;color:#403a31;max-width:680px;margin:.4em auto 0}
+.lead .byline{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:1em}
+
+/* ---------- board ---------- */
+.boardwrap{padding:22px 0 10px}
+.board-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.board-title{font-family:var(--serif);font-weight:700;font-size:1.35rem;display:flex;align-items:baseline;gap:.5em}
+.board-title .live{font-family:var(--sans);font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--down);padding:3px 7px;border-radius:3px;transform:translateY(-2px)}
+.controls{display:flex;gap:6px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line2);border-radius:7px;overflow:hidden;background:#fff}
+.seg button{font-family:var(--sans);font-size:.82rem;font-weight:600;padding:7px 15px;border:0;background:transparent;cursor:pointer;color:var(--ink)}
+.seg button.on{background:var(--oxford);color:#fff}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.74rem;color:var(--muted);align-items:center}
+.legend .k{display:inline-flex;align-items:center;gap:5px}
+.legend .sw{width:11px;height:11px;border-radius:2px;display:inline-block}
+
+/* blades watch strip */
+.blades-strip{background:#fbf3e2;border:1px solid #ecd9a9;border-left:4px solid var(--gold);border-radius:8px;padding:11px 14px;margin:10px 0 16px;font-size:.9rem;line-height:1.5}
+.blades-strip .lab{font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:.66rem;color:var(--gold);margin-right:.4em}
+.blades-strip b{color:var(--ink)}
+
+/* ladder */
+.divhdr{font-size:.68rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);font-weight:700;margin:18px 0 4px;border-bottom:1px solid var(--line);padding-bottom:4px}
+.divhdr:first-of-type{margin-top:6px}
+.rowx{border-bottom:1px solid var(--line);background:#fff}
+.rowx .main{display:grid;grid-template-columns:30px 1fr 132px 116px;gap:12px;align-items:center;padding:9px 12px;cursor:pointer}
+.rowx .main:hover{background:var(--paper2)}
+.rowx .pos{font-family:var(--serif);font-weight:700;font-size:1.05rem;color:var(--oxford);text-align:right;font-variant-numeric:tabular-nums}
+.rowx .crew{min-width:0}
+.rowx .crew .name{font-weight:700;font-size:.98rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rowx .crew .vs{font-size:.76rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rowx .crew .vs .ar{color:var(--oxford)}
+.netchip{display:inline-block;font-size:.68rem;font-weight:700;padding:1px 6px;border-radius:9px;margin-left:.45em;vertical-align:1px}
+.netchip.up{background:#e3f3eb;color:var(--up)}
+.netchip.dn{background:#f9e7e4;color:var(--down)}
+.netchip.fl{background:var(--paper2);color:var(--row)}
+/* stacked prob bar */
+.pbar{height:16px;border-radius:4px;overflow:hidden;display:flex;background:var(--paper2);font-size:0}
+.pbar i{display:block;height:100%}
+.pbar .u{background:var(--up)}.pbar .h{background:#d8d0c0}.pbar .d{background:var(--down)}
+.bignum{text-align:right;font-variant-numeric:tabular-nums}
+.bignum .big{font-family:var(--serif);font-weight:700;font-size:1.18rem;line-height:1}
+.bignum .big.hot{color:var(--up)}.bignum .big.cold{color:var(--down)}
+.bignum .cap{font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.caret{font-size:.7rem;color:var(--muted)}
+/* attribution drawer */
+.drawer{display:none;padding:4px 12px 16px 12px;background:var(--paper2);border-top:1px dashed var(--line2)}
+.rowx.open .drawer{display:block}
+.attr-h{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;margin:8px 0 8px}
+.attr-h b{color:var(--ink)}
+.attr-row{display:grid;grid-template-columns:148px 1fr 56px;gap:10px;align-items:center;padding:3px 0;font-size:.82rem}
+.attr-row .fac{color:#3a352d;text-align:right}
+.attr-track{position:relative;height:13px;background:linear-gradient(90deg,#f6e7e4 0 50%,#e3f3eb 50% 100%);border-radius:3px}
+.attr-track .mid{position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--line2)}
+.attr-track i{position:absolute;top:0;bottom:0;border-radius:2px}
+.attr-track i.pos{left:50%;background:var(--up)}
+.attr-track i.neg{right:50%;background:var(--down)}
+.attr-row .val{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.76rem;text-align:left}
+.attr-note{font-size:.76rem;color:var(--muted);margin-top:9px;line-height:1.45}
+
+/* ---------- findings grid ---------- */
+.findings{border-top:3px double var(--ink);margin-top:30px;padding-top:18px}
+.sec-rule{display:flex;align-items:baseline;gap:.6em;margin-bottom:14px}
+.sec-rule h2{font-family:var(--serif);font-weight:700;font-size:1.5rem;margin:0}
+.sec-rule .meta{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.card{background:var(--paper);padding:18px 18px 16px;display:flex;flex-direction:column}
+.card .tag{font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--gold)}
+.card h3{font-family:var(--serif);font-weight:700;font-size:1.28rem;line-height:1.12;margin:.3em 0 .35em}
+.card .standfirst{font-size:.92rem;color:#403a31;margin:0 0 .7em;line-height:1.45}
+.card .chart{width:100%;min-height:40px;margin:2px 0 4px}
+.card .chart svg{max-width:100%;height:auto;font-family:var(--sans)!important}
+.card figcaption{font-size:.74rem;color:var(--muted);line-height:1.4;border-left:2px solid var(--line);padding-left:.7em;margin:.5em 0 0}
+.note details{margin-top:.7em;border-top:1px solid var(--line);padding-top:.5em}
+.note summary{cursor:pointer;font-size:.8rem;font-weight:700;color:var(--oxford2);list-style:none}
+.note summary::-webkit-details-marker{display:none}
+.note summary::before{content:"▸ ";color:var(--gold)}
+.note details[open] summary::before{content:"▾ "}
+.note .body{font-size:.84rem;color:#3a352d;line-height:1.5;margin-top:.5em}
+.note .body p{margin:.5em 0}
+
+/* ---------- footer ---------- */
+.colophon{border-top:1px solid var(--line);margin-top:34px;padding:20px 0 60px;font-size:.78rem;color:var(--muted);line-height:1.5}
+.colophon .rule{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1rem;margin-bottom:.4em}
+
+@media (max-width:880px){
+  .grid{grid-template-columns:1fr;gap:1px}
+  .rowx .main{grid-template-columns:26px 1fr 92px}
+  .rowx .bignum{display:none}
+  .attr-row{grid-template-columns:118px 1fr 48px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .rowx .main{grid-template-columns:24px 1fr 78px;gap:8px}
+  .rowx .pbar{display:none}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead">
+    <div class="edition"><span>Oxford · The Isis</span><span>An independent data analysis</span></div>
+    <div class="top">
+      <div class="wordmark">The Bumps Ledger<span class="sub">Summer Eights · Two Centuries of Form</span></div>
+      <div class="dateline" id="dateline">—</div>
+    </div>
+  </header>
+
+  <!-- ============ LEAD ============ -->
+  <section class="lead">
+    <div class="lead-head">
+      <p class="kicker">The Form Book · Friday's Racing</p>
+      <h1 id="lead-h1">Two days in, the river has shown its hand</h1>
+      <p class="deck" id="lead-deck">Day one was a coin toss. It always is. But every crew that has raced since has revealed its pace — and the board below is what that pace implies for Friday: who bumps, who holds, who gets caught, and why.</p>
+      <p class="byline">By the numbers · Model out-of-sample AUC 0.81 · Updated after Day 2</p>
+    </div>
+  </section>
+
+  <!-- ============ PREDICTIONS BOARD (lead story) ============ -->
+  <section class="boardwrap">
+    <div class="board-bar">
+      <div class="board-title">Friday's board <span class="live">Live · Day 3</span></div>
+      <div class="controls">
+        <div class="seg" id="seg-gender">
+          <button data-g="men" class="on">Men</button>
+          <button data-g="women">Women</button>
+        </div>
+      </div>
+    </div>
+    <div class="legend" style="margin-bottom:10px">
+      <span class="k"><span class="sw" style="background:var(--up)"></span>bumps up</span>
+      <span class="k"><span class="sw" style="background:#d8d0c0"></span>rows over</span>
+      <span class="k"><span class="sw" style="background:var(--down)"></span>gets caught</span>
+      <span class="k" style="margin-left:auto;color:var(--oxford2)">▸ tap any crew for the factor read-out</span>
+    </div>
+
+    <div id="blades-strip"></div>
+    <div id="ladder"></div>
+
+    <p class="attr-note" style="margin-top:14px">
+      Each crew is read against the boat <em>directly ahead</em> — the one it can actually catch. Probabilities come from a pairwise model
+      (out-of-sample AUC 0.81) trained on years it never saw; the read-out attributes each call to its drivers, strongest first. It knows
+      form, history and squad continuity, not who is fit or flying this week. Head of the river can't bump up; the tail can't be caught.
+    </p>
+  </section>
+
+  <!-- ============ FINDINGS GRID ============ -->
+  <section class="findings">
+    <div class="sec-rule">
+      <h2>What the record says</h2>
+      <span class="meta">Three findings · 1826–2026 · 20,617 cross-checked crew-races</span>
+    </div>
+    <div class="grid">
+
+      <!-- card 1 -->
+      <article class="card">
+        <span class="tag">Skill vs luck</span>
+        <h3>Blades can't be fluked</h3>
+        <p class="standfirst">Give every crew the same speed and run the chase under the real rules: four bumps almost never happen. Reality clears that bar more than ten times over.</p>
+        <div id="c-luck" class="chart"></div>
+        <figcaption>Blades rate if all crews were equal (simulator floor) vs observed.</figcaption>
+        <div class="note"><details>
+          <summary>The grain of truth</summary>
+          <div class="body" id="luck-body"></div>
+        </details></div>
+      </article>
+
+      <!-- card 2 -->
+      <article class="card">
+        <span class="tag">What carries</span>
+        <h3>What actually moves a crew</h3>
+        <p class="standfirst">Hold starting position fixed and most "edges" vanish. Three survive; the proverbial ones — coaching, weather — do not.</p>
+        <div id="c-effects" class="chart"></div>
+        <figcaption>Extra places gained per regatta, position held fixed. Bars are 95% intervals.</figcaption>
+        <div class="note"><details>
+          <summary>Reading the bars</summary>
+          <div class="body" id="effects-body"></div>
+        </details></div>
+      </article>
+
+      <!-- card 3 -->
+      <article class="card">
+        <span class="tag">Predictability</span>
+        <h3>A bump is a coin toss — until it isn't</h3>
+        <p class="standfirst">Lined up by last year's order, you chase your nearest equal. Day one is near-chance; the week sharpens only as crews reveal their pace.</p>
+        <div id="c-perday" class="chart"></div>
+        <figcaption>Model accuracy (AUC) by racing day. 0.5 is a coin toss.</figcaption>
+        <div class="note"><details>
+          <summary>Not momentum — revealed strength</summary>
+          <div class="body" id="perday-body"></div>
+        </details></div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ COLOPHON ============ -->
+  <footer class="colophon">
+    <p class="rule">The Bumps Ledger</p>
+    <p>Two independent records of Oxford Summer Eights, reconciled (99.99% agreement across 20,617 shared crew-races). Predictability measured out of sample; factor effects from regressions holding starting position fixed; the skill-vs-luck floor from a calibrated chase simulator. Live predictions are a pairwise position-and-form model — not a tip sheet. Independent analysis; not affiliated with OURCs or any college.</p>
+    <p class="small" id="colophon-updated"></p>
+  </footer>
+
+</div>
+
+<script>
+const P = window.Plot;
+const C = { up:"#1a7f57", down:"#c0392b", row:"#b8b0a0", oxford:"#002147", gold:"#b8893b", grey:"#9a9182" };
+const pct = x => (x==null ? "—" : Math.round(x*100) + "%");
+const ord = n => { const s=["th","st","nd","rd"], v=n%100; return n+(s[(v-20)%10]||s[v]||s[0]); };
+
+async function load(f){ const r = await fetch("../data/"+f); if(!r.ok) throw new Error(f+" "+r.status); return r.json(); }
+function drawInto(el, fn){
+  if(!el) return;
+  try{ el.innerHTML=""; const w=Math.max(220,Math.min(el.clientWidth||300,560)); el.append(fn(w)); }
+  catch(e){ console.error("chart", el.id, e); }
+}
+
+(async function(){
+  let preds, h2h, stats, extras;
+  try{
+    [preds, h2h, stats, extras] = await Promise.all([
+      load("predictions.json"), load("headtohead_2026.json"), load("stats.json"), load("extras.json")
+    ]);
+  }catch(e){ console.error("data load failed", e); return; }
+
+  /* ---- dateline ---- */
+  const dl = document.getElementById("dateline");
+  dl.innerHTML = `<b>${preds.day_label}</b><br>Summer Eights ${preds.event.replace('Summer Eights ','')}<br>Predictions after Day ${preds.as_of_day}`;
+  const cu = document.getElementById("colophon-updated");
+  if(cu) cu.textContent = `Predictions generated after Day ${preds.as_of_day} of the ${preds.event.replace('Summer Eights ','')} races. Charts: Observable Plot.`;
+
+  /* =================== PREDICTIONS BOARD =================== */
+  let g = "men";
+  const segs = document.querySelectorAll("#seg-gender button");
+  segs.forEach(b => b.onclick = () => { segs.forEach(x=>x.classList.remove("on")); b.classList.add("on"); g=b.dataset.g; renderBoard(); });
+
+  // index head-to-head attribution by college+boat
+  function h2hIndex(genderKey){
+    const m = new Map();
+    (h2h[genderKey]||[]).forEach(r => m.set(r.college+"#"+r.boat, r));
+    return m;
+  }
+  // crew display label
+  const label = r => r.college + (r.boat>1 ? " "+r.boat : "");
+
+  function netChip(n){
+    if(n>0) return `<span class="netchip up">+${n}</span>`;
+    if(n<0) return `<span class="netchip dn">${n}</span>`;
+    return `<span class="netchip fl">±0</span>`;
+  }
+
+  function attribution(hr){
+    if(!hr || !Array.isArray(hr.contributions) || !hr.contributions.length){
+      return `<p class="attr-note">No single factor stands out — this one is close to a toss-up between two well-matched crews.</p>`;
+    }
+    const contribs = hr.contributions.slice().sort((a,b)=>Math.abs(b.logodds)-Math.abs(a.logodds));
+    const maxAbs = Math.max(1.2, ...contribs.map(c=>Math.abs(c.logodds)));
+    const rows = contribs.map(c=>{
+      const w = Math.round(Math.abs(c.logodds)/maxAbs*50);
+      const bar = c.logodds>=0
+        ? `<i class="pos" style="width:${w}%"></i>`
+        : `<i class="neg" style="width:${w}%"></i>`;
+      const sign = c.logodds>=0 ? "+" : "−";
+      return `<div class="attr-row">
+        <div class="fac">${c.factor}</div>
+        <div class="attr-track"><span class="mid"></span>${bar}</div>
+        <div class="val">${sign}${Math.abs(c.logodds).toFixed(2)}</div>
+      </div>`;
+    }).join("");
+    const chase = hr.chasing ? `<b>${label({college:hr.college,boat:hr.boat})}</b> chasing <b>${hr.chasing}</b>` : "";
+    return `<div class="attr-h">Why — ${chase} · <b>${pct(hr.p_bump)}</b> to bump</div>
+      ${rows}
+      <p class="attr-note">Bars are log-odds shifts vs the boat ahead: <span style="color:var(--up)">green helps the chase</span>, <span style="color:var(--down)">red works against it</span>.</p>`;
+  }
+
+  function renderBoard(){
+    const rows = (preds[g]||[]);
+    const idx = h2hIndex(g==="men"?"men":"women");
+
+    // blades watch
+    const bl = rows.filter(r=>r.on_for_blades).sort((a,b)=>(b.p_complete_blades||0)-(a.p_complete_blades||0));
+    const strip = document.getElementById("blades-strip");
+    strip.innerHTML = bl.length
+      ? `<div class="blades-strip"><span class="lab">Blades watch</span>${bl.length} ${g==="men"?"men's":"women's"} crews have bumped on both days. Best chance of the full set: `
+        + bl.slice(0,6).map(r=>`<b>${label(r)}</b> ${pct(r.p_complete_blades)}`).join(" · ") + `.</div>`
+      : "";
+
+    // ladder grouped by division
+    let html = "", lastDiv = null;
+    rows.forEach((r,i)=>{
+      if(r.division !== lastDiv){ html += `<div class="divhdr">Division ${r.division}</div>`; lastDiv = r.division; }
+      const ahead = rows[i-1] && rows[i-1].division===r.division ? label(rows[i-1]) : (rows[i-1]?label(rows[i-1]):"the boat ahead");
+      const up=r.p_bump_up, hold=r.p_row_over, dn=r.p_bumped;
+      const hr = idx.get(r.college+"#"+r.boat);
+      const isHead = r.current_pos===1;
+      const bigCls = up>=0.5 ? "hot" : (dn>=0.5 ? "cold" : "");
+      const bigVal = isHead ? pct(dn) : pct(up);
+      const bigCap = isHead ? "to hold the headship" : "to bump";
+      const vsLine = isHead
+        ? `<span class="ar">Head of the River</span> — defends`
+        : `chasing <span class="ar">${ahead}</span>`;
+      html += `<div class="rowx" data-key="${r.college}#${r.boat}">
+        <div class="main">
+          <div class="pos">${r.current_pos}</div>
+          <div class="crew">
+            <div class="name">${label(r)} ${netChip(r.net_so_far)}</div>
+            <div class="vs">${vsLine}</div>
+          </div>
+          <div class="pbar" title="bump ${pct(up)} · hold ${pct(hold)} · caught ${pct(dn)}">
+            <i class="u" style="width:${up*100}%"></i><i class="h" style="width:${hold*100}%"></i><i class="d" style="width:${dn*100}%"></i>
+          </div>
+          <div class="bignum">
+            <div class="big ${bigCls}">${bigVal}</div>
+            <div class="cap">${bigCap} <span class="caret">▸</span></div>
+          </div>
+        </div>
+        <div class="drawer">${isHead ? `<p class="attr-note" style="margin-top:10px">The head of the river starts every day with no boat to chase — it can only defend. Model gives it <b>${pct(hold)}</b> to row over clean.</p>` : attribution(hr)}</div>
+      </div>`;
+    });
+    const lad = document.getElementById("ladder");
+    lad.innerHTML = html;
+    lad.querySelectorAll(".rowx").forEach(rx=>{
+      rx.querySelector(".main").onclick = ()=> rx.classList.toggle("open");
+    });
+  }
+  renderBoard();
+
+  /* =================== FINDING CHARTS =================== */
+  function drawFindings(){
+  // card 1 — luck floor vs reality
+  const ls = (stats.reconciled||{}).luck_skill || stats.luck_skill;
+  if(ls){
+    const data = [
+      { k:"All crews equal", v: ls.blades_rate_pure_luck_floor, c: C.row },
+      { k:"What happens", v: ls.blades_rate_observed, c: C.gold },
+    ];
+    drawInto(document.getElementById("c-luck"), w => P.plot({
+      width:w, height:210, marginLeft:42, marginBottom:34, marginRight:14,
+      x:{ label:null, domain:data.map(d=>d.k) },
+      y:{ label:"blades rate", grid:true, percent:true, domain:[0, Math.max(0.1, ls.blades_rate_observed*1.3)] },
+      marks:[
+        P.barY(data,{ x:"k", y:"v", fill:"c", rx:2 }),
+        P.text(data,{ x:"k", y:"v", text:d=> d.v<0.01 ? (d.v*100).toFixed(1)+"%" : Math.round(d.v*100)+"%", dy:-9, fontWeight:700, fontSize:13 }),
+        P.ruleY([0]),
+      ],
+    }));
+    const xr = ls.excess_ratio || 11, share = Math.round((ls.blades_share_didnt_blade_prior_year||0.86)*100);
+    document.getElementById("luck-body").innerHTML =
+      `<p>Equal crews would blade under <b>1%</b> of the time; reality is <b>${pct(ls.blades_rate_observed)}</b> — about <b>${xr}×</b> the floor. You cannot stumble into four bumps, so blades demand genuine speed.</p>
+       <p>Yet they barely repeat: <b>${share}%</b> of winners hadn't bladed the year before. Being fast is necessary; the draw — four catchable boats, four days running — decides which fast crew completes the set.</p>`;
+  }
+
+  // card 2 — factor effects with CIs
+  if(stats.effects){
+    const short = {
+      "n_blues (+1 Blue-Boat rower)":"+1 Blue in the boat",
+      "tor_net (same-year Torpids)":"Each place at Torpids",
+      "prev_net_places (last year)":"Each place last year",
+      "same_coach (continuity)":"Same coach (cont.)",
+    };
+    const eff = stats.effects.filter(e=>!/rain|warmth|tmax/i.test(e.term))
+      .map(e=>({ ...e, label: short[e.term]||e.term, sig:(e.lo>0||e.hi<0) }))
+      .sort((a,b)=>a.coef-b.coef);
+    drawInto(document.getElementById("c-effects"), w => P.plot({
+      width:w, height:210, marginLeft:130, marginBottom:34, marginRight:34,
+      x:{ label:"+ places/regatta", grid:true, zero:true },
+      y:{ label:null, domain:eff.map(d=>d.label) },
+      marks:[
+        P.ruleX([0],{ stroke:"#000", strokeDasharray:"3 3", strokeOpacity:.5 }),
+        P.link(eff,{ y:"label", x1:"lo", x2:"hi", stroke:d=>d.sig?C.oxford:C.grey, strokeWidth:2 }),
+        P.dot(eff,{ y:"label", x:"coef", fill:d=>d.sig?C.oxford:C.grey, r:4.5 }),
+        P.text(eff,{ y:"label", x:"hi", text:d=>(d.coef>0?"+":"")+d.coef, dx:10, fontSize:11, fill:"#444" }),
+      ],
+    }));
+    document.getElementById("effects-body").innerHTML =
+      `<p><b>Torpids form</b> is the cleanest tell: the same squad's February result carries straight into May. A <b>Blue in the boat</b> is worth most of a place — the largest single effect — and last year's trajectory persists.</p>
+       <p>Crossing the dashed line means indistinguishable from nothing. <b>Coaching continuity</b> looks helpful but its interval spans zero; <b>weather</b> (dropped here) shows no detectable effect across 165 regattas.</p>`;
+  }
+
+  // card 3 — predictability by day
+  if(extras.per_day){
+    const d = extras.per_day, DAY = {1:"Wed",2:"Thu",3:"Fri",4:"Sat"};
+    drawInto(document.getElementById("c-perday"), w => P.plot({
+      width:w, height:210, marginLeft:40, marginBottom:34, marginRight:14,
+      x:{ label:null, domain:[1,2,3,4], tickFormat:v=>DAY[v]||v },
+      y:{ label:"accuracy (AUC)", grid:true, domain:[0.5,0.88] },
+      marks:[
+        P.ruleY([0.5],{ stroke:C.row, strokeDasharray:"3 3" }),
+        P.line(d,{ x:"day", y:"auc_bump", stroke:C.oxford, strokeWidth:2.2, curve:"monotone-x" }),
+        P.dot(d,{ x:"day", y:"auc_bump", fill:C.oxford, r:4 }),
+        P.text(d,{ x:"day", y:"auc_bump", text:v=>v.auc_bump.toFixed(2), dy:-11, fontSize:11, fontWeight:600 }),
+        P.text([{}],{ x:1, y:0.5, text:["coin toss"], dy:-7, dx:3, fill:C.row, fontSize:10, textAnchor:"start" }),
+      ],
+    }));
+    document.getElementById("perday-body").innerHTML =
+      `<p>Crews line up in last year's order, so you chase your nearest equal — the hardest call there is. Knowing only the form book, <b>Wednesday is near-chance</b> (AUC ~0.54).</p>
+       <p>It sharpens fast, but the lift is <b>revealed strength, not a hot streak</b>: "bumped yesterday" looks worth 6.8× the odds raw, yet collapses to ~1.7× once you control for crew quality. Most of the signal is the day exposing who was quick all along.</p>`;
+  }
+  }
+  drawFindings();
+
+  // redraw finding charts on resize (cards are fluid)
+  let rt;
+  window.addEventListener("resize", ()=>{ clearTimeout(rt); rt=setTimeout(drawFindings, 200); });
+})();
+</script>
+</body>
+</html>

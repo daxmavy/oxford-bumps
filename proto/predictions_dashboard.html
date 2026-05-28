@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eights 2026 — the bump board</title>
+<meta name="description" content="Live head-to-head bump predictions for Oxford Summer Eights 2026, with per-crew factor attribution.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<script src="../js/vendor/d3.min.js"></script>
+<script src="../js/vendor/plot.umd.min.js"></script>
+<style>
+:root{
+  --ink:#16130f; --paper:#fbf9f5; --paper2:#f3eee5; --line:#e3dccf;
+  --oxford:#002147; --oxford2:#1b3a63;
+  --up:#1a7f57; --down:#c0392b; --row:#8a8170; --gold:#b8893b; --muted:#6b6357;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.narrow{max-width:760px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.14;letter-spacing:-.01em;margin:0}
+h2{font-size:clamp(1.4rem,2.8vw,2rem);margin:0 0 .25em}
+h3{font-size:1.04rem;margin:0 0 .15em}
+a{color:var(--oxford2)}
+strong{font-weight:700}
+.small{font-size:.84rem;color:var(--muted);line-height:1.5}
+.kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:700;color:var(--oxford)}
+
+/* ===== masthead (compact — board leads, not a data-summary) ===== */
+header.top{border-bottom:1px solid var(--line);background:radial-gradient(120% 90% at 50% 0%, #fff 0%, var(--paper) 70%);padding:26px 0 18px}
+header.top .row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:10px}
+header.top h1{font-size:clamp(1.7rem,4vw,2.6rem)}
+header.top h1 em{font-style:normal;color:var(--oxford)}
+.live{display:inline-flex;align-items:center;gap:7px;font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--up)}
+.live .dot{width:8px;height:8px;border-radius:50%;background:var(--up);box-shadow:0 0 0 0 rgba(26,127,87,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(26,127,87,.5)}70%{box-shadow:0 0 0 7px rgba(26,127,87,0)}100%{box-shadow:0 0 0 0 rgba(26,127,87,0)}}
+.metaline{margin-top:.5em;color:var(--muted);font-size:.86rem}
+.metaline strong{color:var(--ink)}
+
+/* ===== board controls ===== */
+.controls{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:18px 0 6px}
+.tabs{display:flex;gap:8px}
+.tab{padding:7px 18px;border:1px solid var(--line);background:#fff;border-radius:22px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--ink)}
+.tab.active{background:var(--oxford);color:#fff;border-color:var(--oxford)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.78rem;color:var(--muted)}
+.legend .k{display:inline-flex;align-items:center;gap:6px}
+.legend .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+/* ===== blades watch strip ===== */
+.blades-watch{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;padding:10px 14px;margin:10px 0 4px}
+.blades-watch .lab{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;color:var(--gold);white-space:nowrap}
+#blades-strip{display:flex;gap:14px;flex-wrap:wrap;font-size:.88rem}
+.bw{white-space:nowrap}
+.bw-c{font-weight:600}
+.bw-p{font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700}
+
+/* ===== the board ===== */
+#board{margin:6px 0 2px}
+.divhead{font-family:var(--sans);text-transform:uppercase;letter-spacing:.1em;font-size:.68rem;font-weight:700;color:var(--muted);margin:16px 0 4px;padding-left:2px}
+.divhead:first-child{margin-top:6px}
+.crew{background:#fff;border:1px solid var(--line);border-radius:9px;margin:4px 0;overflow:hidden;transition:border-color .12s,box-shadow .12s}
+.crew:hover{border-color:#cfc6b6}
+.crew.open{border-color:var(--oxford);box-shadow:0 2px 12px rgba(0,33,71,.08)}
+.crew-row{display:grid;grid-template-columns:30px 1fr 200px 18px;align-items:center;gap:12px;padding:9px 12px;cursor:pointer}
+.crew .pos{font-family:var(--serif);font-weight:600;font-size:1.15rem;color:var(--oxford);text-align:right;font-variant-numeric:tabular-nums}
+.crew .who{min-width:0}
+.crew .name{font-weight:600;font-size:1rem}
+.crew .chase{display:block;font-size:.78rem;color:var(--muted)}
+.crew .chase strong{color:#4a4136;font-weight:600}
+.head-mark{color:var(--gold);font-weight:600}
+.prob{display:flex;align-items:center;gap:9px}
+.bar{flex:1;height:10px;border-radius:5px;background:var(--paper2);position:relative;min-width:56px}
+.bar>span{position:absolute;left:0;top:0;bottom:0;border-radius:5px}
+.pn{font-variant-numeric:tabular-nums;font-weight:700;font-size:.92rem;width:40px;text-align:right}
+.caret{color:var(--muted);font-size:1.2rem;transition:transform .15s;justify-self:center}
+.crew.open .caret{transform:rotate(90deg)}
+.chip{display:inline-block;font-size:.66rem;font-weight:700;padding:1px 7px;border-radius:10px;background:#f6efe0;color:var(--gold);vertical-align:1px}
+
+/* ===== expanded crew detail ===== */
+.detail{padding:4px 14px 14px;border-top:1px dashed var(--line);background:#fdfcf9}
+.splitbars{display:grid;gap:5px;margin:10px 0 4px;max-width:420px}
+.sb{display:grid;grid-template-columns:78px 1fr 40px;align-items:center;gap:10px}
+.sb-l{font-size:.8rem;color:var(--muted)}
+.sb .bar{height:8px}
+.sb-n{font-variant-numeric:tabular-nums;font-size:.82rem;text-align:right;font-weight:600}
+.dsplit,.dblade{font-size:.88rem;margin:8px 0 2px}
+.dblade{color:#7a5a1e}
+.attr{margin-top:12px;border-top:1px solid var(--line);padding-top:8px}
+.attr-h{font-size:.86rem;font-weight:700}
+.attr-h .vs{font-weight:400;color:var(--muted)}
+.attr-note{font-size:.78rem;color:var(--muted);margin:2px 0 0;line-height:1.45}
+.wf{margin:2px 0}
+
+/* ===== why panels ===== */
+.why{border-top:1px solid var(--line);margin-top:34px;padding-top:8px}
+.why .lead{font-family:var(--serif);font-size:1.05rem;color:#403a31;max-width:720px}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:18px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 18px 14px}
+.panel .tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;color:var(--gold);font-weight:700}
+.panel p{font-size:.9rem;color:#3a352d;margin:.4em 0 0}
+.panel .chart{width:100%;min-height:60px;margin-top:8px}
+.panel .chart svg{max-width:100%;height:auto;font-family:var(--sans)!important}
+.mini{display:flex;gap:18px;margin:10px 0 2px}
+.mini .n{font-family:var(--serif);font-size:1.7rem;font-weight:600;color:var(--oxford);line-height:1}
+.mini .l{font-size:.74rem;color:var(--muted);margin-top:.3em}
+.arrow{color:var(--row);font-size:1.2rem;align-self:center}
+
+figcaption{font-size:.78rem;color:var(--muted);margin-top:.5em;line-height:1.45;border-left:2px solid var(--line);padding-left:.8em}
+
+footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 50px;color:var(--muted);font-size:.82rem}
+
+@media (max-width:620px){
+  body{font-size:16px}
+  .crew-row{grid-template-columns:26px 1fr 120px 16px;gap:8px}
+  .prob{gap:6px}.pn{width:34px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <p class="kicker">Oxford Summer Eights 2026</p>
+        <h1>The bump board — <em id="day-label">next day</em></h1>
+      </div>
+      <span class="live"><span class="dot"></span>live · racing resumes</span>
+    </div>
+    <p class="metaline" id="model-meta">Loading model…</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ===== HERO: the head-to-head predictions board ===== -->
+  <section aria-label="Bump predictions">
+    <div class="controls">
+      <div class="tabs">
+        <div class="tab active" data-g="men">Men</div>
+        <div class="tab" data-g="women">Women</div>
+      </div>
+      <div class="legend">
+        <span class="k"><span class="sw" style="background:var(--up)"></span>chance of bumping the boat ahead</span>
+        <span class="k">tap a crew for why</span>
+      </div>
+    </div>
+
+    <div class="blades-watch">
+      <span class="lab">Blades watch</span>
+      <div id="blades-strip"><span class="small">…</span></div>
+    </div>
+
+    <div id="board"><p class="small">Loading the board…</p></div>
+
+    <p class="small" style="margin-top:10px">Each boat is shown chasing the crew directly ahead — the natural unit of a bumps race. The bar is the modelled chance it closes the gap and bumps on <span id="day-label-2"></span>. The Head of the River has no boat to chase; the bottom boat cannot be caught. The model knows position, form and squad — not who is injured or flying this week, so read a single number as a tendency.</p>
+  </section>
+
+  <!-- ===== WHY PANELS ===== -->
+  <section class="why">
+    <p class="kicker">Why the board says what it says</p>
+    <h2>What the model is actually reading</h2>
+    <p class="lead">One head-to-head model produces every number above, trained on two centuries of races and scored on years it had never seen. Three things about it are worth knowing.</p>
+
+    <div class="panels">
+
+      <!-- panel 1: factor odds ratios -->
+      <div class="panel">
+        <span class="tag">What separates two crews</span>
+        <h3>Form this week dwarfs everything</h3>
+        <div id="chart-factors" class="chart"></div>
+        <p>Each factor's pull on the odds of bumping the boat ahead, per standard deviation, holding the rest fixed. How a crew has rowed <em>this week</em> moves the needle more than three times over — far more than last year's form or a Blue in the boat.</p>
+      </div>
+
+      <!-- panel 2: predictability rises as strength is revealed (NOT momentum) -->
+      <div class="panel">
+        <span class="tag">It isn't momentum</span>
+        <h3>Crews reveal their speed, they don't ride a streak</h3>
+        <div id="chart-perday" class="chart"></div>
+        <p>Day one is a coin toss; by Friday the model is sharp. The lift is information, not a hot hand: "bumped yesterday" looks worth <strong id="m-raw">×6.8</strong> on the odds, but control for how good the crew is on its other days and it collapses to <strong id="m-ctrl">×1.7</strong>. Roughly three-quarters of apparent momentum is just speed becoming visible.</p>
+      </div>
+
+      <!-- panel 3: blades can't be fluked -->
+      <div class="panel">
+        <span class="tag">Skill vs the draw</span>
+        <h3>Blades can't be fluked — but barely repeat</h3>
+        <div id="chart-luck" class="chart"></div>
+        <p>Simulate a world where every crew is equal and blades almost never happen. In reality they occur about <strong id="l-excess">11×</strong> as often — you cannot stumble into four bumps. Yet <strong id="l-repeat">86%</strong> of crews that win blades hadn't the year before: speed buys a ticket, the draw decides which fast crew completes the set.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="small">Prototype — predictions-dashboard format. Data: Anu Dudhia's Oxford bumps archive; bumps.live; OURCs; Wikipedia. Independent analysis, not affiliated with OURCs or any college. Live predictions are a position-and-form model; they don't know who is fit this week.</p>
+  </div>
+</footer>
+
+<script src="predictions_dashboard.js" defer></script>
+<script>
+  // mirror the day label into the inline caption once DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    const o = setInterval(() => {
+      const a = document.getElementById("day-label");
+      const b = document.getElementById("day-label-2");
+      if (a && b && a.textContent && a.textContent !== "next day") { b.textContent = a.textContent; clearInterval(o); }
+    }, 120);
+    setTimeout(() => clearInterval(o), 6000);
+  });
+</script>
+</body>
+</html>
