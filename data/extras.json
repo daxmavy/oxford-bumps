@@ -1,0 +1,614 @@
+{
+  "per_day": [
+    {
+      "day": 1,
+      "row_over": 0.366,
+      "bump_up": 0.312,
+      "bumped": 0.322,
+      "auc_bump": 0.535,
+      "n": 11999
+    },
+    {
+      "day": 2,
+      "row_over": 0.363,
+      "bump_up": 0.315,
+      "bumped": 0.322,
+      "auc_bump": 0.771,
+      "n": 11999
+    },
+    {
+      "day": 3,
+      "row_over": 0.359,
+      "bump_up": 0.315,
+      "bumped": 0.326,
+      "auc_bump": 0.815,
+      "n": 11829
+    },
+    {
+      "day": 4,
+      "row_over": 0.375,
+      "bump_up": 0.308,
+      "bumped": 0.317,
+      "auc_bump": 0.824,
+      "n": 11829
+    }
+  ],
+  "maturation_curve": [
+    {
+      "season": 0,
+      "mean_net": 0.625,
+      "se": 0.335,
+      "n": 56
+    },
+    {
+      "season": 1,
+      "mean_net": 0.764,
+      "se": 0.44,
+      "n": 55
+    },
+    {
+      "season": 2,
+      "mean_net": 1.13,
+      "se": 0.382,
+      "n": 54
+    },
+    {
+      "season": 3,
+      "mean_net": 1.58,
+      "se": 0.338,
+      "n": 50
+    },
+    {
+      "season": 4,
+      "mean_net": 1.44,
+      "se": 0.467,
+      "n": 50
+    },
+    {
+      "season": 5,
+      "mean_net": 0.84,
+      "se": 0.414,
+      "n": 50
+    },
+    {
+      "season": 6,
+      "mean_net": 1.08,
+      "se": 0.372,
+      "n": 50
+    },
+    {
+      "season": 7,
+      "mean_net": 0.54,
+      "se": 0.42,
+      "n": 50
+    },
+    {
+      "season": 8,
+      "mean_net": 0.612,
+      "se": 0.453,
+      "n": 49
+    },
+    {
+      "season": 9,
+      "mean_net": 0.959,
+      "se": 0.39,
+      "n": 49
+    },
+    {
+      "season": 10,
+      "mean_net": 0.163,
+      "se": 0.373,
+      "n": 49
+    },
+    {
+      "season": 11,
+      "mean_net": 0.612,
+      "se": 0.399,
+      "n": 49
+    }
+  ],
+  "maturation_examples": {
+    "St Hilda's (M)": [
+      {
+        "year": 1969,
+        "finish": 102,
+        "field": 109,
+        "pct": 0.88
+      },
+      {
+        "year": 1970,
+        "finish": 102,
+        "field": 110,
+        "pct": 0.89
+      },
+      {
+        "year": 1971,
+        "finish": 103,
+        "field": 110,
+        "pct": 0.899
+      },
+      {
+        "year": 2009,
+        "finish": 70,
+        "field": 85,
+        "pct": 0.845
+      },
+      {
+        "year": 2010,
+        "finish": 64,
+        "field": 85,
+        "pct": 0.786
+      },
+      {
+        "year": 2011,
+        "finish": 62,
+        "field": 85,
+        "pct": 0.75
+      },
+      {
+        "year": 2012,
+        "finish": 59,
+        "field": 92,
+        "pct": 0.659
+      },
+      {
+        "year": 2013,
+        "finish": 56,
+        "field": 92,
+        "pct": 0.648
+      },
+      {
+        "year": 2014,
+        "finish": 54,
+        "field": 92,
+        "pct": 0.593
+      },
+      {
+        "year": 2015,
+        "finish": 52,
+        "field": 92,
+        "pct": 0.593
+      },
+      {
+        "year": 2016,
+        "finish": 52,
+        "field": 92,
+        "pct": 0.56
+      },
+      {
+        "year": 2017,
+        "finish": 48,
+        "field": 92,
+        "pct": 0.56
+      },
+      {
+        "year": 2018,
+        "finish": 44,
+        "field": 92,
+        "pct": 0.516
+      },
+      {
+        "year": 2019,
+        "finish": 46,
+        "field": 91,
+        "pct": 0.478
+      },
+      {
+        "year": 2022,
+        "finish": 45,
+        "field": 85,
+        "pct": 0.536
+      },
+      {
+        "year": 2023,
+        "finish": 42,
+        "field": 85,
+        "pct": 0.512
+      },
+      {
+        "year": 2024,
+        "finish": 40,
+        "field": 85,
+        "pct": 0.488
+      },
+      {
+        "year": 2025,
+        "finish": 33,
+        "field": 85,
+        "pct": 0.464
+      },
+      {
+        "year": 2026,
+        "finish": 31,
+        "field": 85,
+        "pct": 0.381
+      }
+    ],
+    "Reuben (M)": [
+      {
+        "year": 2024,
+        "finish": 52,
+        "field": 85,
+        "pct": 0.643
+      },
+      {
+        "year": 2025,
+        "finish": 44,
+        "field": 85,
+        "pct": 0.595
+      },
+      {
+        "year": 2026,
+        "finish": 45,
+        "field": 85,
+        "pct": 0.512
+      }
+    ],
+    "Reuben (W)": [
+      {
+        "year": 2024,
+        "finish": 54,
+        "field": 74,
+        "pct": 0.795
+      },
+      {
+        "year": 2025,
+        "finish": 46,
+        "field": 85,
+        "pct": 0.643
+      },
+      {
+        "year": 2026,
+        "finish": 44,
+        "field": 85,
+        "pct": 0.536
+      }
+    ],
+    "Wolfson (M)": [
+      {
+        "year": 1969,
+        "finish": 97,
+        "field": 109,
+        "pct": 0.889
+      },
+      {
+        "year": 1970,
+        "finish": 98,
+        "field": 110,
+        "pct": 0.844
+      },
+      {
+        "year": 1971,
+        "finish": 93,
+        "field": 110,
+        "pct": 0.872
+      },
+      {
+        "year": 1972,
+        "finish": 89,
+        "field": 110,
+        "pct": 0.844
+      },
+      {
+        "year": 1973,
+        "finish": 82,
+        "field": 110,
+        "pct": 0.798
+      },
+      {
+        "year": 1974,
+        "finish": 44,
+        "field": 111,
+        "pct": 0.427
+      },
+      {
+        "year": 1975,
+        "finish": 41,
+        "field": 121,
+        "pct": 0.358
+      },
+      {
+        "year": 1976,
+        "finish": 36,
+        "field": 122,
+        "pct": 0.331
+      },
+      {
+        "year": 1977,
+        "finish": 37,
+        "field": 121,
+        "pct": 0.292
+      },
+      {
+        "year": 1978,
+        "finish": 37,
+        "field": 121,
+        "pct": 0.3
+      },
+      {
+        "year": 1979,
+        "finish": 36,
+        "field": 121,
+        "pct": 0.3
+      },
+      {
+        "year": 1980,
+        "finish": 34,
+        "field": 121,
+        "pct": 0.292
+      },
+      {
+        "year": 1981,
+        "finish": 36,
+        "field": 109,
+        "pct": 0.306
+      },
+      {
+        "year": 1982,
+        "finish": 32,
+        "field": 109,
+        "pct": 0.324
+      },
+      {
+        "year": 1983,
+        "finish": 30,
+        "field": 109,
+        "pct": 0.287
+      },
+      {
+        "year": 1984,
+        "finish": 27,
+        "field": 109,
+        "pct": 0.269
+      },
+      {
+        "year": 1985,
+        "finish": 25,
+        "field": 109,
+        "pct": 0.241
+      },
+      {
+        "year": 1986,
+        "finish": 22,
+        "field": 109,
+        "pct": 0.222
+      },
+      {
+        "year": 1987,
+        "finish": 24,
+        "field": 109,
+        "pct": 0.194
+      },
+      {
+        "year": 1988,
+        "finish": 23,
+        "field": 109,
+        "pct": 0.213
+      },
+      {
+        "year": 1989,
+        "finish": 21,
+        "field": 109,
+        "pct": 0.204
+      },
+      {
+        "year": 1990,
+        "finish": 20,
+        "field": 109,
+        "pct": 0.185
+      },
+      {
+        "year": 1991,
+        "finish": 17,
+        "field": 109,
+        "pct": 0.176
+      },
+      {
+        "year": 1992,
+        "finish": 19,
+        "field": 97,
+        "pct": 0.167
+      },
+      {
+        "year": 1993,
+        "finish": 21,
+        "field": 97,
+        "pct": 0.188
+      },
+      {
+        "year": 1994,
+        "finish": 22,
+        "field": 97,
+        "pct": 0.208
+      },
+      {
+        "year": 1995,
+        "finish": 26,
+        "field": 97,
+        "pct": 0.219
+      },
+      {
+        "year": 1996,
+        "finish": 24,
+        "field": 97,
+        "pct": 0.26
+      },
+      {
+        "year": 1997,
+        "finish": 27,
+        "field": 97,
+        "pct": 0.24
+      },
+      {
+        "year": 1998,
+        "finish": 25,
+        "field": 97,
+        "pct": 0.26
+      },
+      {
+        "year": 1999,
+        "finish": 27,
+        "field": 97,
+        "pct": 0.25
+      },
+      {
+        "year": 2000,
+        "finish": 26,
+        "field": 97,
+        "pct": 0.271
+      },
+      {
+        "year": 2001,
+        "finish": 26,
+        "field": 85,
+        "pct": 0.298
+      },
+      {
+        "year": 2002,
+        "finish": 24,
+        "field": 85,
+        "pct": 0.298
+      },
+      {
+        "year": 2003,
+        "finish": 23,
+        "field": 85,
+        "pct": 0.274
+      },
+      {
+        "year": 2004,
+        "finish": 26,
+        "field": 85,
+        "pct": 0.262
+      },
+      {
+        "year": 2005,
+        "finish": 26,
+        "field": 85,
+        "pct": 0.298
+      },
+      {
+        "year": 2006,
+        "finish": 22,
+        "field": 85,
+        "pct": 0.298
+      },
+      {
+        "year": 2007,
+        "finish": 20,
+        "field": 85,
+        "pct": 0.25
+      },
+      {
+        "year": 2008,
+        "finish": 16,
+        "field": 85,
+        "pct": 0.226
+      },
+      {
+        "year": 2009,
+        "finish": 12,
+        "field": 85,
+        "pct": 0.179
+      },
+      {
+        "year": 2010,
+        "finish": 8,
+        "field": 85,
+        "pct": 0.131
+      },
+      {
+        "year": 2011,
+        "finish": 4,
+        "field": 85,
+        "pct": 0.083
+      },
+      {
+        "year": 2012,
+        "finish": 4,
+        "field": 92,
+        "pct": 0.033
+      },
+      {
+        "year": 2013,
+        "finish": 5,
+        "field": 92,
+        "pct": 0.033
+      },
+      {
+        "year": 2014,
+        "finish": 7,
+        "field": 92,
+        "pct": 0.044
+      },
+      {
+        "year": 2015,
+        "finish": 5,
+        "field": 92,
+        "pct": 0.066
+      },
+      {
+        "year": 2016,
+        "finish": 5,
+        "field": 92,
+        "pct": 0.044
+      },
+      {
+        "year": 2017,
+        "finish": 5,
+        "field": 92,
+        "pct": 0.044
+      },
+      {
+        "year": 2018,
+        "finish": 6,
+        "field": 92,
+        "pct": 0.044
+      },
+      {
+        "year": 2019,
+        "finish": 7,
+        "field": 91,
+        "pct": 0.056
+      },
+      {
+        "year": 2022,
+        "finish": 5,
+        "field": 85,
+        "pct": 0.071
+      },
+      {
+        "year": 2023,
+        "finish": 4,
+        "field": 85,
+        "pct": 0.048
+      },
+      {
+        "year": 2024,
+        "finish": 4,
+        "field": 85,
+        "pct": 0.036
+      },
+      {
+        "year": 2025,
+        "finish": 1,
+        "field": 85,
+        "pct": 0.036
+      },
+      {
+        "year": 2026,
+        "finish": 2,
+        "field": 85,
+        "pct": 0.0
+      }
+    ]
+  },
+  "stability": {
+    "yoy_position_corr": 0.987,
+    "head_change_rate": {
+      "m": 0.5,
+      "w": 0.458
+    },
+    "n_consecutive_pairs": 10498
+  }
+}

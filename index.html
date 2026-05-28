@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Good crews get bumps, lucky crews get blades — the maths of Oxford Eights</title>
+<meta name="description" content="Two centuries of Oxford Summer Eights results, and what they reveal about how much of bumps racing is skill and how much is luck.">
+<meta property="og:title" content="Good crews get bumps, lucky crews get blades">
+<meta property="og:description" content="What two centuries of Oxford bumps racing reveal about skill, luck, and what you can actually predict.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/vendor/d3.min.js"></script>
+<script src="js/vendor/plot.umd.min.js"></script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Oxford Summer Eights</p>
+    <h1>Good crews get bumps,<br>lucky crews get blades.</h1>
+    <p class="dek">It's a line you hear on the towpath every May. We checked it against two centuries of results — and the data only half agrees. The half it gets wrong is the more interesting half.</p>
+    <p class="saying">— rowing proverb, origin unknown, repeated annually</p>
+    <p class="byline">An analysis of every Oxford Summer Eights since 1815. Updated for the 2026 races, with predictions for Friday's racing.</p>
+  </div>
+</header>
+
+<main>
+<section class="wrap">
+  <p class="lede">Oxford has a rowing problem: the river is too narrow to race side by side. So for one week each May the colleges line their eights up nose to tail, leave a length and a half of clear water between each boat, and at the gun they chase. Catch the crew in front — close that gap and touch them — and it's a <em>bump</em>. Both crews pull over, and the next day you start one place higher. Do it on all four days and you win your <em>blades</em>: a painted oar on the wall and a story you will tell for the rest of your life.</p>
+
+  <p>The whole event runs on a single, brutal idea: you can only move one place at a time, and only by catching the boat immediately ahead. That makes Eights feel like a pure test of speed. Pull harder than the crew in front, go up. It isn't.</p>
+
+  <p>We pulled together the result of every Summer Eights race we could find — two completely separate historical records, one reconstructed from newspapers and college archives, one from the modern results system. They agree on <strong>99.99%</strong> of the <strong>20,617</strong> crew-races where both exist, which is about as close to ground truth as sport ever gets. Then we asked the only question that matters to anyone sitting nervously in a boat at the start: <strong>how much of what's about to happen can you actually see coming?</strong></p>
+
+  <div class="stat-row">
+    <div class="stat"><div class="num" id="s-years">1815–2026</div><div class="lab">every Summer Eights on record</div></div>
+    <div class="stat"><div class="num" id="s-races">20,617</div><div class="lab">crew-races cross-checked across two sources</div></div>
+    <div class="stat"><div class="num">99.99%</div><div class="lab">of them agree, exactly</div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <span class="section-num">01</span>
+  <h2>In the large, it's almost boring</h2>
+  <p>Start with the good news for forecasters. Where a crew <em>finishes</em> the week is mostly settled before the week begins — because where you start is simply where you finished last year. Strong colleges sit near the top and stay there. The boat at the head of the river is, more often than not, still there on Saturday night.</p>
+  <p>Across the modern era, about <strong>one crew in three finishes within a single place of where it started</strong>. The typical crew moves a couple of places and no more. On any given day, the single most likely thing to happen to your boat is <strong>nothing</strong>: four crews in ten simply row the course and finish where they began.</p>
+  <figure class="full">
+    <div id="chart-movement" class="chart"></div>
+    <figcaption>Where crews end up relative to where they started, over a four-day Summer Eights (men's and women's first-and-lower boats, 1900 onwards). Most of the mass sits on zero. Blades (+4 or better) and spoons (−4 or worse) are the thin tails.</figcaption>
+  </figure>
+  <p>So at the scale of the whole regatta, bumps racing is fairly predictable. You will not wake up to find the seventh division has eaten the first. The drama is smaller, and it hides in the day-to-day.</p>
+</section>
+
+<section class="wrap">
+  <span class="section-num">02</span>
+  <h2>Up close, a bump is a coin toss</h2>
+  <p>Here's the catch the proverb is pointing at. Because crews are lined up in order of how good they were last year, the boat ahead of you is, by construction, the crew most similar in speed to your own. You are not chasing a random opponent. You are chasing your nearest equal.</p>
+  <p>That makes a single bump genuinely hard to call. The clearest tell isn't strength at all — it's <strong>momentum</strong>. A crew that bumped yesterday bumps again <strong>60%</strong> of the time. A crew that didn't manages it only <strong>18%</strong> of the time. Catch one boat and you tend to roll into the next; miss, and you tend to stall.</p>
+  <div class="pull">A crew that bumped yesterday bumps again three times out of five. A crew that didn't, fewer than one time in five. Bumps come in streaks.</div>
+  <p>How predictable is that, really? We trained models on everything known before racing begins — every crew's position, history and form — and tested them on years they had never seen. They land only just above a coin toss: an <span title="Area under the ROC curve: 0.5 is pure chance, 1.0 is perfect prediction.">AUC</span> of about <strong>0.59</strong>. The one strong tell appears only once the week is under way — momentum — and momentum is something that happens <em>to</em> a crew, not something it can bank in advance. Between two evenly matched boats, the day turns on a missed stroke, a touch of the bank, whichever cox holds their nerve through the Gut.</p>
+  <p>That coin-toss quality is at its sharpest on the first day, when nobody has shown their hand. After that it lifts, fast. Knowing only the form book, <strong>Wednesday is almost a toss-up</strong>. But once Wednesday has been rowed, Thursday comes into focus — and by Saturday the week has very nearly sorted itself out.</p>
+  <figure class="full">
+    <div id="chart-perday" class="chart"></div>
+    <figcaption>How well a model predicts each day's bumps (AUC: 0.5 is a coin toss, 1.0 is perfect). Day one is barely better than chance; by day four it is far more foreseeable. The leap is momentum — the moment a crew proves it can bump, the rest of its week snaps into view.</figcaption>
+  </figure>
+</section>
+
+<section class="wrap">
+  <span class="section-num">03</span>
+  <h2>The twist: blades can't be fluked</h2>
+  <p>Here's where the proverb gets it backwards. To win blades you need not one bump but four, on four consecutive days — and you'd assume that's exactly where luck takes over. It's the opposite.</p>
+  <p>We rebuilt the races from scratch: line the crews up, give every one of them the <em>same</em> speed, add the day's randomness and let them chase under the real rules. In that perfectly equal world — where nothing but luck decides anything — blades almost never happen. About <strong>one crew in 250</strong> manages it by chance alone. In real life, <strong>one in twelve</strong> does. That twenty-fold gap is the fingerprint of genuine speed: you cannot stumble into four bumps. Blades are earned.</p>
+  <figure class="full">
+    <div id="chart-luck" class="chart"></div>
+    <figcaption>If every crew were equally matched, blades would be vanishingly rare — about one crew in 250 (left). They actually happen about twenty times more often than that. The gap is skill, not luck.</figcaption>
+  </figure>
+  <p>So why does the towpath swear blades are lucky? Because of a rule that quietly decides seasons. <strong>When the boat you're chasing catches its own target and bumps out, it stops dead — and your next live target is suddenly three lengths up the river, out of reach.</strong> A crew can be quick enough to bump and still row over open water, robbed by a bump that happens in front of it. Being fast puts you in contention; whether the boats ahead stay catchable, four days running, is the draw. Most genuinely quick crews never get their blades — they simply run out of road.</p>
+  <p>You can see the same thing in <em>where</em> blades happen. They are rarest at the very top, where the best crews are packed together and evenly matched, and commonest in the lower divisions, where a quick crew meets uneven opposition and can cut straight through.</p>
+  <figure class="full">
+    <div id="chart-blades-div" class="chart"></div>
+    <figcaption>Share of crews winning blades, by the division they start in. Blades are not a head-of-the-river prize — they're hardest to win at the top, and easiest where the field is most uneven.</figcaption>
+  </figure>
+  <p id="luck-text">So the proverb is half right. A single bump, on the day, is close to a coin toss. But blades are no fluke — they take a genuinely fast crew. What luck decides is <em>which</em> of the fast crews gets to finish the set, four days running. That is the real grain of truth in "lucky crews get blades": not that the lucky win them, but that even the good need luck to complete them.</p>
+</section>
+
+<section class="wrap">
+  <span class="section-num">04</span>
+  <h2>What genuinely moves a crew</h2>
+  <p>None of this means skill is a myth. It means skill shows up as a thumb on the scale, not a guarantee — a crew that's truly faster than its position will, on average, drift upward over the years. So we measured each possible edge while holding starting position fixed, to separate "this crew was always going to be high" from "this actually helped."</p>
+  <p>Four things stand out, and two don't.</p>
+  <figure class="full">
+    <div id="chart-effects" class="chart"></div>
+    <figcaption>Estimated effect of each factor on places gained over a regatta, after accounting for where the crew started, its division, gender and the year. Bars are 95% confidence intervals; bars that cross the dashed line aren't distinguishable from no effect.</figcaption>
+  </figure>
+  <h3>Form carries over — especially from Torpids</h3>
+  <p>The best read on a crew is how the <em>same</em> squad rowed at Torpids, the colder, rougher bumps races back in February. Every place a crew gained at Torpids is worth about <strong>a fifth of a place</strong> again at Eights, on top of position. Last year's trajectory carries too: crews that climbed last May tend to keep climbing.</p>
+  <h3>A Blue in the boat is worth most of a place</h3>
+  <p>Count the Oxford Blue Boat rowers — the ones who raced Cambridge — sitting in a college crew, and each one is worth about <strong>+0.8 of a place</strong> over the week, even after you account for the fact that Blues tend to row for already-strong colleges. It's the largest clean effect we found. The catch: only about half of Oxford's Blues row college Eights at all, so most boats have none.</p>
+  <h3>What doesn't show up</h3>
+  <p>Keeping the same coach two years running looks helpful — about a third of a place — but once you account for how strong the crew already was, the evidence thins out; it could easily be chance. And the <strong>weather</strong>? Every crew races in the same conditions, so a wet day can't lift one boat over another. The only way weather could matter is by making the whole regatta more <em>chaotic</em> — more upsets, more results against the form book. Using Oxford's own two-century rain and temperature record, kept a mile from the river, we checked across 165 regattas. Rougher, wetter years are no more upset-prone than calm ones. On the Isis, the bumps come whatever the forecast.</p>
+</section>
+
+<section class="wrap">
+  <span class="section-num">05</span>
+  <h2>The long game</h2>
+  <p>Zoom out from the four days to the four decades, and a different kind of order appears. From one year to the next, a crew almost always begins where it finished — the river's pecking order barely shifts. Yet that stability is earned and lost slowly: the Headship itself changes hands in about <strong>half of all years</strong>. The summit is contested; the foothills are calm.</p>
+  <p>The real movement comes from new blood. When a college puts a boat on the river for the first time — or rebuilds one from nothing — it tends to climb for several seasons before levelling off, as the club gathers rowers, coaches and a culture. No crew shows this more cleanly than <strong>St Hilda's men</strong>. St Hilda's, the last of Oxford's women's colleges, admitted men in 2008; its men's eight first raced soon after, near the very bottom of the river. It has gone up almost every single year since.</p>
+  <figure class="full">
+    <div id="chart-sthildas" class="chart"></div>
+    <figcaption>St Hilda's men's first eight, year by year: 70th on the river in 2009, 31st in 2026 — a boat club being built in real time. Lower on the chart is higher up the river.</figcaption>
+  </figure>
+  <p>And it isn't a quirk of one college. Averaged across every crew's early life, a new first eight gains the most ground in its opening three or four seasons, then settles as it meets its natural level — the rising tide of a young club running into the gravity of the established order.</p>
+  <figure class="full">
+    <div id="chart-maturation" class="chart"></div>
+    <figcaption>Average places gained over a regatta, by how many seasons a crew has been racing. The steepest climbs come in a crew's first few years.</figcaption>
+  </figure>
+</section>
+
+<section class="wrap wide">
+  <span class="section-num">06</span>
+  <h2>Friday's racing, in probabilities</h2>
+  <p class="standfirst" id="pred-standfirst">Two days are gone in the 2026 races. Here's what our model expects when racing resumes — the chance each boat bumps up, holds, or gets caught. Check back Saturday and see how it did.</p>
+  <div class="tabs"><div class="tab active" data-g="men">Men</div><div class="tab" data-g="women">Women</div></div>
+  <div id="pred-blades"></div>
+  <figure><div id="pred-table"></div>
+  <figcaption>Model: an interpretable momentum-and-position model, validated by predicting years it never saw. It knows nothing of who's actually fit, injured or flying — so treat a single boat's number as a tendency, not a tip. The Head of the River cannot bump up; the bottom boat cannot be caught.</figcaption></figure>
+</section>
+
+<section class="wrap wide">
+  <span class="section-num">07</span>
+  <h2>Find your college</h2>
+  <p>Every college's first eight, all the way back. Pick one to see its climb and slide through the divisions, its headships and its blades — and, this year, where it stands.</p>
+  <div>
+    <select id="college-pick"></select>
+    <select id="gender-pick"><option value="m">Men</option><option value="w">Women</option></select>
+  </div>
+  <div id="lookup-result"></div>
+</section>
+
+<section class="wrap">
+  <details class="methods">
+    <summary>How this was done — the honest version</summary>
+    <div id="methods-body">
+      <h3>Where the numbers come from</h3>
+      <p>Two independent records of Oxford bumps racing: the bumps-chart archive maintained by Anu Dudhia (reconstructed from <em>The Times</em>, W. E. Sherwood's histories and, since the 1990s, official files) and the structured data behind <a href="https://bumps.live">bumps.live</a>. We reconstructed every crew's position on every day from each, independently, and kept results only where the two agree — they do, on 99.99% of the 20,617 crew-races they share. Crew lists, coaches and Oxford Blues come from bumps.live and Wikipedia's Boat Race crew tables (2007 onward). Weather is the Radcliffe Meteorological Station's daily record, the longest continuous series in Britain.</p>
+      <h3>What we actually modelled</h3>
+      <p>Three teams worked the same data separately, then we reconciled them and tried to break each other's claims. <strong>Predictability</strong> was measured out of sample — models were trained on some years and scored on years they had never seen — using standard scoring (Brier score, log-loss, AUC). <strong>Factor effects</strong> come from regressions that hold starting position (and division, gender and year) fixed, so we are reading the <em>extra</em> push from each factor, not the strength it's tangled up with; confidence intervals come from resampling whole regattas. <strong>Skill versus luck</strong> uses a mechanistic simulator of the chase — including the rule that a crew whose target bumps out loses its bump — calibrated so its bump, blades and spoons rates match reality, then re-run thousands of times to see how outcomes scatter when only luck changes.</p>
+      <h3>What to be careful about</h3>
+      <p>Results before about 1900 are patchier and are excluded from the headline figures. "Blues in the boat" counts the openweight Blue Boat only — lightweight and reserve (Isis/Osiris) crews aren't yet in the data, so the true count of elite rowers per boat is a little higher. Race-day weather is matched only approximately, since exact dates shift year to year. The factor effects are associations with confounders removed as far as the data allows; they are strong evidence, not laboratory proof. And the live predictions are a position-and-momentum model — they don't know who is fit or fast this week.</p>
+      <p class="small">Built with Python (pandas, scikit-learn, statsmodels) and a custom race simulator; charts with Observable Plot. Analysis and writing were done with substantial help from an AI system, and every headline figure was cross-checked against the raw data. Full method notes and code accompany this page.</p>
+    </div>
+  </details>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Good crews get bumps, lucky crews get blades.</strong></p>
+    <p class="small">Data: Anu Dudhia's Oxford bumps archive; bumps.live; OURCs; Wikipedia; the Radcliffe Meteorological Station, University of Oxford. This is an independent analysis, not affiliated with OURCs or any college. Figures cover Summer Eights; Torpids is used only as a predictor.</p>
+    <p class="small" id="footer-updated"></p>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

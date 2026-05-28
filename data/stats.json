@@ -1,0 +1,989 @@
+{
+  "coverage": {
+    "years": [
+      1826,
+      2026
+    ],
+    "crew_appearances": 22317,
+    "eights_clean_appearances": 11829,
+    "crossval_overlap": 20617,
+    "crossval_finish_agreement": 0.9999
+  },
+  "per_day_outcomes": {
+    "row_over": 0.373,
+    "bump_up": 0.309,
+    "bumped": 0.318
+  },
+  "stickiness": {
+    "within_1_place": 0.329,
+    "blades_rate": 0.087,
+    "spoons_rate": 0.105,
+    "net_sd": 2.92
+  },
+  "move_distribution": [
+    {
+      "net": -6,
+      "count": 231
+    },
+    {
+      "net": -5,
+      "count": 196
+    },
+    {
+      "net": -4,
+      "count": 1131
+    },
+    {
+      "net": -3,
+      "count": 1269
+    },
+    {
+      "net": -2,
+      "count": 1142
+    },
+    {
+      "net": -1,
+      "count": 1301
+    },
+    {
+      "net": 0,
+      "count": 1391
+    },
+    {
+      "net": 1,
+      "count": 1200
+    },
+    {
+      "net": 2,
+      "count": 1205
+    },
+    {
+      "net": 3,
+      "count": 1240
+    },
+    {
+      "net": 4,
+      "count": 956
+    },
+    {
+      "net": 5,
+      "count": 328
+    },
+    {
+      "net": 6,
+      "count": 239
+    }
+  ],
+  "over_time": [
+    {
+      "year": 1900,
+      "blades": 0.095,
+      "spoons": 0.19,
+      "n": 21
+    },
+    {
+      "year": 1901,
+      "blades": 0.0,
+      "spoons": 0.045,
+      "n": 22
+    },
+    {
+      "year": 1902,
+      "blades": 0.0,
+      "spoons": 0.045,
+      "n": 22
+    },
+    {
+      "year": 1903,
+      "blades": 0.0,
+      "spoons": 0.091,
+      "n": 22
+    },
+    {
+      "year": 1904,
+      "blades": 0.0,
+      "spoons": 0.0,
+      "n": 22
+    },
+    {
+      "year": 1905,
+      "blades": 0.045,
+      "spoons": 0.0,
+      "n": 22
+    },
+    {
+      "year": 1906,
+      "blades": 0.136,
+      "spoons": 0.182,
+      "n": 22
+    },
+    {
+      "year": 1907,
+      "blades": 0.0,
+      "spoons": 0.0,
+      "n": 22
+    },
+    {
+      "year": 1908,
+      "blades": 0.037,
+      "spoons": 0.037,
+      "n": 27
+    },
+    {
+      "year": 1909,
+      "blades": 0.0,
+      "spoons": 0.0,
+      "n": 31
+    },
+    {
+      "year": 1910,
+      "blades": 0.0,
+      "spoons": 0.065,
+      "n": 31
+    },
+    {
+      "year": 1911,
+      "blades": 0.062,
+      "spoons": 0.031,
+      "n": 32
+    },
+    {
+      "year": 1912,
+      "blades": 0.1,
+      "spoons": 0.067,
+      "n": 30
+    },
+    {
+      "year": 1913,
+      "blades": 0.061,
+      "spoons": 0.061,
+      "n": 33
+    },
+    {
+      "year": 1914,
+      "blades": 0.0,
+      "spoons": 0.032,
+      "n": 31
+    },
+    {
+      "year": 1919,
+      "blades": 0.071,
+      "spoons": 0.036,
+      "n": 28
+    },
+    {
+      "year": 1920,
+      "blades": 0.033,
+      "spoons": 0.033,
+      "n": 30
+    },
+    {
+      "year": 1921,
+      "blades": 0.029,
+      "spoons": 0.0,
+      "n": 34
+    },
+    {
+      "year": 1922,
+      "blades": 0.029,
+      "spoons": 0.029,
+      "n": 35
+    },
+    {
+      "year": 1923,
+      "blades": 0.081,
+      "spoons": 0.162,
+      "n": 37
+    },
+    {
+      "year": 1924,
+      "blades": 0.026,
+      "spoons": 0.184,
+      "n": 38
+    },
+    {
+      "year": 1925,
+      "blades": 0.026,
+      "spoons": 0.103,
+      "n": 39
+    },
+    {
+      "year": 1926,
+      "blades": 0.05,
+      "spoons": 0.1,
+      "n": 40
+    },
+    {
+      "year": 1927,
+      "blades": 0.024,
+      "spoons": 0.073,
+      "n": 41
+    },
+    {
+      "year": 1928,
+      "blades": 0.119,
+      "spoons": 0.071,
+      "n": 42
+    },
+    {
+      "year": 1929,
+      "blades": 0.047,
+      "spoons": 0.023,
+      "n": 43
+    },
+    {
+      "year": 1930,
+      "blades": 0.021,
+      "spoons": 0.043,
+      "n": 47
+    },
+    {
+      "year": 1931,
+      "blades": 0.059,
+      "spoons": 0.059,
+      "n": 51
+    },
+    {
+      "year": 1932,
+      "blades": 0.089,
+      "spoons": 0.107,
+      "n": 56
+    },
+    {
+      "year": 1933,
+      "blades": 0.055,
+      "spoons": 0.073,
+      "n": 55
+    },
+    {
+      "year": 1934,
+      "blades": 0.127,
+      "spoons": 0.073,
+      "n": 55
+    },
+    {
+      "year": 1935,
+      "blades": 0.034,
+      "spoons": 0.052,
+      "n": 58
+    },
+    {
+      "year": 1936,
+      "blades": 0.083,
+      "spoons": 0.083,
+      "n": 60
+    },
+    {
+      "year": 1937,
+      "blades": 0.095,
+      "spoons": 0.127,
+      "n": 63
+    },
+    {
+      "year": 1938,
+      "blades": 0.063,
+      "spoons": 0.111,
+      "n": 63
+    },
+    {
+      "year": 1939,
+      "blades": 0.049,
+      "spoons": 0.098,
+      "n": 61
+    },
+    {
+      "year": 1946,
+      "blades": 0.086,
+      "spoons": 0.103,
+      "n": 58
+    },
+    {
+      "year": 1947,
+      "blades": 0.071,
+      "spoons": 0.086,
+      "n": 70
+    },
+    {
+      "year": 1948,
+      "blades": 0.055,
+      "spoons": 0.164,
+      "n": 73
+    },
+    {
+      "year": 1949,
+      "blades": 0.08,
+      "spoons": 0.069,
+      "n": 87
+    },
+    {
+      "year": 1950,
+      "blades": 0.118,
+      "spoons": 0.188,
+      "n": 85
+    },
+    {
+      "year": 1951,
+      "blades": 0.094,
+      "spoons": 0.106,
+      "n": 85
+    },
+    {
+      "year": 1952,
+      "blades": 0.099,
+      "spoons": 0.136,
+      "n": 81
+    },
+    {
+      "year": 1953,
+      "blades": 0.118,
+      "spoons": 0.153,
+      "n": 85
+    },
+    {
+      "year": 1954,
+      "blades": 0.071,
+      "spoons": 0.082,
+      "n": 85
+    },
+    {
+      "year": 1955,
+      "blades": 0.059,
+      "spoons": 0.176,
+      "n": 85
+    },
+    {
+      "year": 1956,
+      "blades": 0.118,
+      "spoons": 0.141,
+      "n": 85
+    },
+    {
+      "year": 1957,
+      "blades": 0.118,
+      "spoons": 0.118,
+      "n": 85
+    },
+    {
+      "year": 1958,
+      "blades": 0.035,
+      "spoons": 0.118,
+      "n": 85
+    },
+    {
+      "year": 1959,
+      "blades": 0.118,
+      "spoons": 0.106,
+      "n": 85
+    },
+    {
+      "year": 1960,
+      "blades": 0.071,
+      "spoons": 0.082,
+      "n": 85
+    },
+    {
+      "year": 1961,
+      "blades": 0.094,
+      "spoons": 0.118,
+      "n": 85
+    },
+    {
+      "year": 1962,
+      "blades": 0.081,
+      "spoons": 0.128,
+      "n": 86
+    },
+    {
+      "year": 1963,
+      "blades": 0.188,
+      "spoons": 0.2,
+      "n": 85
+    },
+    {
+      "year": 1964,
+      "blades": 0.129,
+      "spoons": 0.129,
+      "n": 85
+    },
+    {
+      "year": 1965,
+      "blades": 0.106,
+      "spoons": 0.106,
+      "n": 85
+    },
+    {
+      "year": 1966,
+      "blades": 0.155,
+      "spoons": 0.144,
+      "n": 97
+    },
+    {
+      "year": 1967,
+      "blades": 0.083,
+      "spoons": 0.139,
+      "n": 108
+    },
+    {
+      "year": 1968,
+      "blades": 0.135,
+      "spoons": 0.135,
+      "n": 96
+    },
+    {
+      "year": 1969,
+      "blades": 0.156,
+      "spoons": 0.174,
+      "n": 109
+    },
+    {
+      "year": 1970,
+      "blades": 0.164,
+      "spoons": 0.209,
+      "n": 110
+    },
+    {
+      "year": 1971,
+      "blades": 0.118,
+      "spoons": 0.164,
+      "n": 110
+    },
+    {
+      "year": 1972,
+      "blades": 0.145,
+      "spoons": 0.127,
+      "n": 110
+    },
+    {
+      "year": 1973,
+      "blades": 0.109,
+      "spoons": 0.145,
+      "n": 110
+    },
+    {
+      "year": 1974,
+      "blades": 0.117,
+      "spoons": 0.09,
+      "n": 111
+    },
+    {
+      "year": 1975,
+      "blades": 0.074,
+      "spoons": 0.149,
+      "n": 121
+    },
+    {
+      "year": 1976,
+      "blades": 0.075,
+      "spoons": 0.082,
+      "n": 134
+    },
+    {
+      "year": 1977,
+      "blades": 0.09,
+      "spoons": 0.104,
+      "n": 134
+    },
+    {
+      "year": 1978,
+      "blades": 0.075,
+      "spoons": 0.062,
+      "n": 146
+    },
+    {
+      "year": 1979,
+      "blades": 0.048,
+      "spoons": 0.11,
+      "n": 146
+    },
+    {
+      "year": 1980,
+      "blades": 0.063,
+      "spoons": 0.063,
+      "n": 158
+    },
+    {
+      "year": 1981,
+      "blades": 0.039,
+      "spoons": 0.026,
+      "n": 154
+    },
+    {
+      "year": 1982,
+      "blades": 0.104,
+      "spoons": 0.11,
+      "n": 154
+    },
+    {
+      "year": 1983,
+      "blades": 0.095,
+      "spoons": 0.127,
+      "n": 158
+    },
+    {
+      "year": 1984,
+      "blades": 0.057,
+      "spoons": 0.095,
+      "n": 158
+    },
+    {
+      "year": 1985,
+      "blades": 0.088,
+      "spoons": 0.112,
+      "n": 170
+    },
+    {
+      "year": 1986,
+      "blades": 0.1,
+      "spoons": 0.076,
+      "n": 170
+    },
+    {
+      "year": 1987,
+      "blades": 0.124,
+      "spoons": 0.159,
+      "n": 170
+    },
+    {
+      "year": 1988,
+      "blades": 0.135,
+      "spoons": 0.112,
+      "n": 170
+    },
+    {
+      "year": 1989,
+      "blades": 0.082,
+      "spoons": 0.094,
+      "n": 170
+    },
+    {
+      "year": 1990,
+      "blades": 0.1,
+      "spoons": 0.112,
+      "n": 170
+    },
+    {
+      "year": 1991,
+      "blades": 0.094,
+      "spoons": 0.1,
+      "n": 170
+    },
+    {
+      "year": 1992,
+      "blades": 0.095,
+      "spoons": 0.07,
+      "n": 158
+    },
+    {
+      "year": 1993,
+      "blades": 0.038,
+      "spoons": 0.051,
+      "n": 158
+    },
+    {
+      "year": 1994,
+      "blades": 0.095,
+      "spoons": 0.082,
+      "n": 158
+    },
+    {
+      "year": 1995,
+      "blades": 0.108,
+      "spoons": 0.089,
+      "n": 158
+    },
+    {
+      "year": 1996,
+      "blades": 0.076,
+      "spoons": 0.108,
+      "n": 158
+    },
+    {
+      "year": 1997,
+      "blades": 0.12,
+      "spoons": 0.12,
+      "n": 158
+    },
+    {
+      "year": 1998,
+      "blades": 0.057,
+      "spoons": 0.089,
+      "n": 158
+    },
+    {
+      "year": 1999,
+      "blades": 0.082,
+      "spoons": 0.12,
+      "n": 158
+    },
+    {
+      "year": 2000,
+      "blades": 0.025,
+      "spoons": 0.082,
+      "n": 158
+    },
+    {
+      "year": 2001,
+      "blades": 0.101,
+      "spoons": 0.114,
+      "n": 158
+    },
+    {
+      "year": 2002,
+      "blades": 0.051,
+      "spoons": 0.07,
+      "n": 158
+    },
+    {
+      "year": 2003,
+      "blades": 0.051,
+      "spoons": 0.07,
+      "n": 158
+    },
+    {
+      "year": 2004,
+      "blades": 0.101,
+      "spoons": 0.127,
+      "n": 158
+    },
+    {
+      "year": 2005,
+      "blades": 0.063,
+      "spoons": 0.108,
+      "n": 158
+    },
+    {
+      "year": 2006,
+      "blades": 0.101,
+      "spoons": 0.095,
+      "n": 158
+    },
+    {
+      "year": 2007,
+      "blades": 0.109,
+      "spoons": 0.09,
+      "n": 156
+    },
+    {
+      "year": 2008,
+      "blades": 0.07,
+      "spoons": 0.114,
+      "n": 158
+    },
+    {
+      "year": 2009,
+      "blades": 0.044,
+      "spoons": 0.089,
+      "n": 158
+    },
+    {
+      "year": 2010,
+      "blades": 0.114,
+      "spoons": 0.089,
+      "n": 158
+    },
+    {
+      "year": 2011,
+      "blades": 0.12,
+      "spoons": 0.089,
+      "n": 158
+    },
+    {
+      "year": 2012,
+      "blades": 0.07,
+      "spoons": 0.123,
+      "n": 171
+    },
+    {
+      "year": 2013,
+      "blades": 0.088,
+      "spoons": 0.105,
+      "n": 171
+    },
+    {
+      "year": 2014,
+      "blades": 0.094,
+      "spoons": 0.117,
+      "n": 171
+    },
+    {
+      "year": 2015,
+      "blades": 0.099,
+      "spoons": 0.135,
+      "n": 171
+    },
+    {
+      "year": 2016,
+      "blades": 0.099,
+      "spoons": 0.146,
+      "n": 171
+    },
+    {
+      "year": 2017,
+      "blades": 0.088,
+      "spoons": 0.135,
+      "n": 170
+    },
+    {
+      "year": 2018,
+      "blades": 0.094,
+      "spoons": 0.105,
+      "n": 171
+    },
+    {
+      "year": 2019,
+      "blades": 0.083,
+      "spoons": 0.125,
+      "n": 168
+    },
+    {
+      "year": 2022,
+      "blades": 0.125,
+      "spoons": 0.113,
+      "n": 168
+    },
+    {
+      "year": 2023,
+      "blades": 0.059,
+      "spoons": 0.118,
+      "n": 170
+    },
+    {
+      "year": 2024,
+      "blades": 0.075,
+      "spoons": 0.113,
+      "n": 159
+    },
+    {
+      "year": 2025,
+      "blades": 0.112,
+      "spoons": 0.082,
+      "n": 170
+    }
+  ],
+  "blades_by_division": [
+    {
+      "division": 1,
+      "blades_rate": 0.029,
+      "n": 174
+    },
+    {
+      "division": 2,
+      "blades_rate": 0.075,
+      "n": 174
+    },
+    {
+      "division": 3,
+      "blades_rate": 0.08,
+      "n": 174
+    },
+    {
+      "division": 4,
+      "blades_rate": 0.08,
+      "n": 174
+    },
+    {
+      "division": 5,
+      "blades_rate": 0.144,
+      "n": 174
+    },
+    {
+      "division": 6,
+      "blades_rate": 0.119,
+      "n": 168
+    },
+    {
+      "division": 7,
+      "blades_rate": 0.119,
+      "n": 134
+    }
+  ],
+  "momentum": {
+    "after_bump": 0.596,
+    "after_no_bump": 0.178
+  },
+  "blues_assoc": [
+    {
+      "n_blues": 0,
+      "mean_net": -0.051,
+      "n": 2691
+    },
+    {
+      "n_blues": 1,
+      "mean_net": 1.109,
+      "n": 101
+    },
+    {
+      "n_blues": 2,
+      "mean_net": 1.4,
+      "n": 15
+    },
+    {
+      "n_blues": 3,
+      "mean_net": -0.333,
+      "n": 3
+    }
+  ],
+  "coach_assoc": {
+    "False": {
+      "mean_net": -0.138,
+      "n": 1806
+    },
+    "True": {
+      "mean_net": 0.282,
+      "n": 478
+    }
+  },
+  "blades_funnel": {
+    "absolute": [
+      0.312,
+      0.18,
+      0.121,
+      0.087
+    ],
+    "conditional": [
+      0.312,
+      0.576,
+      0.674,
+      0.715
+    ],
+    "labels": [
+      "bump day 1",
+      "again day 2",
+      "again day 3",
+      "again day 4 = blades"
+    ]
+  },
+  "effects": [
+    {
+      "term": "n_blues (+1 Blue-Boat rower)",
+      "coef": 0.83,
+      "lo": 0.55,
+      "hi": 1.12,
+      "p": 6.335391512103618e-09
+    },
+    {
+      "term": "same_coach (continuity)",
+      "coef": 0.26,
+      "lo": -0.04,
+      "hi": 0.57,
+      "p": 0.0920681001701719
+    },
+    {
+      "term": "prev_net_places (last year)",
+      "coef": 0.15,
+      "lo": 0.1,
+      "hi": 0.2,
+      "p": 2.2990208515802098e-10
+    },
+    {
+      "term": "tor_net (same-year Torpids)",
+      "coef": 0.21,
+      "lo": 0.17,
+      "hi": 0.25,
+      "p": 2.068127819306194e-27
+    },
+    {
+      "term": "race-week rainfall (mm)",
+      "coef": 0.0,
+      "lo": -0.0,
+      "hi": 0.01,
+      "p": 0.06695486208778602
+    },
+    {
+      "term": "race-week mean Tmax (C)",
+      "coef": -0.03,
+      "lo": -0.06,
+      "hi": 0.01,
+      "p": 0.14285397441763148
+    }
+  ],
+  "reconciled": {
+    "_note": "Reconciled headline numbers across the three independent analyses (predictability, factors, luck-skill) plus the main author's own simulator checks. Conservative where analyses disagreed.",
+    "cross_source": {
+      "overlap": 20617,
+      "finish_agreement": 0.9999
+    },
+    "stickiness": {
+      "within_1_place": 0.33,
+      "net_sd": 2.9,
+      "per_day": {
+        "row_over": 0.37,
+        "bump_up": 0.31,
+        "bumped": 0.32
+      }
+    },
+    "predictability": {
+      "single_bump_preweek_auc": 0.59,
+      "single_bump_preweek_auc_ci": [
+        0.576,
+        0.605
+      ],
+      "blades_preweek_auc": 0.66,
+      "note": "Before racing, a single day's bump is barely more predictable than a coin toss. Momentum within the week is the one strong tell.",
+      "momentum_after_bump": 0.6,
+      "momentum_after_no_bump": 0.18,
+      "with_momentum_auc": 0.81
+    },
+    "luck_skill": {
+      "blades_rate_observed": 0.085,
+      "blades_rate_pure_luck_floor": 0.004,
+      "excess_ratio": 21,
+      "blades_share_to_stronger_half": 0.9,
+      "interpretation": "Blades cannot be fluked: if every crew were equally fast, blades would happen ~0.4% of the time; in reality ~8.5%, about 20x more. The excess is genuine speed. But most fast crews still miss out \u2014 finishing all four depends on the draw (catchable boats ahead, targets not bumping out). So: a good crew is necessary; a kind draw decides which good crews complete the set."
+    },
+    "factors_controlled_per_place": [
+      {
+        "factor": "Each place gained at same-year Torpids",
+        "effect": 0.21,
+        "ci": [
+          0.17,
+          0.25
+        ],
+        "verdict": "strong"
+      },
+      {
+        "factor": "Each Oxford Blue Boat rower in the crew",
+        "effect": 0.83,
+        "ci": [
+          0.55,
+          1.12
+        ],
+        "verdict": "strong"
+      },
+      {
+        "factor": "Each place gained the previous year",
+        "effect": 0.15,
+        "ci": [
+          0.1,
+          0.2
+        ],
+        "verdict": "strong"
+      },
+      {
+        "factor": "Same coach as last year",
+        "effect": 0.26,
+        "ci": [
+          -0.04,
+          0.57
+        ],
+        "verdict": "weak/uncertain"
+      },
+      {
+        "factor": "Race-week weather (rain, temperature)",
+        "effect": 0.0,
+        "ci": [
+          -0.05,
+          0.05
+        ],
+        "verdict": "no detectable effect"
+      }
+    ],
+    "blades_funnel_absolute": [
+      0.31,
+      0.18,
+      0.12,
+      0.087
+    ],
+    "reconciliation_notes": "Predictability AUC depends on what you condition on: pre-week info alone gives ~0.59 for a single bump (near chance); adding within-week momentum lifts day-to-day prediction to ~0.81 but momentum is reactive, not foreknowledge. The luck-floor (0.4% blades under equal strengths) was confirmed by two independent simulators. The 'blades = mostly skill' result reverses the naive reading of the proverb and is robust to calibration; the exact concentration share (~90% to the stronger half) is calibration-sensitive and reported approximately."
+  }
+}
