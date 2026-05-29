@@ -84,7 +84,7 @@
         <span class="tag">Skill and the draw</span>
         <h3>Blades are earned, not fluked</h3>
         <div id="chart-luck" class="chart"></div>
-        <p>Simulate a season where every crew is identical and blades almost never happen. They occur about <strong id="l-excess">11×</strong> more often than that — you can't stumble into four bumps. Yet <strong id="l-repeat">86%</strong> of crews that win them hadn't the year before. Speed buys the ticket; the draw decides who completes the set.</p>
+        <p>Simulate a season where every crew is identical and blades almost never happen. They occur about <strong id="l-excess">11×</strong> more often — you can't fluke four bumps. But the draw gates it, and it barely depends on you: if the boat you're chasing is caught and sits in front of you, you go through about <strong>3 in 5</strong> times; if it bumps out and pulls up the river, your chance falls to about <strong>1 in 20</strong>. So <strong id="l-repeat">86%</strong> of crews that blade hadn't the year before — speed buys the ticket, the draw completes the set.</p>
       </div>
 
     </div>
@@ -96,7 +96,7 @@
       <h3>Data</h3>
       <p>Two independent records of every Oxford bumps race — Anu Dudhia's archive and the data behind <a href="https://bumps.live">bumps.live</a> — reconstructed separately and kept only where they agree, which they do on 99.99% of the 20,617 crew-races they share (1826–2026). Crews, coxes and coaches (2007 on) come from bumps.live; Oxford Blues from Wikipedia's Boat Race tables; weather from the Radcliffe Meteorological Station.</p>
       <h3>The model</h3>
-      <p>The board is a single head-to-head model: for each adjacent pair it estimates the chance the chasing crew catches the boat ahead, from the difference between the two crews (form this week, last year's finish, same-year Torpids, Blues aboard, squad continuity) and the target's own pace. It is validated out of sample — trained on some years, scored on years it never saw — at an AUC of about 0.81. Each prediction is decomposed into the factors that moved it.</p>
+      <p>The board is a single head-to-head model: for each adjacent pair it estimates the chance the chasing crew catches the boat ahead, from the difference between the two crews (form this week, last year's finish, same-year Torpids, Blues aboard, squad continuity) and the target's own pace. It is validated by walk-forward — trained only on the past, scored on later years it never saw — at an AUC of about 0.81, a Brier skill of 0.23 over a "nothing changes" baseline, and was independently reproduced by a separate analysis. Almost all of that predictive power is current-week form; the pre-race factors separate crews but add little once the week's racing is known. Each prediction is decomposed into the factors behind it.</p>
       <h3>Skill versus luck</h3>
       <p>A mechanistic simulator of the chase — including the rule that a crew whose target bumps out loses its bump — is calibrated to reproduce the real rates of bumps, blades and spoons, then re-run to see how outcomes scatter when only the draw changes. Stability across years is reported in places moved and transition rates, never as a correlation (which is ~0.99 by construction across seven divisions and says nothing).</p>
       <h3>Caveats</h3>

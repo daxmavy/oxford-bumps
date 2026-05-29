@@ -4,6 +4,10 @@
   "head_to_head": {
     "_note": "The natural unit: each boat vs the boat directly ahead. OOS AUC 0.805 (modern, 18,340 pairs). Factors by odds ratio per SD:",
     "oos_auc": 0.805,
+    "walk_forward_auc": 0.808,
+    "walk_forward_auc_sd": 0.022,
+    "brier_skill_vs_naive": 0.228,
+    "independent_validation": "A separate mechanistic analysis reproduced every head-to-head claim out-of-sample; almost all predictive skill comes from revealed current-week form (dropping it collapses AUC to 0.58).",
     "factors_or_per_sd": {
       "form_so_far_this_week": 3.31,
       "torpids_form": 1.40,
@@ -38,7 +42,10 @@
     "blades_repeat_rate": 0.158,
     "blades_repeat_base": 0.074,
     "blades_share_didnt_blade_prior_year": 0.86,
-    "interpretation": "Blades aren't flukes (>10x the equal-crews floor => genuine speed needed) but barely repeat (86% of winners hadn't bladed the year before) => being good is necessary; the draw decides which good crews complete the set."
+    "catch_rate_if_target_caught": 0.614,
+    "catch_rate_if_target_bumped_out": 0.046,
+    "catch_rate_note": "verified independently on ~35k adjacent pairs: P(bump today) is 61% if the boat ahead was caught yesterday vs 4.6% if it bumped up/receded.",
+    "interpretation": "Blades are skill-FILTERED but luck-GATED. Skill is necessary: ~8.5% observed is ~11x the ~0.8% equal-crews luck floor, so you can't fluke four bumps. But it isn't sufficient: whether you bump barely depends on you -- catch rate ~61% if your target is caught and sitting in front of you, ~5% if it bumps out and recedes up the river -- so even a dominant crew tops out around 40-65% a day, and only 14% of blade-winners repeat. A good crew is necessary; a kind draw decides which good crew completes the set."
   },
   "factors_controlled_per_place": [
     {"factor": "Each place gained at same-year Torpids", "effect": 0.21, "ci": [0.17, 0.25], "verdict": "strong"},
