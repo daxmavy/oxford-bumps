@@ -223,7 +223,7 @@ function renderLookup(colleges, h2h, preds, college, g) {
   const renderBlades = () => {
     const el = document.getElementById("blades-strip"); if (!el) return;
     const rows = (preds[gender] || []).filter(r => r.on_for_blades).sort((a, b) => (b.p_complete_blades || 0) - (a.p_complete_blades || 0));
-    el.innerHTML = rows.length ? rows.slice(0, 10).map(r => `<span class="bw"><span class="bw-c">${r.college}${r.boat > 1 ? " " + r.boat : ""}</span> <span class="bw-p">${pct(r.p_complete_blades)}</span></span>`).join("") : `<span class="small">No crews still on for blades.</span>`;
+    el.innerHTML = rows.length ? rows.map(r => `<span class="bw"><span class="bw-c">${r.college}${r.boat > 1 ? " " + r.boat : ""}</span> <span class="bw-p">${pct(r.p_complete_blades)}</span></span>`).join("") : `<span class="small">No crews still on for blades.</span>`;
   };
   const renderFieldSummary = () => {
     const el = document.getElementById("field-summary"); if (!el) return;
