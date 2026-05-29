@@ -23,33 +23,62 @@
       "row_over": 0.366,
       "bump_up": 0.312,
       "bumped": 0.322,
-      "auc_bump": 0.535
+      "auc_bump": 0.657,
+      "posterior_sd": 1.51
     },
     {
       "day": 2,
       "row_over": 0.363,
       "bump_up": 0.315,
       "bumped": 0.322,
-      "auc_bump": 0.771
+      "auc_bump": 0.843,
+      "posterior_sd": 1.22
     },
     {
       "day": 3,
       "row_over": 0.359,
       "bump_up": 0.315,
       "bumped": 0.326,
-      "auc_bump": 0.815
+      "auc_bump": 0.861,
+      "posterior_sd": 1.09
     },
     {
       "day": 4,
       "row_over": 0.375,
       "bump_up": 0.308,
       "bumped": 0.317,
-      "auc_bump": 0.824
+      "auc_bump": 0.865,
+      "posterior_sd": 0.99
     }
   ],
+  "skill_model": {
+    "oos_auc_by_day": {
+      "1": 0.657,
+      "2": 0.843,
+      "3": 0.861,
+      "4": 0.865
+    },
+    "posterior_sd_by_day": {
+      "1": 1.51,
+      "2": 1.22,
+      "3": 1.09,
+      "4": 0.99
+    },
+    "continuity_auc_gain_day4": 0.005
+  },
+  "simulator": {
+    "calibrated_sigma": 1.9,
+    "sim_bump_rate": 0.296,
+    "observed_bump_rate": 0.291,
+    "sim_overbump_rate": 0.019,
+    "observed_overbump_rate": 0.016,
+    "overbump_consistency_share_chain_cleared": 1.0,
+    "sandwich_reaches_div_above": 0.853,
+    "deep_crew_reaches_div_above": 0.0
+  },
   "luck_skill": {
     "blades_rate_observed": 0.087,
-    "blades_rate_pure_luck_floor": 0.009,
+    "blades_rate_pure_luck_floor": 0.01,
     "excess_ratio": 9,
     "blades_repeat_rate": 0.169,
     "blades_repeat_base": 0.079,

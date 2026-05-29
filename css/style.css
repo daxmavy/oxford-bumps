@@ -101,8 +101,10 @@ header.top h1 em{font-style:normal;color:var(--oxford)}
 .wf{margin:2px 0}
 
 /* ===== why panels ===== */
-.why{border-top:1px solid var(--line);margin-top:34px;padding-top:8px}
-.why .lead{font-family:var(--serif);font-size:1.05rem;color:#403a31;max-width:720px}
+.why,.skill{border-top:1px solid var(--line);margin-top:34px;padding-top:8px}
+.why .lead,.skill .lead{font-family:var(--serif);font-size:1.05rem;color:#403a31;max-width:720px}
+.skill .chart{width:100%;margin:14px 0 6px}
+.skill .small{max-width:720px}
 .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:18px}
 .panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 18px 14px}
 .panel .tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;color:var(--gold);font-weight:700}

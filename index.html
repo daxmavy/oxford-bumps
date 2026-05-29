@@ -57,14 +57,23 @@
 
     <div id="board"><p class="small">Loading the board…</p></div>
 
-    <p class="small" style="margin-top:10px">Each crew is shown chasing the boat directly ahead. The bar reads both ways from the centre — <span style="color:var(--up);font-weight:600">green</span> is its chance of bumping up on <span id="day-label-2">the next day</span>, <span style="color:var(--down);font-weight:600">red</span> its chance of being caught from behind. Most bars are short: between two crews seeded as near-equals, the day is close to a toss-up. Highlight a college to find its boats; tap any crew for why. The model reads relative form, squad and Blues — not who's injured or flying this week — so don't over-read any single one.</p>
+    <p class="small" style="margin-top:10px">Each crew is shown chasing the boat directly ahead. The bar reads both ways from the centre — <span style="color:var(--up);font-weight:600">green</span> is its chance of bumping up on <span id="day-label-2">the next day</span> (an over-bump counts), <span style="color:var(--down);font-weight:600">red</span> its chance of being caught from behind. Most bars are short: between two crews seeded as near-equals, the day is close to a toss-up. Highlight a college to find its boats; tap any crew for why. The model reads relative form, squad and Blues — not who's injured or flying this week — so don't over-read any single one.</p>
+  </section>
+
+  <!-- ===== SKILL LADDER ===== -->
+  <section class="skill" aria-label="Crew skill estimates">
+    <p class="kicker">The model's read</p>
+    <h2>How fast is each crew — and how sure are we?</h2>
+    <p class="lead">Underneath every prediction is one number per crew: an estimate of its speed, with a band for how confident the model is. The estimate starts from the seeding and last year, then sharpens with each day's racing. Wide band, hard to call; narrow band, the model has made up its mind. Highlight a college to pick out its boats.</p>
+    <div id="chart-skill" class="chart"></div>
+    <p class="small">Each crew's estimated pace relative to the field average, in the model's own units; the line through it spans one standard deviation either side — the model's uncertainty. A crew well clear of the field with a tight band is a near-certainty to hold or climb; two crews whose bands overlap heavily are, on this evidence, a toss-up.</p>
   </section>
 
   <!-- ===== WHY PANELS ===== -->
   <section class="why">
     <p class="kicker">Behind the numbers</p>
     <h2>What the board is reading</h2>
-    <p class="lead">One model, trained on two centuries of racing and scored only on years it had never seen, produces every figure above. Three things stand out.</p>
+    <p class="lead">The same approach, checked against two centuries of racing and scored only on years it had never seen, sits behind every figure above. Three things stand out.</p>
 
     <div class="panels">
 
@@ -79,7 +88,7 @@
         <span class="tag">How far ahead you can see</span>
         <h3>Wednesday is a coin toss; Saturday isn't</h3>
         <div id="chart-perday" class="chart"></div>
-        <p>Crews are seeded by last year's order, so on the first day the boat ahead is the one most like you — and the result is close to a flip. Each day of racing sorts the genuinely quick from the rest, and by Saturday the model is sharp.</p>
+        <p>Crews are seeded by last year's order, so on the first day the boat ahead is the one most like you — and the result is close to a flip. Each day's racing sorts the genuinely quick from the rest: the model goes from barely better than a guess to picking the bumping crew in better than five times in six, and its read on each crew's speed tightens with every result.</p>
       </div>
 
       <div class="panel">
@@ -98,7 +107,7 @@
       <h3>Where the numbers come from</h3>
       <p>Every Oxford bumps race, from two records kept independently — Anu Dudhia's archive and <a href="https://bumps.live">bumps.live</a> — which agree on 99.99% of the 20,617 races they both cover, back to 1826. Crew lists, coxes and coaches (2007 on) come from bumps.live, Oxford Blues from Wikipedia's Boat Race tables, and the weather from the Radcliffe Observatory.</p>
       <h3>How the predictions are made</h3>
-      <p>For each pair of boats, a model estimates the chance the chaser catches the crew ahead — from how the two have rowed so far this week, last year's finish, Torpids form and any Blues aboard. Shown two crews, it picks the one more likely to bump about four times in five: well above a coin toss, well short of certain. Almost all of that comes from this week's racing; the rest barely shifts the odds. Tap a crew to see what's driving its number.</p>
+      <p>Each crew is given an estimate of its speed — its skill — as a Bayesian belief with a margin of error. The estimate starts from the seeding, last year's finish, Torpids form and any Blues aboard, and is updated by each day's results, so it sharpens as the week goes on; how much of the squad a crew kept from last year sets how tightly it's pinned, not where it starts. To turn skills into the chances on the board, the gap between two crews is fed to a simple race simulator: a bigger gap means a faster catch, which is how over-bumps and the occasional run of blades fall out. The simulator honours the real rules — a crew can only catch the boat it is actually chasing, and divisions are joined only by the sandwich boat — so a fast crew several places back can't leapfrog the boats between it and its target. Tap a crew to see what's tilting its number.</p>
       <h3>What it can't tell you</h3>
       <p>The model can't see who's injured, ill or flying this week, so take any single number as a lean, not a verdict. "Blues" means the openweight Blue Boat only — reserves and lightweights aren't in the data yet. And races before 1900, where the old records get patchy, are left out of the headline figures.</p>
       <p class="small"><a href="report.html">The full analysis and code →</a> Every figure here is reproducible from the raw data, and was made with substantial help from an AI system, checked against the sources throughout.</p>

@@ -18,11 +18,39 @@ function draw(id, fn) {
 }
 
 let HL = "";
+let _preds = null, _gender = "men";
 function applyHighlight() {
   document.querySelectorAll(".crew").forEach(c => {
     c.classList.remove("hl", "dim");
     if (HL) c.classList.add(c.dataset.college === HL ? "hl" : "dim");
   });
+  drawSkill();
+}
+
+/* === skill ladder: each crew's estimated pace ± the model's uncertainty === */
+function drawSkill() {
+  if (!_preds) return;
+  const rows = (_preds[_gender] || []).filter(r => isFinite(r.skill_mu));
+  if (!rows.length) return;
+  const mean = rows.reduce((s, r) => s + r.skill_mu, 0) / rows.length;
+  const data = rows.map(r => ({
+    label: r.college + (r.boat > 1 ? " " + r.boat : ""), college: r.college, pos: r.current_pos,
+    x: r.skill_mu - mean, lo: r.skill_mu - mean - r.skill_sd, hi: r.skill_mu - mean + r.skill_sd,
+  })).sort((a, b) => b.x - a.x);
+  const col = d => HL ? (d.college === HL ? C.gold : "#cfc8ba") : C.oxford;
+  const op = d => (HL && d.college !== HL) ? 0.4 : 1;
+  draw("chart-skill", w => P.plot({
+    width: w, height: 34 + data.length * 10.5, marginLeft: 150, marginRight: 24, marginTop: 8, marginBottom: 30,
+    style: { fontSize: "9px" },
+    x: { label: "← slower            faster →", grid: true },
+    y: { domain: data.map(d => d.label), label: null, tickSize: 0 },
+    marks: [
+      P.ruleX([0], { stroke: "#000", strokeOpacity: .35, strokeDasharray: "3 3" }),
+      P.ruleY(data, { y: "label", x1: "lo", x2: "hi", stroke: col, strokeOpacity: d => op(d) * 0.6, strokeWidth: 2 }),
+      P.dot(data, { y: "label", x: "x", fill: col, fillOpacity: op, r: 3,
+        channels: { position: "pos" }, tip: { format: { x: d => d.toFixed(2), y: true, position: true } } }),
+    ],
+  }));
 }
 
 function byDivision(rows) {
@@ -216,7 +244,8 @@ function renderLookup(colleges, h2h, preds, college, g) {
   const setTxt = (id, v) => { const e = document.getElementById(id); if (e && v != null) e.textContent = v; };
   setTxt("day-label", dl); setTxt("day-label-2", dl.toLowerCase());
   const meta = document.getElementById("model-meta");
-  if (meta) meta.innerHTML = `Head-to-head model · out-of-sample AUC <strong>${(rf.head_to_head || {}).oos_auc ?? "—"}</strong> · ${(preds.men || []).length} men's & ${(preds.women || []).length} women's crews · after day ${preds.as_of_day}`;
+  const d4 = ((rf.skill_model || {}).oos_auc_by_day || {})["4"] ?? (rf.head_to_head || {}).oos_auc;
+  if (meta) meta.innerHTML = `Bayesian skill model + race simulator · picks the bumping crew <strong>${d4 ? Math.round(d4 * 100) + "%" : "—"}</strong> of the time by the final day · ${(preds.men || []).length} men's & ${(preds.women || []).length} women's crews · after day ${preds.as_of_day}`;
 
   let gender = "men";
   const tabs = document.querySelectorAll(".tab");
@@ -242,7 +271,8 @@ function renderLookup(colleges, h2h, preds, college, g) {
         <span style="width:${close/n*100}%;background:${C.row}"></span>
         <span style="width:${vul/n*100}%;background:${C.down}"></span></div>`;
   };
-  const render = () => { makeBoard(h2h, preds, gender); renderFieldSummary(); renderBlades(); applyHighlight(); };
+  _preds = preds;
+  const render = () => { _gender = gender; makeBoard(h2h, preds, gender); renderFieldSummary(); renderBlades(); applyHighlight(); };
   tabs.forEach(t => t.addEventListener("click", () => { tabs.forEach(x => x.classList.toggle("active", x === t)); gender = t.dataset.g; render(); }));
   render();
 
