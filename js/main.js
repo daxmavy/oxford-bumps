@@ -45,7 +45,7 @@ function makeBoard(h2h, preds, gender) {
     board.append(head);
     for (const r of g.rows) {
       const p = pmap.get(pkey(r)) || {};
-      const up = r.p_bump ?? p.p_bump_up ?? 0, caught = p.p_bumped ?? 0, hold = p.p_row_over, onBlades = p.on_for_blades;
+      const up = r.p_bump ?? p.p_bump_up ?? 0, caught = r.p_caught ?? p.p_bumped ?? 0, hold = r.p_rowover ?? p.p_row_over, onBlades = p.on_for_blades;
       const card = document.createElement("div"); card.className = "crew"; card.tabIndex = 0;
       card.dataset.college = r.college;
       const chase = r.chasing ? `chasing <strong>${r.chasing}</strong>` : `<span class="head-mark">Head of the River — cannot bump up</span>`;
@@ -231,7 +231,7 @@ function renderLookup(colleges, h2h, preds, college, g) {
     let fav = 0, vul = 0, close = 0, n = 0;
     for (const r of (h2h[gender] || [])) {
       const p = pmap.get(r.college + "|" + (r.boat || 1)) || {};
-      const up = r.p_bump ?? p.p_bump_up ?? 0, dn = p.p_bumped ?? 0;
+      const up = r.p_bump ?? p.p_bump_up ?? 0, dn = r.p_caught ?? p.p_bumped ?? 0;
       n++; if (up >= 0.6) fav++; else if (dn >= 0.6) vul++; else close++;
     }
     if (!n) { el.innerHTML = ""; return; }

@@ -16,7 +16,9 @@
       "cur_pos": 1,
       "chasing": null,
       "p_bump": 0.0,
-      "contributions": {}
+      "contributions": {},
+      "p_caught": 0.084,
+      "p_rowover": 0.916
     },
     {
       "college": "Wolfson",
@@ -42,7 +44,9 @@
           "factor": "last year's form",
           "logodds": 0.173
         }
-      ]
+      ],
+      "p_caught": 0.408,
+      "p_rowover": 0.508
     },
     {
       "college": "Pembroke",
@@ -68,7 +72,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.282,
+      "p_rowover": 0.31
     },
     {
       "college": "University",
@@ -90,7 +96,9 @@
           "factor": "squad continuity",
           "logodds": 0.214
         }
-      ]
+      ],
+      "p_caught": 0.046,
+      "p_rowover": 0.672
     },
     {
       "college": "Christ Church",
@@ -116,7 +124,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.806,
+      "p_rowover": 0.148
     },
     {
       "college": "New College",
@@ -142,7 +152,9 @@
           "factor": "last year's form",
           "logodds": 0.216
         }
-      ]
+      ],
+      "p_caught": 0.078,
+      "p_rowover": 0.116
     },
     {
       "college": "Keble",
@@ -168,7 +180,9 @@
           "factor": "last year's form",
           "logodds": -0.258
         }
-      ]
+      ],
+      "p_caught": 0.308,
+      "p_rowover": 0.614
     },
     {
       "college": "Magdalen",
@@ -194,7 +208,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.46,
+      "p_rowover": 0.232
     },
     {
       "college": "Balliol",
@@ -212,7 +228,9 @@
           "factor": "squad continuity",
           "logodds": 0.423
         }
-      ]
+      ],
+      "p_caught": 0.114,
+      "p_rowover": 0.426
     },
     {
       "college": "Trinity",
@@ -238,7 +256,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.491,
+      "p_rowover": 0.395
     },
     {
       "college": "St Edmund Hall",
@@ -264,7 +284,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.069,
+      "p_rowover": 0.44
     },
     {
       "college": "Merton",
@@ -290,7 +312,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.474,
+      "p_rowover": 0.457
     },
     {
       "college": "Wadham",
@@ -316,7 +340,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.612,
+      "p_rowover": 0.0
     },
     {
       "college": "Hertford",
@@ -342,7 +368,9 @@
           "factor": "squad continuity",
           "logodds": 0.214
         }
-      ]
+      ],
+      "p_caught": 0.238,
+      "p_rowover": 0.15
     },
     {
       "college": "Worcester",
@@ -364,7 +392,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.054,
+      "p_rowover": 0.708
     },
     {
       "college": "Jesus",
@@ -390,7 +420,9 @@
           "factor": "last year's form",
           "logodds": -0.129
         }
-      ]
+      ],
+      "p_caught": 0.289,
+      "p_rowover": 0.657
     },
     {
       "college": "Lady Margaret Hall",
@@ -416,7 +448,9 @@
           "factor": "last year's form",
           "logodds": -0.129
         }
-      ]
+      ],
+      "p_caught": 0.355,
+      "p_rowover": 0.356
     },
     {
       "college": "St Hugh's",
@@ -442,7 +476,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.542,
+      "p_rowover": 0.103
     },
     {
       "college": "Exeter",
@@ -460,7 +496,9 @@
           "factor": "last year's form",
           "logodds": 0.216
         }
-      ]
+      ],
+      "p_caught": 0.043,
+      "p_rowover": 0.415
     },
     {
       "college": "Oriel",
@@ -486,7 +524,9 @@
           "factor": "last year's form",
           "logodds": -0.086
         }
-      ]
+      ],
+      "p_caught": 0.309,
+      "p_rowover": 0.648
     },
     {
       "college": "St Catherine's",
@@ -508,7 +548,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.445,
+      "p_rowover": 0.246
     },
     {
       "college": "Lincoln",
@@ -530,7 +572,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.296,
+      "p_rowover": 0.259
     },
     {
       "college": "Queen's",
@@ -552,7 +596,9 @@
           "factor": "last year's form",
           "logodds": 0.087
         }
-      ]
+      ],
+      "p_caught": 0.113,
+      "p_rowover": 0.591
     },
     {
       "college": "St John's",
@@ -570,7 +616,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.466,
+      "p_rowover": 0.421
     },
     {
       "college": "St Peter's",
@@ -596,7 +644,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.197,
+      "p_rowover": 0.337
     },
     {
       "college": "Brasenose",
@@ -614,7 +664,9 @@
           "factor": "last year's form",
           "logodds": -0.172
         }
-      ]
+      ],
+      "p_caught": 0.363,
+      "p_rowover": 0.44
     },
     {
       "college": "Mansfield",
@@ -628,7 +680,9 @@
           "factor": "squad continuity",
           "logodds": 0.423
         }
-      ]
+      ],
+      "p_caught": 0.192,
+      "p_rowover": 0.445
     },
     {
       "college": "University",
@@ -646,7 +700,9 @@
           "factor": "last year's form",
           "logodds": 0.216
         }
-      ]
+      ],
+      "p_caught": 0.28,
+      "p_rowover": 0.528
     },
     {
       "college": "Pembroke",
@@ -664,7 +720,9 @@
           "factor": "last year's form",
           "logodds": -0.129
         }
-      ]
+      ],
+      "p_caught": 0.39,
+      "p_rowover": 0.33
     },
     {
       "college": "Wolfson",
@@ -682,7 +740,9 @@
           "factor": "last year's form",
           "logodds": 0.087
         }
-      ]
+      ],
+      "p_caught": 0.499,
+      "p_rowover": 0.111
     },
     {
       "college": "St Hilda's",
@@ -708,7 +768,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.016,
+      "p_rowover": 0.485
     },
     {
       "college": "Green Templeton",
@@ -734,7 +796,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.864,
+      "p_rowover": 0.12
     },
     {
       "college": "St Anne's",
@@ -760,7 +824,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.013,
+      "p_rowover": 0.123
     },
     {
       "college": "Christ Church",
@@ -786,7 +852,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.845,
+      "p_rowover": 0.142
     },
     {
       "college": "New College",
@@ -812,7 +880,9 @@
           "factor": "last year's form",
           "logodds": 0.087
         }
-      ]
+      ],
+      "p_caught": 0.037,
+      "p_rowover": 0.118
     },
     {
       "college": "Linacre",
@@ -838,7 +908,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.737,
+      "p_rowover": 0.226
     },
     {
       "college": "St Antony's",
@@ -864,7 +936,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.285,
+      "p_rowover": 0.0
     },
     {
       "college": "Somerville",
@@ -886,7 +960,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.038,
+      "p_rowover": 0.677
     },
     {
       "college": "Corpus Christi",
@@ -908,7 +984,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.687,
+      "p_rowover": 0.275
     },
     {
       "college": "Balliol",
@@ -934,7 +1012,9 @@
           "factor": "last year's form",
           "logodds": 0.087
         }
-      ]
+      ],
+      "p_caught": 0.254,
+      "p_rowover": 0.059
     },
     {
       "college": "Wadham",
@@ -956,7 +1036,9 @@
           "factor": "last year's form",
           "logodds": 0.087
         }
-      ]
+      ],
+      "p_caught": 0.126,
+      "p_rowover": 0.62
     },
     {
       "college": "Keble",
@@ -982,7 +1064,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.583,
+      "p_rowover": 0.291
     },
     {
       "college": "Brasenose",
@@ -1004,7 +1088,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.094,
+      "p_rowover": 0.323
     },
     {
       "college": "Hertford",
@@ -1030,7 +1116,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.277,
+      "p_rowover": 0.629
     },
     {
       "college": "Reuben",
@@ -1052,7 +1140,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.881,
+      "p_rowover": 0.0
     },
     {
       "college": "Queen's",
@@ -1078,7 +1168,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.044,
+      "p_rowover": 0.075
     },
     {
       "college": "Exeter",
@@ -1104,7 +1196,9 @@
           "factor": "last year's form",
           "logodds": -0.086
         }
-      ]
+      ],
+      "p_caught": 0.054,
+      "p_rowover": 0.902
     },
     {
       "college": "St Peter's",
@@ -1126,7 +1220,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.112,
+      "p_rowover": 0.834
     },
     {
       "college": "St Edmund Hall",
@@ -1148,7 +1244,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.506,
+      "p_rowover": 0.382
     },
     {
       "college": "Merton",
@@ -1174,7 +1272,9 @@
           "factor": "last year's form",
           "logodds": 0.173
         }
-      ]
+      ],
+      "p_caught": 0.749,
+      "p_rowover": 0.0
     },
     {
       "college": "Worcester",
@@ -1192,7 +1292,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.034,
+      "p_rowover": 0.217
     },
     {
       "college": "Magdalen",
@@ -1214,7 +1316,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.302,
+      "p_rowover": 0.664
     },
     {
       "college": "St Catherine's",
@@ -1236,7 +1340,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.627,
+      "p_rowover": 0.071
     },
     {
       "college": "Lincoln",
@@ -1262,7 +1368,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.347,
+      "p_rowover": 0.026
     },
     {
       "college": "University",
@@ -1288,7 +1396,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.049,
+      "p_rowover": 0.604
     },
     {
       "college": "Regent's Park",
@@ -1314,7 +1424,9 @@
           "factor": "last year's form",
           "logodds": -0.086
         }
-      ]
+      ],
+      "p_caught": 0.844,
+      "p_rowover": 0.107
     },
     {
       "college": "New College",
@@ -1340,7 +1452,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.018,
+      "p_rowover": 0.138
     },
     {
       "college": "Wolfson",
@@ -1362,7 +1476,9 @@
           "factor": "last year's form",
           "logodds": 0.173
         }
-      ]
+      ],
+      "p_caught": 0.804,
+      "p_rowover": 0.178
     },
     {
       "college": "St Edmund Hall",
@@ -1388,7 +1504,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.046,
+      "p_rowover": 0.15
     },
     {
       "college": "Green Templeton",
@@ -1414,7 +1532,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.715,
+      "p_rowover": 0.239
     },
     {
       "college": "Mansfield",
@@ -1436,7 +1556,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.012,
+      "p_rowover": 0.273
     },
     {
       "college": "Jesus",
@@ -1458,7 +1580,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.816,
+      "p_rowover": 0.172
     },
     {
       "college": "Oriel",
@@ -1480,7 +1604,9 @@
           "factor": "squad continuity",
           "logodds": -0.206
         }
-      ]
+      ],
+      "p_caught": 0.099,
+      "p_rowover": 0.085
     },
     {
       "college": "Keble",
@@ -1506,7 +1632,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.446,
+      "p_rowover": 0.455
     },
     {
       "college": "St Hilda's",
@@ -1532,7 +1660,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.34,
+      "p_rowover": 0.214
     },
     {
       "college": "Christ Church",
@@ -1550,7 +1680,9 @@
           "factor": "last year's form",
           "logodds": -0.129
         }
-      ]
+      ],
+      "p_caught": 0.37,
+      "p_rowover": 0.29
     },
     {
       "college": "St John's",
@@ -1572,7 +1704,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.563,
+      "p_rowover": 0.067
     },
     {
       "college": "Somerville",
@@ -1594,7 +1728,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.005,
+      "p_rowover": 0.432
     },
     {
       "college": "Linacre",
@@ -1620,7 +1756,9 @@
           "factor": "last year's form",
           "logodds": -0.129
         }
-      ]
+      ],
+      "p_caught": 0.76,
+      "p_rowover": 0.235
     },
     {
       "college": "New College",
@@ -1638,7 +1776,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.179
         }
-      ]
+      ],
+      "p_caught": 0.166,
+      "p_rowover": 0.074
     },
     {
       "college": "Pembroke",
@@ -1664,7 +1804,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.133,
+      "p_rowover": 0.701
     },
     {
       "college": "University",
@@ -1686,7 +1828,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.666,
+      "p_rowover": 0.201
     },
     {
       "college": "Wolfson",
@@ -1708,7 +1852,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.126,
+      "p_rowover": 0.208
     },
     {
       "college": "Exeter",
@@ -1734,7 +1880,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.383,
+      "p_rowover": 0.491
     },
     {
       "college": "Worcester",
@@ -1752,7 +1900,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.573,
+      "p_rowover": 0.044
     },
     {
       "college": "St Anne's",
@@ -1774,7 +1924,9 @@
           "factor": "last year's form",
           "logodds": 0.13
         }
-      ]
+      ],
+      "p_caught": 0.041,
+      "p_rowover": 0.386
     },
     {
       "college": "Pembroke",
@@ -1800,7 +1952,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.643,
+      "p_rowover": 0.316
     },
     {
       "college": "Brasenose",
@@ -1822,7 +1976,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.038,
+      "p_rowover": 0.319
     },
     {
       "college": "Queen's",
@@ -1844,7 +2000,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.8,
+      "p_rowover": 0.162
     },
     {
       "college": "University",
@@ -1870,7 +2028,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.038,
+      "p_rowover": 0.162
     },
     {
       "college": "St Hilda's",
@@ -1896,7 +2056,9 @@
           "factor": "last year's form",
           "logodds": 0.087
         }
-      ]
+      ],
+      "p_caught": 0.427,
+      "p_rowover": 0.535
     },
     {
       "college": "Lady Margaret Hall",
@@ -1922,7 +2084,9 @@
           "factor": "last year's form",
           "logodds": -0.086
         }
-      ]
+      ],
+      "p_caught": 0.572,
+      "p_rowover": 0.001
     },
     {
       "college": "Christ Church",
@@ -1944,7 +2108,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.069,
+      "p_rowover": 0.359
     },
     {
       "college": "St Catherine's",
@@ -1962,7 +2128,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.276,
+      "p_rowover": 0.655
     },
     {
       "college": "St Anne's",
@@ -1976,7 +2144,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.0,
+      "p_rowover": 0.724
     }
   ],
   "women": [
@@ -1986,7 +2156,9 @@
       "cur_pos": 1,
       "chasing": null,
       "p_bump": 0.0,
-      "contributions": {}
+      "contributions": {},
+      "p_caught": 0.439,
+      "p_rowover": 0.561
     },
     {
       "college": "University",
@@ -2008,7 +2180,9 @@
           "factor": "last year's form",
           "logodds": -0.129
         }
-      ]
+      ],
+      "p_caught": 0.094,
+      "p_rowover": 0.467
     },
     {
       "college": "Wadham",
@@ -2030,7 +2204,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.627,
+      "p_rowover": 0.279
     },
     {
       "college": "Balliol",
@@ -2056,7 +2232,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.064,
+      "p_rowover": 0.309
     },
     {
       "college": "Wolfson",
@@ -2078,7 +2256,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.315,
+      "p_rowover": 0.621
     },
     {
       "college": "Christ Church",
@@ -2100,7 +2280,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.557,
+      "p_rowover": 0.128
     },
     {
       "college": "Magdalen",
@@ -2122,7 +2304,9 @@
           "factor": "last year's form",
           "logodds": 0.345
         }
-      ]
+      ],
+      "p_caught": 0.074,
+      "p_rowover": 0.369
     },
     {
       "college": "Keble",
@@ -2144,7 +2328,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.407,
+      "p_rowover": 0.519
     },
     {
       "college": "St Edmund Hall",
@@ -2170,7 +2356,9 @@
           "factor": "squad continuity",
           "logodds": -0.206
         }
-      ]
+      ],
+      "p_caught": 0.394,
+      "p_rowover": 0.199
     },
     {
       "college": "Oriel",
@@ -2192,7 +2380,9 @@
           "factor": "form so far this week",
           "logodds": 0.495
         }
-      ]
+      ],
+      "p_caught": 0.123,
+      "p_rowover": 0.483
     },
     {
       "college": "Lincoln",
@@ -2218,7 +2408,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.454,
+      "p_rowover": 0.423
     },
     {
       "college": "New College",
@@ -2244,7 +2436,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.305,
+      "p_rowover": 0.241
     },
     {
       "college": "Linacre",
@@ -2266,7 +2460,9 @@
           "factor": "last year's form",
           "logodds": 0.13
         }
-      ]
+      ],
+      "p_caught": 0.276,
+      "p_rowover": 0.419
     },
     {
       "college": "Jesus",
@@ -2288,7 +2484,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.049,
+      "p_rowover": 0.675
     },
     {
       "college": "St John's",
@@ -2310,7 +2508,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.666,
+      "p_rowover": 0.285
     },
     {
       "college": "Exeter",
@@ -2332,7 +2532,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.234,
+      "p_rowover": 0.1
     },
     {
       "college": "St Anne's",
@@ -2358,7 +2560,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.105,
+      "p_rowover": 0.661
     },
     {
       "college": "Green Templeton",
@@ -2384,7 +2588,9 @@
           "factor": "last year's form",
           "logodds": 0.173
         }
-      ]
+      ],
+      "p_caught": 0.745,
+      "p_rowover": 0.15
     },
     {
       "college": "Somerville",
@@ -2410,7 +2616,9 @@
           "factor": "last year's form",
           "logodds": 0.173
         }
-      ]
+      ],
+      "p_caught": 0.021,
+      "p_rowover": 0.234
     },
     {
       "college": "Hertford",
@@ -2436,7 +2644,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.672,
+      "p_rowover": 0.307
     },
     {
       "college": "Merton",
@@ -2462,7 +2672,9 @@
           "factor": "last year's form",
           "logodds": 0.087
         }
-      ]
+      ],
+      "p_caught": 0.256,
+      "p_rowover": 0.072
     },
     {
       "college": "Lady Margaret Hall",
@@ -2488,7 +2700,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.577,
+      "p_rowover": 0.167
     },
     {
       "college": "St Catherine's",
@@ -2506,7 +2720,9 @@
           "factor": "last year's form",
           "logodds": -0.129
         }
-      ]
+      ],
+      "p_caught": 0.043,
+      "p_rowover": 0.38
     },
     {
       "college": "Mansfield",
@@ -2524,7 +2740,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.178
         }
-      ]
+      ],
+      "p_caught": 0.216,
+      "p_rowover": 0.741
     },
     {
       "college": "Queen's",
@@ -2546,7 +2764,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.726,
+      "p_rowover": 0.058
     },
     {
       "college": "Brasenose",
@@ -2572,7 +2792,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.021,
+      "p_rowover": 0.253
     },
     {
       "college": "St Peter's",
@@ -2594,7 +2816,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.743,
+      "p_rowover": 0.236
     },
     {
       "college": "Worcester",
@@ -2620,7 +2844,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.458,
+      "p_rowover": 0.0
     },
     {
       "college": "University",
@@ -2646,7 +2872,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.026,
+      "p_rowover": 0.516
     },
     {
       "college": "Trinity",
@@ -2672,7 +2900,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.82,
+      "p_rowover": 0.154
     },
     {
       "college": "St Hugh's",
@@ -2698,7 +2928,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.018,
+      "p_rowover": 0.162
     },
     {
       "college": "St Antony's",
@@ -2724,7 +2956,9 @@
           "factor": "last year's form",
           "logodds": -0.086
         }
-      ]
+      ],
+      "p_caught": 0.788,
+      "p_rowover": 0.194
     },
     {
       "college": "St Hilda's",
@@ -2750,7 +2984,9 @@
           "factor": "last year's form",
           "logodds": -0.086
         }
-      ]
+      ],
+      "p_caught": 0.034,
+      "p_rowover": 0.178
     },
     {
       "college": "Wolfson",
@@ -2772,7 +3008,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.815,
+      "p_rowover": 0.151
     },
     {
       "college": "Christ Church",
@@ -2798,7 +3036,9 @@
           "factor": "last year's form",
           "logodds": 0.087
         }
-      ]
+      ],
+      "p_caught": 0.328,
+      "p_rowover": 0.0
     },
     {
       "college": "Wadham",
@@ -2824,7 +3064,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.022,
+      "p_rowover": 0.65
     },
     {
       "college": "Pembroke",
@@ -2850,7 +3092,9 @@
           "factor": "last year's form",
           "logodds": -0.086
         }
-      ]
+      ],
+      "p_caught": 0.627,
+      "p_rowover": 0.351
     },
     {
       "college": "Oriel",
@@ -2868,7 +3112,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.11,
+      "p_rowover": 0.263
     },
     {
       "college": "Corpus Christi",
@@ -2894,7 +3140,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.699,
+      "p_rowover": 0.191
     },
     {
       "college": "Green Templeton",
@@ -2920,7 +3168,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.061,
+      "p_rowover": 0.24
     },
     {
       "college": "Magdalen",
@@ -2942,7 +3192,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.618,
+      "p_rowover": 0.321
     },
     {
       "college": "Keble",
@@ -2968,7 +3220,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.049,
+      "p_rowover": 0.333
     },
     {
       "college": "Linacre",
@@ -2994,7 +3248,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.781,
+      "p_rowover": 0.17
     },
     {
       "college": "Reuben",
@@ -3020,7 +3276,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.19,
+      "p_rowover": 0.029
     },
     {
       "college": "Brasenose",
@@ -3042,7 +3300,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.051,
+      "p_rowover": 0.759
     },
     {
       "college": "Worcester",
@@ -3064,7 +3324,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.254,
+      "p_rowover": 0.695
     },
     {
       "college": "Lincoln",
@@ -3082,7 +3344,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.78,
+      "p_rowover": 0.0
     },
     {
       "college": "St Edmund Hall",
@@ -3104,7 +3368,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.058,
+      "p_rowover": 0.162
     },
     {
       "college": "St John's",
@@ -3126,7 +3392,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.662,
+      "p_rowover": 0.28
     },
     {
       "college": "New College",
@@ -3148,7 +3416,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.047,
+      "p_rowover": 0.291
     },
     {
       "college": "Wolfson",
@@ -3174,7 +3444,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.728,
+      "p_rowover": 0.225
     },
     {
       "college": "Somerville",
@@ -3200,7 +3472,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.047,
+      "p_rowover": 0.225
     },
     {
       "college": "Hertford",
@@ -3226,7 +3500,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.775,
+      "p_rowover": 0.178
     },
     {
       "college": "Merton",
@@ -3252,7 +3528,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.071,
+      "p_rowover": 0.154
     },
     {
       "college": "St Hugh's",
@@ -3278,7 +3556,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.519,
+      "p_rowover": 0.41
     },
     {
       "college": "Jesus",
@@ -3304,7 +3584,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.146,
+      "p_rowover": 0.335
     },
     {
       "college": "Regent's Park",
@@ -3330,7 +3612,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.575,
+      "p_rowover": 0.279
     },
     {
       "college": "St Hilda's",
@@ -3356,7 +3640,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.027,
+      "p_rowover": 0.398
     },
     {
       "college": "Exeter",
@@ -3382,7 +3668,9 @@
           "factor": "last year's form",
           "logodds": -0.086
         }
-      ]
+      ],
+      "p_caught": 0.934,
+      "p_rowover": 0.039
     },
     {
       "college": "University",
@@ -3404,7 +3692,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.006,
+      "p_rowover": 0.06
     },
     {
       "college": "Balliol",
@@ -3426,7 +3716,9 @@
           "factor": "squad continuity",
           "logodds": 0.214
         }
-      ]
+      ],
+      "p_caught": 0.618,
+      "p_rowover": 0.376
     },
     {
       "college": "St Catherine's",
@@ -3452,7 +3744,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.478,
+      "p_rowover": 0.0
     },
     {
       "college": "Lady Margaret Hall",
@@ -3478,7 +3772,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.03,
+      "p_rowover": 0.492
     },
     {
       "college": "Queen's",
@@ -3500,7 +3796,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.118
         }
-      ]
+      ],
+      "p_caught": 0.92,
+      "p_rowover": 0.05
     },
     {
       "college": "Oriel",
@@ -3526,7 +3824,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.049,
+      "p_rowover": 0.031
     },
     {
       "college": "St Anne's",
@@ -3552,7 +3852,9 @@
           "factor": "last year's form",
           "logodds": 0.173
         }
-      ]
+      ],
+      "p_caught": 0.007,
+      "p_rowover": 0.944
     },
     {
       "college": "St Peter's",
@@ -3578,7 +3880,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.617,
+      "p_rowover": 0.376
     },
     {
       "college": "Mansfield",
@@ -3600,7 +3904,9 @@
           "factor": "squad continuity",
           "logodds": 0.214
         }
-      ]
+      ],
+      "p_caught": 0.736,
+      "p_rowover": 0.0
     },
     {
       "college": "Wadham",
@@ -3622,7 +3928,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.238
         }
-      ]
+      ],
+      "p_caught": 0.661,
+      "p_rowover": 0.0
     },
     {
       "college": "St John's",
@@ -3644,7 +3952,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.279,
+      "p_rowover": 0.06
     },
     {
       "college": "University",
@@ -3670,7 +3980,9 @@
           "factor": "last year's form",
           "logodds": -0.086
         }
-      ]
+      ],
+      "p_caught": 0.031,
+      "p_rowover": 0.69
     },
     {
       "college": "Worcester",
@@ -3696,7 +4008,9 @@
           "factor": "last year's form",
           "logodds": -0.086
         }
-      ]
+      ],
+      "p_caught": 0.413,
+      "p_rowover": 0.556
     },
     {
       "college": "Exeter",
@@ -3722,7 +4036,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.041,
+      "p_rowover": 0.546
     },
     {
       "college": "Pembroke",
@@ -3740,7 +4056,9 @@
           "factor": "squad continuity",
           "logodds": -0.206
         }
-      ]
+      ],
+      "p_caught": 0.778,
+      "p_rowover": 0.181
     },
     {
       "college": "St Edmund Hall",
@@ -3762,7 +4080,9 @@
           "factor": "last year's form",
           "logodds": 0.087
         }
-      ]
+      ],
+      "p_caught": 0.299,
+      "p_rowover": 0.0
     },
     {
       "college": "Somerville",
@@ -3776,7 +4096,9 @@
           "factor": "last year's form",
           "logodds": 0.173
         }
-      ]
+      ],
+      "p_caught": 0.428,
+      "p_rowover": 0.273
     },
     {
       "college": "Brasenose",
@@ -3798,7 +4120,9 @@
           "factor": "last year's form",
           "logodds": -0.172
         }
-      ]
+      ],
+      "p_caught": 0.071,
+      "p_rowover": 0.501
     },
     {
       "college": "St Hilda's",
@@ -3824,7 +4148,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.404,
+      "p_rowover": 0.525
     },
     {
       "college": "Lady Margaret Hall",
@@ -3846,7 +4172,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.369,
+      "p_rowover": 0.227
     },
     {
       "college": "Magdalen",
@@ -3860,7 +4188,9 @@
           "factor": "form so far this week",
           "logodds": 0.495
         }
-      ]
+      ],
+      "p_caught": 0.594,
+      "p_rowover": 0.037
     },
     {
       "college": "Worcester",
@@ -3878,7 +4208,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.015,
+      "p_rowover": 0.391
     },
     {
       "college": "Wadham",
@@ -3896,7 +4228,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.237
         }
-      ]
+      ],
+      "p_caught": 0.684,
+      "p_rowover": 0.301
     },
     {
       "college": "Green Templeton",
@@ -3918,7 +4252,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.119
         }
-      ]
+      ],
+      "p_caught": 0.094,
+      "p_rowover": 0.222
     },
     {
       "college": "Magdalen",
@@ -3940,7 +4276,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": -0.059
         }
-      ]
+      ],
+      "p_caught": 0.126,
+      "p_rowover": 0.78
     },
     {
       "college": "St Anne's",
@@ -3958,7 +4296,9 @@
           "factor": "target's own pace (recession risk)",
           "logodds": 0.06
         }
-      ]
+      ],
+      "p_caught": 0.0,
+      "p_rowover": 0.874
     }
   ]
 }
