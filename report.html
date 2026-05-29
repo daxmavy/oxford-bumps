@@ -2538,23 +2538,88 @@ Clean Eights crew-appearances (1900+): 11,999; completed regattas: 11,829.</code
 <section id="skill-versus-luck-the-blades-floor-and-the-draw" class="level1">
 <h1>4. Skill versus luck: the blades floor and the draw</h1>
 <p>How often would blades happen if every crew were identical (pure luck)? We run the mechanistic simulator (<code>src/simulator.py</code>) with equal strengths, calibrated to the real per-day bump rate, and compare to what actually happens.</p>
-<div id="luck-floor" class="cell" data-execution_count="7">
+<div id="cell-luck-floor" class="cell" data-execution_count="7">
 <details open class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src.simulator <span class="im">import</span> monte_carlo</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>obs_bump <span class="op">=</span> <span class="bu">float</span>((CDE.places_moved<span class="op">&gt;</span><span class="dv">0</span>).mean())</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>obs_blades <span class="op">=</span> <span class="bu">float</span>(ED4.blades.mean())</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="bu">int</span>(ED4.groupby([<span class="st">&quot;year&quot;</span>,<span class="st">&quot;gender&quot;</span>]).size().median())</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>floor <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sigma <span class="kw">in</span> [<span class="fl">0.8</span>,<span class="fl">1.0</span>,<span class="fl">1.15</span>,<span class="fl">1.3</span>,<span class="fl">1.5</span>]:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>grid<span class="op">=</span>[]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sigma <span class="kw">in</span> [<span class="fl">1.0</span>,<span class="fl">1.3</span>,<span class="fl">1.6</span>,<span class="fl">1.9</span>,<span class="fl">2.2</span>,<span class="fl">2.6</span>,<span class="fl">3.0</span>]:</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    mc <span class="op">=</span> monte_carlo(np.zeros(N), n_days<span class="op">=</span><span class="dv">4</span>, sigma<span class="op">=</span>sigma, n_sims<span class="op">=</span><span class="dv">4000</span>, seed<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">abs</span>(mc[<span class="st">&quot;p_bump_day&quot;</span>][:,<span class="dv">0</span>].mean()<span class="op">-</span>obs_bump) <span class="op">&lt;</span> <span class="fl">0.04</span> <span class="kw">or</span> floor <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        floor <span class="op">=</span> <span class="bu">float</span>(mc[<span class="st">&quot;p_blades&quot;</span>].mean())<span class="op">;</span> sim_bump<span class="op">=</span><span class="bu">float</span>(mc[<span class="st">&quot;p_bump_day&quot;</span>][:,<span class="dv">0</span>].mean())</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Observed: per-day bump </span><span class="sc">{</span>obs_bump<span class="sc">:.3f}</span><span class="ss">, blades </span><span class="sc">{</span>obs_blades<span class="sc">:.3f}</span><span class="ss">. &quot;</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f&quot;Equal-crews luck floor for blades ≈ </span><span class="sc">{</span>floor<span class="sc">:.4f}</span><span class="ss"> (</span><span class="sc">{</span>obs_blades<span class="op">/</span>floor<span class="sc">:.0f}</span><span class="ss">x lower than reality).&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    grid.append({<span class="st">&quot;sigma&quot;</span>:sigma,<span class="st">&quot;sim_bump_rate&quot;</span>:<span class="bu">round</span>(<span class="bu">float</span>(mc[<span class="st">&quot;p_bump_day&quot;</span>][:,<span class="dv">0</span>].mean()),<span class="dv">3</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;sim_blades&quot;</span>:<span class="bu">round</span>(<span class="bu">float</span>(mc[<span class="st">&quot;p_blades&quot;</span>].mean()),<span class="dv">4</span>)})</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>best<span class="op">=</span><span class="bu">min</span>(grid, key<span class="op">=</span><span class="kw">lambda</span> r: <span class="bu">abs</span>(r[<span class="st">&quot;sim_bump_rate&quot;</span>]<span class="op">-</span>obs_bump))   <span class="co"># match the REAL per-day bump rate</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>sim_bump, floor <span class="op">=</span> best[<span class="st">&quot;sim_bump_rate&quot;</span>], best[<span class="st">&quot;sim_blades&quot;</span>]</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Observed: per-day bump </span><span class="sc">{</span>obs_bump<span class="sc">:.3f}</span><span class="ss">, blades </span><span class="sc">{</span>obs_blades<span class="sc">:.3f}</span><span class="ss">. &quot;</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f&quot;An equal-crews world matched to the same bump rate (</span><span class="sc">{</span>sim_bump<span class="sc">:.3f}</span><span class="ss">) yields blades ≈ </span><span class="sc">{</span>floor<span class="sc">:.4f}</span><span class="ss"> &quot;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f&quot;— about </span><span class="sc">{</span>obs_blades<span class="op">/</span>floor<span class="sc">:.0f}</span><span class="ss">× rarer than reality.&quot;</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(grid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Observed: per-day bump 0.309, blades 0.087. Equal-crews luck floor for blades ≈ 0.0058 (15x lower than reality).</code></pre>
+<pre><code>Observed: per-day bump 0.309, blades 0.087. An equal-crews world matched to the same bump rate (0.311) yields blades ≈ 0.0094 — about 9× rarer than reality.</code></pre>
+</div>
+<div id="luck-floor" class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">sigma</th>
+<th data-quarto-table-cell-role="th">sim_bump_rate</th>
+<th data-quarto-table-cell-role="th">sim_blades</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1.0</td>
+<td>0.222</td>
+<td>0.0023</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1.3</td>
+<td>0.261</td>
+<td>0.0045</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1.6</td>
+<td>0.283</td>
+<td>0.0063</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1.9</td>
+<td>0.296</td>
+<td>0.0076</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2.2</td>
+<td>0.304</td>
+<td>0.0084</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2.6</td>
+<td>0.311</td>
+<td>0.0094</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>3.0</td>
+<td>0.314</td>
+<td>0.0099</td>
+</tr>
+</tbody>
+</table>
+
+</div>
 </div>
 </div>
 <div id="blades-repeat" class="cell" data-execution_count="8">
@@ -3398,126 +3463,130 @@ Note
 <span id="cb21-193"><a href="#cb21-193" aria-hidden="true" tabindex="-1"></a>obs_bump <span class="op">=</span> <span class="bu">float</span>((CDE.places_moved<span class="op">&gt;</span><span class="dv">0</span>).mean())</span>
 <span id="cb21-194"><a href="#cb21-194" aria-hidden="true" tabindex="-1"></a>obs_blades <span class="op">=</span> <span class="bu">float</span>(ED4.blades.mean())</span>
 <span id="cb21-195"><a href="#cb21-195" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="bu">int</span>(ED4.groupby([<span class="st">&quot;year&quot;</span>,<span class="st">&quot;gender&quot;</span>]).size().median())</span>
-<span id="cb21-196"><a href="#cb21-196" aria-hidden="true" tabindex="-1"></a>floor <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb21-197"><a href="#cb21-197" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sigma <span class="kw">in</span> [<span class="fl">0.8</span>,<span class="fl">1.0</span>,<span class="fl">1.15</span>,<span class="fl">1.3</span>,<span class="fl">1.5</span>]:</span>
+<span id="cb21-196"><a href="#cb21-196" aria-hidden="true" tabindex="-1"></a>grid<span class="op">=</span>[]</span>
+<span id="cb21-197"><a href="#cb21-197" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sigma <span class="kw">in</span> [<span class="fl">1.0</span>,<span class="fl">1.3</span>,<span class="fl">1.6</span>,<span class="fl">1.9</span>,<span class="fl">2.2</span>,<span class="fl">2.6</span>,<span class="fl">3.0</span>]:</span>
 <span id="cb21-198"><a href="#cb21-198" aria-hidden="true" tabindex="-1"></a>    mc <span class="op">=</span> monte_carlo(np.zeros(N), n_days<span class="op">=</span><span class="dv">4</span>, sigma<span class="op">=</span>sigma, n_sims<span class="op">=</span><span class="dv">4000</span>, seed<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb21-199"><a href="#cb21-199" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">abs</span>(mc[<span class="st">&quot;p_bump_day&quot;</span>][:,<span class="dv">0</span>].mean()<span class="op">-</span>obs_bump) <span class="op">&lt;</span> <span class="fl">0.04</span> <span class="kw">or</span> floor <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb21-200"><a href="#cb21-200" aria-hidden="true" tabindex="-1"></a>        floor <span class="op">=</span> <span class="bu">float</span>(mc[<span class="st">&quot;p_blades&quot;</span>].mean())<span class="op">;</span> sim_bump<span class="op">=</span><span class="bu">float</span>(mc[<span class="st">&quot;p_bump_day&quot;</span>][:,<span class="dv">0</span>].mean())</span>
-<span id="cb21-201"><a href="#cb21-201" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Observed: per-day bump </span><span class="sc">{</span>obs_bump<span class="sc">:.3f}</span><span class="ss">, blades </span><span class="sc">{</span>obs_blades<span class="sc">:.3f}</span><span class="ss">. &quot;</span></span>
-<span id="cb21-202"><a href="#cb21-202" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f&quot;Equal-crews luck floor for blades ≈ </span><span class="sc">{</span>floor<span class="sc">:.4f}</span><span class="ss"> (</span><span class="sc">{</span>obs_blades<span class="op">/</span>floor<span class="sc">:.0f}</span><span class="ss">x lower than reality).&quot;</span>)</span>
-<span id="cb21-203"><a href="#cb21-203" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-204"><a href="#cb21-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-207"><a href="#cb21-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-208"><a href="#cb21-208" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: blades-repeat</span></span>
-<span id="cb21-209"><a href="#cb21-209" aria-hidden="true" tabindex="-1"></a>ED4s<span class="op">=</span>ED4.sort_values([<span class="st">&quot;crew_id&quot;</span>,<span class="st">&quot;year&quot;</span>])</span>
-<span id="cb21-210"><a href="#cb21-210" aria-hidden="true" tabindex="-1"></a>ED4s[<span class="st">&quot;bladed_last&quot;</span>]<span class="op">=</span>ED4s.groupby(<span class="st">&quot;crew_id&quot;</span>)[<span class="st">&quot;blades&quot;</span>].shift(<span class="dv">1</span>)</span>
-<span id="cb21-211"><a href="#cb21-211" aria-hidden="true" tabindex="-1"></a>rep<span class="op">=</span>ED4s.dropna(subset<span class="op">=</span>[<span class="st">&quot;bladed_last&quot;</span>])</span>
-<span id="cb21-212"><a href="#cb21-212" aria-hidden="true" tabindex="-1"></a>p_rep<span class="op">=</span><span class="bu">float</span>(rep[rep.bladed_last<span class="op">==</span><span class="dv">1</span>].blades.mean())<span class="op">;</span> p_base<span class="op">=</span><span class="bu">float</span>(rep[rep.bladed_last<span class="op">==</span><span class="dv">0</span>].blades.mean())</span>
-<span id="cb21-213"><a href="#cb21-213" aria-hidden="true" tabindex="-1"></a>share_new<span class="op">=</span><span class="bu">float</span>(<span class="dv">1</span> <span class="op">-</span> (ED4[ED4.blades].merge(ED4s[ED4s.bladed_last<span class="op">==</span><span class="dv">1</span>][[<span class="st">&quot;appearance_id&quot;</span>]],on<span class="op">=</span><span class="st">&quot;appearance_id&quot;</span>).shape[<span class="dv">0</span>]<span class="op">/</span><span class="bu">max</span>(ED4.blades.<span class="bu">sum</span>(),<span class="dv">1</span>)))</span>
-<span id="cb21-214"><a href="#cb21-214" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;P(blade | bladed last year)=</span><span class="sc">{</span>p_rep<span class="sc">:.3f}</span><span class="ss"> vs base </span><span class="sc">{</span>p_base<span class="sc">:.3f}</span><span class="ss">. Share of blade-winners who did NOT blade the year before ≈ </span><span class="sc">{</span>share_new<span class="sc">:.2f}</span><span class="ss">.&quot;</span>)</span>
-<span id="cb21-215"><a href="#cb21-215" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-216"><a href="#cb21-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-217"><a href="#cb21-217" aria-hidden="true" tabindex="-1"></a>The draw, quantified: a crew&#39;s chance of bumping depends overwhelmingly on what happened to</span>
-<span id="cb21-218"><a href="#cb21-218" aria-hidden="true" tabindex="-1"></a>the boat ahead of it.</span>
-<span id="cb21-219"><a href="#cb21-219" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-222"><a href="#cb21-222" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-223"><a href="#cb21-223" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: target-recession</span></span>
-<span id="cb21-224"><a href="#cb21-224" aria-hidden="true" tabindex="-1"></a>rows<span class="op">=</span>[]</span>
-<span id="cb21-225"><a href="#cb21-225" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d <span class="kw">in</span> [<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]:</span>
-<span id="cb21-226"><a href="#cb21-226" aria-hidden="true" tabindex="-1"></a>    pb<span class="op">=</span><span class="ss">f&quot;pos_after_day</span><span class="sc">{</span>d<span class="op">-</span><span class="dv">1</span><span class="sc">}</span><span class="ss">&quot;</span><span class="op">;</span> pm<span class="op">=</span><span class="ss">f&quot;day</span><span class="sc">{</span>d<span class="op">-</span><span class="dv">1</span><span class="sc">}</span><span class="ss">&quot;</span><span class="op">;</span> mv<span class="op">=</span><span class="ss">f&quot;day</span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">&quot;</span></span>
-<span id="cb21-227"><a href="#cb21-227" aria-hidden="true" tabindex="-1"></a>    sub<span class="op">=</span>ED4.dropna(subset<span class="op">=</span>[pb,mv,pm]).copy()</span>
-<span id="cb21-228"><a href="#cb21-228" aria-hidden="true" tabindex="-1"></a>    tgt<span class="op">=</span>sub.set_index([<span class="st">&quot;year&quot;</span>,<span class="st">&quot;gender&quot;</span>,pb])[pm]</span>
-<span id="cb21-229"><a href="#cb21-229" aria-hidden="true" tabindex="-1"></a>    sub[<span class="st">&quot;tpm&quot;</span>]<span class="op">=</span>[tgt.get((y_,g_,p<span class="op">-</span><span class="dv">1</span>),np.nan) <span class="cf">for</span> y_,g_,p <span class="kw">in</span> <span class="bu">zip</span>(sub.year,sub.gender,sub[pb])]</span>
-<span id="cb21-230"><a href="#cb21-230" aria-hidden="true" tabindex="-1"></a>    rows.append(pd.DataFrame({<span class="st">&quot;mymove&quot;</span>:sub[mv].values,<span class="st">&quot;tpm&quot;</span>:sub[<span class="st">&quot;tpm&quot;</span>].values}))</span>
-<span id="cb21-231"><a href="#cb21-231" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>pd.concat(rows).dropna()<span class="op">;</span> a[<span class="st">&quot;ibump&quot;</span>]<span class="op">=</span>a.mymove<span class="op">&gt;</span><span class="dv">0</span></span>
-<span id="cb21-232"><a href="#cb21-232" aria-hidden="true" tabindex="-1"></a>catch_caught<span class="op">=</span><span class="bu">float</span>(a[a.tpm<span class="op">&lt;</span><span class="dv">0</span>].ibump.mean())     <span class="co"># boat ahead was caught -&gt; sitting there</span></span>
-<span id="cb21-233"><a href="#cb21-233" aria-hidden="true" tabindex="-1"></a>catch_receded<span class="op">=</span><span class="bu">float</span>(a[a.tpm<span class="op">&gt;</span><span class="dv">0</span>].ibump.mean())    <span class="co"># boat ahead bumped out -&gt; receded</span></span>
-<span id="cb21-234"><a href="#cb21-234" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;P(bump | boat ahead was caught yesterday) = </span><span class="sc">{</span>catch_caught<span class="sc">:.3f}</span><span class="ss">; &quot;</span></span>
-<span id="cb21-235"><a href="#cb21-235" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f&quot;P(bump | boat ahead bumped out &amp; receded) = </span><span class="sc">{</span>catch_receded<span class="sc">:.3f}</span><span class="ss">  (n=</span><span class="sc">{</span><span class="bu">len</span>(a)<span class="sc">:,}</span><span class="ss">)&quot;</span>)</span>
-<span id="cb21-236"><a href="#cb21-236" aria-hidden="true" tabindex="-1"></a>RF[<span class="st">&quot;luck_skill&quot;</span>]<span class="op">=</span>{</span>
-<span id="cb21-237"><a href="#cb21-237" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;blades_rate_observed&quot;</span>:rnd(obs_blades),<span class="st">&quot;blades_rate_pure_luck_floor&quot;</span>:rnd(floor),</span>
-<span id="cb21-238"><a href="#cb21-238" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;excess_ratio&quot;</span>:<span class="bu">int</span>(<span class="bu">round</span>(obs_blades<span class="op">/</span>floor)),<span class="st">&quot;blades_repeat_rate&quot;</span>:rnd(p_rep),<span class="st">&quot;blades_repeat_base&quot;</span>:rnd(p_base),</span>
-<span id="cb21-239"><a href="#cb21-239" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;blades_share_didnt_blade_prior_year&quot;</span>:rnd(share_new),</span>
-<span id="cb21-240"><a href="#cb21-240" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;catch_rate_if_target_caught&quot;</span>:rnd(catch_caught),<span class="st">&quot;catch_rate_if_target_bumped_out&quot;</span>:rnd(catch_receded),</span>
-<span id="cb21-241"><a href="#cb21-241" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-242"><a href="#cb21-242" aria-hidden="true" tabindex="-1"></a>pd.DataFrame([RF[<span class="st">&quot;luck_skill&quot;</span>]]).to_csv(CSV<span class="op">/</span><span class="st">&quot;luck_skill.csv&quot;</span>,index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb21-243"><a href="#cb21-243" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-244"><a href="#cb21-244" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-245"><a href="#cb21-245" aria-hidden="true" tabindex="-1"></a><span class="fu"># 5. What moves a crew over a regatta (controlled)</span></span>
-<span id="cb21-246"><a href="#cb21-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-247"><a href="#cb21-247" aria-hidden="true" tabindex="-1"></a>Effect of each signal on net places over a regatta, holding start position (linear +</span>
-<span id="cb21-248"><a href="#cb21-248" aria-hidden="true" tabindex="-1"></a>quadratic), division, gender and year fixed. Crew-data signals (Blues, coach, continuity)</span>
-<span id="cb21-249"><a href="#cb21-249" aria-hidden="true" tabindex="-1"></a>are 2007+; cluster-robust SEs on the regatta.</span>
+<span id="cb21-199"><a href="#cb21-199" aria-hidden="true" tabindex="-1"></a>    grid.append({<span class="st">&quot;sigma&quot;</span>:sigma,<span class="st">&quot;sim_bump_rate&quot;</span>:<span class="bu">round</span>(<span class="bu">float</span>(mc[<span class="st">&quot;p_bump_day&quot;</span>][:,<span class="dv">0</span>].mean()),<span class="dv">3</span>),</span>
+<span id="cb21-200"><a href="#cb21-200" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;sim_blades&quot;</span>:<span class="bu">round</span>(<span class="bu">float</span>(mc[<span class="st">&quot;p_blades&quot;</span>].mean()),<span class="dv">4</span>)})</span>
+<span id="cb21-201"><a href="#cb21-201" aria-hidden="true" tabindex="-1"></a>best<span class="op">=</span><span class="bu">min</span>(grid, key<span class="op">=</span><span class="kw">lambda</span> r: <span class="bu">abs</span>(r[<span class="st">&quot;sim_bump_rate&quot;</span>]<span class="op">-</span>obs_bump))   <span class="co"># match the REAL per-day bump rate</span></span>
+<span id="cb21-202"><a href="#cb21-202" aria-hidden="true" tabindex="-1"></a>sim_bump, floor <span class="op">=</span> best[<span class="st">&quot;sim_bump_rate&quot;</span>], best[<span class="st">&quot;sim_blades&quot;</span>]</span>
+<span id="cb21-203"><a href="#cb21-203" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Observed: per-day bump </span><span class="sc">{</span>obs_bump<span class="sc">:.3f}</span><span class="ss">, blades </span><span class="sc">{</span>obs_blades<span class="sc">:.3f}</span><span class="ss">. &quot;</span></span>
+<span id="cb21-204"><a href="#cb21-204" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f&quot;An equal-crews world matched to the same bump rate (</span><span class="sc">{</span>sim_bump<span class="sc">:.3f}</span><span class="ss">) yields blades ≈ </span><span class="sc">{</span>floor<span class="sc">:.4f}</span><span class="ss"> &quot;</span></span>
+<span id="cb21-205"><a href="#cb21-205" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f&quot;— about </span><span class="sc">{</span>obs_blades<span class="op">/</span>floor<span class="sc">:.0f}</span><span class="ss">× rarer than reality.&quot;</span>)</span>
+<span id="cb21-206"><a href="#cb21-206" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(grid)</span>
+<span id="cb21-207"><a href="#cb21-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-208"><a href="#cb21-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-211"><a href="#cb21-211" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb21-212"><a href="#cb21-212" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: blades-repeat</span></span>
+<span id="cb21-213"><a href="#cb21-213" aria-hidden="true" tabindex="-1"></a>ED4s<span class="op">=</span>ED4.sort_values([<span class="st">&quot;crew_id&quot;</span>,<span class="st">&quot;year&quot;</span>])</span>
+<span id="cb21-214"><a href="#cb21-214" aria-hidden="true" tabindex="-1"></a>ED4s[<span class="st">&quot;bladed_last&quot;</span>]<span class="op">=</span>ED4s.groupby(<span class="st">&quot;crew_id&quot;</span>)[<span class="st">&quot;blades&quot;</span>].shift(<span class="dv">1</span>)</span>
+<span id="cb21-215"><a href="#cb21-215" aria-hidden="true" tabindex="-1"></a>rep<span class="op">=</span>ED4s.dropna(subset<span class="op">=</span>[<span class="st">&quot;bladed_last&quot;</span>])</span>
+<span id="cb21-216"><a href="#cb21-216" aria-hidden="true" tabindex="-1"></a>p_rep<span class="op">=</span><span class="bu">float</span>(rep[rep.bladed_last<span class="op">==</span><span class="dv">1</span>].blades.mean())<span class="op">;</span> p_base<span class="op">=</span><span class="bu">float</span>(rep[rep.bladed_last<span class="op">==</span><span class="dv">0</span>].blades.mean())</span>
+<span id="cb21-217"><a href="#cb21-217" aria-hidden="true" tabindex="-1"></a>share_new<span class="op">=</span><span class="bu">float</span>(<span class="dv">1</span> <span class="op">-</span> (ED4[ED4.blades].merge(ED4s[ED4s.bladed_last<span class="op">==</span><span class="dv">1</span>][[<span class="st">&quot;appearance_id&quot;</span>]],on<span class="op">=</span><span class="st">&quot;appearance_id&quot;</span>).shape[<span class="dv">0</span>]<span class="op">/</span><span class="bu">max</span>(ED4.blades.<span class="bu">sum</span>(),<span class="dv">1</span>)))</span>
+<span id="cb21-218"><a href="#cb21-218" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;P(blade | bladed last year)=</span><span class="sc">{</span>p_rep<span class="sc">:.3f}</span><span class="ss"> vs base </span><span class="sc">{</span>p_base<span class="sc">:.3f}</span><span class="ss">. Share of blade-winners who did NOT blade the year before ≈ </span><span class="sc">{</span>share_new<span class="sc">:.2f}</span><span class="ss">.&quot;</span>)</span>
+<span id="cb21-219"><a href="#cb21-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-220"><a href="#cb21-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-221"><a href="#cb21-221" aria-hidden="true" tabindex="-1"></a>The draw, quantified: a crew&#39;s chance of bumping depends overwhelmingly on what happened to</span>
+<span id="cb21-222"><a href="#cb21-222" aria-hidden="true" tabindex="-1"></a>the boat ahead of it.</span>
+<span id="cb21-223"><a href="#cb21-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-226"><a href="#cb21-226" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb21-227"><a href="#cb21-227" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: target-recession</span></span>
+<span id="cb21-228"><a href="#cb21-228" aria-hidden="true" tabindex="-1"></a>rows<span class="op">=</span>[]</span>
+<span id="cb21-229"><a href="#cb21-229" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> d <span class="kw">in</span> [<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]:</span>
+<span id="cb21-230"><a href="#cb21-230" aria-hidden="true" tabindex="-1"></a>    pb<span class="op">=</span><span class="ss">f&quot;pos_after_day</span><span class="sc">{</span>d<span class="op">-</span><span class="dv">1</span><span class="sc">}</span><span class="ss">&quot;</span><span class="op">;</span> pm<span class="op">=</span><span class="ss">f&quot;day</span><span class="sc">{</span>d<span class="op">-</span><span class="dv">1</span><span class="sc">}</span><span class="ss">&quot;</span><span class="op">;</span> mv<span class="op">=</span><span class="ss">f&quot;day</span><span class="sc">{</span>d<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb21-231"><a href="#cb21-231" aria-hidden="true" tabindex="-1"></a>    sub<span class="op">=</span>ED4.dropna(subset<span class="op">=</span>[pb,mv,pm]).copy()</span>
+<span id="cb21-232"><a href="#cb21-232" aria-hidden="true" tabindex="-1"></a>    tgt<span class="op">=</span>sub.set_index([<span class="st">&quot;year&quot;</span>,<span class="st">&quot;gender&quot;</span>,pb])[pm]</span>
+<span id="cb21-233"><a href="#cb21-233" aria-hidden="true" tabindex="-1"></a>    sub[<span class="st">&quot;tpm&quot;</span>]<span class="op">=</span>[tgt.get((y_,g_,p<span class="op">-</span><span class="dv">1</span>),np.nan) <span class="cf">for</span> y_,g_,p <span class="kw">in</span> <span class="bu">zip</span>(sub.year,sub.gender,sub[pb])]</span>
+<span id="cb21-234"><a href="#cb21-234" aria-hidden="true" tabindex="-1"></a>    rows.append(pd.DataFrame({<span class="st">&quot;mymove&quot;</span>:sub[mv].values,<span class="st">&quot;tpm&quot;</span>:sub[<span class="st">&quot;tpm&quot;</span>].values}))</span>
+<span id="cb21-235"><a href="#cb21-235" aria-hidden="true" tabindex="-1"></a>a<span class="op">=</span>pd.concat(rows).dropna()<span class="op">;</span> a[<span class="st">&quot;ibump&quot;</span>]<span class="op">=</span>a.mymove<span class="op">&gt;</span><span class="dv">0</span></span>
+<span id="cb21-236"><a href="#cb21-236" aria-hidden="true" tabindex="-1"></a>catch_caught<span class="op">=</span><span class="bu">float</span>(a[a.tpm<span class="op">&lt;</span><span class="dv">0</span>].ibump.mean())     <span class="co"># boat ahead was caught -&gt; sitting there</span></span>
+<span id="cb21-237"><a href="#cb21-237" aria-hidden="true" tabindex="-1"></a>catch_receded<span class="op">=</span><span class="bu">float</span>(a[a.tpm<span class="op">&gt;</span><span class="dv">0</span>].ibump.mean())    <span class="co"># boat ahead bumped out -&gt; receded</span></span>
+<span id="cb21-238"><a href="#cb21-238" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;P(bump | boat ahead was caught yesterday) = </span><span class="sc">{</span>catch_caught<span class="sc">:.3f}</span><span class="ss">; &quot;</span></span>
+<span id="cb21-239"><a href="#cb21-239" aria-hidden="true" tabindex="-1"></a>      <span class="ss">f&quot;P(bump | boat ahead bumped out &amp; receded) = </span><span class="sc">{</span>catch_receded<span class="sc">:.3f}</span><span class="ss">  (n=</span><span class="sc">{</span><span class="bu">len</span>(a)<span class="sc">:,}</span><span class="ss">)&quot;</span>)</span>
+<span id="cb21-240"><a href="#cb21-240" aria-hidden="true" tabindex="-1"></a>RF[<span class="st">&quot;luck_skill&quot;</span>]<span class="op">=</span>{</span>
+<span id="cb21-241"><a href="#cb21-241" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;blades_rate_observed&quot;</span>:rnd(obs_blades),<span class="st">&quot;blades_rate_pure_luck_floor&quot;</span>:rnd(floor),</span>
+<span id="cb21-242"><a href="#cb21-242" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;excess_ratio&quot;</span>:<span class="bu">int</span>(<span class="bu">round</span>(obs_blades<span class="op">/</span>floor)),<span class="st">&quot;blades_repeat_rate&quot;</span>:rnd(p_rep),<span class="st">&quot;blades_repeat_base&quot;</span>:rnd(p_base),</span>
+<span id="cb21-243"><a href="#cb21-243" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;blades_share_didnt_blade_prior_year&quot;</span>:rnd(share_new),</span>
+<span id="cb21-244"><a href="#cb21-244" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;catch_rate_if_target_caught&quot;</span>:rnd(catch_caught),<span class="st">&quot;catch_rate_if_target_bumped_out&quot;</span>:rnd(catch_receded),</span>
+<span id="cb21-245"><a href="#cb21-245" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-246"><a href="#cb21-246" aria-hidden="true" tabindex="-1"></a>pd.DataFrame([RF[<span class="st">&quot;luck_skill&quot;</span>]]).to_csv(CSV<span class="op">/</span><span class="st">&quot;luck_skill.csv&quot;</span>,index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb21-247"><a href="#cb21-247" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-248"><a href="#cb21-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-249"><a href="#cb21-249" aria-hidden="true" tabindex="-1"></a><span class="fu"># 5. What moves a crew over a regatta (controlled)</span></span>
 <span id="cb21-250"><a href="#cb21-250" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-253"><a href="#cb21-253" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-254"><a href="#cb21-254" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: factors</span></span>
-<span id="cb21-255"><a href="#cb21-255" aria-hidden="true" tabindex="-1"></a>d<span class="op">=</span>ap[(ap.event<span class="op">==</span><span class="st">&quot;eights&quot;</span>) <span class="op">&amp;</span> ap.clean <span class="op">&amp;</span> ap.has_crewdata <span class="op">&amp;</span> (ap.year<span class="op">&gt;=</span><span class="dv">2007</span>)].copy()</span>
-<span id="cb21-256"><a href="#cb21-256" aria-hidden="true" tabindex="-1"></a>d<span class="op">=</span>d.dropna(subset<span class="op">=</span>[<span class="st">&quot;start_pct&quot;</span>,<span class="st">&quot;net_places&quot;</span>])</span>
-<span id="cb21-257"><a href="#cb21-257" aria-hidden="true" tabindex="-1"></a>d[<span class="st">&quot;blue&quot;</span>]<span class="op">=</span>d[<span class="st">&quot;n_blues&quot;</span>].fillna(<span class="dv">0</span>)<span class="op">;</span> d[<span class="st">&quot;tor&quot;</span>]<span class="op">=</span>d[<span class="st">&quot;tor_net&quot;</span>].fillna(<span class="dv">0</span>)</span>
-<span id="cb21-258"><a href="#cb21-258" aria-hidden="true" tabindex="-1"></a>d[<span class="st">&quot;prev&quot;</span>]<span class="op">=</span>d[<span class="st">&quot;prev_net_places&quot;</span>].fillna(<span class="dv">0</span>)<span class="op">;</span> d[<span class="st">&quot;ret&quot;</span>]<span class="op">=</span>d[<span class="st">&quot;retained_frac&quot;</span>].fillna(d[<span class="st">&quot;retained_frac&quot;</span>].median())</span>
-<span id="cb21-259"><a href="#cb21-259" aria-hidden="true" tabindex="-1"></a>d[<span class="st">&quot;coach&quot;</span>]<span class="op">=</span>d[<span class="st">&quot;same_coach&quot;</span>].<span class="bu">map</span>({<span class="va">True</span>:<span class="fl">1.0</span>,<span class="va">False</span>:<span class="fl">0.0</span>})</span>
-<span id="cb21-260"><a href="#cb21-260" aria-hidden="true" tabindex="-1"></a>terms<span class="op">=</span>{<span class="st">&quot;blue&quot;</span>:<span class="st">&quot;each Blue in the boat&quot;</span>,<span class="st">&quot;tor&quot;</span>:<span class="st">&quot;each place at Torpids&quot;</span>,<span class="st">&quot;prev&quot;</span>:<span class="st">&quot;each place last year&quot;</span>,</span>
-<span id="cb21-261"><a href="#cb21-261" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;coach&quot;</span>:<span class="st">&quot;same coach as last year&quot;</span>}</span>
-<span id="cb21-262"><a href="#cb21-262" aria-hidden="true" tabindex="-1"></a>m<span class="op">=</span>smf.ols(<span class="st">&quot;net_places ~ blue+tor+prev+coach + start_pct+I(start_pct**2)+C(gender)+C(year)&quot;</span>,</span>
-<span id="cb21-263"><a href="#cb21-263" aria-hidden="true" tabindex="-1"></a>          d.dropna(subset<span class="op">=</span>[<span class="st">&quot;coach&quot;</span>])).fit(cov_type<span class="op">=</span><span class="st">&quot;cluster&quot;</span>,cov_kwds<span class="op">=</span>{<span class="st">&quot;groups&quot;</span>:d.dropna(subset<span class="op">=</span>[<span class="st">&quot;coach&quot;</span>])[<span class="st">&quot;year&quot;</span>].astype(<span class="bu">str</span>)<span class="op">+</span>d.dropna(subset<span class="op">=</span>[<span class="st">&quot;coach&quot;</span>])[<span class="st">&quot;gender&quot;</span>]})</span>
-<span id="cb21-264"><a href="#cb21-264" aria-hidden="true" tabindex="-1"></a>eff<span class="op">=</span>pd.DataFrame({<span class="st">&quot;factor&quot;</span>:[terms[k] <span class="cf">for</span> k <span class="kw">in</span> terms],</span>
-<span id="cb21-265"><a href="#cb21-265" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;effect_places&quot;</span>:[rnd(m.params[k],<span class="dv">2</span>) <span class="cf">for</span> k <span class="kw">in</span> terms],</span>
-<span id="cb21-266"><a href="#cb21-266" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ci_lo&quot;</span>:[rnd(m.conf_int().loc[k,<span class="dv">0</span>],<span class="dv">2</span>) <span class="cf">for</span> k <span class="kw">in</span> terms],</span>
-<span id="cb21-267"><a href="#cb21-267" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ci_hi&quot;</span>:[rnd(m.conf_int().loc[k,<span class="dv">1</span>],<span class="dv">2</span>) <span class="cf">for</span> k <span class="kw">in</span> terms],</span>
-<span id="cb21-268"><a href="#cb21-268" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;p&quot;</span>:[rnd(m.pvalues[k],<span class="dv">4</span>) <span class="cf">for</span> k <span class="kw">in</span> terms]})</span>
-<span id="cb21-269"><a href="#cb21-269" aria-hidden="true" tabindex="-1"></a>eff.to_csv(CSV<span class="op">/</span><span class="st">&quot;factor_effects.csv&quot;</span>,index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb21-270"><a href="#cb21-270" aria-hidden="true" tabindex="-1"></a>RF[<span class="st">&quot;factors_controlled_per_place&quot;</span>]<span class="op">=</span>eff.to_dict(<span class="st">&quot;records&quot;</span>)<span class="op">;</span> eff</span>
-<span id="cb21-271"><a href="#cb21-271" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-272"><a href="#cb21-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-273"><a href="#cb21-273" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Stability of the order (in places, not correlation)</span></span>
-<span id="cb21-274"><a href="#cb21-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-277"><a href="#cb21-277" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-278"><a href="#cb21-278" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: stability</span></span>
-<span id="cb21-279"><a href="#cb21-279" aria-hidden="true" tabindex="-1"></a>e<span class="op">=</span>E.sort_values([<span class="st">&quot;crew_id&quot;</span>,<span class="st">&quot;year&quot;</span>]).copy()</span>
-<span id="cb21-280"><a href="#cb21-280" aria-hidden="true" tabindex="-1"></a>e[<span class="st">&quot;nf&quot;</span>]<span class="op">=</span>e.groupby(<span class="st">&quot;crew_id&quot;</span>)[<span class="st">&quot;finish_pos&quot;</span>].shift(<span class="op">-</span><span class="dv">1</span>)<span class="op">;</span> e[<span class="st">&quot;ny&quot;</span>]<span class="op">=</span>e.groupby(<span class="st">&quot;crew_id&quot;</span>)[<span class="st">&quot;year&quot;</span>].shift(<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb21-281"><a href="#cb21-281" aria-hidden="true" tabindex="-1"></a>e[<span class="st">&quot;nn&quot;</span>]<span class="op">=</span>e.groupby(<span class="st">&quot;crew_id&quot;</span>)[<span class="st">&quot;net_places&quot;</span>].shift(<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb21-282"><a href="#cb21-282" aria-hidden="true" tabindex="-1"></a>c<span class="op">=</span>e[e.ny<span class="op">==</span>e.year<span class="op">+</span><span class="dv">1</span>].copy()<span class="op">;</span> mv<span class="op">=</span>(c.nf<span class="op">-</span>c.finish_pos).<span class="bu">abs</span>()</span>
-<span id="cb21-283"><a href="#cb21-283" aria-hidden="true" tabindex="-1"></a>rev<span class="op">=</span>smf.ols(<span class="st">&quot;nn ~ net_places&quot;</span>, c.dropna(subset<span class="op">=</span>[<span class="st">&quot;nn&quot;</span>])).fit().params[<span class="st">&quot;net_places&quot;</span>]</span>
-<span id="cb21-284"><a href="#cb21-284" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> trans(b): s<span class="op">=</span>c[c.finish_pos<span class="op">&lt;=</span>b]<span class="op">;</span> <span class="cf">return</span> rnd((s.nf<span class="op">&lt;=</span>b).mean())</span>
-<span id="cb21-285"><a href="#cb21-285" aria-hidden="true" tabindex="-1"></a>RF[<span class="st">&quot;stability_interpretable&quot;</span>]<span class="op">=</span>{</span>
-<span id="cb21-286"><a href="#cb21-286" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;median_abs_yoy_move&quot;</span>:rnd(mv.median(),<span class="dv">2</span>),<span class="st">&quot;share_within_1_place&quot;</span>:rnd((mv<span class="op">&lt;=</span><span class="dv">1</span>).mean()),</span>
-<span id="cb21-287"><a href="#cb21-287" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;share_move_gt_5&quot;</span>:rnd((mv<span class="op">&gt;</span><span class="dv">5</span>).mean()),<span class="st">&quot;mean_reversion_slope&quot;</span>:rnd(rev),</span>
-<span id="cb21-288"><a href="#cb21-288" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;p_top3_stays_top3&quot;</span>:trans(<span class="dv">3</span>),<span class="st">&quot;p_div1_stays_div1&quot;</span>:trans(<span class="dv">12</span>)}</span>
-<span id="cb21-289"><a href="#cb21-289" aria-hidden="true" tabindex="-1"></a>pd.DataFrame([RF[<span class="st">&quot;stability_interpretable&quot;</span>]]).to_csv(CSV<span class="op">/</span><span class="st">&quot;stability.csv&quot;</span>,index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb21-290"><a href="#cb21-290" aria-hidden="true" tabindex="-1"></a>RF[<span class="st">&quot;stability_interpretable&quot;</span>]</span>
-<span id="cb21-291"><a href="#cb21-291" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-292"><a href="#cb21-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-293"><a href="#cb21-293" aria-hidden="true" tabindex="-1"></a><span class="fu"># 7. Live 2026 predictions</span></span>
-<span id="cb21-294"><a href="#cb21-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-295"><a href="#cb21-295" aria-hidden="true" tabindex="-1"></a>The board&#39;s predictions: the head-to-head model applied to the current standings (with</span>
-<span id="cb21-296"><a href="#cb21-296" aria-hidden="true" tabindex="-1"></a>per-crew factor attribution), and a per-outcome model for bump/hold/caught and blades.</span>
-<span id="cb21-297"><a href="#cb21-297" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-300"><a href="#cb21-300" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-301"><a href="#cb21-301" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: live</span></span>
-<span id="cb21-302"><a href="#cb21-302" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb21-303"><a href="#cb21-303" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src <span class="im">import</span> predict_live, build_site_data, extra_analysis</span>
-<span id="cb21-304"><a href="#cb21-304" aria-hidden="true" tabindex="-1"></a>pairwise.live_headtohead(model, scaler)     <span class="co"># -&gt; site/data/headtohead_2026.json</span></span>
-<span id="cb21-305"><a href="#cb21-305" aria-hidden="true" tabindex="-1"></a>predict_live.predict_next_day()             <span class="co"># -&gt; data/processed/predictions_2026.json</span></span>
-<span id="cb21-306"><a href="#cb21-306" aria-hidden="true" tabindex="-1"></a>extra_analysis.main()                        <span class="co"># -&gt; site/data/extras.json (incl per_day, maturation, stability)</span></span>
-<span id="cb21-307"><a href="#cb21-307" aria-hidden="true" tabindex="-1"></a>build_site_data.main()                       <span class="co"># -&gt; site/data/{stats,colleges,predictions}.json</span></span>
-<span id="cb21-308"><a href="#cb21-308" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-309"><a href="#cb21-309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-310"><a href="#cb21-310" aria-hidden="true" tabindex="-1"></a><span class="fu"># 8. Write the files the website reads</span></span>
-<span id="cb21-311"><a href="#cb21-311" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-314"><a href="#cb21-314" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb21-315"><a href="#cb21-315" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: write</span></span>
-<span id="cb21-316"><a href="#cb21-316" aria-hidden="true" tabindex="-1"></a>RF[<span class="st">&quot;_generated&quot;</span>] <span class="op">=</span> <span class="st">&quot;Computed by analysis/report.qmd — every figure above is reproducible from the scraped data.&quot;</span></span>
-<span id="cb21-317"><a href="#cb21-317" aria-hidden="true" tabindex="-1"></a>(OUT<span class="op">/</span><span class="st">&quot;reconciled_findings.json&quot;</span>).write_text(json.dumps(RF, indent<span class="op">=</span><span class="dv">2</span>))</span>
-<span id="cb21-318"><a href="#cb21-318" aria-hidden="true" tabindex="-1"></a><span class="co"># extras.json already written by extra_analysis; ensure per_day matches this compile</span></span>
-<span id="cb21-319"><a href="#cb21-319" aria-hidden="true" tabindex="-1"></a>ex <span class="op">=</span> json.loads((OUT<span class="op">/</span><span class="st">&quot;extras.json&quot;</span>).read_text())<span class="op">;</span> ex[<span class="st">&quot;per_day&quot;</span>]<span class="op">=</span>RF[<span class="st">&quot;per_day&quot;</span>]<span class="op">;</span> (OUT<span class="op">/</span><span class="st">&quot;extras.json&quot;</span>).write_text(json.dumps(ex,indent<span class="op">=</span><span class="dv">2</span>))</span>
-<span id="cb21-320"><a href="#cb21-320" aria-hidden="true" tabindex="-1"></a>written <span class="op">=</span> <span class="bu">sorted</span>(p.name <span class="cf">for</span> p <span class="kw">in</span> OUT.glob(<span class="st">&quot;*.json&quot;</span>)) <span class="op">+</span> [<span class="st">&quot;analysis/csv/&quot;</span><span class="op">+</span>p.name <span class="cf">for</span> p <span class="kw">in</span> CSV.glob(<span class="st">&quot;*.csv&quot;</span>)]</span>
-<span id="cb21-321"><a href="#cb21-321" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Wrote:&quot;</span>, <span class="op">*</span>written, sep<span class="op">=</span><span class="st">&quot;</span><span class="ch">\n</span><span class="st">  &quot;</span>)</span>
-<span id="cb21-322"><a href="#cb21-322" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-323"><a href="#cb21-323" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-324"><a href="#cb21-324" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb21-325"><a href="#cb21-325" aria-hidden="true" tabindex="-1"></a>Every statistic on the website is produced above and written to <span class="in">`site/data/*.json`</span> and</span>
-<span id="cb21-326"><a href="#cb21-326" aria-hidden="true" tabindex="-1"></a><span class="in">`analysis/csv/*.csv`</span>. Re-rendering this notebook regenerates them from the raw scraped data.</span>
-<span id="cb21-327"><a href="#cb21-327" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb21-251"><a href="#cb21-251" aria-hidden="true" tabindex="-1"></a>Effect of each signal on net places over a regatta, holding start position (linear +</span>
+<span id="cb21-252"><a href="#cb21-252" aria-hidden="true" tabindex="-1"></a>quadratic), division, gender and year fixed. Crew-data signals (Blues, coach, continuity)</span>
+<span id="cb21-253"><a href="#cb21-253" aria-hidden="true" tabindex="-1"></a>are 2007+; cluster-robust SEs on the regatta.</span>
+<span id="cb21-254"><a href="#cb21-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-257"><a href="#cb21-257" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb21-258"><a href="#cb21-258" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: factors</span></span>
+<span id="cb21-259"><a href="#cb21-259" aria-hidden="true" tabindex="-1"></a>d<span class="op">=</span>ap[(ap.event<span class="op">==</span><span class="st">&quot;eights&quot;</span>) <span class="op">&amp;</span> ap.clean <span class="op">&amp;</span> ap.has_crewdata <span class="op">&amp;</span> (ap.year<span class="op">&gt;=</span><span class="dv">2007</span>)].copy()</span>
+<span id="cb21-260"><a href="#cb21-260" aria-hidden="true" tabindex="-1"></a>d<span class="op">=</span>d.dropna(subset<span class="op">=</span>[<span class="st">&quot;start_pct&quot;</span>,<span class="st">&quot;net_places&quot;</span>])</span>
+<span id="cb21-261"><a href="#cb21-261" aria-hidden="true" tabindex="-1"></a>d[<span class="st">&quot;blue&quot;</span>]<span class="op">=</span>d[<span class="st">&quot;n_blues&quot;</span>].fillna(<span class="dv">0</span>)<span class="op">;</span> d[<span class="st">&quot;tor&quot;</span>]<span class="op">=</span>d[<span class="st">&quot;tor_net&quot;</span>].fillna(<span class="dv">0</span>)</span>
+<span id="cb21-262"><a href="#cb21-262" aria-hidden="true" tabindex="-1"></a>d[<span class="st">&quot;prev&quot;</span>]<span class="op">=</span>d[<span class="st">&quot;prev_net_places&quot;</span>].fillna(<span class="dv">0</span>)<span class="op">;</span> d[<span class="st">&quot;ret&quot;</span>]<span class="op">=</span>d[<span class="st">&quot;retained_frac&quot;</span>].fillna(d[<span class="st">&quot;retained_frac&quot;</span>].median())</span>
+<span id="cb21-263"><a href="#cb21-263" aria-hidden="true" tabindex="-1"></a>d[<span class="st">&quot;coach&quot;</span>]<span class="op">=</span>d[<span class="st">&quot;same_coach&quot;</span>].<span class="bu">map</span>({<span class="va">True</span>:<span class="fl">1.0</span>,<span class="va">False</span>:<span class="fl">0.0</span>})</span>
+<span id="cb21-264"><a href="#cb21-264" aria-hidden="true" tabindex="-1"></a>terms<span class="op">=</span>{<span class="st">&quot;blue&quot;</span>:<span class="st">&quot;each Blue in the boat&quot;</span>,<span class="st">&quot;tor&quot;</span>:<span class="st">&quot;each place at Torpids&quot;</span>,<span class="st">&quot;prev&quot;</span>:<span class="st">&quot;each place last year&quot;</span>,</span>
+<span id="cb21-265"><a href="#cb21-265" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;coach&quot;</span>:<span class="st">&quot;same coach as last year&quot;</span>}</span>
+<span id="cb21-266"><a href="#cb21-266" aria-hidden="true" tabindex="-1"></a>m<span class="op">=</span>smf.ols(<span class="st">&quot;net_places ~ blue+tor+prev+coach + start_pct+I(start_pct**2)+C(gender)+C(year)&quot;</span>,</span>
+<span id="cb21-267"><a href="#cb21-267" aria-hidden="true" tabindex="-1"></a>          d.dropna(subset<span class="op">=</span>[<span class="st">&quot;coach&quot;</span>])).fit(cov_type<span class="op">=</span><span class="st">&quot;cluster&quot;</span>,cov_kwds<span class="op">=</span>{<span class="st">&quot;groups&quot;</span>:d.dropna(subset<span class="op">=</span>[<span class="st">&quot;coach&quot;</span>])[<span class="st">&quot;year&quot;</span>].astype(<span class="bu">str</span>)<span class="op">+</span>d.dropna(subset<span class="op">=</span>[<span class="st">&quot;coach&quot;</span>])[<span class="st">&quot;gender&quot;</span>]})</span>
+<span id="cb21-268"><a href="#cb21-268" aria-hidden="true" tabindex="-1"></a>eff<span class="op">=</span>pd.DataFrame({<span class="st">&quot;factor&quot;</span>:[terms[k] <span class="cf">for</span> k <span class="kw">in</span> terms],</span>
+<span id="cb21-269"><a href="#cb21-269" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;effect_places&quot;</span>:[rnd(m.params[k],<span class="dv">2</span>) <span class="cf">for</span> k <span class="kw">in</span> terms],</span>
+<span id="cb21-270"><a href="#cb21-270" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ci_lo&quot;</span>:[rnd(m.conf_int().loc[k,<span class="dv">0</span>],<span class="dv">2</span>) <span class="cf">for</span> k <span class="kw">in</span> terms],</span>
+<span id="cb21-271"><a href="#cb21-271" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ci_hi&quot;</span>:[rnd(m.conf_int().loc[k,<span class="dv">1</span>],<span class="dv">2</span>) <span class="cf">for</span> k <span class="kw">in</span> terms],</span>
+<span id="cb21-272"><a href="#cb21-272" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;p&quot;</span>:[rnd(m.pvalues[k],<span class="dv">4</span>) <span class="cf">for</span> k <span class="kw">in</span> terms]})</span>
+<span id="cb21-273"><a href="#cb21-273" aria-hidden="true" tabindex="-1"></a>eff.to_csv(CSV<span class="op">/</span><span class="st">&quot;factor_effects.csv&quot;</span>,index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb21-274"><a href="#cb21-274" aria-hidden="true" tabindex="-1"></a>RF[<span class="st">&quot;factors_controlled_per_place&quot;</span>]<span class="op">=</span>eff.to_dict(<span class="st">&quot;records&quot;</span>)<span class="op">;</span> eff</span>
+<span id="cb21-275"><a href="#cb21-275" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-276"><a href="#cb21-276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-277"><a href="#cb21-277" aria-hidden="true" tabindex="-1"></a><span class="fu"># 6. Stability of the order (in places, not correlation)</span></span>
+<span id="cb21-278"><a href="#cb21-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-281"><a href="#cb21-281" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb21-282"><a href="#cb21-282" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: stability</span></span>
+<span id="cb21-283"><a href="#cb21-283" aria-hidden="true" tabindex="-1"></a>e<span class="op">=</span>E.sort_values([<span class="st">&quot;crew_id&quot;</span>,<span class="st">&quot;year&quot;</span>]).copy()</span>
+<span id="cb21-284"><a href="#cb21-284" aria-hidden="true" tabindex="-1"></a>e[<span class="st">&quot;nf&quot;</span>]<span class="op">=</span>e.groupby(<span class="st">&quot;crew_id&quot;</span>)[<span class="st">&quot;finish_pos&quot;</span>].shift(<span class="op">-</span><span class="dv">1</span>)<span class="op">;</span> e[<span class="st">&quot;ny&quot;</span>]<span class="op">=</span>e.groupby(<span class="st">&quot;crew_id&quot;</span>)[<span class="st">&quot;year&quot;</span>].shift(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb21-285"><a href="#cb21-285" aria-hidden="true" tabindex="-1"></a>e[<span class="st">&quot;nn&quot;</span>]<span class="op">=</span>e.groupby(<span class="st">&quot;crew_id&quot;</span>)[<span class="st">&quot;net_places&quot;</span>].shift(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb21-286"><a href="#cb21-286" aria-hidden="true" tabindex="-1"></a>c<span class="op">=</span>e[e.ny<span class="op">==</span>e.year<span class="op">+</span><span class="dv">1</span>].copy()<span class="op">;</span> mv<span class="op">=</span>(c.nf<span class="op">-</span>c.finish_pos).<span class="bu">abs</span>()</span>
+<span id="cb21-287"><a href="#cb21-287" aria-hidden="true" tabindex="-1"></a>rev<span class="op">=</span>smf.ols(<span class="st">&quot;nn ~ net_places&quot;</span>, c.dropna(subset<span class="op">=</span>[<span class="st">&quot;nn&quot;</span>])).fit().params[<span class="st">&quot;net_places&quot;</span>]</span>
+<span id="cb21-288"><a href="#cb21-288" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> trans(b): s<span class="op">=</span>c[c.finish_pos<span class="op">&lt;=</span>b]<span class="op">;</span> <span class="cf">return</span> rnd((s.nf<span class="op">&lt;=</span>b).mean())</span>
+<span id="cb21-289"><a href="#cb21-289" aria-hidden="true" tabindex="-1"></a>RF[<span class="st">&quot;stability_interpretable&quot;</span>]<span class="op">=</span>{</span>
+<span id="cb21-290"><a href="#cb21-290" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;median_abs_yoy_move&quot;</span>:rnd(mv.median(),<span class="dv">2</span>),<span class="st">&quot;share_within_1_place&quot;</span>:rnd((mv<span class="op">&lt;=</span><span class="dv">1</span>).mean()),</span>
+<span id="cb21-291"><a href="#cb21-291" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;share_move_gt_5&quot;</span>:rnd((mv<span class="op">&gt;</span><span class="dv">5</span>).mean()),<span class="st">&quot;mean_reversion_slope&quot;</span>:rnd(rev),</span>
+<span id="cb21-292"><a href="#cb21-292" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;p_top3_stays_top3&quot;</span>:trans(<span class="dv">3</span>),<span class="st">&quot;p_div1_stays_div1&quot;</span>:trans(<span class="dv">12</span>)}</span>
+<span id="cb21-293"><a href="#cb21-293" aria-hidden="true" tabindex="-1"></a>pd.DataFrame([RF[<span class="st">&quot;stability_interpretable&quot;</span>]]).to_csv(CSV<span class="op">/</span><span class="st">&quot;stability.csv&quot;</span>,index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb21-294"><a href="#cb21-294" aria-hidden="true" tabindex="-1"></a>RF[<span class="st">&quot;stability_interpretable&quot;</span>]</span>
+<span id="cb21-295"><a href="#cb21-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-296"><a href="#cb21-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-297"><a href="#cb21-297" aria-hidden="true" tabindex="-1"></a><span class="fu"># 7. Live 2026 predictions</span></span>
+<span id="cb21-298"><a href="#cb21-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-299"><a href="#cb21-299" aria-hidden="true" tabindex="-1"></a>The board&#39;s predictions: the head-to-head model applied to the current standings (with</span>
+<span id="cb21-300"><a href="#cb21-300" aria-hidden="true" tabindex="-1"></a>per-crew factor attribution), and a per-outcome model for bump/hold/caught and blades.</span>
+<span id="cb21-301"><a href="#cb21-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-304"><a href="#cb21-304" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb21-305"><a href="#cb21-305" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: live</span></span>
+<span id="cb21-306"><a href="#cb21-306" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb21-307"><a href="#cb21-307" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> src <span class="im">import</span> predict_live, build_site_data, extra_analysis</span>
+<span id="cb21-308"><a href="#cb21-308" aria-hidden="true" tabindex="-1"></a>pairwise.live_headtohead(model, scaler)     <span class="co"># -&gt; site/data/headtohead_2026.json</span></span>
+<span id="cb21-309"><a href="#cb21-309" aria-hidden="true" tabindex="-1"></a>predict_live.predict_next_day()             <span class="co"># -&gt; data/processed/predictions_2026.json</span></span>
+<span id="cb21-310"><a href="#cb21-310" aria-hidden="true" tabindex="-1"></a>extra_analysis.main()                        <span class="co"># -&gt; site/data/extras.json (incl per_day, maturation, stability)</span></span>
+<span id="cb21-311"><a href="#cb21-311" aria-hidden="true" tabindex="-1"></a>build_site_data.main()                       <span class="co"># -&gt; site/data/{stats,colleges,predictions}.json</span></span>
+<span id="cb21-312"><a href="#cb21-312" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-313"><a href="#cb21-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-314"><a href="#cb21-314" aria-hidden="true" tabindex="-1"></a><span class="fu"># 8. Write the files the website reads</span></span>
+<span id="cb21-315"><a href="#cb21-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-318"><a href="#cb21-318" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb21-319"><a href="#cb21-319" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: write</span></span>
+<span id="cb21-320"><a href="#cb21-320" aria-hidden="true" tabindex="-1"></a>RF[<span class="st">&quot;_generated&quot;</span>] <span class="op">=</span> <span class="st">&quot;Computed by analysis/report.qmd — every figure above is reproducible from the scraped data.&quot;</span></span>
+<span id="cb21-321"><a href="#cb21-321" aria-hidden="true" tabindex="-1"></a>(OUT<span class="op">/</span><span class="st">&quot;reconciled_findings.json&quot;</span>).write_text(json.dumps(RF, indent<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb21-322"><a href="#cb21-322" aria-hidden="true" tabindex="-1"></a><span class="co"># extras.json already written by extra_analysis; ensure per_day matches this compile</span></span>
+<span id="cb21-323"><a href="#cb21-323" aria-hidden="true" tabindex="-1"></a>ex <span class="op">=</span> json.loads((OUT<span class="op">/</span><span class="st">&quot;extras.json&quot;</span>).read_text())<span class="op">;</span> ex[<span class="st">&quot;per_day&quot;</span>]<span class="op">=</span>RF[<span class="st">&quot;per_day&quot;</span>]<span class="op">;</span> (OUT<span class="op">/</span><span class="st">&quot;extras.json&quot;</span>).write_text(json.dumps(ex,indent<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb21-324"><a href="#cb21-324" aria-hidden="true" tabindex="-1"></a>written <span class="op">=</span> <span class="bu">sorted</span>(p.name <span class="cf">for</span> p <span class="kw">in</span> OUT.glob(<span class="st">&quot;*.json&quot;</span>)) <span class="op">+</span> [<span class="st">&quot;analysis/csv/&quot;</span><span class="op">+</span>p.name <span class="cf">for</span> p <span class="kw">in</span> CSV.glob(<span class="st">&quot;*.csv&quot;</span>)]</span>
+<span id="cb21-325"><a href="#cb21-325" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Wrote:&quot;</span>, <span class="op">*</span>written, sep<span class="op">=</span><span class="st">&quot;</span><span class="ch">\n</span><span class="st">  &quot;</span>)</span>
+<span id="cb21-326"><a href="#cb21-326" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb21-327"><a href="#cb21-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-328"><a href="#cb21-328" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb21-329"><a href="#cb21-329" aria-hidden="true" tabindex="-1"></a>Every statistic on the website is produced above and written to <span class="in">`site/data/*.json`</span> and</span>
+<span id="cb21-330"><a href="#cb21-330" aria-hidden="true" tabindex="-1"></a><span class="in">`analysis/csv/*.csv`</span>. Re-rendering this notebook regenerates them from the raw scraped data.</span>
+<span id="cb21-331"><a href="#cb21-331" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

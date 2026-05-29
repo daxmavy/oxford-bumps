@@ -49,8 +49,8 @@
   ],
   "luck_skill": {
     "blades_rate_observed": 0.087,
-    "blades_rate_pure_luck_floor": 0.006,
-    "excess_ratio": 15,
+    "blades_rate_pure_luck_floor": 0.009,
+    "excess_ratio": 9,
     "blades_repeat_rate": 0.169,
     "blades_repeat_base": 0.079,
     "blades_share_didnt_blade_prior_year": 0.836,
