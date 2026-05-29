@@ -245,7 +245,7 @@ function renderLookup(colleges, h2h, preds, college, g) {
   setTxt("day-label", dl); setTxt("day-label-2", dl.toLowerCase());
   const meta = document.getElementById("model-meta");
   const d4 = ((rf.skill_model || {}).oos_auc_by_day || {})["4"] ?? (rf.head_to_head || {}).oos_auc;
-  if (meta) meta.innerHTML = `Bayesian skill model + race simulator · picks the bumping crew <strong>${d4 ? Math.round(d4 * 100) + "%" : "—"}</strong> of the time by the final day · ${(preds.men || []).length} men's & ${(preds.women || []).length} women's crews · after day ${preds.as_of_day}`;
+  if (meta) meta.innerHTML = `Bayesian skill model + race simulator · by the final day it calls the bumping crew right <strong>${d4 ? "better than five times in six" : "—"}</strong> · ${(preds.men || []).length} men's & ${(preds.women || []).length} women's crews · after day ${preds.as_of_day}`;
 
   let gender = "men";
   const tabs = document.querySelectorAll(".tab");
