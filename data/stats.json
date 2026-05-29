@@ -898,40 +898,65 @@
     }
   ],
   "reconciled": {
-    "_note": "Reconciled headline numbers across the three independent analyses (predictability, factors, luck-skill) plus the main author's own simulator checks. Conservative where analyses disagreed.",
+    "_status": "v2 working source-of-truth \u2014 corrected after user feedback; to be finalised with Workflow A (24+24) synthesis.",
     "cross_source": {
       "overlap": 20617,
       "finish_agreement": 0.9999
     },
-    "stickiness": {
-      "within_1_place": 0.33,
-      "net_sd": 2.9,
-      "per_day": {
-        "row_over": 0.37,
-        "bump_up": 0.31,
-        "bumped": 0.32
+    "head_to_head": {
+      "_note": "The natural unit: each boat vs the boat directly ahead. OOS AUC 0.805 (modern, 18,340 pairs). Factors by odds ratio per SD:",
+      "oos_auc": 0.805,
+      "walk_forward_auc": 0.808,
+      "walk_forward_auc_sd": 0.022,
+      "brier_skill_vs_naive": 0.228,
+      "independent_validation": "A separate mechanistic analysis reproduced every head-to-head claim out-of-sample; almost all predictive skill comes from revealed current-week form (dropping it collapses AUC to 0.58).",
+      "factors_or_per_sd": {
+        "form_so_far_this_week": 3.31,
+        "torpids_form": 1.4,
+        "squad_continuity": 1.31,
+        "last_year_form": 1.19,
+        "blues_in_boat": 1.16,
+        "target_own_pace_recession": 0.92
       }
     },
+    "momentum_correction": {
+      "_note": "NOT momentum. 'Bumped yesterday' raw OR 6.8 collapses to 1.7 once you control for crew quality (other-day results) => ~3/4 is revealed strength, not a streak. Residual ~1.7 is partly mechanical (target recession).",
+      "or_raw": 6.8,
+      "or_controlled_for_quality": 1.7
+    },
+    "composition": {
+      "_note": "Roster continuity (share of last year's rowers retained, bumps.live 2007+) drives predictability.",
+      "corr_retained_vs_absmove": -0.13,
+      "mean_abs_move_high_retention_ge0.6": 2.03,
+      "mean_abs_move_low_retention_le0.3": 2.43,
+      "p_value": "<0.001"
+    },
     "predictability": {
-      "single_bump_preweek_auc": 0.59,
-      "single_bump_preweek_auc_ci": [
-        0.576,
-        0.605
-      ],
-      "blades_preweek_auc": 0.66,
-      "note": "Before racing, a single day's bump is barely more predictable than a coin toss. Momentum within the week is the one strong tell.",
-      "momentum_after_bump": 0.6,
-      "momentum_after_no_bump": 0.18,
-      "with_momentum_auc": 0.81
+      "single_bump_prerace_auc": 0.59,
+      "per_day_auc": {
+        "day1": 0.54,
+        "day2": 0.77,
+        "day3": 0.81,
+        "day4": 0.82
+      },
+      "per_day_note": "Day 1 ~ coin toss; predictability rises as crews reveal pace (revealed strength), not as a streak.",
+      "final_position_movement_r2": 0.078,
+      "within_1_place_model_vs_naive": [
+        0.365,
+        0.325
+      ]
     },
     "luck_skill": {
       "blades_rate_observed": 0.085,
       "blades_rate_pure_luck_floor": 0.008,
       "excess_ratio": 11,
-      "blades_share_to_stronger_half": 0.9,
       "blades_repeat_rate": 0.158,
       "blades_repeat_base": 0.074,
-      "interpretation": "Blades cannot be fluked: if every crew were equally fast, blades would happen under ~1% of the time (two independent simulators put the floor at 0.4-0.8%); in reality ~8.5%, more than ten times as often. The excess is genuine speed. But blades barely repeat (15.8% of past blade-winners blade again vs 7.4% base) and 86% of blade-winners did NOT blade the year before \u2014 completing all four depends on the draw (catchable boats ahead, targets not bumping out). So: a good crew is necessary; a kind draw decides which good crews complete the set."
+      "blades_share_didnt_blade_prior_year": 0.86,
+      "catch_rate_if_target_caught": 0.614,
+      "catch_rate_if_target_bumped_out": 0.046,
+      "catch_rate_note": "verified independently on ~35k adjacent pairs: P(bump today) is 61% if the boat ahead was caught yesterday vs 4.6% if it bumped up/receded.",
+      "interpretation": "Blades are skill-FILTERED but luck-GATED. Skill is necessary: ~8.5% observed is ~11x the ~0.8% equal-crews luck floor, so you can't fluke four bumps. But it isn't sufficient: whether you bump barely depends on you -- catch rate ~61% if your target is caught and sitting in front of you, ~5% if it bumps out and recedes up the river -- so even a dominant crew tops out around 40-65% a day, and only 14% of blade-winners repeat. A good crew is necessary; a kind draw decides which good crew completes the set."
     },
     "factors_controlled_per_place": [
       {
@@ -950,7 +975,7 @@
           0.55,
           1.12
         ],
-        "verdict": "strong"
+        "verdict": "strong (robust to college FE, division restriction)"
       },
       {
         "factor": "Each place gained the previous year",
@@ -977,15 +1002,25 @@
           -0.05,
           0.05
         ],
-        "verdict": "no detectable effect"
+        "verdict": "no detectable effect on predictability"
       }
     ],
-    "blades_funnel_absolute": [
-      0.31,
-      0.18,
-      0.12,
-      0.087
-    ],
-    "reconciliation_notes": "Predictability AUC depends on what you condition on: pre-week info alone gives ~0.59 for a single bump (near chance); adding within-week momentum lifts day-to-day prediction to ~0.81 but momentum is reactive, not foreknowledge. The luck-floor (0.4% blades under equal strengths) was confirmed by two independent simulators. The 'blades = mostly skill' result reverses the naive reading of the proverb and is robust to calibration; the exact concentration share (~90% to the stronger half) is calibration-sensitive and reported approximately."
+    "stability_interpretable": {
+      "_note": "NO correlation. Place-scale + transition measures.",
+      "median_abs_yoy_move": 3.0,
+      "share_within_1_place": 0.313,
+      "share_move_gt_5": 0.1,
+      "mean_reversion_slope": 0.154,
+      "p_top3_stays_top3": 0.779,
+      "p_div1_stays_div1": 0.898,
+      "head_change_rate": {
+        "m": 0.5,
+        "w": 0.458
+      }
+    },
+    "dynamics": {
+      "st_hildas_men": "70th (2009) -> 31st (2026), climbing almost every year since men joined the college in 2008",
+      "new_crew_maturation": "first eights gain most ground in their opening 3-4 seasons, then settle"
+    }
   }
 }

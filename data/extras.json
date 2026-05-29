@@ -5,32 +5,28 @@
       "row_over": 0.366,
       "bump_up": 0.312,
       "bumped": 0.322,
-      "auc_bump": 0.535,
-      "n": 11999
+      "auc_bump": 0.535
     },
     {
       "day": 2,
       "row_over": 0.363,
       "bump_up": 0.315,
       "bumped": 0.322,
-      "auc_bump": 0.771,
-      "n": 11999
+      "auc_bump": 0.771
     },
     {
       "day": 3,
       "row_over": 0.359,
       "bump_up": 0.315,
       "bumped": 0.326,
-      "auc_bump": 0.815,
-      "n": 11829
+      "auc_bump": 0.815
     },
     {
       "day": 4,
       "row_over": 0.375,
       "bump_up": 0.308,
       "bumped": 0.317,
-      "auc_bump": 0.824,
-      "n": 11829
+      "auc_bump": 0.824
     }
   ],
   "maturation_curve": [
