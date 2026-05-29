@@ -47,6 +47,13 @@ header.top h1 em{font-style:normal;color:var(--oxford)}
 .bw-c{font-weight:600}
 .bw-p{font-variant-numeric:tabular-nums;color:var(--gold);font-weight:700}
 
+/* ===== field summary (one-glance state of the day) ===== */
+.field-summary{margin:14px 0 2px}
+.fs-text{font-size:.95rem;color:#3a352d;margin-bottom:7px}
+.fs-text strong{color:var(--oxford)}
+.fsbar{display:flex;height:11px;border-radius:6px;overflow:hidden;background:var(--paper2)}
+.fsbar>span{display:block;height:100%}
+
 /* ===== the board ===== */
 #board{margin:6px 0 2px}
 .divhead{font-family:var(--sans);text-transform:uppercase;letter-spacing:.1em;font-size:.68rem;font-weight:700;color:var(--muted);margin:16px 0 4px;padding-left:2px}

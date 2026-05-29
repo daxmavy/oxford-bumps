@@ -225,7 +225,24 @@ function renderLookup(colleges, h2h, preds, college, g) {
     const rows = (preds[gender] || []).filter(r => r.on_for_blades).sort((a, b) => (b.p_complete_blades || 0) - (a.p_complete_blades || 0));
     el.innerHTML = rows.length ? rows.slice(0, 10).map(r => `<span class="bw"><span class="bw-c">${r.college}${r.boat > 1 ? " " + r.boat : ""}</span> <span class="bw-p">${pct(r.p_complete_blades)}</span></span>`).join("") : `<span class="small">No crews still on for blades.</span>`;
   };
-  const render = () => { makeBoard(h2h, preds, gender); renderBlades(); applyHighlight(); };
+  const renderFieldSummary = () => {
+    const el = document.getElementById("field-summary"); if (!el) return;
+    const pmap = new Map((preds[gender] || []).map(r => [r.college + "|" + (r.boat || 1), r]));
+    let fav = 0, vul = 0, close = 0, n = 0;
+    for (const r of (h2h[gender] || [])) {
+      const p = pmap.get(r.college + "|" + (r.boat || 1)) || {};
+      const up = r.p_bump ?? p.p_bump_up ?? 0, dn = p.p_bumped ?? 0;
+      n++; if (up >= 0.6) fav++; else if (dn >= 0.6) vul++; else close++;
+    }
+    if (!n) { el.innerHTML = ""; return; }
+    const gl = gender === "men" ? "men's" : "women's";
+    el.innerHTML = `<div class="fs-text">Today's ${gl} field: <strong>${fav}</strong> better than 2-in-3 to bump, <strong>${vul}</strong> likely to be caught — and <strong>${close}</strong> too close to call.</div>
+      <div class="fsbar" title="favourites / too close to call / likely caught">
+        <span style="width:${fav/n*100}%;background:${C.up}"></span>
+        <span style="width:${close/n*100}%;background:${C.row}"></span>
+        <span style="width:${vul/n*100}%;background:${C.down}"></span></div>`;
+  };
+  const render = () => { makeBoard(h2h, preds, gender); renderFieldSummary(); renderBlades(); applyHighlight(); };
   tabs.forEach(t => t.addEventListener("click", () => { tabs.forEach(x => x.classList.toggle("active", x === t)); gender = t.dataset.g; render(); }));
   render();
 
