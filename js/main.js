@@ -154,12 +154,12 @@ function drawPerDay(extras) {
 }
 function drawLuck(rf) {
   const ls = rf.luck_skill; if (!ls) return;
-  const data = [{ k: "If every crew were equal", v: ls.blades_rate_pure_luck_floor, c: C.row },
-                { k: "What actually happens", v: ls.blades_rate_observed, c: C.gold }].filter(d => isFinite(d.v));
+  const data = [{ k: "Equal crews", v: ls.blades_rate_pure_luck_floor, c: C.row },
+                { k: "Reality", v: ls.blades_rate_observed, c: C.gold }].filter(d => isFinite(d.v));
   draw("chart-luck", w => P.plot({
-    width: w, height: 250, marginLeft: 60, marginBottom: 52, marginRight: 20,
+    width: w, height: 250, marginLeft: 48, marginBottom: 34, marginRight: 20,
     x: { label: null, domain: data.map(d => d.k) },
-    y: { label: null, grid: true, percent: true, domain: [0, Math.max(0.1, ls.blades_rate_observed * 1.25)] },
+    y: { label: null, grid: true, tickFormat: d => Math.round(d * 100) + "%", domain: [0, Math.max(0.11, ls.blades_rate_observed * 1.3)] },
     marks: [
       P.barY(data, { x: "k", y: "v", fill: "c", rx: 2 }),
       P.text(data, { x: "k", y: "v", text: d => d.v < 0.01 ? (d.v * 100).toFixed(1) + "%" : Math.round(d.v * 100) + "%", dy: -10, fontSize: 15, fontWeight: 700 }),
