@@ -159,7 +159,7 @@ function drawLuck(rf) {
   draw("chart-luck", w => P.plot({
     width: w, height: 250, marginLeft: 60, marginBottom: 52, marginRight: 20,
     x: { label: null, domain: data.map(d => d.k) },
-    y: { label: "Share winning blades", grid: true, percent: true, domain: [0, Math.max(0.1, ls.blades_rate_observed * 1.25)] },
+    y: { label: null, grid: true, percent: true, domain: [0, Math.max(0.1, ls.blades_rate_observed * 1.25)] },
     marks: [
       P.barY(data, { x: "k", y: "v", fill: "c", rx: 2 }),
       P.text(data, { x: "k", y: "v", text: d => d.v < 0.01 ? (d.v * 100).toFixed(1) + "%" : Math.round(d.v * 100) + "%", dy: -10, fontSize: 15, fontWeight: 700 }),
