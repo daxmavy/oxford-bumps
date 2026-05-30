@@ -87,9 +87,9 @@ header.top h1 em{font-style:normal;color:var(--oxford)}
 
 /* ===== expanded crew detail ===== */
 .detail{padding:4px 14px 14px;border-top:1px dashed var(--line);background:#fdfcf9}
-.splitbars{display:grid;gap:5px;margin:10px 0 4px;max-width:420px}
-.sb{display:grid;grid-template-columns:78px 1fr 40px;align-items:center;gap:10px}
-.sb-l{font-size:.8rem;color:var(--muted)}
+.splitbars{display:grid;gap:6px;margin:10px 0 4px;max-width:520px}
+.sb{display:grid;grid-template-columns:186px 1fr 44px;align-items:center;gap:10px}
+.sb-l{font-size:.8rem;color:var(--muted);line-height:1.25}
 .sb .bar{height:8px}
 .sb-n{font-variant-numeric:tabular-nums;font-size:.82rem;text-align:right;font-weight:600}
 .dsplit,.dblade{font-size:.88rem;margin:8px 0 2px}

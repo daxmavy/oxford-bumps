@@ -74,7 +74,7 @@ function makeBoard(h2h, preds, gender) {
     for (const r of g.rows) {
       const p = pmap.get(pkey(r)) || {};
       const up = r.p_bump ?? p.p_bump_up ?? 0, caught = r.p_caught ?? p.p_bumped ?? 0, hold = r.p_rowover ?? p.p_row_over, onBlades = p.on_for_blades;
-      const over = r.p_overbump ?? p.p_overbump ?? 0, overd = Math.max(0, (p.p_down_any ?? 0) - (caught || 0));
+      const over = r.p_overbump ?? p.p_overbump ?? 0, overd = r.p_overbumped ?? p.p_overbumped ?? 0;
       const card = document.createElement("div"); card.className = "crew"; card.tabIndex = 0;
       card.dataset.college = r.college;
       const chase = r.chasing ? `chasing <strong>${r.chasing}</strong>` : `<span class="head-mark">Head of the River — cannot bump up</span>`;
@@ -113,22 +113,21 @@ function makeBoard(h2h, preds, gender) {
   }
 }
 function renderDetail(r, o) {
-  const headBars = `<div class="splitbars">${splitBar("Holds the headship", o.hold, C.row)}${splitBar("Caught from behind", o.caught, C.down)}</div>`;
-  const bars = `<div class="splitbars">${splitBar("Bumps the boat ahead", o.up, C.up)}`
-    + (o.over > 0.012 ? splitBar("Over-bumps higher", o.over, C.up) : "")
-    + splitBar("Rows over", o.hold, C.row)
-    + splitBar("Caught from behind", o.caught, C.down)
-    + (o.overd > 0.012 ? splitBar("Over-bumped", o.overd, C.down) : "") + `</div>`;
-  const split = (r.chasing == null)
-    ? `<p class="dsplit">As Head of the River this boat can only hold its place or be caught — there's nothing ahead to chase.</p>` + headBars
-    : bars;
+  // the five next-day outcomes (best to worst), straight from the simulation; they sum to 100%
+  const five = [
+    ["Over-bumps a boat", o.over, C.up],
+    ["Bumps the boat ahead", o.up, C.up],
+    ["Rows over", o.hold, C.row],
+    ["Bumped by the chasing boat", o.caught, C.down],
+    ["Over-bumped from behind", o.overd, C.down],
+  ];
+  const head = (r.chasing == null) ? `<p class="dsplit">Head of the River — nothing ahead to chase, so it can only hold or be caught.</p>` : "";
+  const bars = `<div class="splitbars">` + five.map(([l, v, c]) => (l === "Rows over" || v >= 0.005) ? splitBar(l, v, c) : "").join("") + `</div>`;
   const blades = o.onBlades ? `<p class="dblade">Bumped on every day so far. Chance of completing all four for blades: <strong>${pct(o.p.p_complete_blades)}</strong>.</p>` : "";
-  const attr = (r.chasing == null)
-    ? ""
-    : (Array.isArray(r.contributions) && r.contributions.filter(d => isFinite(d.skill)).length)
-      ? `<div class="attr"><div class="attr-h">Where the skill edge comes from <span class="vs">vs ${r.chasing}</span></div><div class="wf"></div><p class="attr-note">Each bar is how much faster (green) or slower (red) this crew is than the boat ahead because of one factor, in boat-lengths of pace. It takes about one length to bump.</p></div>`
-      : `<p class="attr-note">Nothing much separates these two on the model's reading — close to a coin toss.</p>`;
-  return split + blades + attr;
+  const attr = (Array.isArray(r.contributions) && r.contributions.filter(d => isFinite(d.skill)).length)
+    ? `<div class="attr"><div class="attr-h">This crew's speed, broken down</div><div class="wf"></div><p class="attr-note">How many boat-lengths faster (green) or slower (red) than the average crew this boat is, split by what the model puts it down to. The bars add up to its overall speed — nothing here is about the boats around it.</p></div>`
+    : "";
+  return head + bars + blades + attr;
 }
 function splitBar(label, v, col) {
   if (v == null || isNaN(v)) return "";
@@ -140,7 +139,7 @@ function waterfall(contribs, w) {
   const m = Math.max(0.5, ...data.map(d => Math.abs(d.skill))) * 1.15, h = 26 * data.length + 34;
   return P.plot({
     width: w, height: h, marginLeft: 168, marginRight: 44, marginTop: 6, marginBottom: 26,
-    x: { domain: [-m, m], label: "← slower          faster →  (boat-lengths)", grid: true, ticks: 5 },
+    x: { domain: [-m, m], label: "← slower than the field      faster →  (boat-lengths)", grid: true, ticks: 5 },
     y: { domain: data.map(d => d.factor), label: null },
     marks: [
       P.ruleX([0], { stroke: "#000", strokeOpacity: .45 }),
