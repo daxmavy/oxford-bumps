@@ -203,6 +203,23 @@ function drawLuck(rf) {
   }));
 }
 
+function drawCalibration(rf) {
+  const c = rf.calibration; if (!c || !Array.isArray(c.bins) || !c.bins.length) return;
+  const d = c.bins.map(b => ({ x: b.pred * 100, y: b.emp * 100, n: b.n }));
+  draw("chart-calib", w => P.plot({
+    width: w, height: 260, marginLeft: 46, marginBottom: 42, marginRight: 14, inset: 6,
+    x: { label: "Predicted chance of a bump →", domain: [0, 100], grid: true, tickFormat: v => v + "%" },
+    y: { label: "How often it happened", domain: [0, 100], grid: true, tickFormat: v => v + "%" },
+    r: { range: [2, 11] },
+    marks: [
+      P.line([{ x: 0, y: 0 }, { x: 100, y: 100 }], { x: "x", y: "y", stroke: C.grey, strokeDasharray: "4 4" }),
+      P.dot(d, { x: "x", y: "y", r: "n", fill: C.oxford, fillOpacity: .78, stroke: "#fff", strokeWidth: .8,
+        channels: { predicted: "x", happened: "y", n: "n" },
+        tip: { format: { x: false, y: false, r: false, predicted: v => Math.round(v) + "%", happened: v => Math.round(v) + "%", n: true } } }),
+    ],
+  }));
+}
+
 /* === college lookup === */
 function renderLookup(colleges, h2h, preds, college, g) {
   const box = document.getElementById("lookup-result"); if (!box) return;
@@ -283,7 +300,8 @@ function renderLookup(colleges, h2h, preds, college, g) {
   tabs.forEach(t => t.addEventListener("click", () => { tabs.forEach(x => x.classList.toggle("active", x === t)); gender = t.dataset.g; render(); }));
   render();
 
-  drawInputs(rf); drawPerDay(extras); drawLuck(rf);
+  drawInputs(rf); drawPerDay(extras); drawLuck(rf); drawCalibration(rf);
+  if (rf.calibration) setTxt("cal-ece", Math.round(rf.calibration.ece * 1000) / 10 + "%");
   if (rf.luck_skill) { setTxt("l-excess", rf.luck_skill.excess_ratio + "×"); setTxt("l-repeat", Math.round(rf.luck_skill.blades_share_didnt_blade_prior_year * 100) + "%"); }
 
   const hl = document.getElementById("college-hl");

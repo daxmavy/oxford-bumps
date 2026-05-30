@@ -16,6 +16,8 @@
 </head>
 <body>
 
+<div class="draftnote"><strong>DRAFT</strong> — this whole project (the analysis, the model and the writing) was built by an AI with a human steering it. Treat it as a rough experiment shared for interest, not a polished or authoritative product.</div>
+
 <header class="top">
   <div class="wrap">
     <div class="row">
@@ -97,6 +99,13 @@
         <h3>You can't fluke blades</h3>
         <div id="chart-luck" class="chart"></div>
         <p>With every crew equally fast, four bumps in a row would be about <strong id="l-excess">9×</strong> rarer than it actually is — so blades take genuine speed. But the rest is the draw. Whether you bump turns mostly on the crew ahead: caught and sitting in front of you, you go through about three times in five; bumped out and clear up the river, nearer one in twenty. Which is why blades barely repeat — <strong id="l-repeat">84%</strong> of this year's winners didn't have them last year.</p>
+      </div>
+
+      <div class="panel">
+        <span class="tag">Do the percentages mean it?</span>
+        <h3>When it says 30%, it happens 30% of the time</h3>
+        <div id="chart-calib" class="chart"></div>
+        <p>A probability is only worth anything if it's honest. Across <strong>11,000</strong> bumps the model never saw when it made the call, its predicted chances line up with how often the bump actually came: say 20% and it lands about one time in five; say 70% and it lands about seven times in ten. The dots sit on the dashed line of perfect calibration, off by an average of just <strong id="cal-ece">2.3%</strong>.</p>
       </div>
 
     </div>

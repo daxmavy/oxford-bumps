@@ -18,6 +18,8 @@ a{color:var(--oxford2)}
 strong{font-weight:700}
 .small{font-size:.84rem;color:var(--muted);line-height:1.5}
 .kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:700;color:var(--oxford)}
+.draftnote{background:#3a2f1c;color:#f1e7d6;font-family:var(--sans);font-size:.8rem;line-height:1.45;text-align:center;padding:7px 14px}
+.draftnote strong{color:#fff;letter-spacing:.04em}
 
 /* ===== masthead (compact — the board leads) ===== */
 header.top{border-bottom:1px solid var(--line);background:radial-gradient(120% 90% at 50% 0%, #fff 0%, var(--paper) 70%);padding:26px 0 18px}
