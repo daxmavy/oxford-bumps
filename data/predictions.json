@@ -1547,8 +1547,8 @@
    "p_row_over": 0.804,
    "p_up_any": 0.0,
    "p_down_any": 0.196,
-   "on_for_blades": false,
-   "p_complete_blades": 0.0,
+   "on_for_blades": true,
+   "p_complete_blades": 0.804,
    "exp_final": 1.2,
    "skill_mu": 0.692,
    "skill_sd": 1.015
