@@ -9,15 +9,15 @@
    "cur_pos": 1,
    "chasing": null,
    "p_bump": 0.0,
-   "p_caught": 0.106,
+   "p_caught": 0.11,
    "p_overbump": 0.0,
-   "p_overbumped": 0.001,
-   "p_rowover": 0.893,
+   "p_overbumped": 0.0,
+   "p_rowover": 0.89,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.364
+     "skill": 0.372
     },
     {
      "factor": "Last year's finish",
@@ -29,7 +29,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.075
+     "skill": 2.507
     }
    ]
   },
@@ -38,16 +38,16 @@
    "boat": 1,
    "cur_pos": 2,
    "chasing": "Oriel",
-   "p_bump": 0.106,
-   "p_caught": 0.274,
+   "p_bump": 0.11,
+   "p_caught": 0.259,
    "p_overbump": 0.0,
-   "p_overbumped": 0.007,
-   "p_rowover": 0.613,
+   "p_overbumped": 0.005,
+   "p_rowover": 0.626,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.185
+     "skill": 0.152
     },
     {
      "factor": "Last year's finish",
@@ -59,7 +59,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.076
+     "skill": 2.568
     }
    ]
   },
@@ -68,16 +68,16 @@
    "boat": 1,
    "cur_pos": 3,
    "chasing": "Wolfson",
-   "p_bump": 0.274,
-   "p_caught": 0.181,
+   "p_bump": 0.259,
+   "p_caught": 0.171,
    "p_overbump": 0.0,
    "p_overbumped": 0.001,
-   "p_rowover": 0.543,
+   "p_rowover": 0.569,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.249
+     "skill": -0.247
     },
     {
      "factor": "Last year's finish",
@@ -89,7 +89,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.073
+     "skill": 2.445
     }
    ]
   },
@@ -98,16 +98,16 @@
    "boat": 1,
    "cur_pos": 4,
    "chasing": "Pembroke",
-   "p_bump": 0.181,
-   "p_caught": 0.448,
-   "p_overbump": 0.001,
+   "p_bump": 0.171,
+   "p_caught": 0.43,
+   "p_overbump": 0.0,
    "p_overbumped": 0.0,
-   "p_rowover": 0.37,
+   "p_rowover": 0.399,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.104
+     "skill": 0.107
     },
     {
      "factor": "Last year's finish",
@@ -119,7 +119,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.069
+     "skill": 2.323
     }
    ]
   },
@@ -128,16 +128,16 @@
    "boat": 1,
    "cur_pos": 5,
    "chasing": "University",
-   "p_bump": 0.448,
-   "p_caught": 0.038,
-   "p_overbump": 0.007,
+   "p_bump": 0.43,
+   "p_caught": 0.043,
+   "p_overbump": 0.005,
    "p_overbumped": 0.002,
-   "p_rowover": 0.505,
+   "p_rowover": 0.52,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.197
+     "skill": 0.235
     },
     {
      "factor": "Last year's finish",
@@ -149,7 +149,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.065
+     "skill": 2.201
     }
    ]
   },
@@ -158,16 +158,16 @@
    "boat": 1,
    "cur_pos": 6,
    "chasing": "New College",
-   "p_bump": 0.038,
-   "p_caught": 0.378,
+   "p_bump": 0.043,
+   "p_caught": 0.371,
    "p_overbump": 0.001,
-   "p_overbumped": 0.011,
-   "p_rowover": 0.572,
+   "p_overbumped": 0.007,
+   "p_rowover": 0.578,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.77
+     "skill": -0.821
     },
     {
      "factor": "Last year's finish",
@@ -179,7 +179,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.071
+     "skill": 2.384
     }
    ]
   },
@@ -188,11 +188,11 @@
    "boat": 1,
    "cur_pos": 7,
    "chasing": "Christ Church",
-   "p_bump": 0.378,
-   "p_caught": 0.352,
+   "p_bump": 0.371,
+   "p_caught": 0.309,
    "p_overbump": 0.0,
-   "p_overbumped": 0.002,
-   "p_rowover": 0.268,
+   "p_overbumped": 0.001,
+   "p_rowover": 0.319,
    "division": 1,
    "contributions": [
     {
@@ -205,7 +205,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.067
+     "skill": 2.262
     }
    ]
   },
@@ -214,16 +214,16 @@
    "boat": 1,
    "cur_pos": 8,
    "chasing": "Keble",
-   "p_bump": 0.352,
-   "p_caught": 0.08,
+   "p_bump": 0.309,
+   "p_caught": 0.09,
    "p_overbump": 0.002,
    "p_overbumped": 0.001,
-   "p_rowover": 0.565,
+   "p_rowover": 0.599,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.618
+     "skill": 0.63
     },
     {
      "factor": "Last year's finish",
@@ -235,7 +235,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.06
+     "skill": 2.017
     }
    ]
   },
@@ -244,16 +244,16 @@
    "boat": 1,
    "cur_pos": 9,
    "chasing": "Balliol",
-   "p_bump": 0.08,
-   "p_caught": 0.532,
-   "p_overbump": 0.011,
+   "p_bump": 0.09,
+   "p_caught": 0.487,
+   "p_overbump": 0.007,
    "p_overbumped": 0.004,
-   "p_rowover": 0.373,
+   "p_rowover": 0.411,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.525
+     "skill": -0.559
     },
     {
      "factor": "Last year's finish",
@@ -265,7 +265,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.064
+     "skill": 2.14
     }
    ]
   },
@@ -274,16 +274,16 @@
    "boat": 1,
    "cur_pos": 10,
    "chasing": "Magdalen",
-   "p_bump": 0.532,
-   "p_caught": 0.048,
-   "p_overbump": 0.002,
+   "p_bump": 0.487,
+   "p_caught": 0.061,
+   "p_overbump": 0.001,
    "p_overbumped": 0.005,
-   "p_rowover": 0.413,
+   "p_rowover": 0.446,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.819
+     "skill": 0.844
     },
     {
      "factor": "Last year's finish",
@@ -295,7 +295,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.056
+     "skill": 1.895
     }
    ]
   },
@@ -304,16 +304,16 @@
    "boat": 1,
    "cur_pos": 11,
    "chasing": "St Edmund Hall",
-   "p_bump": 0.048,
-   "p_caught": 0.693,
+   "p_bump": 0.061,
+   "p_caught": 0.628,
    "p_overbump": 0.001,
    "p_overbumped": 0.0,
-   "p_rowover": 0.258,
+   "p_rowover": 0.311,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.967
+     "skill": -1.001
     },
     {
      "factor": "Last year's finish",
@@ -325,7 +325,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.062
+     "skill": 2.079
     }
    ]
   },
@@ -334,16 +334,16 @@
    "boat": 1,
    "cur_pos": 12,
    "chasing": "Trinity",
-   "p_bump": 0.693,
-   "p_caught": 0.053,
+   "p_bump": 0.628,
+   "p_caught": 0.07,
    "p_overbump": 0.004,
    "p_overbumped": 0.0,
-   "p_rowover": 0.25,
+   "p_rowover": 0.298,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.312
+     "skill": 0.336
     },
     {
      "factor": "Last year's finish",
@@ -355,7 +355,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.051
+     "skill": 1.712
     }
    ]
   },
@@ -364,16 +364,16 @@
    "boat": 1,
    "cur_pos": 13,
    "chasing": "Hertford",
-   "p_bump": 0.053,
-   "p_caught": 0.223,
+   "p_bump": 0.07,
+   "p_caught": 0.211,
    "p_overbump": 0.005,
-   "p_overbumped": 0.008,
-   "p_rowover": 0.712,
+   "p_overbumped": 0.005,
+   "p_rowover": 0.709,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.556
+     "skill": -0.582
     },
     {
      "factor": "Last year's finish",
@@ -385,7 +385,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.058
+     "skill": 1.956
     }
    ]
   },
@@ -394,11 +394,11 @@
    "boat": 1,
    "cur_pos": 14,
    "chasing": "Merton",
-   "p_bump": 0.223,
-   "p_caught": 0.498,
+   "p_bump": 0.211,
+   "p_caught": 0.463,
    "p_overbump": 0.0,
-   "p_overbumped": 0.001,
-   "p_rowover": 0.278,
+   "p_overbumped": 0.0,
+   "p_rowover": 0.326,
    "division": 2,
    "contributions": [
     {
@@ -411,7 +411,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.055
+     "skill": 1.834
     }
    ]
   },
@@ -420,16 +420,16 @@
    "boat": 1,
    "cur_pos": 15,
    "chasing": "Wadham",
-   "p_bump": 0.498,
-   "p_caught": 0.056,
+   "p_bump": 0.463,
+   "p_caught": 0.065,
    "p_overbump": 0.0,
    "p_overbumped": 0.003,
-   "p_rowover": 0.442,
+   "p_rowover": 0.47,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.701
+     "skill": 0.744
     },
     {
      "factor": "Last year's finish",
@@ -441,7 +441,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.047
+     "skill": 1.59
     }
    ]
   },
@@ -450,16 +450,16 @@
    "boat": 1,
    "cur_pos": 16,
    "chasing": "Worcester",
-   "p_bump": 0.056,
-   "p_caught": 0.175,
-   "p_overbump": 0.007,
-   "p_overbumped": 0.013,
-   "p_rowover": 0.749,
+   "p_bump": 0.065,
+   "p_caught": 0.174,
+   "p_overbump": 0.005,
+   "p_overbumped": 0.009,
+   "p_rowover": 0.747,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.996
+     "skill": -1.042
     },
     {
      "factor": "Blues in the boat",
@@ -467,7 +467,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.053
+     "skill": 1.773
     }
    ]
   },
@@ -476,16 +476,16 @@
    "boat": 1,
    "cur_pos": 17,
    "chasing": "Jesus",
-   "p_bump": 0.175,
-   "p_caught": 0.662,
-   "p_overbump": 0.001,
+   "p_bump": 0.174,
+   "p_caught": 0.616,
+   "p_overbump": 0.0,
    "p_overbumped": 0.0,
-   "p_rowover": 0.163,
+   "p_rowover": 0.21,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.206
+     "skill": -0.228
     },
     {
      "factor": "Last year's finish",
@@ -497,7 +497,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.049
+     "skill": 1.651
     }
    ]
   },
@@ -506,16 +506,16 @@
    "boat": 1,
    "cur_pos": 18,
    "chasing": "Lady Margaret Hall",
-   "p_bump": 0.662,
-   "p_caught": 0.03,
-   "p_overbump": 0.004,
+   "p_bump": 0.616,
+   "p_caught": 0.038,
+   "p_overbump": 0.003,
    "p_overbumped": 0.0,
-   "p_rowover": 0.304,
+   "p_rowover": 0.344,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.057
+     "skill": 1.105
     },
     {
      "factor": "Last year's finish",
@@ -527,7 +527,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.04
+     "skill": 1.345
     }
    ]
   },
@@ -536,16 +536,16 @@
    "boat": 1,
    "cur_pos": 19,
    "chasing": "Exeter",
-   "p_bump": 0.03,
-   "p_caught": 0.263,
-   "p_overbump": 0.013,
-   "p_overbumped": 0.004,
-   "p_rowover": 0.69,
+   "p_bump": 0.038,
+   "p_caught": 0.252,
+   "p_overbump": 0.009,
+   "p_overbumped": 0.003,
+   "p_rowover": 0.699,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.369
+     "skill": -0.381
     },
     {
      "factor": "Last year's finish",
@@ -557,7 +557,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.045
+     "skill": 1.528
     }
    ]
   },
@@ -566,16 +566,16 @@
    "boat": 2,
    "cur_pos": 20,
    "chasing": "St Hugh's",
-   "p_bump": 0.263,
-   "p_caught": 0.237,
+   "p_bump": 0.252,
+   "p_caught": 0.229,
    "p_overbump": 0.0,
-   "p_overbumped": 0.013,
-   "p_rowover": 0.487,
+   "p_overbumped": 0.008,
+   "p_rowover": 0.512,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.614
+     "skill": -0.636
     },
     {
      "factor": "Last year's finish",
@@ -587,7 +587,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.044
+     "skill": 1.467
     }
    ]
   },
@@ -596,16 +596,16 @@
    "boat": 1,
    "cur_pos": 21,
    "chasing": "Oriel 2",
-   "p_bump": 0.237,
-   "p_caught": 0.27,
+   "p_bump": 0.229,
+   "p_caught": 0.258,
    "p_overbump": 0.0,
    "p_overbumped": 0.004,
-   "p_rowover": 0.489,
+   "p_rowover": 0.51,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.136
+     "skill": -0.161
     },
     {
      "factor": "Last year's finish",
@@ -617,7 +617,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.042
+     "skill": 1.406
     }
    ]
   },
@@ -626,16 +626,16 @@
    "boat": 1,
    "cur_pos": 22,
    "chasing": "St Catherine's",
-   "p_bump": 0.27,
-   "p_caught": 0.343,
-   "p_overbump": 0.004,
+   "p_bump": 0.258,
+   "p_caught": 0.328,
+   "p_overbump": 0.003,
    "p_overbumped": 0.002,
-   "p_rowover": 0.381,
+   "p_rowover": 0.409,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.061
+     "skill": 0.06
     },
     {
      "factor": "Last year's finish",
@@ -647,7 +647,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.038
+     "skill": 1.284
     }
    ]
   },
@@ -656,16 +656,16 @@
    "boat": 1,
    "cur_pos": 23,
    "chasing": "Lincoln",
-   "p_bump": 0.343,
-   "p_caught": 0.118,
-   "p_overbump": 0.013,
+   "p_bump": 0.328,
+   "p_caught": 0.121,
+   "p_overbump": 0.008,
    "p_overbumped": 0.0,
-   "p_rowover": 0.526,
+   "p_rowover": 0.542,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.381
+     "skill": 0.406
     },
     {
      "factor": "Last year's finish",
@@ -677,7 +677,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.035
+     "skill": 1.162
     }
    ]
   },
@@ -686,16 +686,16 @@
    "boat": 1,
    "cur_pos": 24,
    "chasing": "Queen's",
-   "p_bump": 0.118,
-   "p_caught": 0.356,
+   "p_bump": 0.121,
+   "p_caught": 0.336,
    "p_overbump": 0.004,
    "p_overbumped": 0.0,
-   "p_rowover": 0.522,
+   "p_rowover": 0.54,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.377
+     "skill": -0.396
     },
     {
      "factor": "Last year's finish",
@@ -707,7 +707,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.036
+     "skill": 1.223
     }
    ]
   },
@@ -716,16 +716,16 @@
    "boat": 1,
    "cur_pos": 25,
    "chasing": "St John's",
-   "p_bump": 0.356,
-   "p_caught": 0.214,
+   "p_bump": 0.336,
+   "p_caught": 0.205,
    "p_overbump": 0.002,
-   "p_overbumped": 0.006,
-   "p_rowover": 0.422,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.453,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.139
+     "skill": -0.126
     },
     {
      "factor": "Last year's finish",
@@ -737,7 +737,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.033
+     "skill": 1.1
     }
    ]
   },
@@ -746,16 +746,16 @@
    "boat": 1,
    "cur_pos": 26,
    "chasing": "St Peter's",
-   "p_bump": 0.214,
-   "p_caught": 0.22,
+   "p_bump": 0.205,
+   "p_caught": 0.211,
    "p_overbump": 0.0,
-   "p_overbumped": 0.005,
-   "p_rowover": 0.561,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.579,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.077
+     "skill": 0.08
     },
     {
      "factor": "Last year's finish",
@@ -767,7 +767,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.031
+     "skill": 1.039
     }
    ]
   },
@@ -776,16 +776,16 @@
    "boat": 1,
    "cur_pos": 27,
    "chasing": "Brasenose",
-   "p_bump": 0.22,
-   "p_caught": 0.371,
+   "p_bump": 0.211,
+   "p_caught": 0.345,
    "p_overbump": 0.0,
    "p_overbumped": 0.003,
-   "p_rowover": 0.406,
+   "p_rowover": 0.44,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.06
+     "skill": -0.061
     },
     {
      "factor": "Last year's finish",
@@ -794,6 +794,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.978
     }
    ]
   },
@@ -802,16 +806,16 @@
    "boat": 2,
    "cur_pos": 28,
    "chasing": "Mansfield",
-   "p_bump": 0.371,
-   "p_caught": 0.118,
-   "p_overbump": 0.006,
-   "p_overbumped": 0.009,
-   "p_rowover": 0.495,
+   "p_bump": 0.345,
+   "p_caught": 0.128,
+   "p_overbump": 0.004,
+   "p_overbumped": 0.007,
+   "p_rowover": 0.516,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.352
+     "skill": 0.35
     },
     {
      "factor": "Last year's finish",
@@ -820,6 +824,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.856
     }
    ]
   },
@@ -828,16 +836,16 @@
    "boat": 2,
    "cur_pos": 29,
    "chasing": "Pembroke 2",
-   "p_bump": 0.118,
-   "p_caught": 0.397,
-   "p_overbump": 0.005,
-   "p_overbumped": 0.021,
-   "p_rowover": 0.459,
+   "p_bump": 0.128,
+   "p_caught": 0.365,
+   "p_overbump": 0.004,
+   "p_overbumped": 0.013,
+   "p_rowover": 0.489,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.635
+     "skill": -0.648
     },
     {
      "factor": "Last year's finish",
@@ -846,6 +854,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.917
     }
    ]
   },
@@ -854,16 +866,16 @@
    "boat": 2,
    "cur_pos": 30,
    "chasing": "University 2",
-   "p_bump": 0.397,
-   "p_caught": 0.274,
+   "p_bump": 0.365,
+   "p_caught": 0.264,
    "p_overbump": 0.003,
    "p_overbumped": 0.0,
-   "p_rowover": 0.326,
+   "p_rowover": 0.367,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.191
+     "skill": 0.203
     },
     {
      "factor": "Last year's finish",
@@ -872,6 +884,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.734
     }
    ]
   },
@@ -880,16 +896,16 @@
    "boat": 1,
    "cur_pos": 31,
    "chasing": "Wolfson 2",
-   "p_bump": 0.274,
-   "p_caught": 0.277,
-   "p_overbump": 0.01,
+   "p_bump": 0.264,
+   "p_caught": 0.257,
+   "p_overbump": 0.007,
    "p_overbumped": 0.0,
-   "p_rowover": 0.439,
+   "p_rowover": 0.473,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.095
+     "skill": 0.122
     },
     {
      "factor": "Last year's finish",
@@ -898,6 +914,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.611
     }
    ]
   },
@@ -906,16 +926,16 @@
    "boat": 1,
    "cur_pos": 32,
    "chasing": "St Hilda's",
-   "p_bump": 0.277,
-   "p_caught": 0.02,
-   "p_overbump": 0.021,
+   "p_bump": 0.257,
+   "p_caught": 0.026,
+   "p_overbump": 0.014,
    "p_overbumped": 0.0,
-   "p_rowover": 0.681,
+   "p_rowover": 0.704,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.682
+     "skill": 0.707
     },
     {
      "factor": "Last year's finish",
@@ -924,6 +944,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.489
     }
    ]
   },
@@ -932,16 +956,16 @@
    "boat": 1,
    "cur_pos": 33,
    "chasing": "St Anne's",
-   "p_bump": 0.02,
-   "p_caught": 0.714,
+   "p_bump": 0.026,
+   "p_caught": 0.659,
    "p_overbump": 0.0,
    "p_overbumped": 0.003,
-   "p_rowover": 0.263,
+   "p_rowover": 0.312,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.293
+     "skill": -1.375
     },
     {
      "factor": "Last year's finish",
@@ -950,6 +974,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.795
     }
    ]
   },
@@ -958,16 +986,16 @@
    "boat": 2,
    "cur_pos": 34,
    "chasing": "Green Templeton",
-   "p_bump": 0.714,
-   "p_caught": 0.023,
+   "p_bump": 0.659,
+   "p_caught": 0.029,
    "p_overbump": 0.0,
    "p_overbumped": 0.001,
-   "p_rowover": 0.262,
+   "p_rowover": 0.312,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.565
+     "skill": 0.59
     },
     {
      "factor": "Last year's finish",
@@ -976,6 +1004,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.428
     }
    ]
   },
@@ -984,16 +1016,16 @@
    "boat": 2,
    "cur_pos": 35,
    "chasing": "New College 2",
-   "p_bump": 0.023,
-   "p_caught": 0.732,
+   "p_bump": 0.029,
+   "p_caught": 0.667,
    "p_overbump": 0.0,
    "p_overbumped": 0.0,
-   "p_rowover": 0.245,
+   "p_rowover": 0.304,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.431
+     "skill": -1.514
     },
     {
      "factor": "Last year's finish",
@@ -1002,6 +1034,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.672
     }
    ]
   },
@@ -1010,16 +1046,16 @@
    "boat": 1,
    "cur_pos": 36,
    "chasing": "Christ Church 2",
-   "p_bump": 0.732,
-   "p_caught": 0.05,
+   "p_bump": 0.667,
+   "p_caught": 0.067,
    "p_overbump": 0.003,
    "p_overbumped": 0.0,
-   "p_rowover": 0.215,
+   "p_rowover": 0.262,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.7
+     "skill": 0.727
     },
     {
      "factor": "Last year's finish",
@@ -1028,6 +1064,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.245
     }
    ]
   },
@@ -1036,16 +1076,16 @@
    "boat": 1,
    "cur_pos": 37,
    "chasing": "Somerville",
-   "p_bump": 0.05,
-   "p_caught": 0.427,
+   "p_bump": 0.067,
+   "p_caught": 0.396,
    "p_overbump": 0.001,
-   "p_overbumped": 0.007,
-   "p_rowover": 0.515,
+   "p_overbumped": 0.006,
+   "p_rowover": 0.53,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.662
+     "skill": -0.737
     },
     {
      "factor": "Last year's finish",
@@ -1054,6 +1094,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.55
     }
    ]
   },
@@ -1062,16 +1106,16 @@
    "boat": 1,
    "cur_pos": 38,
    "chasing": "Linacre",
-   "p_bump": 0.427,
-   "p_caught": 0.063,
+   "p_bump": 0.396,
+   "p_caught": 0.066,
    "p_overbump": 0.0,
-   "p_overbumped": 0.005,
-   "p_rowover": 0.505,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.534,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.425
+     "skill": -0.403
     },
     {
      "factor": "Last year's finish",
@@ -1080,6 +1124,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.306
     }
    ]
   },
@@ -1088,16 +1136,16 @@
    "boat": 1,
    "cur_pos": 39,
    "chasing": "St Antony's",
-   "p_bump": 0.063,
-   "p_caught": 0.709,
+   "p_bump": 0.066,
+   "p_caught": 0.669,
    "p_overbump": 0.0,
    "p_overbumped": 0.013,
-   "p_rowover": 0.215,
+   "p_rowover": 0.252,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.923
+     "skill": -0.989
     },
     {
      "factor": "Last year's finish",
@@ -1106,6 +1154,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.367
     }
    ]
   },
@@ -1114,20 +1166,24 @@
    "boat": 2,
    "cur_pos": 40,
    "chasing": "Corpus Christi",
-   "p_bump": 0.709,
-   "p_caught": 0.045,
-   "p_overbump": 0.007,
+   "p_bump": 0.669,
+   "p_caught": 0.054,
+   "p_overbump": 0.006,
    "p_overbumped": 0.002,
-   "p_rowover": 0.237,
+   "p_rowover": 0.269,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.691
+     "skill": 0.741
     },
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.061
     }
    ]
   },
@@ -1136,16 +1192,16 @@
    "boat": 2,
    "cur_pos": 41,
    "chasing": "Wadham 2",
-   "p_bump": 0.045,
-   "p_caught": 0.74,
-   "p_overbump": 0.005,
+   "p_bump": 0.054,
+   "p_caught": 0.689,
+   "p_overbump": 0.004,
    "p_overbumped": 0.001,
-   "p_rowover": 0.209,
+   "p_rowover": 0.252,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.311
+     "skill": -0.316
     },
     {
      "factor": "Last year's finish",
@@ -1154,6 +1210,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.183
     }
    ]
   },
@@ -1162,16 +1222,16 @@
    "boat": 2,
    "cur_pos": 42,
    "chasing": "Balliol 2",
-   "p_bump": 0.74,
-   "p_caught": 0.015,
+   "p_bump": 0.689,
+   "p_caught": 0.02,
    "p_overbump": 0.013,
    "p_overbumped": 0.0,
-   "p_rowover": 0.232,
+   "p_rowover": 0.278,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.72
+     "skill": 1.757
     },
     {
      "factor": "Last year's finish",
@@ -1180,6 +1240,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.122
     }
    ]
   },
@@ -1188,16 +1252,16 @@
    "boat": 2,
    "cur_pos": 43,
    "chasing": "Brasenose 2",
-   "p_bump": 0.015,
-   "p_caught": 0.552,
+   "p_bump": 0.02,
+   "p_caught": 0.51,
    "p_overbump": 0.002,
-   "p_overbumped": 0.01,
-   "p_rowover": 0.421,
+   "p_overbumped": 0.008,
+   "p_rowover": 0.461,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.669
+     "skill": -0.712
     },
     {
      "factor": "Last year's finish",
@@ -1206,6 +1270,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.122
     }
    ]
   },
@@ -1214,16 +1282,16 @@
    "boat": 1,
    "cur_pos": 44,
    "chasing": "Keble 2",
-   "p_bump": 0.552,
-   "p_caught": 0.078,
+   "p_bump": 0.51,
+   "p_caught": 0.093,
    "p_overbump": 0.001,
-   "p_overbumped": 0.022,
-   "p_rowover": 0.347,
+   "p_overbumped": 0.014,
+   "p_rowover": 0.382,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.157
+     "skill": -0.211
     },
     {
      "factor": "Last year's finish",
@@ -1232,6 +1300,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.061
     }
    ]
   },
@@ -1240,16 +1312,16 @@
    "boat": 2,
    "cur_pos": 45,
    "chasing": "Reuben",
-   "p_bump": 0.078,
-   "p_caught": 0.587,
+   "p_bump": 0.093,
+   "p_caught": 0.515,
    "p_overbump": 0.0,
-   "p_overbumped": 0.005,
-   "p_rowover": 0.329,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.388,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.773
+     "skill": -0.812
     },
     {
      "factor": "Last year's finish",
@@ -1266,16 +1338,16 @@
    "boat": 2,
    "cur_pos": 46,
    "chasing": "Hertford 2",
-   "p_bump": 0.587,
-   "p_caught": 0.196,
-   "p_overbump": 0.01,
+   "p_bump": 0.515,
+   "p_caught": 0.215,
+   "p_overbump": 0.008,
    "p_overbumped": 0.0,
-   "p_rowover": 0.207,
+   "p_rowover": 0.262,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.767
+     "skill": 0.866
     },
     {
      "factor": "Last year's finish",
@@ -1284,6 +1356,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.489
     }
    ]
   },
@@ -1292,16 +1368,16 @@
    "boat": 2,
    "cur_pos": 47,
    "chasing": "Queen's 2",
-   "p_bump": 0.196,
-   "p_caught": 0.098,
-   "p_overbump": 0.022,
+   "p_bump": 0.215,
+   "p_caught": 0.085,
+   "p_overbump": 0.014,
    "p_overbumped": 0.0,
-   "p_rowover": 0.684,
+   "p_rowover": 0.685,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.825
+     "skill": 0.844
     },
     {
      "factor": "Last year's finish",
@@ -1310,6 +1386,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.367
     }
    ]
   },
@@ -1318,16 +1398,16 @@
    "boat": 2,
    "cur_pos": 48,
    "chasing": "Exeter 2",
-   "p_bump": 0.098,
-   "p_caught": 0.166,
-   "p_overbump": 0.005,
+   "p_bump": 0.085,
+   "p_caught": 0.2,
+   "p_overbump": 0.004,
    "p_overbumped": 0.0,
-   "p_rowover": 0.731,
+   "p_rowover": 0.711,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.098
+     "skill": 0.068
     },
     {
      "factor": "Last year's finish",
@@ -1336,6 +1416,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.428
     }
    ]
   },
@@ -1344,20 +1428,24 @@
    "boat": 2,
    "cur_pos": 49,
    "chasing": "Magdalen 2",
-   "p_bump": 0.166,
-   "p_caught": 0.567,
+   "p_bump": 0.2,
+   "p_caught": 0.505,
    "p_overbump": 0.0,
    "p_overbumped": 0.001,
-   "p_rowover": 0.266,
+   "p_rowover": 0.294,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.668
+     "skill": -0.696
     },
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.245
     }
    ]
   },
@@ -1366,16 +1454,16 @@
    "boat": 2,
    "cur_pos": 50,
    "chasing": "St Peter's 2",
-   "p_bump": 0.567,
-   "p_caught": 0.028,
+   "p_bump": 0.505,
+   "p_caught": 0.035,
    "p_overbump": 0.0,
    "p_overbumped": 0.002,
-   "p_rowover": 0.404,
+   "p_rowover": 0.459,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.531
+     "skill": 0.614
     },
     {
      "factor": "Last year's finish",
@@ -1384,6 +1472,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.611
     }
    ]
   },
@@ -1392,16 +1484,16 @@
    "boat": 2,
    "cur_pos": 51,
    "chasing": "Worcester 2",
-   "p_bump": 0.028,
-   "p_caught": 0.479,
+   "p_bump": 0.035,
+   "p_caught": 0.51,
    "p_overbump": 0.0,
-   "p_overbumped": 0.047,
-   "p_rowover": 0.447,
+   "p_overbumped": 0.028,
+   "p_rowover": 0.427,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.425
+     "skill": -1.475
     },
     {
      "factor": "Last year's finish",
@@ -1410,6 +1502,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.306
     }
    ]
   },
@@ -1418,120 +1514,16 @@
    "boat": 2,
    "cur_pos": 52,
    "chasing": "Merton 2",
-   "p_bump": 0.479,
-   "p_caught": 0.147,
+   "p_bump": 0.51,
+   "p_caught": 0.123,
    "p_overbump": 0.001,
-   "p_overbumped": 0.015,
-   "p_rowover": 0.359,
+   "p_overbumped": 0.009,
+   "p_rowover": 0.357,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.094
-    },
-    {
-     "factor": "Last year's finish",
-     "skill": -0.265
-    },
-    {
-     "factor": "Blues in the boat",
-     "skill": -0.042
-    }
-   ]
-  },
-  {
-   "college": "St Catherine's",
-   "boat": 2,
-   "cur_pos": 53,
-   "chasing": "St Edmund Hall 2",
-   "p_bump": 0.147,
-   "p_caught": 0.688,
-   "p_overbump": 0.002,
-   "p_overbumped": 0.005,
-   "p_rowover": 0.159,
-   "division": 5,
-   "contributions": [
-    {
-     "factor": "Form so far this week",
-     "skill": -0.248
-    },
-    {
-     "factor": "Last year's finish",
-     "skill": -0.35
-    },
-    {
-     "factor": "Blues in the boat",
-     "skill": -0.042
-    }
-   ]
-  },
-  {
-   "college": "University",
-   "boat": 3,
-   "cur_pos": 54,
-   "chasing": "St Catherine's 2",
-   "p_bump": 0.688,
-   "p_caught": 0.031,
-   "p_overbump": 0.047,
-   "p_overbumped": 0.0,
-   "p_rowover": 0.235,
-   "division": 5,
-   "contributions": [
-    {
-     "factor": "Form so far this week",
-     "skill": 1.39
-    },
-    {
-     "factor": "Last year's finish",
-     "skill": 0.161
-    },
-    {
-     "factor": "Blues in the boat",
-     "skill": -0.042
-    }
-   ]
-  },
-  {
-   "college": "Lincoln",
-   "boat": 2,
-   "cur_pos": 55,
-   "chasing": "University 3",
-   "p_bump": 0.031,
-   "p_caught": 0.702,
-   "p_overbump": 0.015,
-   "p_overbumped": 0.0,
-   "p_rowover": 0.253,
-   "division": 5,
-   "contributions": [
-    {
-     "factor": "Form so far this week",
-     "skill": -0.156
-    },
-    {
-     "factor": "Last year's finish",
-     "skill": -0.179
-    },
-    {
-     "factor": "Blues in the boat",
-     "skill": -0.042
-    }
-   ]
-  },
-  {
-   "college": "New College",
-   "boat": 3,
-   "cur_pos": 56,
-   "chasing": "Lincoln 2",
-   "p_bump": 0.702,
-   "p_caught": 0.012,
-   "p_overbump": 0.005,
-   "p_overbumped": 0.001,
-   "p_rowover": 0.28,
-   "division": 5,
-   "contributions": [
-    {
-     "factor": "Form so far this week",
-     "skill": 1.852
+     "skill": -0.143
     },
     {
      "factor": "Last year's finish",
@@ -1543,7 +1535,127 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.033
+     "skill": -0.183
+    }
+   ]
+  },
+  {
+   "college": "St Catherine's",
+   "boat": 2,
+   "cur_pos": 53,
+   "chasing": "St Edmund Hall 2",
+   "p_bump": 0.123,
+   "p_caught": 0.66,
+   "p_overbump": 0.002,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.211,
+   "division": 5,
+   "contributions": [
+    {
+     "factor": "Form so far this week",
+     "skill": -0.287
+    },
+    {
+     "factor": "Last year's finish",
+     "skill": -0.35
+    },
+    {
+     "factor": "Blues in the boat",
+     "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.55
+    }
+   ]
+  },
+  {
+   "college": "University",
+   "boat": 3,
+   "cur_pos": 54,
+   "chasing": "St Catherine's 2",
+   "p_bump": 0.66,
+   "p_caught": 0.039,
+   "p_overbump": 0.028,
+   "p_overbumped": 0.0,
+   "p_rowover": 0.273,
+   "division": 5,
+   "contributions": [
+    {
+     "factor": "Form so far this week",
+     "skill": 1.434
+    },
+    {
+     "factor": "Last year's finish",
+     "skill": 0.161
+    },
+    {
+     "factor": "Blues in the boat",
+     "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.856
+    }
+   ]
+  },
+  {
+   "college": "Lincoln",
+   "boat": 2,
+   "cur_pos": 55,
+   "chasing": "University 3",
+   "p_bump": 0.039,
+   "p_caught": 0.645,
+   "p_overbump": 0.009,
+   "p_overbumped": 0.0,
+   "p_rowover": 0.307,
+   "division": 5,
+   "contributions": [
+    {
+     "factor": "Form so far this week",
+     "skill": -0.138
+    },
+    {
+     "factor": "Last year's finish",
+     "skill": -0.179
+    },
+    {
+     "factor": "Blues in the boat",
+     "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.734
+    }
+   ]
+  },
+  {
+   "college": "New College",
+   "boat": 3,
+   "cur_pos": 56,
+   "chasing": "Lincoln 2",
+   "p_bump": 0.645,
+   "p_caught": 0.017,
+   "p_overbump": 0.004,
+   "p_overbumped": 0.001,
+   "p_rowover": 0.333,
+   "division": 5,
+   "contributions": [
+    {
+     "factor": "Form so far this week",
+     "skill": 1.97
+    },
+    {
+     "factor": "Last year's finish",
+     "skill": -0.265
+    },
+    {
+     "factor": "Blues in the boat",
+     "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -1.1
     }
    ]
   },
@@ -1552,20 +1664,24 @@
    "boat": 1,
    "cur_pos": 57,
    "chasing": "New College 3",
-   "p_bump": 0.012,
-   "p_caught": 0.438,
+   "p_bump": 0.017,
+   "p_caught": 0.417,
    "p_overbump": 0.0,
-   "p_overbumped": 0.094,
-   "p_rowover": 0.455,
+   "p_overbumped": 0.067,
+   "p_rowover": 0.499,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.435
+     "skill": -1.485
     },
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.672
     }
    ]
   },
@@ -1574,16 +1690,16 @@
    "boat": 3,
    "cur_pos": 58,
    "chasing": "Regent's Park",
-   "p_bump": 0.438,
-   "p_caught": 0.291,
+   "p_bump": 0.417,
+   "p_caught": 0.288,
    "p_overbump": 0.0,
    "p_overbumped": 0.002,
-   "p_rowover": 0.269,
+   "p_rowover": 0.294,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.546
+     "skill": -0.614
     },
     {
      "factor": "Last year's finish",
@@ -1592,6 +1708,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.795
     }
    ]
   },
@@ -1600,16 +1720,16 @@
    "boat": 3,
    "cur_pos": 59,
    "chasing": "Wolfson 3",
-   "p_bump": 0.291,
-   "p_caught": 0.466,
+   "p_bump": 0.288,
+   "p_caught": 0.436,
    "p_overbump": 0.001,
    "p_overbumped": 0.0,
-   "p_rowover": 0.242,
+   "p_rowover": 0.275,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.703
+     "skill": -0.653
     },
     {
      "factor": "Last year's finish",
@@ -1621,7 +1741,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.031
+     "skill": -1.039
     }
    ]
   },
@@ -1630,16 +1750,16 @@
    "boat": 2,
    "cur_pos": 60,
    "chasing": "St Edmund Hall 3",
-   "p_bump": 0.466,
-   "p_caught": 0.019,
-   "p_overbump": 0.094,
+   "p_bump": 0.436,
+   "p_caught": 0.022,
+   "p_overbump": 0.067,
    "p_overbumped": 0.0,
-   "p_rowover": 0.421,
+   "p_rowover": 0.475,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.077
+     "skill": 1.134
     },
     {
      "factor": "Last year's finish",
@@ -1651,7 +1771,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.036
+     "skill": -1.223
     }
    ]
   },
@@ -1660,16 +1780,16 @@
    "boat": 2,
    "cur_pos": 61,
    "chasing": "Mansfield 2",
-   "p_bump": 0.019,
-   "p_caught": 0.751,
+   "p_bump": 0.022,
+   "p_caught": 0.716,
    "p_overbump": 0.002,
-   "p_overbumped": 0.003,
-   "p_rowover": 0.226,
+   "p_overbumped": 0.002,
+   "p_rowover": 0.258,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.498
+     "skill": -1.539
     },
     {
      "factor": "Last year's finish",
@@ -1678,6 +1798,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.978
     }
    ]
   },
@@ -1686,16 +1810,16 @@
    "boat": 3,
    "cur_pos": 62,
    "chasing": "Green Templeton 2",
-   "p_bump": 0.751,
-   "p_caught": 0.021,
+   "p_bump": 0.716,
+   "p_caught": 0.029,
    "p_overbump": 0.0,
    "p_overbumped": 0.001,
-   "p_rowover": 0.227,
+   "p_rowover": 0.254,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.26
+     "skill": 1.322
     },
     {
      "factor": "Last year's finish",
@@ -1707,7 +1831,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.038
+     "skill": -1.284
     }
    ]
   },
@@ -1716,16 +1840,16 @@
    "boat": 2,
    "cur_pos": 63,
    "chasing": "Oriel 3",
-   "p_bump": 0.021,
-   "p_caught": 0.66,
+   "p_bump": 0.029,
+   "p_caught": 0.602,
    "p_overbump": 0.0,
    "p_overbumped": 0.004,
-   "p_rowover": 0.314,
+   "p_rowover": 0.365,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.792
+     "skill": -0.906
     },
     {
      "factor": "Last year's finish",
@@ -1734,6 +1858,10 @@
     {
      "factor": "Blues in the boat",
      "skill": -0.042
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.917
     }
    ]
   },
@@ -1742,16 +1870,16 @@
    "boat": 2,
    "cur_pos": 64,
    "chasing": "Jesus 2",
-   "p_bump": 0.66,
-   "p_caught": 0.036,
-   "p_overbump": 0.003,
-   "p_overbumped": 0.005,
-   "p_rowover": 0.296,
+   "p_bump": 0.602,
+   "p_caught": 0.044,
+   "p_overbump": 0.002,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.347,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.353
+     "skill": 0.383
     },
     {
      "factor": "Last year's finish",
@@ -1763,7 +1891,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.04
+     "skill": -1.345
     }
    ]
   },
@@ -1772,16 +1900,16 @@
    "boat": 3,
    "cur_pos": 65,
    "chasing": "St Hilda's 2",
-   "p_bump": 0.036,
-   "p_caught": 0.678,
+   "p_bump": 0.044,
+   "p_caught": 0.607,
    "p_overbump": 0.001,
-   "p_overbumped": 0.021,
-   "p_rowover": 0.265,
+   "p_overbumped": 0.018,
+   "p_rowover": 0.33,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.2
+     "skill": -1.247
     },
     {
      "factor": "Blues in the boat",
@@ -1789,7 +1917,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.035
+     "skill": -1.162
     }
    ]
   },
@@ -1798,16 +1926,16 @@
    "boat": 2,
    "cur_pos": 66,
    "chasing": "Keble 3",
-   "p_bump": 0.678,
-   "p_caught": 0.085,
-   "p_overbump": 0.004,
-   "p_overbumped": 0.009,
-   "p_rowover": 0.224,
+   "p_bump": 0.607,
+   "p_caught": 0.101,
+   "p_overbump": 0.003,
+   "p_overbumped": 0.008,
+   "p_rowover": 0.28,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.485
+     "skill": 0.446
     },
     {
      "factor": "Last year's finish",
@@ -1819,7 +1947,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.045
+     "skill": -1.528
     }
    ]
   },
@@ -1828,16 +1956,16 @@
    "boat": 3,
    "cur_pos": 67,
    "chasing": "St John's 2",
-   "p_bump": 0.085,
-   "p_caught": 0.609,
-   "p_overbump": 0.005,
+   "p_bump": 0.101,
+   "p_caught": 0.574,
+   "p_overbump": 0.004,
    "p_overbumped": 0.0,
-   "p_rowover": 0.301,
+   "p_rowover": 0.321,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.09
+     "skill": -0.121
     },
     {
      "factor": "Blues in the boat",
@@ -1845,7 +1973,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.044
+     "skill": -1.467
     }
    ]
   },
@@ -1854,16 +1982,16 @@
    "boat": 2,
    "cur_pos": 68,
    "chasing": "Christ Church 3",
-   "p_bump": 0.609,
-   "p_caught": 0.09,
-   "p_overbump": 0.021,
+   "p_bump": 0.574,
+   "p_caught": 0.093,
+   "p_overbump": 0.018,
    "p_overbumped": 0.0,
-   "p_rowover": 0.279,
+   "p_rowover": 0.315,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.527
+     "skill": 1.64
     },
     {
      "factor": "Blues in the boat",
@@ -1871,7 +1999,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.053
+     "skill": -1.773
     }
    ]
   },
@@ -1880,16 +2008,16 @@
    "boat": 4,
    "cur_pos": 69,
    "chasing": "Somerville 2",
-   "p_bump": 0.09,
-   "p_caught": 0.023,
-   "p_overbump": 0.009,
-   "p_overbumped": 0.011,
-   "p_rowover": 0.867,
+   "p_bump": 0.093,
+   "p_caught": 0.027,
+   "p_overbump": 0.008,
+   "p_overbumped": 0.009,
+   "p_rowover": 0.863,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.601
+     "skill": 0.654
     },
     {
      "factor": "Last year's finish",
@@ -1901,7 +2029,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.051
+     "skill": -1.712
     }
    ]
   },
@@ -1910,16 +2038,16 @@
    "boat": 2,
    "cur_pos": 70,
    "chasing": "New College 4",
-   "p_bump": 0.023,
-   "p_caught": 0.755,
+   "p_bump": 0.027,
+   "p_caught": 0.739,
    "p_overbump": 0.0,
-   "p_overbumped": 0.005,
-   "p_rowover": 0.217,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.23,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.654
+     "skill": -1.751
     },
     {
      "factor": "Last year's finish",
@@ -1931,7 +2059,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.042
+     "skill": -1.406
     }
    ]
   },
@@ -1940,16 +2068,16 @@
    "boat": 3,
    "cur_pos": 71,
    "chasing": "Linacre 2",
-   "p_bump": 0.755,
-   "p_caught": 0.106,
+   "p_bump": 0.739,
+   "p_caught": 0.098,
    "p_overbump": 0.0,
    "p_overbumped": 0.0,
-   "p_rowover": 0.139,
+   "p_rowover": 0.163,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.092
+     "skill": 0.04
     },
     {
      "factor": "Last year's finish",
@@ -1961,7 +2089,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.047
+     "skill": -1.59
     }
    ]
   },
@@ -1970,11 +2098,11 @@
    "boat": 3,
    "cur_pos": 72,
    "chasing": "Pembroke 3",
-   "p_bump": 0.106,
-   "p_caught": 0.115,
-   "p_overbump": 0.011,
+   "p_bump": 0.098,
+   "p_caught": 0.132,
+   "p_overbump": 0.009,
    "p_overbumped": 0.0,
-   "p_rowover": 0.768,
+   "p_rowover": 0.762,
    "division": 6,
    "contributions": [
     {
@@ -1991,7 +2119,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.055
+     "skill": -1.834
     }
    ]
   },
@@ -2000,16 +2128,16 @@
    "boat": 4,
    "cur_pos": 73,
    "chasing": "Exeter 3",
-   "p_bump": 0.115,
-   "p_caught": 0.316,
-   "p_overbump": 0.005,
-   "p_overbumped": 0.026,
+   "p_bump": 0.132,
+   "p_caught": 0.309,
+   "p_overbump": 0.004,
+   "p_overbumped": 0.017,
    "p_rowover": 0.538,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.886
+     "skill": -0.933
     },
     {
      "factor": "Last year's finish",
@@ -2021,7 +2149,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.049
+     "skill": -1.651
     }
    ]
   },
@@ -2030,16 +2158,16 @@
    "boat": 4,
    "cur_pos": 74,
    "chasing": "University 4",
-   "p_bump": 0.316,
-   "p_caught": 0.558,
+   "p_bump": 0.309,
+   "p_caught": 0.528,
    "p_overbump": 0.0,
    "p_overbumped": 0.0,
-   "p_rowover": 0.126,
+   "p_rowover": 0.162,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.404
+     "skill": -0.358
     },
     {
      "factor": "Blues in the boat",
@@ -2047,7 +2175,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.056
+     "skill": -1.895
     }
    ]
   },
@@ -2056,16 +2184,16 @@
    "boat": 2,
    "cur_pos": 75,
    "chasing": "Wolfson 4",
-   "p_bump": 0.558,
-   "p_caught": 0.037,
+   "p_bump": 0.528,
+   "p_caught": 0.044,
    "p_overbump": 0.0,
    "p_overbumped": 0.001,
-   "p_rowover": 0.404,
+   "p_rowover": 0.427,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.221
+     "skill": 1.278
     },
     {
      "factor": "Last year's finish",
@@ -2077,7 +2205,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.064
+     "skill": -2.14
     }
    ]
   },
@@ -2086,16 +2214,16 @@
    "boat": 3,
    "cur_pos": 76,
    "chasing": "St Anne's 2",
-   "p_bump": 0.037,
-   "p_caught": 0.249,
-   "p_overbump": 0.025,
-   "p_overbumped": 0.087,
-   "p_rowover": 0.601,
+   "p_bump": 0.044,
+   "p_caught": 0.239,
+   "p_overbump": 0.016,
+   "p_overbumped": 0.065,
+   "p_rowover": 0.636,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.476
+     "skill": -0.492
     },
     {
      "factor": "Last year's finish",
@@ -2107,7 +2235,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.058
+     "skill": -1.956
     }
    ]
   },
@@ -2116,16 +2244,16 @@
    "boat": 4,
    "cur_pos": 77,
    "chasing": "Worcester 3",
-   "p_bump": 0.249,
-   "p_caught": 0.378,
+   "p_bump": 0.239,
+   "p_caught": 0.366,
    "p_overbump": 0.0,
    "p_overbumped": 0.003,
-   "p_rowover": 0.37,
+   "p_rowover": 0.393,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.363
+     "skill": -0.401
     },
     {
      "factor": "Last year's finish",
@@ -2137,7 +2265,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.06
+     "skill": -2.017
     }
    ]
   },
@@ -2146,16 +2274,16 @@
    "boat": 3,
    "cur_pos": 78,
    "chasing": "Pembroke 4",
-   "p_bump": 0.378,
-   "p_caught": 0.439,
-   "p_overbump": 0.002,
+   "p_bump": 0.366,
+   "p_caught": 0.42,
+   "p_overbump": 0.001,
    "p_overbumped": 0.0,
-   "p_rowover": 0.181,
+   "p_rowover": 0.213,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.414
+     "skill": 0.481
     },
     {
      "factor": "Blues in the boat",
@@ -2163,7 +2291,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.067
+     "skill": -2.262
     }
    ]
   },
@@ -2172,16 +2300,16 @@
    "boat": 5,
    "cur_pos": 79,
    "chasing": "Brasenose 3",
-   "p_bump": 0.439,
-   "p_caught": 0.012,
-   "p_overbump": 0.087,
+   "p_bump": 0.42,
+   "p_caught": 0.015,
+   "p_overbump": 0.065,
    "p_overbumped": 0.001,
-   "p_rowover": 0.461,
+   "p_rowover": 0.499,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.517
+     "skill": 1.567
     },
     {
      "factor": "Blues in the boat",
@@ -2189,7 +2317,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.071
+     "skill": -2.384
     }
    ]
   },
@@ -2198,16 +2326,16 @@
    "boat": 3,
    "cur_pos": 80,
    "chasing": "University 5",
-   "p_bump": 0.012,
-   "p_caught": 0.655,
+   "p_bump": 0.015,
+   "p_caught": 0.616,
    "p_overbump": 0.003,
    "p_overbumped": 0.006,
-   "p_rowover": 0.324,
+   "p_rowover": 0.36,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.324
+     "skill": -1.382
     },
     {
      "factor": "Last year's finish",
@@ -2219,7 +2347,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.062
+     "skill": -2.079
     }
    ]
   },
@@ -2228,16 +2356,16 @@
    "boat": 2,
    "cur_pos": 81,
    "chasing": "Queen's 3",
-   "p_bump": 0.655,
-   "p_caught": 0.034,
+   "p_bump": 0.616,
+   "p_caught": 0.041,
    "p_overbump": 0.0,
-   "p_overbumped": 0.006,
-   "p_rowover": 0.305,
+   "p_overbumped": 0.005,
+   "p_rowover": 0.338,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.21
+     "skill": 0.199
     },
     {
      "factor": "Blues in the boat",
@@ -2245,7 +2373,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.069
+     "skill": -2.323
     }
    ]
   },
@@ -2254,16 +2382,16 @@
    "boat": 3,
    "cur_pos": 82,
    "chasing": "Lady Margaret Hall 2",
-   "p_bump": 0.034,
-   "p_caught": 0.748,
+   "p_bump": 0.041,
+   "p_caught": 0.707,
    "p_overbump": 0.001,
    "p_overbumped": 0.003,
-   "p_rowover": 0.215,
+   "p_rowover": 0.249,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.746
+     "skill": -1.793
     },
     {
      "factor": "Last year's finish",
@@ -2275,7 +2403,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.065
+     "skill": -2.201
     }
    ]
   },
@@ -2284,16 +2412,16 @@
    "boat": 4,
    "cur_pos": 83,
    "chasing": "St Hilda's 3",
-   "p_bump": 0.748,
-   "p_caught": 0.06,
+   "p_bump": 0.707,
+   "p_caught": 0.066,
    "p_overbump": 0.006,
    "p_overbumped": 0.0,
-   "p_rowover": 0.186,
+   "p_rowover": 0.222,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.741
+     "skill": 0.831
     },
     {
      "factor": "Blues in the boat",
@@ -2301,7 +2429,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.076
+     "skill": -2.568
     }
    ]
   },
@@ -2310,16 +2438,16 @@
    "boat": 3,
    "cur_pos": 84,
    "chasing": "Christ Church 4",
-   "p_bump": 0.06,
-   "p_caught": 0.208,
-   "p_overbump": 0.006,
+   "p_bump": 0.066,
+   "p_caught": 0.204,
+   "p_overbump": 0.005,
    "p_overbumped": 0.0,
-   "p_rowover": 0.726,
+   "p_rowover": 0.725,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.574
+     "skill": -0.581
     },
     {
      "factor": "Blues in the boat",
@@ -2327,7 +2455,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.073
+     "skill": -2.445
     }
    ]
   },
@@ -2336,16 +2464,16 @@
    "boat": 3,
    "cur_pos": 85,
    "chasing": "St Catherine's 3",
-   "p_bump": 0.208,
+   "p_bump": 0.204,
    "p_caught": 0.0,
    "p_overbump": 0.003,
    "p_overbumped": 0.0,
-   "p_rowover": 0.789,
+   "p_rowover": 0.793,
    "division": 8,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.031
+     "skill": -1.009
     },
     {
      "factor": "Blues in the boat",
@@ -2353,7 +2481,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.075
+     "skill": -2.507
     }
    ]
   }
@@ -2365,15 +2493,15 @@
    "cur_pos": 1,
    "chasing": null,
    "p_bump": 0.0,
-   "p_caught": 0.195,
+   "p_caught": 0.185,
    "p_overbump": 0.0,
    "p_overbumped": 0.001,
-   "p_rowover": 0.804,
+   "p_rowover": 0.814,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.391
+     "skill": 0.355
     },
     {
      "factor": "Last year's finish",
@@ -2381,7 +2509,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.076
+     "skill": 2.568
     }
    ]
   },
@@ -2390,20 +2518,20 @@
    "boat": 1,
    "cur_pos": 2,
    "chasing": "Pembroke",
-   "p_bump": 0.195,
-   "p_caught": 0.342,
+   "p_bump": 0.185,
+   "p_caught": 0.323,
    "p_overbump": 0.0,
    "p_overbumped": 0.001,
-   "p_rowover": 0.463,
+   "p_rowover": 0.491,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.211
+     "skill": 0.209
     },
     {
      "factor": "Seeding",
-     "skill": 0.073
+     "skill": 2.445
     }
    ]
   },
@@ -2412,16 +2540,16 @@
    "boat": 1,
    "cur_pos": 3,
    "chasing": "University",
-   "p_bump": 0.342,
-   "p_caught": 0.056,
+   "p_bump": 0.323,
+   "p_caught": 0.063,
    "p_overbump": 0.0,
-   "p_overbumped": 0.005,
-   "p_rowover": 0.596,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.61,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.488
+     "skill": 0.516
     },
     {
      "factor": "Last year's finish",
@@ -2429,7 +2557,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.069
+     "skill": 2.323
     }
    ]
   },
@@ -2438,20 +2566,20 @@
    "boat": 1,
    "cur_pos": 4,
    "chasing": "Balliol",
-   "p_bump": 0.056,
-   "p_caught": 0.328,
+   "p_bump": 0.063,
+   "p_caught": 0.319,
    "p_overbump": 0.001,
-   "p_overbumped": 0.007,
-   "p_rowover": 0.608,
+   "p_overbumped": 0.006,
+   "p_rowover": 0.612,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.784
+     "skill": -0.835
     },
     {
      "factor": "Seeding",
-     "skill": 0.075
+     "skill": 2.507
     }
    ]
   },
@@ -2460,16 +2588,16 @@
    "boat": 1,
    "cur_pos": 5,
    "chasing": "Wadham",
-   "p_bump": 0.328,
-   "p_caught": 0.455,
+   "p_bump": 0.319,
+   "p_caught": 0.417,
    "p_overbump": 0.001,
-   "p_overbumped": 0.003,
-   "p_rowover": 0.215,
+   "p_overbumped": 0.002,
+   "p_rowover": 0.261,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.444
+     "skill": -0.461
     },
     {
      "factor": "Last year's finish",
@@ -2477,7 +2605,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.071
+     "skill": 2.384
     }
    ]
   },
@@ -2486,16 +2614,16 @@
    "boat": 1,
    "cur_pos": 6,
    "chasing": "Wolfson",
-   "p_bump": 0.455,
-   "p_caught": 0.048,
-   "p_overbump": 0.005,
+   "p_bump": 0.417,
+   "p_caught": 0.055,
+   "p_overbump": 0.004,
    "p_overbumped": 0.001,
-   "p_rowover": 0.492,
+   "p_rowover": 0.524,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.54
+     "skill": 0.555
     },
     {
      "factor": "Last year's finish",
@@ -2503,7 +2631,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.064
+     "skill": 2.14
     }
    ]
   },
@@ -2512,16 +2640,16 @@
    "boat": 1,
    "cur_pos": 7,
    "chasing": "Magdalen",
-   "p_bump": 0.048,
-   "p_caught": 0.602,
-   "p_overbump": 0.007,
-   "p_overbumped": 0.003,
-   "p_rowover": 0.341,
+   "p_bump": 0.055,
+   "p_caught": 0.569,
+   "p_overbump": 0.005,
+   "p_overbumped": 0.002,
+   "p_rowover": 0.369,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.288
+     "skill": -0.319
     },
     {
      "factor": "Last year's finish",
@@ -2529,7 +2657,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.067
+     "skill": 2.262
     }
    ]
   },
@@ -2538,16 +2666,16 @@
    "boat": 1,
    "cur_pos": 8,
    "chasing": "Christ Church",
-   "p_bump": 0.602,
-   "p_caught": 0.051,
-   "p_overbump": 0.003,
-   "p_overbumped": 0.002,
-   "p_rowover": 0.342,
+   "p_bump": 0.569,
+   "p_caught": 0.056,
+   "p_overbump": 0.002,
+   "p_overbumped": 0.001,
+   "p_rowover": 0.371,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.514
+     "skill": 0.534
     },
     {
      "factor": "Last year's finish",
@@ -2559,7 +2687,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.062
+     "skill": 2.079
     }
    ]
   },
@@ -2568,16 +2696,16 @@
    "boat": 1,
    "cur_pos": 9,
    "chasing": "St Edmund Hall",
-   "p_bump": 0.051,
-   "p_caught": 0.515,
+   "p_bump": 0.056,
+   "p_caught": 0.465,
    "p_overbump": 0.001,
    "p_overbumped": 0.006,
-   "p_rowover": 0.427,
+   "p_rowover": 0.472,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.882
+     "skill": -0.907
     },
     {
      "factor": "Last year's finish",
@@ -2585,7 +2713,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.065
+     "skill": 2.201
     }
    ]
   },
@@ -2594,16 +2722,16 @@
    "boat": 1,
    "cur_pos": 10,
    "chasing": "Keble",
-   "p_bump": 0.515,
-   "p_caught": 0.136,
-   "p_overbump": 0.003,
-   "p_overbumped": 0.004,
-   "p_rowover": 0.343,
+   "p_bump": 0.465,
+   "p_caught": 0.145,
+   "p_overbump": 0.002,
+   "p_overbumped": 0.003,
+   "p_rowover": 0.385,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.672
+     "skill": 0.683
     },
     {
      "factor": "Last year's finish",
@@ -2611,7 +2739,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.058
+     "skill": 1.956
     }
    ]
   },
@@ -2620,16 +2748,16 @@
    "boat": 1,
    "cur_pos": 11,
    "chasing": "Oriel",
-   "p_bump": 0.136,
-   "p_caught": 0.285,
-   "p_overbump": 0.002,
+   "p_bump": 0.145,
+   "p_caught": 0.266,
+   "p_overbump": 0.001,
    "p_overbumped": 0.0,
-   "p_rowover": 0.577,
+   "p_rowover": 0.588,
    "division": 1,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.455
+     "skill": -0.485
     },
     {
      "factor": "Last year's finish",
@@ -2637,7 +2765,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.06
+     "skill": 2.017
     }
    ]
   },
@@ -2646,11 +2774,11 @@
    "boat": 1,
    "cur_pos": 12,
    "chasing": "Lincoln",
-   "p_bump": 0.285,
-   "p_caught": 0.288,
+   "p_bump": 0.266,
+   "p_caught": 0.274,
    "p_overbump": 0.006,
    "p_overbumped": 0.0,
-   "p_rowover": 0.421,
+   "p_rowover": 0.454,
    "division": 1,
    "contributions": [
     {
@@ -2659,7 +2787,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.056
+     "skill": 1.895
     }
    ]
   },
@@ -2668,16 +2796,16 @@
    "boat": 1,
    "cur_pos": 13,
    "chasing": "New College",
-   "p_bump": 0.288,
-   "p_caught": 0.178,
-   "p_overbump": 0.004,
-   "p_overbumped": 0.001,
-   "p_rowover": 0.529,
+   "p_bump": 0.274,
+   "p_caught": 0.171,
+   "p_overbump": 0.003,
+   "p_overbumped": 0.0,
+   "p_rowover": 0.552,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.039
+     "skill": 0.063
     },
     {
      "factor": "Last year's finish",
@@ -2685,7 +2813,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.053
+     "skill": 1.773
     }
    ]
   },
@@ -2694,16 +2822,16 @@
    "boat": 1,
    "cur_pos": 14,
    "chasing": "Linacre",
-   "p_bump": 0.178,
-   "p_caught": 0.367,
+   "p_bump": 0.171,
+   "p_caught": 0.348,
    "p_overbump": 0.0,
-   "p_overbumped": 0.0,
-   "p_rowover": 0.455,
+   "p_overbumped": 0.001,
+   "p_rowover": 0.48,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.365
+     "skill": 0.371
     },
     {
      "factor": "Last year's finish",
@@ -2711,7 +2839,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.051
+     "skill": 1.712
     }
    ]
   },
@@ -2720,20 +2848,20 @@
    "boat": 1,
    "cur_pos": 15,
    "chasing": "Jesus",
-   "p_bump": 0.367,
-   "p_caught": 0.021,
+   "p_bump": 0.348,
+   "p_caught": 0.027,
    "p_overbump": 0.0,
-   "p_overbumped": 0.034,
-   "p_rowover": 0.577,
+   "p_overbumped": 0.024,
+   "p_rowover": 0.6,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.622
+     "skill": 0.655
     },
     {
      "factor": "Seeding",
-     "skill": 0.047
+     "skill": 1.59
     }
    ]
   },
@@ -2742,16 +2870,16 @@
    "boat": 1,
    "cur_pos": 16,
    "chasing": "Exeter",
-   "p_bump": 0.021,
-   "p_caught": 0.663,
+   "p_bump": 0.027,
+   "p_caught": 0.627,
    "p_overbump": 0.0,
-   "p_overbumped": 0.006,
-   "p_rowover": 0.309,
+   "p_overbumped": 0.005,
+   "p_rowover": 0.341,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.253
+     "skill": -1.313
     },
     {
      "factor": "Last year's finish",
@@ -2759,7 +2887,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.055
+     "skill": 1.834
     }
    ]
   },
@@ -2768,16 +2896,16 @@
    "boat": 1,
    "cur_pos": 17,
    "chasing": "St John's",
-   "p_bump": 0.663,
-   "p_caught": 0.264,
-   "p_overbump": 0.0,
+   "p_bump": 0.627,
+   "p_caught": 0.266,
+   "p_overbump": 0.001,
    "p_overbumped": 0.0,
-   "p_rowover": 0.073,
+   "p_rowover": 0.106,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.009
+     "skill": 1.056
     },
     {
      "factor": "Last year's finish",
@@ -2785,7 +2913,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.044
+     "skill": 1.467
     }
    ]
   },
@@ -2794,16 +2922,16 @@
    "boat": 1,
    "cur_pos": 18,
    "chasing": "St Anne's",
-   "p_bump": 0.264,
-   "p_caught": 0.017,
-   "p_overbump": 0.035,
+   "p_bump": 0.266,
+   "p_caught": 0.024,
+   "p_overbump": 0.025,
    "p_overbumped": 0.0,
-   "p_rowover": 0.684,
+   "p_rowover": 0.686,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.978
+     "skill": 1.025
     },
     {
      "factor": "Last year's finish",
@@ -2811,7 +2939,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.04
+     "skill": 1.345
     }
    ]
   },
@@ -2820,16 +2948,16 @@
    "boat": 1,
    "cur_pos": 19,
    "chasing": "Somerville",
-   "p_bump": 0.017,
-   "p_caught": 0.555,
-   "p_overbump": 0.006,
+   "p_bump": 0.024,
+   "p_caught": 0.516,
+   "p_overbump": 0.005,
    "p_overbumped": 0.002,
-   "p_rowover": 0.419,
+   "p_rowover": 0.454,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.628
+     "skill": -1.694
     },
     {
      "factor": "Blues in the boat",
@@ -2837,7 +2965,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.049
+     "skill": 1.651
     }
    ]
   },
@@ -2846,11 +2974,11 @@
    "boat": 1,
    "cur_pos": 20,
    "chasing": "Green Templeton",
-   "p_bump": 0.555,
-   "p_caught": 0.042,
+   "p_bump": 0.516,
+   "p_caught": 0.047,
    "p_overbump": 0.0,
-   "p_overbumped": 0.009,
-   "p_rowover": 0.393,
+   "p_overbumped": 0.005,
+   "p_rowover": 0.432,
    "division": 2,
    "contributions": [
     {
@@ -2859,7 +2987,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.042
+     "skill": 1.406
     }
    ]
   },
@@ -2868,16 +2996,16 @@
    "boat": 1,
    "cur_pos": 21,
    "chasing": "Merton",
-   "p_bump": 0.042,
-   "p_caught": 0.538,
+   "p_bump": 0.047,
+   "p_caught": 0.505,
    "p_overbump": 0.0,
-   "p_overbumped": 0.04,
-   "p_rowover": 0.38,
+   "p_overbumped": 0.025,
+   "p_rowover": 0.423,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.496
+     "skill": -1.547
     },
     {
      "factor": "Last year's finish",
@@ -2885,7 +3013,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.045
+     "skill": 1.528
     }
    ]
   },
@@ -2894,16 +3022,16 @@
    "boat": 1,
    "cur_pos": 22,
    "chasing": "Hertford",
-   "p_bump": 0.538,
-   "p_caught": 0.259,
+   "p_bump": 0.505,
+   "p_caught": 0.243,
    "p_overbump": 0.002,
    "p_overbumped": 0.001,
-   "p_rowover": 0.2,
+   "p_rowover": 0.25,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.12
+     "skill": 0.105
     },
     {
      "factor": "Last year's finish",
@@ -2911,7 +3039,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.038
+     "skill": 1.284
     }
    ]
   },
@@ -2920,16 +3048,16 @@
    "boat": 1,
    "cur_pos": 23,
    "chasing": "Lady Margaret Hall",
-   "p_bump": 0.259,
-   "p_caught": 0.246,
-   "p_overbump": 0.009,
+   "p_bump": 0.243,
+   "p_caught": 0.227,
+   "p_overbump": 0.005,
    "p_overbumped": 0.0,
-   "p_rowover": 0.486,
+   "p_rowover": 0.524,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.754
+     "skill": 0.811
     },
     {
      "factor": "Last year's finish",
@@ -2937,7 +3065,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.031
+     "skill": 1.039
     }
    ]
   },
@@ -2946,20 +3074,24 @@
    "boat": 1,
    "cur_pos": 24,
    "chasing": "St Catherine's",
-   "p_bump": 0.246,
-   "p_caught": 0.071,
-   "p_overbump": 0.04,
+   "p_bump": 0.227,
+   "p_caught": 0.086,
+   "p_overbump": 0.025,
    "p_overbumped": 0.0,
-   "p_rowover": 0.643,
+   "p_rowover": 0.661,
    "division": 2,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.319
+     "skill": 0.34
     },
     {
      "factor": "Last year's finish",
      "skill": 0.155
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.978
     }
    ]
   },
@@ -2968,16 +3100,16 @@
    "boat": 1,
    "cur_pos": 25,
    "chasing": "Brasenose",
-   "p_bump": 0.071,
-   "p_caught": 0.179,
+   "p_bump": 0.086,
+   "p_caught": 0.177,
    "p_overbump": 0.001,
-   "p_overbumped": 0.005,
-   "p_rowover": 0.744,
+   "p_overbumped": 0.002,
+   "p_rowover": 0.734,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.46
+     "skill": -0.504
     },
     {
      "factor": "Last year's finish",
@@ -2985,7 +3117,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.036
+     "skill": 1.223
     }
    ]
   },
@@ -2994,16 +3126,16 @@
    "boat": 1,
    "cur_pos": 26,
    "chasing": "Mansfield",
-   "p_bump": 0.179,
-   "p_caught": 0.579,
+   "p_bump": 0.177,
+   "p_caught": 0.535,
    "p_overbump": 0.0,
    "p_overbumped": 0.002,
-   "p_rowover": 0.239,
+   "p_rowover": 0.286,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.311
+     "skill": -1.364
     },
     {
      "factor": "Last year's finish",
@@ -3011,7 +3143,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.035
+     "skill": 1.162
     }
    ]
   },
@@ -3020,20 +3152,24 @@
    "boat": 1,
    "cur_pos": 27,
    "chasing": "Queen's",
-   "p_bump": 0.579,
-   "p_caught": 0.018,
+   "p_bump": 0.535,
+   "p_caught": 0.023,
    "p_overbump": 0.0,
-   "p_overbumped": 0.021,
-   "p_rowover": 0.383,
+   "p_overbumped": 0.015,
+   "p_rowover": 0.427,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.662
+     "skill": 0.688
     },
     {
      "factor": "Last year's finish",
      "skill": -0.175
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.856
     }
    ]
   },
@@ -3042,16 +3178,16 @@
    "boat": 1,
    "cur_pos": 28,
    "chasing": "Worcester",
-   "p_bump": 0.018,
-   "p_caught": 0.706,
-   "p_overbump": 0.002,
-   "p_overbumped": 0.006,
-   "p_rowover": 0.27,
+   "p_bump": 0.023,
+   "p_caught": 0.668,
+   "p_overbump": 0.001,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.303,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.876
+     "skill": -1.929
     },
     {
      "factor": "Last year's finish",
@@ -3059,7 +3195,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": 0.033
+     "skill": 1.1
     }
    ]
   },
@@ -3068,20 +3204,24 @@
    "boat": 2,
    "cur_pos": 29,
    "chasing": "St Peter's",
-   "p_bump": 0.706,
+   "p_bump": 0.668,
    "p_caught": 0.205,
    "p_overbump": 0.002,
    "p_overbumped": 0.0,
-   "p_rowover": 0.087,
+   "p_rowover": 0.124,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.285
+     "skill": 0.32
     },
     {
      "factor": "Last year's finish",
      "skill": 0.238
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.734
     }
    ]
   },
@@ -3091,19 +3231,23 @@
    "cur_pos": 30,
    "chasing": "University 2",
    "p_bump": 0.205,
-   "p_caught": 0.022,
-   "p_overbump": 0.024,
+   "p_caught": 0.028,
+   "p_overbump": 0.015,
    "p_overbumped": 0.001,
-   "p_rowover": 0.748,
+   "p_rowover": 0.751,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.675
+     "skill": 0.711
     },
     {
      "factor": "Last year's finish",
      "skill": 0.155
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.611
     }
    ]
   },
@@ -3112,20 +3256,24 @@
    "boat": 1,
    "cur_pos": 31,
    "chasing": "St Hugh's",
-   "p_bump": 0.022,
-   "p_caught": 0.696,
-   "p_overbump": 0.005,
-   "p_overbumped": 0.003,
-   "p_rowover": 0.274,
+   "p_bump": 0.028,
+   "p_caught": 0.64,
+   "p_overbump": 0.004,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.324,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.06
+     "skill": -1.13
     },
     {
      "factor": "Last year's finish",
      "skill": -0.34
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.917
     }
    ]
   },
@@ -3134,20 +3282,24 @@
    "boat": 1,
    "cur_pos": 32,
    "chasing": "Trinity",
-   "p_bump": 0.696,
-   "p_caught": 0.023,
+   "p_bump": 0.64,
+   "p_caught": 0.031,
    "p_overbump": 0.0,
    "p_overbumped": 0.001,
-   "p_rowover": 0.279,
+   "p_rowover": 0.328,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.633
+     "skill": 0.652
     },
     {
      "factor": "Last year's finish",
      "skill": -0.175
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.55
     }
    ]
   },
@@ -3156,16 +3308,20 @@
    "boat": 1,
    "cur_pos": 33,
    "chasing": "St Hilda's",
-   "p_bump": 0.023,
-   "p_caught": 0.761,
+   "p_bump": 0.031,
+   "p_caught": 0.708,
    "p_overbump": 0.001,
    "p_overbumped": 0.003,
-   "p_rowover": 0.212,
+   "p_rowover": 0.257,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.595
+     "skill": -1.675
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.795
     }
    ]
   },
@@ -3174,20 +3330,24 @@
    "boat": 2,
    "cur_pos": 34,
    "chasing": "St Antony's",
-   "p_bump": 0.761,
-   "p_caught": 0.017,
-   "p_overbump": 0.003,
-   "p_overbumped": 0.017,
-   "p_rowover": 0.202,
+   "p_bump": 0.708,
+   "p_caught": 0.023,
+   "p_overbump": 0.004,
+   "p_overbumped": 0.016,
+   "p_rowover": 0.25,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.546
+     "skill": 0.564
     },
     {
      "factor": "Last year's finish",
      "skill": 0.073
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.428
     }
    ]
   },
@@ -3196,20 +3356,24 @@
    "boat": 2,
    "cur_pos": 35,
    "chasing": "Christ Church 2",
-   "p_bump": 0.017,
-   "p_caught": 0.748,
+   "p_bump": 0.023,
+   "p_caught": 0.709,
    "p_overbump": 0.0,
    "p_overbumped": 0.0,
-   "p_rowover": 0.235,
+   "p_rowover": 0.268,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.523
+     "skill": -1.595
     },
     {
      "factor": "Last year's finish",
      "skill": -0.092
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.672
     }
    ]
   },
@@ -3218,20 +3382,24 @@
    "boat": 2,
    "cur_pos": 36,
    "chasing": "Wolfson 2",
-   "p_bump": 0.748,
-   "p_caught": 0.163,
+   "p_bump": 0.709,
+   "p_caught": 0.172,
    "p_overbump": 0.003,
    "p_overbumped": 0.0,
-   "p_rowover": 0.086,
+   "p_rowover": 0.115,
    "division": 3,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.69
+     "skill": 0.723
     },
     {
      "factor": "Last year's finish",
      "skill": 0.238
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.306
     }
    ]
   },
@@ -3240,16 +3408,20 @@
    "boat": 2,
    "cur_pos": 37,
    "chasing": "Wadham 2",
-   "p_bump": 0.163,
-   "p_caught": 0.028,
-   "p_overbump": 0.018,
-   "p_overbumped": 0.007,
-   "p_rowover": 0.784,
+   "p_bump": 0.172,
+   "p_caught": 0.032,
+   "p_overbump": 0.016,
+   "p_overbumped": 0.005,
+   "p_rowover": 0.774,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.956
+     "skill": 1.012
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.245
     }
    ]
   },
@@ -3258,20 +3430,24 @@
    "boat": 2,
    "cur_pos": 38,
    "chasing": "Oriel 2",
-   "p_bump": 0.028,
-   "p_caught": 0.359,
+   "p_bump": 0.032,
+   "p_caught": 0.351,
    "p_overbump": 0.0,
-   "p_overbumped": 0.124,
-   "p_rowover": 0.489,
+   "p_overbumped": 0.088,
+   "p_rowover": 0.529,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.512
+     "skill": -1.58
     },
     {
      "factor": "Last year's finish",
      "skill": 0.073
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.489
     }
    ]
   },
@@ -3280,20 +3456,24 @@
    "boat": 1,
    "cur_pos": 39,
    "chasing": "Pembroke 2",
-   "p_bump": 0.359,
-   "p_caught": 0.446,
+   "p_bump": 0.351,
+   "p_caught": 0.422,
    "p_overbump": 0.0,
    "p_overbumped": 0.002,
-   "p_rowover": 0.194,
+   "p_rowover": 0.225,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.25
+     "skill": -0.313
     },
     {
      "factor": "Last year's finish",
      "skill": -0.34
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.367
     }
    ]
   },
@@ -3302,20 +3482,24 @@
    "boat": 2,
    "cur_pos": 40,
    "chasing": "Corpus Christi",
-   "p_bump": 0.446,
-   "p_caught": 0.279,
-   "p_overbump": 0.007,
+   "p_bump": 0.422,
+   "p_caught": 0.274,
+   "p_overbump": 0.005,
    "p_overbumped": 0.0,
-   "p_rowover": 0.268,
+   "p_rowover": 0.299,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.668
+     "skill": 0.721
     },
     {
      "factor": "Last year's finish",
      "skill": 0.073
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.061
     }
    ]
   },
@@ -3324,16 +3508,16 @@
    "boat": 2,
    "cur_pos": 41,
    "chasing": "Green Templeton 2",
-   "p_bump": 0.279,
-   "p_caught": 0.038,
-   "p_overbump": 0.124,
-   "p_overbumped": 0.001,
-   "p_rowover": 0.557,
+   "p_bump": 0.274,
+   "p_caught": 0.043,
+   "p_overbump": 0.088,
+   "p_overbumped": 0.002,
+   "p_rowover": 0.593,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.704
+     "skill": 0.733
     },
     {
      "factor": "Last year's finish",
@@ -3346,20 +3530,24 @@
    "boat": 2,
    "cur_pos": 42,
    "chasing": "Keble 2",
-   "p_bump": 0.038,
+   "p_bump": 0.043,
    "p_caught": 0.226,
    "p_overbump": 0.002,
-   "p_overbumped": 0.042,
-   "p_rowover": 0.691,
+   "p_overbumped": 0.03,
+   "p_rowover": 0.7,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.806
+     "skill": -0.87
     },
     {
      "factor": "Last year's finish",
      "skill": -0.175
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.183
     }
    ]
   },
@@ -3369,19 +3557,23 @@
    "cur_pos": 43,
    "chasing": "Magdalen 2",
    "p_bump": 0.226,
-   "p_caught": 0.547,
+   "p_caught": 0.512,
    "p_overbump": 0.0,
-   "p_overbumped": 0.008,
-   "p_rowover": 0.219,
+   "p_overbumped": 0.007,
+   "p_rowover": 0.254,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.853
+     "skill": -0.918
     },
     {
      "factor": "Last year's finish",
      "skill": -0.092
+    },
+    {
+     "factor": "Seeding",
+     "skill": 0.122
     }
    ]
   },
@@ -3390,20 +3582,24 @@
    "boat": 2,
    "cur_pos": 44,
    "chasing": "Linacre 2",
-   "p_bump": 0.547,
-   "p_caught": 0.124,
-   "p_overbump": 0.001,
+   "p_bump": 0.512,
+   "p_caught": 0.131,
+   "p_overbump": 0.002,
    "p_overbumped": 0.011,
-   "p_rowover": 0.317,
+   "p_rowover": 0.345,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.787
+     "skill": 0.887
     },
     {
      "factor": "Last year's finish",
      "skill": -0.257
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.245
     }
    ]
   },
@@ -3412,20 +3608,24 @@
    "boat": 1,
    "cur_pos": 45,
    "chasing": "Brasenose 2",
-   "p_bump": 0.124,
-   "p_caught": 0.308,
-   "p_overbump": 0.038,
+   "p_bump": 0.131,
+   "p_caught": 0.322,
+   "p_overbump": 0.028,
    "p_overbumped": 0.001,
-   "p_rowover": 0.529,
+   "p_rowover": 0.519,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.956
+     "skill": -0.888
     },
     {
      "factor": "Last year's finish",
      "skill": 0.734
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.183
     }
    ]
   },
@@ -3434,20 +3634,24 @@
    "boat": 2,
    "cur_pos": 46,
    "chasing": "Reuben",
-   "p_bump": 0.308,
-   "p_caught": 0.445,
-   "p_overbump": 0.008,
+   "p_bump": 0.322,
+   "p_caught": 0.392,
+   "p_overbump": 0.007,
    "p_overbumped": 0.001,
-   "p_rowover": 0.239,
+   "p_rowover": 0.278,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.144
+     "skill": 0.102
     },
     {
      "factor": "Last year's finish",
      "skill": 0.073
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.061
     }
    ]
   },
@@ -3456,20 +3660,24 @@
    "boat": 2,
    "cur_pos": 47,
    "chasing": "Worcester 2",
-   "p_bump": 0.445,
-   "p_caught": 0.009,
-   "p_overbump": 0.016,
+   "p_bump": 0.392,
+   "p_caught": 0.013,
+   "p_overbump": 0.013,
    "p_overbumped": 0.0,
-   "p_rowover": 0.53,
+   "p_rowover": 0.582,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.025
+     "skill": 1.072
     },
     {
      "factor": "Last year's finish",
      "skill": 0.155
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.428
     }
    ]
   },
@@ -3478,20 +3686,24 @@
    "boat": 2,
    "cur_pos": 48,
    "chasing": "St Edmund Hall 2",
-   "p_bump": 0.009,
-   "p_caught": 0.885,
+   "p_bump": 0.013,
+   "p_caught": 0.842,
    "p_overbump": 0.001,
    "p_overbumped": 0.0,
-   "p_rowover": 0.105,
+   "p_rowover": 0.144,
    "division": 4,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.557
+     "skill": -1.572
     },
     {
      "factor": "Last year's finish",
      "skill": -0.257
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.122
     }
    ]
   },
@@ -3500,20 +3712,24 @@
    "boat": 2,
    "cur_pos": 49,
    "chasing": "Lincoln 2",
-   "p_bump": 0.885,
-   "p_caught": 0.015,
+   "p_bump": 0.842,
+   "p_caught": 0.021,
    "p_overbump": 0.001,
    "p_overbumped": 0.0,
-   "p_rowover": 0.099,
+   "p_rowover": 0.136,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.23
+     "skill": 1.28
     },
     {
      "factor": "Last year's finish",
      "skill": 0.155
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.55
     }
    ]
   },
@@ -3522,20 +3738,24 @@
    "boat": 2,
    "cur_pos": 50,
    "chasing": "New College 2",
-   "p_bump": 0.015,
-   "p_caught": 0.689,
+   "p_bump": 0.021,
+   "p_caught": 0.641,
    "p_overbump": 0.0,
    "p_overbumped": 0.002,
-   "p_rowover": 0.294,
+   "p_rowover": 0.336,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.728
+     "skill": -0.776
     },
     {
      "factor": "Last year's finish",
      "skill": -0.175
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.306
     }
    ]
   },
@@ -3544,20 +3764,24 @@
    "boat": 2,
    "cur_pos": 51,
    "chasing": "St John's 2",
-   "p_bump": 0.689,
-   "p_caught": 0.022,
+   "p_bump": 0.641,
+   "p_caught": 0.029,
    "p_overbump": 0.0,
    "p_overbumped": 0.001,
-   "p_rowover": 0.287,
+   "p_rowover": 0.329,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.652
+     "skill": 0.688
     },
     {
      "factor": "Last year's finish",
      "skill": 0.321
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.611
     }
    ]
   },
@@ -3566,20 +3790,24 @@
    "boat": 3,
    "cur_pos": 52,
    "chasing": "Somerville 2",
-   "p_bump": 0.022,
-   "p_caught": 0.717,
+   "p_bump": 0.029,
+   "p_caught": 0.662,
    "p_overbump": 0.0,
    "p_overbumped": 0.004,
-   "p_rowover": 0.256,
+   "p_rowover": 0.305,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.122
+     "skill": -1.173
     },
     {
      "factor": "Last year's finish",
      "skill": -0.092
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.367
     }
    ]
   },
@@ -3588,20 +3816,24 @@
    "boat": 2,
    "cur_pos": 53,
    "chasing": "Wolfson 3",
-   "p_bump": 0.717,
-   "p_caught": 0.024,
+   "p_bump": 0.662,
+   "p_caught": 0.03,
    "p_overbump": 0.002,
    "p_overbumped": 0.001,
-   "p_rowover": 0.256,
+   "p_rowover": 0.304,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.487
+     "skill": 0.528
     },
     {
      "factor": "Last year's finish",
      "skill": 0.321
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.734
     }
    ]
   },
@@ -3610,20 +3842,24 @@
    "boat": 2,
    "cur_pos": 54,
    "chasing": "Merton 2",
-   "p_bump": 0.024,
-   "p_caught": 0.734,
+   "p_bump": 0.03,
+   "p_caught": 0.671,
    "p_overbump": 0.001,
    "p_overbumped": 0.005,
-   "p_rowover": 0.236,
+   "p_rowover": 0.292,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.021
+     "skill": -1.079
     },
     {
      "factor": "Last year's finish",
      "skill": -0.175
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.489
     }
    ]
   },
@@ -3632,20 +3868,24 @@
    "boat": 2,
    "cur_pos": 55,
    "chasing": "Hertford 2",
-   "p_bump": 0.734,
-   "p_caught": 0.024,
+   "p_bump": 0.671,
+   "p_caught": 0.032,
    "p_overbump": 0.004,
-   "p_overbumped": 0.0,
-   "p_rowover": 0.238,
+   "p_overbumped": 0.001,
+   "p_rowover": 0.292,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.605
+     "skill": 1.658
     },
     {
      "factor": "Last year's finish",
      "skill": -0.67
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.917
     }
    ]
   },
@@ -3654,20 +3894,24 @@
    "boat": 2,
    "cur_pos": 56,
    "chasing": "Jesus 2",
-   "p_bump": 0.024,
-   "p_caught": 0.781,
+   "p_bump": 0.032,
+   "p_caught": 0.737,
    "p_overbump": 0.001,
    "p_overbumped": 0.003,
-   "p_rowover": 0.191,
+   "p_rowover": 0.227,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.609
+     "skill": -0.667
     },
     {
      "factor": "Last year's finish",
      "skill": -0.257
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.672
     }
    ]
   },
@@ -3676,16 +3920,16 @@
    "boat": 2,
    "cur_pos": 57,
    "chasing": "St Hugh's 2",
-   "p_bump": 0.781,
-   "p_caught": 0.013,
-   "p_overbump": 0.005,
+   "p_bump": 0.737,
+   "p_caught": 0.017,
+   "p_overbump": 0.006,
    "p_overbumped": 0.0,
-   "p_rowover": 0.201,
+   "p_rowover": 0.24,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.953
+     "skill": 0.994
     },
     {
      "factor": "Last year's finish",
@@ -3693,7 +3937,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.031
+     "skill": -1.039
     }
    ]
   },
@@ -3702,20 +3946,24 @@
    "boat": 1,
    "cur_pos": 58,
    "chasing": "St Hilda's 2",
-   "p_bump": 0.013,
-   "p_caught": 0.834,
-   "p_overbump": 0.0,
+   "p_bump": 0.017,
+   "p_caught": 0.764,
+   "p_overbump": 0.001,
    "p_overbumped": 0.0,
-   "p_rowover": 0.153,
+   "p_rowover": 0.218,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.508
+     "skill": -0.536
     },
     {
      "factor": "Last year's finish",
      "skill": -0.257
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.795
     }
    ]
   },
@@ -3724,16 +3972,16 @@
    "boat": 3,
    "cur_pos": 59,
    "chasing": "Regent's Park",
-   "p_bump": 0.834,
-   "p_caught": 0.01,
+   "p_bump": 0.764,
+   "p_caught": 0.016,
    "p_overbump": 0.003,
    "p_overbumped": 0.0,
-   "p_rowover": 0.153,
+   "p_rowover": 0.217,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 2.187
+     "skill": 2.33
     },
     {
      "factor": "Last year's finish",
@@ -3741,7 +3989,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.042
+     "skill": -1.406
     }
    ]
   },
@@ -3750,20 +3998,24 @@
    "boat": 2,
    "cur_pos": 60,
    "chasing": "University 3",
-   "p_bump": 0.01,
-   "p_caught": 0.326,
+   "p_bump": 0.016,
+   "p_caught": 0.308,
    "p_overbump": 0.0,
    "p_overbumped": 0.0,
-   "p_rowover": 0.664,
+   "p_rowover": 0.676,
    "division": 5,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.522
+     "skill": -1.577
     },
     {
      "factor": "Last year's finish",
      "skill": 0.403
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.856
     }
    ]
   },
@@ -3772,20 +4024,24 @@
    "boat": 2,
    "cur_pos": 61,
    "chasing": "Exeter 2",
-   "p_bump": 0.326,
-   "p_caught": 0.509,
+   "p_bump": 0.308,
+   "p_caught": 0.485,
    "p_overbump": 0.0,
-   "p_overbumped": 0.001,
-   "p_rowover": 0.164,
+   "p_overbumped": 0.0,
+   "p_rowover": 0.206,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.242
+     "skill": -0.345
     },
     {
      "factor": "Last year's finish",
      "skill": -0.257
+    },
+    {
+     "factor": "Seeding",
+     "skill": -0.978
     }
    ]
   },
@@ -3794,16 +4050,16 @@
    "boat": 2,
    "cur_pos": 62,
    "chasing": "Balliol 2",
-   "p_bump": 0.509,
-   "p_caught": 0.087,
+   "p_bump": 0.485,
+   "p_caught": 0.094,
    "p_overbump": 0.0,
    "p_overbumped": 0.001,
-   "p_rowover": 0.402,
+   "p_rowover": 0.42,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.774
+     "skill": 0.825
     },
     {
      "factor": "Last year's finish",
@@ -3811,7 +4067,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.04
+     "skill": -1.345
     }
    ]
   },
@@ -3820,20 +4076,20 @@
    "boat": 2,
    "cur_pos": 63,
    "chasing": "Lady Margaret Hall 2",
-   "p_bump": 0.087,
+   "p_bump": 0.094,
    "p_caught": 0.124,
    "p_overbump": 0.0,
-   "p_overbumped": 0.016,
-   "p_rowover": 0.774,
+   "p_overbumped": 0.012,
+   "p_rowover": 0.77,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.145
+     "skill": -0.157
     },
     {
      "factor": "Seeding",
-     "skill": -0.036
+     "skill": -1.223
     }
    ]
   },
@@ -3843,15 +4099,15 @@
    "cur_pos": 64,
    "chasing": "St Catherine's 2",
    "p_bump": 0.124,
-   "p_caught": 0.61,
-   "p_overbump": 0.001,
-   "p_overbumped": 0.022,
-   "p_rowover": 0.243,
+   "p_caught": 0.563,
+   "p_overbump": 0.0,
+   "p_overbumped": 0.02,
+   "p_rowover": 0.292,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.1
+     "skill": -1.212
     },
     {
      "factor": "Last year's finish",
@@ -3859,7 +4115,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.035
+     "skill": -1.162
     }
    ]
   },
@@ -3868,16 +4124,16 @@
    "boat": 3,
    "cur_pos": 65,
    "chasing": "Queen's 2",
-   "p_bump": 0.61,
-   "p_caught": 0.089,
+   "p_bump": 0.563,
+   "p_caught": 0.103,
    "p_overbump": 0.001,
    "p_overbumped": 0.002,
-   "p_rowover": 0.297,
+   "p_rowover": 0.331,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.94
+     "skill": 1.03
     },
     {
      "factor": "Last year's finish",
@@ -3885,7 +4141,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.047
+     "skill": -1.59
     }
    ]
   },
@@ -3894,16 +4150,16 @@
    "boat": 2,
    "cur_pos": 66,
    "chasing": "Oriel 3",
-   "p_bump": 0.089,
-   "p_caught": 0.652,
-   "p_overbump": 0.015,
+   "p_bump": 0.103,
+   "p_caught": 0.593,
+   "p_overbump": 0.011,
    "p_overbumped": 0.0,
-   "p_rowover": 0.244,
+   "p_rowover": 0.292,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.141
+     "skill": -0.11
     },
     {
      "factor": "Last year's finish",
@@ -3911,7 +4167,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.044
+     "skill": -1.467
     }
    ]
   },
@@ -3920,16 +4176,16 @@
    "boat": 3,
    "cur_pos": 67,
    "chasing": "St Anne's 2",
-   "p_bump": 0.652,
-   "p_caught": 0.029,
-   "p_overbump": 0.022,
+   "p_bump": 0.593,
+   "p_caught": 0.037,
+   "p_overbump": 0.02,
    "p_overbumped": 0.0,
-   "p_rowover": 0.297,
+   "p_rowover": 0.35,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.511
+     "skill": 1.558
     },
     {
      "factor": "Last year's finish",
@@ -3937,7 +4193,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.053
+     "skill": -1.773
     }
    ]
   },
@@ -3946,16 +4202,16 @@
    "boat": 3,
    "cur_pos": 68,
    "chasing": "St John's 3",
-   "p_bump": 0.029,
-   "p_caught": 0.082,
-   "p_overbump": 0.003,
-   "p_overbumped": 0.007,
-   "p_rowover": 0.88,
+   "p_bump": 0.037,
+   "p_caught": 0.1,
+   "p_overbump": 0.002,
+   "p_overbumped": 0.006,
+   "p_rowover": 0.856,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.539
+     "skill": -0.552
     },
     {
      "factor": "Last year's finish",
@@ -3963,7 +4219,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.045
+     "skill": -1.528
     }
    ]
   },
@@ -3972,16 +4228,16 @@
    "boat": 2,
    "cur_pos": 69,
    "chasing": "Wadham 3",
-   "p_bump": 0.082,
-   "p_caught": 0.264,
+   "p_bump": 0.1,
+   "p_caught": 0.293,
    "p_overbump": 0.0,
-   "p_overbumped": 0.046,
-   "p_rowover": 0.608,
+   "p_overbumped": 0.024,
+   "p_rowover": 0.584,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.147
+     "skill": -1.212
     },
     {
      "factor": "Last year's finish",
@@ -3989,7 +4245,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.038
+     "skill": -1.284
     }
    ]
   },
@@ -3998,16 +4254,16 @@
    "boat": 2,
    "cur_pos": 70,
    "chasing": "Mansfield 2",
-   "p_bump": 0.264,
-   "p_caught": 0.517,
+   "p_bump": 0.293,
+   "p_caught": 0.429,
    "p_overbump": 0.0,
-   "p_overbumped": 0.007,
-   "p_rowover": 0.213,
+   "p_overbumped": 0.005,
+   "p_rowover": 0.273,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.951
+     "skill": -1.146
     },
     {
      "factor": "Last year's finish",
@@ -4015,7 +4271,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.033
+     "skill": -1.1
     }
    ]
   },
@@ -4024,16 +4280,16 @@
    "boat": 4,
    "cur_pos": 71,
    "chasing": "St Peter's 2",
-   "p_bump": 0.517,
-   "p_caught": 0.146,
-   "p_overbump": 0.007,
+   "p_bump": 0.429,
+   "p_caught": 0.158,
+   "p_overbump": 0.006,
    "p_overbumped": 0.0,
-   "p_rowover": 0.331,
+   "p_rowover": 0.406,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.129
+     "skill": 0.252
     },
     {
      "factor": "Last year's finish",
@@ -4041,7 +4297,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.056
+     "skill": -1.895
     }
    ]
   },
@@ -4050,16 +4306,16 @@
    "boat": 3,
    "cur_pos": 72,
    "chasing": "University 4",
-   "p_bump": 0.146,
-   "p_caught": 0.257,
-   "p_overbump": 0.046,
+   "p_bump": 0.158,
+   "p_caught": 0.26,
+   "p_overbump": 0.024,
    "p_overbumped": 0.0,
-   "p_rowover": 0.551,
+   "p_rowover": 0.558,
    "division": 6,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.192
+     "skill": -0.294
     },
     {
      "factor": "Last year's finish",
@@ -4067,7 +4323,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.049
+     "skill": -1.651
     }
    ]
   },
@@ -4076,16 +4332,16 @@
    "boat": 3,
    "cur_pos": 73,
    "chasing": "Pembroke 3",
-   "p_bump": 0.257,
-   "p_caught": 0.178,
-   "p_overbump": 0.007,
-   "p_overbumped": 0.012,
-   "p_rowover": 0.547,
+   "p_bump": 0.26,
+   "p_caught": 0.175,
+   "p_overbump": 0.005,
+   "p_overbumped": 0.009,
+   "p_rowover": 0.552,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.335
+     "skill": -0.369
     },
     {
      "factor": "Last year's finish",
@@ -4093,7 +4349,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.051
+     "skill": -1.712
     }
    ]
   },
@@ -4102,16 +4358,16 @@
    "boat": 3,
    "cur_pos": 74,
    "chasing": "Worcester 3",
-   "p_bump": 0.178,
-   "p_caught": 0.515,
+   "p_bump": 0.175,
+   "p_caught": 0.477,
    "p_overbump": 0.0,
-   "p_overbumped": 0.006,
-   "p_rowover": 0.301,
+   "p_overbumped": 0.005,
+   "p_rowover": 0.343,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.498
+     "skill": -0.47
     },
     {
      "factor": "Last year's finish",
@@ -4119,7 +4375,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.055
+     "skill": -1.834
     }
    ]
   },
@@ -4128,16 +4384,16 @@
    "boat": 3,
    "cur_pos": 75,
    "chasing": "Exeter 3",
-   "p_bump": 0.515,
-   "p_caught": 0.104,
+   "p_bump": 0.477,
+   "p_caught": 0.116,
    "p_overbump": 0.0,
-   "p_overbumped": 0.005,
-   "p_rowover": 0.376,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.402,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.135
+     "skill": 0.165
     },
     {
      "factor": "Last year's finish",
@@ -4145,7 +4401,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.06
+     "skill": -2.017
     }
    ]
   },
@@ -4154,20 +4410,20 @@
    "boat": 3,
    "cur_pos": 76,
    "chasing": "Somerville 3",
-   "p_bump": 0.104,
-   "p_caught": 0.414,
-   "p_overbump": 0.011,
-   "p_overbumped": 0.002,
-   "p_rowover": 0.469,
+   "p_bump": 0.116,
+   "p_caught": 0.38,
+   "p_overbump": 0.008,
+   "p_overbumped": 0.001,
+   "p_rowover": 0.494,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.409
+     "skill": -0.376
     },
     {
      "factor": "Seeding",
-     "skill": -0.058
+     "skill": -1.956
     }
    ]
   },
@@ -4176,20 +4432,20 @@
    "boat": 3,
    "cur_pos": 77,
    "chasing": "St Edmund Hall 3",
-   "p_bump": 0.414,
-   "p_caught": 0.209,
-   "p_overbump": 0.006,
+   "p_bump": 0.38,
+   "p_caught": 0.201,
+   "p_overbump": 0.005,
    "p_overbumped": 0.004,
-   "p_rowover": 0.367,
+   "p_rowover": 0.41,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.411
+     "skill": 0.444
     },
     {
      "factor": "Seeding",
-     "skill": -0.064
+     "skill": -2.14
     }
    ]
   },
@@ -4198,20 +4454,20 @@
    "boat": 3,
    "cur_pos": 78,
    "chasing": "Brasenose 3",
-   "p_bump": 0.209,
-   "p_caught": 0.054,
-   "p_overbump": 0.006,
-   "p_overbumped": 0.021,
-   "p_rowover": 0.71,
+   "p_bump": 0.201,
+   "p_caught": 0.064,
+   "p_overbump": 0.004,
+   "p_overbumped": 0.018,
+   "p_rowover": 0.713,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.218
+     "skill": 0.219
     },
     {
      "factor": "Seeding",
-     "skill": -0.065
+     "skill": -2.201
     }
    ]
   },
@@ -4220,16 +4476,16 @@
    "boat": 3,
    "cur_pos": 79,
    "chasing": "Lady Margaret Hall 3",
-   "p_bump": 0.054,
-   "p_caught": 0.826,
+   "p_bump": 0.064,
+   "p_caught": 0.786,
    "p_overbump": 0.001,
    "p_overbumped": 0.001,
-   "p_rowover": 0.118,
+   "p_rowover": 0.148,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.867
+     "skill": -0.926
     },
     {
      "factor": "Last year's finish",
@@ -4237,7 +4493,7 @@
     },
     {
      "factor": "Seeding",
-     "skill": -0.062
+     "skill": -2.079
     }
    ]
   },
@@ -4246,20 +4502,20 @@
    "boat": 4,
    "cur_pos": 80,
    "chasing": "St Hilda's 3",
-   "p_bump": 0.826,
-   "p_caught": 0.042,
+   "p_bump": 0.786,
+   "p_caught": 0.049,
    "p_overbump": 0.004,
    "p_overbumped": 0.0,
-   "p_rowover": 0.128,
+   "p_rowover": 0.16,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 1.855
+     "skill": 1.99
     },
     {
      "factor": "Seeding",
-     "skill": -0.076
+     "skill": -2.568
     }
    ]
   },
@@ -4268,20 +4524,20 @@
    "boat": 3,
    "cur_pos": 81,
    "chasing": "Worcester 4",
-   "p_bump": 0.042,
+   "p_bump": 0.049,
    "p_caught": 0.115,
-   "p_overbump": 0.022,
-   "p_overbumped": 0.005,
-   "p_rowover": 0.817,
+   "p_overbump": 0.018,
+   "p_overbumped": 0.004,
+   "p_rowover": 0.813,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": 0.154
+     "skill": 0.157
     },
     {
      "factor": "Seeding",
-     "skill": -0.069
+     "skill": -2.323
     }
    ]
   },
@@ -4291,19 +4547,19 @@
    "cur_pos": 82,
    "chasing": "Magdalen 3",
    "p_bump": 0.115,
-   "p_caught": 0.395,
+   "p_caught": 0.374,
    "p_overbump": 0.001,
    "p_overbumped": 0.002,
-   "p_rowover": 0.487,
+   "p_rowover": 0.508,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.761
+     "skill": -0.824
     },
     {
      "factor": "Seeding",
-     "skill": -0.067
+     "skill": -2.262
     }
    ]
   },
@@ -4312,20 +4568,16 @@
    "boat": 3,
    "cur_pos": 83,
    "chasing": "Wadham 4",
-   "p_bump": 0.395,
-   "p_caught": 0.232,
+   "p_bump": 0.374,
+   "p_caught": 0.239,
    "p_overbump": 0.0,
    "p_overbumped": 0.0,
-   "p_rowover": 0.373,
+   "p_rowover": 0.387,
    "division": 7,
    "contributions": [
     {
-     "factor": "Form so far this week",
-     "skill": -0.104
-    },
-    {
      "factor": "Seeding",
-     "skill": -0.075
+     "skill": -2.507
     }
    ]
   },
@@ -4334,20 +4586,20 @@
    "boat": 3,
    "cur_pos": 84,
    "chasing": "Green Templeton 3",
-   "p_bump": 0.232,
-   "p_caught": 0.122,
-   "p_overbump": 0.005,
+   "p_bump": 0.239,
+   "p_caught": 0.12,
+   "p_overbump": 0.004,
    "p_overbumped": 0.0,
-   "p_rowover": 0.641,
+   "p_rowover": 0.637,
    "division": 7,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -0.188
+     "skill": -0.199
     },
     {
      "factor": "Seeding",
-     "skill": -0.071
+     "skill": -2.384
     }
    ]
   },
@@ -4356,20 +4608,20 @@
    "boat": 4,
    "cur_pos": 85,
    "chasing": "St Anne's 3",
-   "p_bump": 0.122,
+   "p_bump": 0.12,
    "p_caught": 0.0,
    "p_overbump": 0.002,
    "p_overbumped": 0.0,
-   "p_rowover": 0.876,
+   "p_rowover": 0.878,
    "division": 8,
    "contributions": [
     {
      "factor": "Form so far this week",
-     "skill": -1.211
+     "skill": -1.184
     },
     {
      "factor": "Seeding",
-     "skill": -0.073
+     "skill": -2.445
     }
    ]
   }
