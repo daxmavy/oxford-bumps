@@ -5,24 +5,24 @@
       "row_over": 0.366,
       "bump_up": 0.312,
       "bumped": 0.322,
-      "auc_bump": 0.657,
-      "posterior_sd": 1.51
+      "auc_bump": 0.662,
+      "posterior_sd": 1.2
     },
     {
       "day": 2,
       "row_over": 0.363,
       "bump_up": 0.315,
       "bumped": 0.322,
-      "auc_bump": 0.843,
-      "posterior_sd": 1.22
+      "auc_bump": 0.847,
+      "posterior_sd": 0.99
     },
     {
       "day": 3,
       "row_over": 0.359,
       "bump_up": 0.315,
       "bumped": 0.326,
-      "auc_bump": 0.861,
-      "posterior_sd": 1.09
+      "auc_bump": 0.863,
+      "posterior_sd": 0.87
     },
     {
       "day": 4,
@@ -30,7 +30,7 @@
       "bump_up": 0.308,
       "bumped": 0.317,
       "auc_bump": 0.865,
-      "posterior_sd": 0.99
+      "posterior_sd": 0.8
     }
   ],
   "maturation_curve": [

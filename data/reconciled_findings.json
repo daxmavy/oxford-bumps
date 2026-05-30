@@ -23,24 +23,24 @@
       "row_over": 0.366,
       "bump_up": 0.312,
       "bumped": 0.322,
-      "auc_bump": 0.657,
-      "posterior_sd": 1.51
+      "auc_bump": 0.662,
+      "posterior_sd": 1.2
     },
     {
       "day": 2,
       "row_over": 0.363,
       "bump_up": 0.315,
       "bumped": 0.322,
-      "auc_bump": 0.843,
-      "posterior_sd": 1.22
+      "auc_bump": 0.847,
+      "posterior_sd": 0.99
     },
     {
       "day": 3,
       "row_over": 0.359,
       "bump_up": 0.315,
       "bumped": 0.326,
-      "auc_bump": 0.861,
-      "posterior_sd": 1.09
+      "auc_bump": 0.863,
+      "posterior_sd": 0.87
     },
     {
       "day": 4,
@@ -48,37 +48,47 @@
       "bump_up": 0.308,
       "bumped": 0.317,
       "auc_bump": 0.865,
-      "posterior_sd": 0.99
+      "posterior_sd": 0.8
     }
   ],
   "skill_model": {
+    "beta_skill_gaps": {
+      "seed": 0.045,
+      "torpids": 0.466,
+      "prev": 0.243,
+      "blue": 0.598
+    },
+    "sigma_day": 0.883,
+    "base_tau": 1.203,
     "oos_auc_by_day": {
-      "1": 0.657,
-      "2": 0.843,
-      "3": 0.861,
+      "1": 0.662,
+      "2": 0.847,
+      "3": 0.863,
       "4": 0.865
     },
     "posterior_sd_by_day": {
-      "1": 1.51,
-      "2": 1.22,
-      "3": 1.09,
-      "4": 0.99
+      "1": 1.2,
+      "2": 0.99,
+      "3": 0.87,
+      "4": 0.8
     },
-    "continuity_auc_gain_day4": 0.005
+    "pred_rate_day4": 0.334,
+    "actual_rate_day4": 0.316
   },
   "simulator": {
-    "calibrated_sigma": 1.9,
-    "sim_bump_rate": 0.296,
+    "sigma_day": 0.883,
+    "sim_bump_rate": 0.295,
     "observed_bump_rate": 0.291,
-    "sim_overbump_rate": 0.019,
+    "sim_overbump_rate": 0.008,
     "observed_overbump_rate": 0.016,
     "overbump_consistency_share_chain_cleared": 1.0,
-    "sandwich_reaches_div_above": 0.853,
-    "deep_crew_reaches_div_above": 0.0
+    "sandwich_reaches_div_above": 0.984,
+    "deep_crew_reaches_div_above": 0.0,
+    "board_bump_vs_caught_max_mismatch": 0.0
   },
   "luck_skill": {
     "blades_rate_observed": 0.087,
-    "blades_rate_pure_luck_floor": 0.01,
+    "blades_rate_pure_luck_floor": 0.009,
     "excess_ratio": 9,
     "blades_repeat_rate": 0.169,
     "blades_repeat_base": 0.079,

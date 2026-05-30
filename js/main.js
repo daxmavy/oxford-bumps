@@ -74,6 +74,7 @@ function makeBoard(h2h, preds, gender) {
     for (const r of g.rows) {
       const p = pmap.get(pkey(r)) || {};
       const up = r.p_bump ?? p.p_bump_up ?? 0, caught = r.p_caught ?? p.p_bumped ?? 0, hold = r.p_rowover ?? p.p_row_over, onBlades = p.on_for_blades;
+      const over = r.p_overbump ?? p.p_overbump ?? 0, overd = Math.max(0, (p.p_down_any ?? 0) - (caught || 0));
       const card = document.createElement("div"); card.className = "crew"; card.tabIndex = 0;
       card.dataset.college = r.college;
       const chase = r.chasing ? `chasing <strong>${r.chasing}</strong>` : `<span class="head-mark">Head of the River — cannot bump up</span>`;
@@ -94,7 +95,7 @@ function makeBoard(h2h, preds, gender) {
       const detail = card.querySelector(".detail");
       const fill = () => {
         if (detail.dataset.built === "1") return; detail.dataset.built = "1";
-        detail.innerHTML = renderDetail(r, { up, hold, caught, onBlades, p });
+        detail.innerHTML = renderDetail(r, { up, hold, caught, over, overd, onBlades, p });
         const slot = detail.querySelector(".wf");
         if (slot && Array.isArray(r.contributions) && r.contributions.length) {
           const cid = "wf-" + gender + "-" + (r.cur_pos ?? Math.random().toString(36).slice(2)); slot.id = cid;
@@ -112,15 +113,21 @@ function makeBoard(h2h, preds, gender) {
   }
 }
 function renderDetail(r, o) {
+  const headBars = `<div class="splitbars">${splitBar("Holds the headship", o.hold, C.row)}${splitBar("Caught from behind", o.caught, C.down)}</div>`;
+  const bars = `<div class="splitbars">${splitBar("Bumps the boat ahead", o.up, C.up)}`
+    + (o.over > 0.012 ? splitBar("Over-bumps higher", o.over, C.up) : "")
+    + splitBar("Rows over", o.hold, C.row)
+    + splitBar("Caught from behind", o.caught, C.down)
+    + (o.overd > 0.012 ? splitBar("Over-bumped", o.overd, C.down) : "") + `</div>`;
   const split = (r.chasing == null)
-    ? `<p class="dsplit">As Head of the River this boat can only hold its place or be caught — there's nothing ahead to chase.</p>`
-    : `<div class="splitbars">${splitBar("Bumps up", o.up, C.up)}${splitBar("Rows over", o.hold, C.row)}${splitBar("Gets caught", o.caught, C.down)}</div>`;
+    ? `<p class="dsplit">As Head of the River this boat can only hold its place or be caught — there's nothing ahead to chase.</p>` + headBars
+    : bars;
   const blades = o.onBlades ? `<p class="dblade">Bumped on every day so far. Chance of completing all four for blades: <strong>${pct(o.p.p_complete_blades)}</strong>.</p>` : "";
   const attr = (r.chasing == null)
     ? ""
-    : (Array.isArray(r.contributions) && r.contributions.filter(d => isFinite(d.logodds)).length)
-      ? `<div class="attr"><div class="attr-h">Why the model leans this way <span class="vs">vs ${r.chasing}</span></div><div class="wf"></div><p class="attr-note">Each bar is one factor's push on the odds of bumping the boat ahead. Right (green) raises the chance; left (red) lowers it.</p></div>`
-      : `<p class="attr-note">Nothing much separates these two on form — close to a coin toss.</p>`;
+    : (Array.isArray(r.contributions) && r.contributions.filter(d => isFinite(d.skill)).length)
+      ? `<div class="attr"><div class="attr-h">Where the skill edge comes from <span class="vs">vs ${r.chasing}</span></div><div class="wf"></div><p class="attr-note">Each bar is how much faster (green) or slower (red) this crew is than the boat ahead because of one factor, in boat-lengths of pace. It takes about one length to bump.</p></div>`
+      : `<p class="attr-note">Nothing much separates these two on the model's reading — close to a coin toss.</p>`;
   return split + blades + attr;
 }
 function splitBar(label, v, col) {
@@ -128,38 +135,39 @@ function splitBar(label, v, col) {
   return `<div class="sb"><div class="sb-l">${label}</div><div class="bar"><span style="width:${Math.round(v * 100)}%;background:${col}"></span></div><div class="sb-n">${pct(v)}</div></div>`;
 }
 function waterfall(contribs, w) {
-  const data = contribs.filter(d => isFinite(d.logodds)).sort((a, b) => Math.abs(b.logodds) - Math.abs(a.logodds));
+  const data = contribs.filter(d => isFinite(d.skill)).sort((a, b) => Math.abs(b.skill) - Math.abs(a.skill));
   if (!data.length) return document.createTextNode("");
-  const m = Math.max(0.5, ...data.map(d => Math.abs(d.logodds))) * 1.15, h = 26 * data.length + 34;
+  const m = Math.max(0.5, ...data.map(d => Math.abs(d.skill))) * 1.15, h = 26 * data.length + 34;
   return P.plot({
     width: w, height: h, marginLeft: 168, marginRight: 44, marginTop: 6, marginBottom: 26,
-    x: { domain: [-m, m], label: "← less likely     more likely →", grid: true, ticks: 5 },
+    x: { domain: [-m, m], label: "← slower          faster →  (boat-lengths)", grid: true, ticks: 5 },
     y: { domain: data.map(d => d.factor), label: null },
     marks: [
       P.ruleX([0], { stroke: "#000", strokeOpacity: .45 }),
-      P.barX(data, { y: "factor", x: "logodds", fill: d => d.logodds >= 0 ? C.up : C.down, rx: 2 }),
-      P.text(data.filter(d => d.logodds >= 0), { y: "factor", x: "logodds", text: d => "+" + d.logodds.toFixed(2), dx: 6, textAnchor: "start", fontSize: 11, fill: "#444", fontWeight: 600 }),
-      P.text(data.filter(d => d.logodds < 0), { y: "factor", x: "logodds", text: d => d.logodds.toFixed(2), dx: -6, textAnchor: "end", fontSize: 11, fill: "#444", fontWeight: 600 }),
+      P.barX(data, { y: "factor", x: "skill", fill: d => d.skill >= 0 ? C.up : C.down, rx: 2 }),
+      P.text(data.filter(d => d.skill >= 0), { y: "factor", x: "skill", text: d => "+" + d.skill.toFixed(2), dx: 6, textAnchor: "start", fontSize: 11, fill: "#444", fontWeight: 600 }),
+      P.text(data.filter(d => d.skill < 0), { y: "factor", x: "skill", text: d => d.skill.toFixed(2), dx: -6, textAnchor: "end", fontSize: 11, fill: "#444", fontWeight: 600 }),
     ],
   });
 }
 
 /* === why panels === */
-function drawFactors(rf) {
-  const map = (rf.head_to_head || {}).factors_or_per_sd || {};
-  const labels = { form_so_far_this_week: "Form so far this week", torpids_form: "Torpids form (same squad)",
-    squad_continuity: "Squad continuity", last_year_form: "Last year's form", blues_in_boat: "Blues in the boat", target_own_pace_recession: "Target's own pace" };
-  const data = Object.entries(map).filter(([, v]) => isFinite(v)).map(([k, v]) => ({ factor: labels[k] || k, or: v, lift: v >= 1 })).sort((a, b) => a.or - b.or);
+function drawInputs(rf) {
+  const b = (rf.skill_model || {}).beta_skill_gaps || {};
+  const labels = { blue: "Each Blue aboard", torpids: "Strong Torpids (+1 sd)",
+    prev: "Good last year (+1 sd)", seed: "Higher seeding (+1 sd)" };
+  const data = Object.entries(labels).filter(([k]) => isFinite(b[k])).map(([k, l]) => ({ factor: l, v: b[k] })).sort((a, x) => a.v - x.v);
   if (!data.length) return;
+  const hi = Math.max(1.05, ...data.map(d => d.v)) * 1.12;
   draw("chart-factors", w => P.plot({
-    width: w, height: 250, marginLeft: 176, marginRight: 52, marginBottom: 42,
-    x: { label: "Odds of bumping, × per standard deviation →", grid: true, domain: [0.7, 3.6] },
+    width: w, height: 232, marginLeft: 176, marginRight: 60, marginBottom: 42,
+    x: { label: "Boat-lengths of pace it adds →", grid: true, domain: [0, hi] },
     y: { label: null, domain: data.map(d => d.factor) },
     marks: [
       P.ruleX([1], { stroke: "#000", strokeDasharray: "3 3", strokeOpacity: .5 }),
-      P.barX(data, { y: "factor", x1: 1, x2: "or", fill: d => d.lift ? C.oxford : C.down, rx: 2 }),
-      P.text(data.filter(d => d.lift), { y: "factor", x: "or", text: d => "×" + d.or.toFixed(2), dx: 7, textAnchor: "start", fontSize: 12, fontWeight: 600, fill: "#444" }),
-      P.text(data.filter(d => !d.lift), { y: "factor", x: "or", text: d => "×" + d.or.toFixed(2), dx: -7, textAnchor: "end", fontSize: 12, fontWeight: 600, fill: "#444" }),
+      P.text([{ f: data[data.length - 1].factor }], { y: "f", x: 1, text: ["≈ one length: a bump"], dy: -14, dx: -2, textAnchor: "middle", fontSize: 10.5, fill: C.grey }),
+      P.barX(data, { y: "factor", x: "v", fill: C.oxford, rx: 2 }),
+      P.text(data, { y: "factor", x: "v", text: d => "+" + d.v.toFixed(2), dx: 7, textAnchor: "start", fontSize: 12, fontWeight: 600, fill: "#444" }),
     ],
   }));
 }
@@ -276,7 +284,7 @@ function renderLookup(colleges, h2h, preds, college, g) {
   tabs.forEach(t => t.addEventListener("click", () => { tabs.forEach(x => x.classList.toggle("active", x === t)); gender = t.dataset.g; render(); }));
   render();
 
-  drawFactors(rf); drawPerDay(extras); drawLuck(rf);
+  drawInputs(rf); drawPerDay(extras); drawLuck(rf);
   if (rf.luck_skill) { setTxt("l-excess", rf.luck_skill.excess_ratio + "×"); setTxt("l-repeat", Math.round(rf.luck_skill.blades_share_didnt_blade_prior_year * 100) + "%"); }
 
   const hl = document.getElementById("college-hl");

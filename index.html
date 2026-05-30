@@ -57,7 +57,7 @@
 
     <div id="board"><p class="small">Loading the board…</p></div>
 
-    <p class="small" style="margin-top:10px">Each crew is shown chasing the boat directly ahead. The bar reads both ways from the centre — <span style="color:var(--up);font-weight:600">green</span> is its chance of bumping up on <span id="day-label-2">the next day</span> (an over-bump counts), <span style="color:var(--down);font-weight:600">red</span> its chance of being caught from behind. Most bars are short: between two crews seeded as near-equals, the day is close to a toss-up. Highlight a college to find its boats; tap any crew for why. The model reads relative form, squad and Blues — not who's injured or flying this week — so don't over-read any single one.</p>
+    <p class="small" style="margin-top:10px">Each crew is shown chasing the boat directly ahead. The bar reads both ways from the centre — <span style="color:var(--up);font-weight:600">green</span> is its chance of bumping that boat on <span id="day-label-2">the next day</span>, <span style="color:var(--down);font-weight:600">red</span> its chance of being caught by the boat behind. The two are the same contest seen from each side, so a crew's green bar matches the next crew's red one. Most bars are short: between two crews seeded as near-equals, the day is close to a toss-up. Highlight a college to find its boats; tap any crew for the full breakdown, over-bumps included. The model reads relative form, squad and Blues — not who's injured or flying this week — so don't over-read any single one.</p>
   </section>
 
   <!-- ===== SKILL LADDER ===== -->
@@ -78,10 +78,10 @@
     <div class="panels">
 
       <div class="panel">
-        <span class="tag">What separates two crews</span>
-        <h3>How you've rowed this week counts most</h3>
+        <span class="tag">What a crew brings to the start</span>
+        <h3>A Blue helps; the rest, less than a length</h3>
         <div id="chart-factors" class="chart"></div>
-        <p>Each factor's pull on the odds of catching the boat ahead, per standard deviation, with the rest held level. How a crew has rowed so far this week outweighs anything you knew before it started — last year's finish, a Blue or two aboard, how much of the squad it kept.</p>
+        <p>How many boat-lengths of pace the model has <em>learned</em> to credit each starting fact, from two centuries of results. It takes about a length (dashed line) to bump, and none of these reaches it alone — even raw seeding adds almost nothing once you know the order. What actually decides most days is how a crew rows this week, which the model only learns once racing starts.</p>
       </div>
 
       <div class="panel">
@@ -107,7 +107,7 @@
       <h3>Where the numbers come from</h3>
       <p>Every Oxford bumps race, from two records kept independently — Anu Dudhia's archive and <a href="https://bumps.live">bumps.live</a> — which agree on 99.99% of the 20,617 races they both cover, back to 1826. Crew lists, coxes and coaches (2007 on) come from bumps.live, Oxford Blues from Wikipedia's Boat Race tables, and the weather from the Radcliffe Observatory.</p>
       <h3>How the predictions are made</h3>
-      <p>Each crew is given an estimate of its speed — its skill — as a Bayesian belief with a margin of error. The estimate starts from the seeding, last year's finish, Torpids form and any Blues aboard, and is updated by each day's results, so it sharpens as the week goes on; how much of the squad a crew kept from last year sets how tightly it's pinned, not where it starts. To turn skills into the chances on the board, the gap between two crews is fed to a simple race simulator: a bigger gap means a faster catch, which is how over-bumps and the occasional run of blades fall out. The simulator honours the real rules — a crew can only catch the boat it is actually chasing, and divisions are joined only by the sandwich boat — so a fast crew several places back can't leapfrog the boats between it and its target. Tap a crew to see what's tilting its number.</p>
+      <p>Each crew is given an estimate of its speed — its skill, in boat-lengths — as a Bayesian belief with a margin of error. How much each input is worth (Torpids form, last year's finish, a Blue or two aboard) is <em>learned</em> from two centuries of results, not set by hand; each day's racing then updates the estimate, so it sharpens through the week, and how much of the squad a crew kept sets how tightly it's pinned. The skills feed one race simulator — each run draws every crew's true speed from its estimate, then races the remaining days — and <em>every</em> number on the board is read off that single simulation: bumps, over-bumps, being caught, blades. Because it's one simulation, the figures agree with each other — a crew's chance of bumping the boat ahead is exactly that boat's chance of being caught. The simulator also honours the real rules: a crew can only catch the boat it's actually chasing, and divisions are joined only by the sandwich boat, so no crew leapfrogs boats it never races. Tap a crew to see where its edge comes from.</p>
       <h3>What it can't tell you</h3>
       <p>The model can't see who's injured, ill or flying this week, so take any single number as a lean, not a verdict. "Blues" means the openweight Blue Boat only — reserves and lightweights aren't in the data yet. And races before 1900, where the old records get patchy, are left out of the headline figures.</p>
       <p class="small"><a href="report.html">The full analysis and code →</a> Every figure here is reproducible from the raw data, and was made with substantial help from an AI system, checked against the sources throughout.</p>
