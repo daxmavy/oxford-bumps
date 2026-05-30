@@ -1,3 +1,7 @@
 .DS_Store
 __pycache__/
 *.pyc
+
+# Local draft — NOT for deploy without review
+ratings.html
+data/ratings.json
