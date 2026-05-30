@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>College rowing strength — Oxford bumps, 2007–2026</title>
+<meta name="description" content="An experimental strength rating that reads every Oxford bumps race — Torpids and Eights, every day since 2007 — as evidence about how fast each college's crew really is.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/vendor/d3.min.js"></script>
+<script src="js/vendor/plot.umd.min.js"></script>
+<style>
+  .ratesec{border-top:1px solid var(--line);margin-top:32px;padding-top:8px}
+  .gtabs{display:inline-flex;gap:2px;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:8px 0 2px}
+  .gtab{padding:5px 16px;font-family:var(--sans);font-size:.85rem;cursor:pointer;background:#fff}
+  .gtab.on{background:var(--oxford);color:#fff}
+  .chart{margin:14px 0 6px}
+  .howbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-top:16px}
+  .howbox h3{margin:.2em 0 .3em}
+  .howbox p{font-size:.93rem;color:#3a352d;margin:.5em 0}
+  table.rt{border-collapse:collapse;font-family:var(--sans);font-size:.84rem;margin-top:10px}
+  table.rt td,table.rt th{padding:3px 14px 3px 0;text-align:left}
+  table.rt td.n{text-align:right;font-variant-numeric:tabular-nums}
+  table.rt th{font-weight:600;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}
+  .backlink{font-family:var(--sans);font-size:.85rem}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><div class="row">
+  <div><p class="kicker">Oxford college rowing · 2007–2026</p>
+  <h1>Who's actually the strongest — once you account for everything</h1></div>
+  <a class="backlink" href="index.html">← live bump board</a>
+</div>
+<p class="metaline" id="meta">Loading…</p>
+</div></header>
+
+<main class="wrap">
+  <p class="lead" style="font-family:var(--serif);font-size:1.08rem;max-width:720px">Bumps results are noisy: a crew can climb on a clean bump, stall behind a slow boat, or get caught through no fault of its own. So which colleges are *genuinely* fast? One model reads every race on record — Torpids and Eights, every day since 2007 — as evidence about a single thing: how quick each crew really is. It's a strength rating, not a forecast, and a different lens on the same sport as the <a href="index.html">live board</a>.</p>
+
+  <div class="howbox">
+    <h3>How a crew's strength is estimated</h3>
+    <p><strong>Every race is one clue.</strong> Each day, a boat either catches the crew ahead or it doesn't — and the closer the two are in strength, the closer the result. The model takes all ~20,000 of those contests at once and asks: what single set of crew strengths makes everything that actually happened most likely?</p>
+    <p><strong>Strength travels with the rowers.</strong> A crew isn't judged in isolation each year. Its strength is tied to the boats its rowers came from — last year's crew, this spring's Torpids crew, the four who moved up from the second VIII — so last year's form, Torpids and squad continuity all feed in through one rule: shared rowers carry strength. (The model even <em>learns</em> the shape of that carry: a core of returning rowers turns out to anchor a crew slightly more than its headcount alone would suggest.)</p>
+    <p><strong>"On a given day" is just the best read using every race up to then.</strong> Before racing starts, a crew's strength is its history. Each day's result is fresh evidence and the estimate is nudged — bump a strong crew and it rises, get caught and it falls — and its margin of error shrinks with every race. A crew with a long, settled track record is pinned tightly; a brand-new crew, or one early in the week, carries a wide band, which is why two crews with overlapping bands are a real toss-up.</p>
+  </div>
+
+  <div class="gtabs"><div class="gtab on" data-g="men">Men</div><div class="gtab" data-g="women">Women</div></div>
+
+  <section class="ratesec">
+    <p class="kicker">All-time</p>
+    <h2>The strongest programmes, 2007–2026</h2>
+    <p class="small" style="max-width:680px">Average strength relative to the field — standard deviations above or below the typical 1st VIII — across every season on record (minimum five). Averaging over years strips out single-season luck, so this is the most reliable picture.</p>
+    <div id="c-alltime" class="chart"></div>
+  </section>
+
+  <section class="ratesec">
+    <p class="kicker">Over time</p>
+    <h2>How the top programmes have risen and fallen</h2>
+    <p class="small" style="max-width:680px">Each line is one college's 1st VIII, year by year, relative to the field (2-year smoothed). Above the dashed line is faster than the average crew.</p>
+    <div id="c-traj" class="chart"></div>
+  </section>
+
+  <section class="ratesec">
+    <p class="kicker">This season · read with caution</p>
+    <h2 id="cur-h">Current ratings</h2>
+    <p class="small" style="max-width:680px">A single season is a small sample and the per-crew uncertainty (the ± column) is wide, so the order near the top is soft — crews whose bands overlap aren't really separable. A sketch, not a verdict.</p>
+    <div id="cur-table"></div>
+  </section>
+
+  <details class="methods"><summary>Method, and what it can't tell you</summary><div>
+    <p>One Bayesian generative model treats every adjacent contest in every race as an observation of a latent skill field; strength is carried between a college's boats and seasons by the rowers they share (from crew lists, 2007 on), with the carry-over shape learned from the data. Fit by variational inference and checked against MCMC — the skill estimates agree to r≈0.99. Skills are comparable only <em>within</em> a gender; the absolute level is arbitrary, so everything here is shown relative to the field that year.</p>
+    <p>An honesty note: on a strict, leak-free, like-for-like test, this richer model is <em>statistically indistinguishable</em> from the simpler model behind the live board at actually predicting the next day's bumps. It is offered here as an interpretive strength rating — a way to ask "who's really fast, adjusting for the draw" — not as a better forecaster. Current-season ratings in particular are small-sample and should be read with their uncertainty.</p>
+  </div></details>
+</main>
+
+<script>
+const P=window.Plot, C={oxford:"#002147",gold:"#b8893b",grey:"#9a9182",line:"#e3dccf"};
+let DATA=null, G="men";
+function bars(){
+  const d=(DATA.all_time[G]||[]).slice(0,14).map(r=>({c:r.college,v:r.mean_rel}));
+  const el=document.getElementById("c-alltime"); el.innerHTML="";
+  el.append(P.plot({width:Math.min(el.clientWidth||700,820),height:30+d.length*22,marginLeft:152,marginRight:50,
+    x:{label:"← weaker      stronger than the field →  (SD)",grid:true},
+    y:{domain:d.map(r=>r.c),label:null},
+    marks:[P.ruleX([0],{stroke:"#000",strokeOpacity:.4}),
+      P.barX(d,{y:"c",x:"v",fill:r=>r.v>=0?C.oxford:C.grey,rx:2}),
+      P.text(d.filter(r=>r.v>=0),{y:"c",x:"v",text:r=>"+"+r.v.toFixed(2),dx:6,textAnchor:"start",fontSize:11,fill:"#444",fontWeight:600}),
+      P.text(d.filter(r=>r.v<0),{y:"c",x:"v",text:r=>r.v.toFixed(2),dx:-6,textAnchor:"end",fontSize:11,fill:"#444",fontWeight:600})]}));
+}
+function traj(){
+  const pts=DATA.trajectories[G]||[]; const el=document.getElementById("c-traj"); el.innerHTML="";
+  const cols=[...new Set(pts.map(p=>p.college))];
+  el.append(P.plot({width:Math.min(el.clientWidth||700,820),height:380,marginRight:104,marginBottom:34,
+    x:{label:null,tickFormat:"d"},y:{label:"Strength vs field (SD)",grid:true},
+    color:{domain:cols,scheme:"tableau10"},
+    marks:[P.ruleY([0],{stroke:C.grey,strokeDasharray:"3 3"}),
+      P.line(pts,{x:"year",y:"rel",z:"college",stroke:"college",strokeWidth:1.8,curve:"monotone-x"}),
+      P.text(pts,{filter:d=>d.year===Math.max(...pts.filter(p=>p.college===d.college).map(p=>p.year)),
+        x:"year",y:"rel",text:"college",dx:6,textAnchor:"start",fontSize:10,fill:"college"})]}));
+}
+function curtable(){
+  const o=DATA.latest[G]||{rows:[]}; document.getElementById("cur-h").textContent=o.year+" ratings";
+  const rows=o.rows.slice(0,16).map(r=>`<tr><td class="n">${r.rank}</td><td>${r.college}</td><td class="n">${r.rel>=0?"+":""}${r.rel.toFixed(2)}</td><td class="n" style="color:#aaa">±${r.sd.toFixed(1)}</td></tr>`).join("");
+  document.getElementById("cur-table").innerHTML=`<table class="rt"><tr><th></th><th>College · 1st VIII</th><th>vs field</th><th>± unc.</th></tr>${rows}</table>`;
+}
+function draw(){bars();traj();curtable();}
+(async function(){
+  try{DATA=await (await fetch("data/ratings.json")).json();}catch(e){document.getElementById("meta").textContent="ratings unavailable";return;}
+  document.getElementById("meta").innerHTML=`An all-races strength model · ${(DATA.all_time.men||[]).length} men's & ${(DATA.all_time.women||[]).length} women's programmes · strength relative to the field`;
+  document.querySelectorAll(".gtab").forEach(t=>t.onclick=()=>{document.querySelectorAll(".gtab").forEach(x=>x.classList.toggle("on",x===t));G=t.dataset.g;draw();});
+  draw();
+})();
+</script>
+</body>
+</html>

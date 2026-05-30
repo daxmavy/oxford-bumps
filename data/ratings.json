@@ -1,0 +1,2231 @@
+{
+ "all_time": {
+  "men": [
+   {
+    "college": "Oriel",
+    "mean_rel": 1.324,
+    "seasons": 18
+   },
+   {
+    "college": "Wolfson",
+    "mean_rel": 0.856,
+    "seasons": 18
+   },
+   {
+    "college": "Pembroke",
+    "mean_rel": 0.774,
+    "seasons": 18
+   },
+   {
+    "college": "Christ Church",
+    "mean_rel": 0.63,
+    "seasons": 18
+   },
+   {
+    "college": "Keble",
+    "mean_rel": 0.51,
+    "seasons": 18
+   },
+   {
+    "college": "University",
+    "mean_rel": 0.392,
+    "seasons": 18
+   },
+   {
+    "college": "St Edmund Hall",
+    "mean_rel": 0.211,
+    "seasons": 18
+   },
+   {
+    "college": "New College",
+    "mean_rel": 0.197,
+    "seasons": 18
+   },
+   {
+    "college": "Balliol",
+    "mean_rel": 0.19,
+    "seasons": 18
+   },
+   {
+    "college": "Hertford",
+    "mean_rel": 0.189,
+    "seasons": 18
+   },
+   {
+    "college": "Merton",
+    "mean_rel": 0.178,
+    "seasons": 18
+   },
+   {
+    "college": "Lady Margaret Hall",
+    "mean_rel": 0.164,
+    "seasons": 18
+   },
+   {
+    "college": "Magdalen",
+    "mean_rel": 0.148,
+    "seasons": 18
+   },
+   {
+    "college": "Wadham",
+    "mean_rel": 0.116,
+    "seasons": 18
+   },
+   {
+    "college": "St Hugh's",
+    "mean_rel": 0.106,
+    "seasons": 18
+   },
+   {
+    "college": "Trinity",
+    "mean_rel": 0.096,
+    "seasons": 18
+   },
+   {
+    "college": "Jesus",
+    "mean_rel": 0.051,
+    "seasons": 18
+   },
+   {
+    "college": "Green Templeton",
+    "mean_rel": 0.048,
+    "seasons": 16
+   },
+   {
+    "college": "St Hilda's",
+    "mean_rel": 0.021,
+    "seasons": 16
+   },
+   {
+    "college": "Worcester",
+    "mean_rel": -0.012,
+    "seasons": 18
+   },
+   {
+    "college": "Lincoln",
+    "mean_rel": -0.084,
+    "seasons": 18
+   },
+   {
+    "college": "Exeter",
+    "mean_rel": -0.12,
+    "seasons": 18
+   },
+   {
+    "college": "Mansfield",
+    "mean_rel": -0.143,
+    "seasons": 18
+   },
+   {
+    "college": "Brasenose",
+    "mean_rel": -0.155,
+    "seasons": 18
+   },
+   {
+    "college": "Somerville",
+    "mean_rel": -0.184,
+    "seasons": 18
+   },
+   {
+    "college": "St Peter's",
+    "mean_rel": -0.193,
+    "seasons": 18
+   },
+   {
+    "college": "St John's",
+    "mean_rel": -0.204,
+    "seasons": 18
+   },
+   {
+    "college": "St Catherine's",
+    "mean_rel": -0.238,
+    "seasons": 18
+   },
+   {
+    "college": "Queen's",
+    "mean_rel": -0.316,
+    "seasons": 18
+   },
+   {
+    "college": "St Antony's",
+    "mean_rel": -0.32,
+    "seasons": 18
+   },
+   {
+    "college": "St Anne's",
+    "mean_rel": -0.516,
+    "seasons": 18
+   },
+   {
+    "college": "Corpus Christi",
+    "mean_rel": -0.637,
+    "seasons": 18
+   },
+   {
+    "college": "Regent's Park",
+    "mean_rel": -0.735,
+    "seasons": 17
+   },
+   {
+    "college": "Linacre",
+    "mean_rel": -0.749,
+    "seasons": 18
+   },
+   {
+    "college": "Osler House",
+    "mean_rel": -1.063,
+    "seasons": 14
+   },
+   {
+    "college": "St Benet's Hall",
+    "mean_rel": -1.152,
+    "seasons": 13
+   }
+  ],
+  "women": [
+   {
+    "college": "Pembroke",
+    "mean_rel": 0.711,
+    "seasons": 18
+   },
+   {
+    "college": "Wolfson",
+    "mean_rel": 0.678,
+    "seasons": 18
+   },
+   {
+    "college": "Wadham",
+    "mean_rel": 0.67,
+    "seasons": 18
+   },
+   {
+    "college": "University",
+    "mean_rel": 0.585,
+    "seasons": 18
+   },
+   {
+    "college": "Balliol",
+    "mean_rel": 0.581,
+    "seasons": 18
+   },
+   {
+    "college": "Green Templeton",
+    "mean_rel": 0.447,
+    "seasons": 16
+   },
+   {
+    "college": "Christ Church",
+    "mean_rel": 0.397,
+    "seasons": 18
+   },
+   {
+    "college": "Oriel",
+    "mean_rel": 0.304,
+    "seasons": 18
+   },
+   {
+    "college": "Lincoln",
+    "mean_rel": 0.29,
+    "seasons": 18
+   },
+   {
+    "college": "Magdalen",
+    "mean_rel": 0.236,
+    "seasons": 18
+   },
+   {
+    "college": "Jesus",
+    "mean_rel": 0.218,
+    "seasons": 18
+   },
+   {
+    "college": "St Edmund Hall",
+    "mean_rel": 0.204,
+    "seasons": 18
+   },
+   {
+    "college": "Mansfield",
+    "mean_rel": 0.197,
+    "seasons": 18
+   },
+   {
+    "college": "Keble",
+    "mean_rel": 0.159,
+    "seasons": 18
+   },
+   {
+    "college": "St John's",
+    "mean_rel": 0.139,
+    "seasons": 18
+   },
+   {
+    "college": "Linacre",
+    "mean_rel": 0.082,
+    "seasons": 18
+   },
+   {
+    "college": "St Anne's",
+    "mean_rel": 0.079,
+    "seasons": 18
+   },
+   {
+    "college": "Exeter",
+    "mean_rel": 0.018,
+    "seasons": 18
+   },
+   {
+    "college": "Somerville",
+    "mean_rel": -0.034,
+    "seasons": 18
+   },
+   {
+    "college": "New College",
+    "mean_rel": -0.147,
+    "seasons": 18
+   },
+   {
+    "college": "Brasenose",
+    "mean_rel": -0.162,
+    "seasons": 18
+   },
+   {
+    "college": "Trinity",
+    "mean_rel": -0.163,
+    "seasons": 18
+   },
+   {
+    "college": "Lady Margaret Hall",
+    "mean_rel": -0.186,
+    "seasons": 18
+   },
+   {
+    "college": "Merton",
+    "mean_rel": -0.203,
+    "seasons": 18
+   },
+   {
+    "college": "Hertford",
+    "mean_rel": -0.232,
+    "seasons": 18
+   },
+   {
+    "college": "St Catherine's",
+    "mean_rel": -0.251,
+    "seasons": 18
+   },
+   {
+    "college": "St Peter's",
+    "mean_rel": -0.278,
+    "seasons": 18
+   },
+   {
+    "college": "Worcester",
+    "mean_rel": -0.308,
+    "seasons": 18
+   },
+   {
+    "college": "St Hugh's",
+    "mean_rel": -0.346,
+    "seasons": 18
+   },
+   {
+    "college": "Corpus Christi",
+    "mean_rel": -0.428,
+    "seasons": 18
+   },
+   {
+    "college": "St Antony's",
+    "mean_rel": -0.487,
+    "seasons": 18
+   },
+   {
+    "college": "Osler House",
+    "mean_rel": -0.543,
+    "seasons": 11
+   },
+   {
+    "college": "Queen's",
+    "mean_rel": -0.631,
+    "seasons": 18
+   },
+   {
+    "college": "St Hilda's",
+    "mean_rel": -0.67,
+    "seasons": 18
+   },
+   {
+    "college": "Regent's Park",
+    "mean_rel": -0.996,
+    "seasons": 17
+   }
+  ]
+ },
+ "trajectories": {
+  "men": [
+   {
+    "college": "New College",
+    "year": 2007,
+    "rel": -0.83
+   },
+   {
+    "college": "Pembroke",
+    "year": 2007,
+    "rel": 0.789
+   },
+   {
+    "college": "University",
+    "year": 2007,
+    "rel": 0.944
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2007,
+    "rel": -0.434
+   },
+   {
+    "college": "Christ Church",
+    "year": 2007,
+    "rel": -0.297
+   },
+   {
+    "college": "Wolfson",
+    "year": 2007,
+    "rel": 0.92
+   },
+   {
+    "college": "Keble",
+    "year": 2007,
+    "rel": 1.895
+   },
+   {
+    "college": "Oriel",
+    "year": 2007,
+    "rel": 1.109
+   },
+   {
+    "college": "New College",
+    "year": 2008,
+    "rel": 1.016
+   },
+   {
+    "college": "Pembroke",
+    "year": 2008,
+    "rel": -0.25
+   },
+   {
+    "college": "University",
+    "year": 2008,
+    "rel": 0.288
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2008,
+    "rel": 1.099
+   },
+   {
+    "college": "Christ Church",
+    "year": 2008,
+    "rel": 1.491
+   },
+   {
+    "college": "Wolfson",
+    "year": 2008,
+    "rel": 1.833
+   },
+   {
+    "college": "Keble",
+    "year": 2008,
+    "rel": -1.328
+   },
+   {
+    "college": "Oriel",
+    "year": 2008,
+    "rel": 1.397
+   },
+   {
+    "college": "New College",
+    "year": 2009,
+    "rel": 0.3
+   },
+   {
+    "college": "Pembroke",
+    "year": 2009,
+    "rel": 1.585
+   },
+   {
+    "college": "University",
+    "year": 2009,
+    "rel": 0.648
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2009,
+    "rel": 1.396
+   },
+   {
+    "college": "Christ Church",
+    "year": 2009,
+    "rel": 1.884
+   },
+   {
+    "college": "Wolfson",
+    "year": 2009,
+    "rel": 1.093
+   },
+   {
+    "college": "Keble",
+    "year": 2009,
+    "rel": -0.976
+   },
+   {
+    "college": "Oriel",
+    "year": 2009,
+    "rel": 0.142
+   },
+   {
+    "college": "New College",
+    "year": 2010,
+    "rel": -0.544
+   },
+   {
+    "college": "Pembroke",
+    "year": 2010,
+    "rel": 0.389
+   },
+   {
+    "college": "University",
+    "year": 2010,
+    "rel": 0.94
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2010,
+    "rel": -0.134
+   },
+   {
+    "college": "Christ Church",
+    "year": 2010,
+    "rel": 0.832
+   },
+   {
+    "college": "Wolfson",
+    "year": 2010,
+    "rel": 2.204
+   },
+   {
+    "college": "Keble",
+    "year": 2010,
+    "rel": -0.084
+   },
+   {
+    "college": "Oriel",
+    "year": 2010,
+    "rel": 0.59
+   },
+   {
+    "college": "New College",
+    "year": 2011,
+    "rel": -0.243
+   },
+   {
+    "college": "Pembroke",
+    "year": 2011,
+    "rel": 1.238
+   },
+   {
+    "college": "University",
+    "year": 2011,
+    "rel": 0.035
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2011,
+    "rel": -0.196
+   },
+   {
+    "college": "Christ Church",
+    "year": 2011,
+    "rel": 0.288
+   },
+   {
+    "college": "Wolfson",
+    "year": 2011,
+    "rel": 2.206
+   },
+   {
+    "college": "Keble",
+    "year": 2011,
+    "rel": 0.525
+   },
+   {
+    "college": "Oriel",
+    "year": 2011,
+    "rel": 1.571
+   },
+   {
+    "college": "New College",
+    "year": 2012,
+    "rel": -0.736
+   },
+   {
+    "college": "Pembroke",
+    "year": 2012,
+    "rel": 1.267
+   },
+   {
+    "college": "University",
+    "year": 2012,
+    "rel": 0.692
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2012,
+    "rel": -0.038
+   },
+   {
+    "college": "Christ Church",
+    "year": 2012,
+    "rel": 0.926
+   },
+   {
+    "college": "Wolfson",
+    "year": 2012,
+    "rel": 0.981
+   },
+   {
+    "college": "Keble",
+    "year": 2012,
+    "rel": -0.244
+   },
+   {
+    "college": "Oriel",
+    "year": 2012,
+    "rel": 1.604
+   },
+   {
+    "college": "New College",
+    "year": 2013,
+    "rel": -0.76
+   },
+   {
+    "college": "Pembroke",
+    "year": 2013,
+    "rel": 2.121
+   },
+   {
+    "college": "University",
+    "year": 2013,
+    "rel": 0.684
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2013,
+    "rel": -0.072
+   },
+   {
+    "college": "Christ Church",
+    "year": 2013,
+    "rel": 0.893
+   },
+   {
+    "college": "Wolfson",
+    "year": 2013,
+    "rel": 0.124
+   },
+   {
+    "college": "Keble",
+    "year": 2013,
+    "rel": 0.085
+   },
+   {
+    "college": "Oriel",
+    "year": 2013,
+    "rel": 0.284
+   },
+   {
+    "college": "New College",
+    "year": 2014,
+    "rel": 1.067
+   },
+   {
+    "college": "Pembroke",
+    "year": 2014,
+    "rel": 0.739
+   },
+   {
+    "college": "University",
+    "year": 2014,
+    "rel": -0.201
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2014,
+    "rel": 0.09
+   },
+   {
+    "college": "Christ Church",
+    "year": 2014,
+    "rel": 0.681
+   },
+   {
+    "college": "Wolfson",
+    "year": 2014,
+    "rel": -0.553
+   },
+   {
+    "college": "Keble",
+    "year": 2014,
+    "rel": 1.26
+   },
+   {
+    "college": "Oriel",
+    "year": 2014,
+    "rel": 2.183
+   },
+   {
+    "college": "New College",
+    "year": 2015,
+    "rel": 1.211
+   },
+   {
+    "college": "Pembroke",
+    "year": 2015,
+    "rel": 0.422
+   },
+   {
+    "college": "University",
+    "year": 2015,
+    "rel": -0.475
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2015,
+    "rel": 0.925
+   },
+   {
+    "college": "Christ Church",
+    "year": 2015,
+    "rel": 0.937
+   },
+   {
+    "college": "Wolfson",
+    "year": 2015,
+    "rel": 0.622
+   },
+   {
+    "college": "Keble",
+    "year": 2015,
+    "rel": 1.353
+   },
+   {
+    "college": "Oriel",
+    "year": 2015,
+    "rel": 1.724
+   },
+   {
+    "college": "New College",
+    "year": 2016,
+    "rel": 0.893
+   },
+   {
+    "college": "Pembroke",
+    "year": 2016,
+    "rel": 0.519
+   },
+   {
+    "college": "University",
+    "year": 2016,
+    "rel": 1.047
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2016,
+    "rel": 0.134
+   },
+   {
+    "college": "Christ Church",
+    "year": 2016,
+    "rel": 0.533
+   },
+   {
+    "college": "Wolfson",
+    "year": 2016,
+    "rel": 0.579
+   },
+   {
+    "college": "Keble",
+    "year": 2016,
+    "rel": 1.573
+   },
+   {
+    "college": "Oriel",
+    "year": 2016,
+    "rel": 1.753
+   },
+   {
+    "college": "New College",
+    "year": 2017,
+    "rel": -0.721
+   },
+   {
+    "college": "Pembroke",
+    "year": 2017,
+    "rel": 0.684
+   },
+   {
+    "college": "University",
+    "year": 2017,
+    "rel": -0.127
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2017,
+    "rel": -0.578
+   },
+   {
+    "college": "Christ Church",
+    "year": 2017,
+    "rel": 0.872
+   },
+   {
+    "college": "Wolfson",
+    "year": 2017,
+    "rel": 0.482
+   },
+   {
+    "college": "Keble",
+    "year": 2017,
+    "rel": 1.125
+   },
+   {
+    "college": "Oriel",
+    "year": 2017,
+    "rel": 0.249
+   },
+   {
+    "college": "New College",
+    "year": 2018,
+    "rel": -0.138
+   },
+   {
+    "college": "Pembroke",
+    "year": 2018,
+    "rel": 0.681
+   },
+   {
+    "college": "University",
+    "year": 2018,
+    "rel": -0.486
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2018,
+    "rel": 0.585
+   },
+   {
+    "college": "Christ Church",
+    "year": 2018,
+    "rel": 0.375
+   },
+   {
+    "college": "Wolfson",
+    "year": 2018,
+    "rel": -0.015
+   },
+   {
+    "college": "Keble",
+    "year": 2018,
+    "rel": 2.195
+   },
+   {
+    "college": "Oriel",
+    "year": 2018,
+    "rel": 1.466
+   },
+   {
+    "college": "Keble",
+    "year": 2019,
+    "rel": 0.909
+   },
+   {
+    "college": "Oriel",
+    "year": 2019,
+    "rel": 2.137
+   },
+   {
+    "college": "Christ Church",
+    "year": 2019,
+    "rel": 0.165
+   },
+   {
+    "college": "Pembroke",
+    "year": 2019,
+    "rel": 1.063
+   },
+   {
+    "college": "Wolfson",
+    "year": 2019,
+    "rel": -0.081
+   },
+   {
+    "college": "University",
+    "year": 2019,
+    "rel": -0.725
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2019,
+    "rel": 1.923
+   },
+   {
+    "college": "New College",
+    "year": 2019,
+    "rel": -0.94
+   },
+   {
+    "college": "Oriel",
+    "year": 2022,
+    "rel": 1.984
+   },
+   {
+    "college": "Keble",
+    "year": 2022,
+    "rel": 0.63
+   },
+   {
+    "college": "Pembroke",
+    "year": 2022,
+    "rel": 0.444
+   },
+   {
+    "college": "Christ Church",
+    "year": 2022,
+    "rel": 1.458
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2022,
+    "rel": -0.84
+   },
+   {
+    "college": "Wolfson",
+    "year": 2022,
+    "rel": 0.972
+   },
+   {
+    "college": "University",
+    "year": 2022,
+    "rel": 0.364
+   },
+   {
+    "college": "New College",
+    "year": 2022,
+    "rel": 0.581
+   },
+   {
+    "college": "Oriel",
+    "year": 2023,
+    "rel": 1.708
+   },
+   {
+    "college": "Christ Church",
+    "year": 2023,
+    "rel": 1.553
+   },
+   {
+    "college": "Keble",
+    "year": 2023,
+    "rel": 0.973
+   },
+   {
+    "college": "Pembroke",
+    "year": 2023,
+    "rel": 0.19
+   },
+   {
+    "college": "Wolfson",
+    "year": 2023,
+    "rel": 1.116
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2023,
+    "rel": 0.281
+   },
+   {
+    "college": "University",
+    "year": 2023,
+    "rel": 1.086
+   },
+   {
+    "college": "New College",
+    "year": 2023,
+    "rel": 0.45
+   },
+   {
+    "college": "Oriel",
+    "year": 2024,
+    "rel": 2.048
+   },
+   {
+    "college": "Christ Church",
+    "year": 2024,
+    "rel": 0.653
+   },
+   {
+    "college": "Keble",
+    "year": 2024,
+    "rel": 0.469
+   },
+   {
+    "college": "Wolfson",
+    "year": 2024,
+    "rel": 0.444
+   },
+   {
+    "college": "Pembroke",
+    "year": 2024,
+    "rel": 0.375
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2024,
+    "rel": -0.242
+   },
+   {
+    "college": "University",
+    "year": 2024,
+    "rel": 1.549
+   },
+   {
+    "college": "New College",
+    "year": 2024,
+    "rel": 1.134
+   },
+   {
+    "college": "Oriel",
+    "year": 2025,
+    "rel": 0.604
+   },
+   {
+    "college": "Christ Church",
+    "year": 2025,
+    "rel": -0.799
+   },
+   {
+    "college": "Keble",
+    "year": 2025,
+    "rel": -0.821
+   },
+   {
+    "college": "Wolfson",
+    "year": 2025,
+    "rel": 1.414
+   },
+   {
+    "college": "Pembroke",
+    "year": 2025,
+    "rel": 1.059
+   },
+   {
+    "college": "University",
+    "year": 2025,
+    "rel": 0.351
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2025,
+    "rel": -0.967
+   },
+   {
+    "college": "New College",
+    "year": 2025,
+    "rel": 0.844
+   },
+   {
+    "college": "Wolfson",
+    "year": 2026,
+    "rel": 1.064
+   },
+   {
+    "college": "Oriel",
+    "year": 2026,
+    "rel": 1.283
+   },
+   {
+    "college": "Pembroke",
+    "year": 2026,
+    "rel": 0.611
+   },
+   {
+    "college": "Christ Church",
+    "year": 2026,
+    "rel": -1.098
+   },
+   {
+    "college": "University",
+    "year": 2026,
+    "rel": 0.441
+   },
+   {
+    "college": "Keble",
+    "year": 2026,
+    "rel": -0.352
+   },
+   {
+    "college": "New College",
+    "year": 2026,
+    "rel": 0.971
+   },
+   {
+    "college": "St Edmund Hall",
+    "year": 2026,
+    "rel": 0.86
+   }
+  ],
+  "women": [
+   {
+    "college": "Balliol",
+    "year": 2007,
+    "rel": 1.521
+   },
+   {
+    "college": "Pembroke",
+    "year": 2007,
+    "rel": -0.049
+   },
+   {
+    "college": "University",
+    "year": 2007,
+    "rel": 0.002
+   },
+   {
+    "college": "Christ Church",
+    "year": 2007,
+    "rel": 0.513
+   },
+   {
+    "college": "Wadham",
+    "year": 2007,
+    "rel": -0.749
+   },
+   {
+    "college": "Wolfson",
+    "year": 2007,
+    "rel": 0.891
+   },
+   {
+    "college": "Oriel",
+    "year": 2007,
+    "rel": 1.272
+   },
+   {
+    "college": "Balliol",
+    "year": 2008,
+    "rel": 1.481
+   },
+   {
+    "college": "Pembroke",
+    "year": 2008,
+    "rel": -0.902
+   },
+   {
+    "college": "University",
+    "year": 2008,
+    "rel": 1.04
+   },
+   {
+    "college": "Christ Church",
+    "year": 2008,
+    "rel": 0.538
+   },
+   {
+    "college": "Wadham",
+    "year": 2008,
+    "rel": 0.77
+   },
+   {
+    "college": "Wolfson",
+    "year": 2008,
+    "rel": 0.689
+   },
+   {
+    "college": "Oriel",
+    "year": 2008,
+    "rel": 1.293
+   },
+   {
+    "college": "Balliol",
+    "year": 2009,
+    "rel": 1.62
+   },
+   {
+    "college": "Pembroke",
+    "year": 2009,
+    "rel": -0.535
+   },
+   {
+    "college": "University",
+    "year": 2009,
+    "rel": 0.601
+   },
+   {
+    "college": "Christ Church",
+    "year": 2009,
+    "rel": -0.434
+   },
+   {
+    "college": "Wadham",
+    "year": 2009,
+    "rel": 0.391
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2009,
+    "rel": -1.628
+   },
+   {
+    "college": "Wolfson",
+    "year": 2009,
+    "rel": 0.674
+   },
+   {
+    "college": "Oriel",
+    "year": 2009,
+    "rel": 1.078
+   },
+   {
+    "college": "Balliol",
+    "year": 2010,
+    "rel": 2.218
+   },
+   {
+    "college": "Pembroke",
+    "year": 2010,
+    "rel": 1.482
+   },
+   {
+    "college": "University",
+    "year": 2010,
+    "rel": 1.734
+   },
+   {
+    "college": "Christ Church",
+    "year": 2010,
+    "rel": -0.557
+   },
+   {
+    "college": "Wadham",
+    "year": 2010,
+    "rel": 0.571
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2010,
+    "rel": -1.572
+   },
+   {
+    "college": "Wolfson",
+    "year": 2010,
+    "rel": 0.125
+   },
+   {
+    "college": "Oriel",
+    "year": 2010,
+    "rel": -0.376
+   },
+   {
+    "college": "Balliol",
+    "year": 2011,
+    "rel": 1.132
+   },
+   {
+    "college": "Pembroke",
+    "year": 2011,
+    "rel": 1.108
+   },
+   {
+    "college": "University",
+    "year": 2011,
+    "rel": 1.511
+   },
+   {
+    "college": "Christ Church",
+    "year": 2011,
+    "rel": -0.928
+   },
+   {
+    "college": "Wadham",
+    "year": 2011,
+    "rel": 0.392
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2011,
+    "rel": 0.933
+   },
+   {
+    "college": "Wolfson",
+    "year": 2011,
+    "rel": 1.087
+   },
+   {
+    "college": "Oriel",
+    "year": 2011,
+    "rel": 0.432
+   },
+   {
+    "college": "Balliol",
+    "year": 2012,
+    "rel": -0.413
+   },
+   {
+    "college": "Pembroke",
+    "year": 2012,
+    "rel": 1.502
+   },
+   {
+    "college": "University",
+    "year": 2012,
+    "rel": -0.789
+   },
+   {
+    "college": "Christ Church",
+    "year": 2012,
+    "rel": 0.741
+   },
+   {
+    "college": "Wadham",
+    "year": 2012,
+    "rel": 1.047
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2012,
+    "rel": 0.159
+   },
+   {
+    "college": "Wolfson",
+    "year": 2012,
+    "rel": 0.842
+   },
+   {
+    "college": "Oriel",
+    "year": 2012,
+    "rel": -0.315
+   },
+   {
+    "college": "Balliol",
+    "year": 2013,
+    "rel": 0.085
+   },
+   {
+    "college": "Pembroke",
+    "year": 2013,
+    "rel": -0.426
+   },
+   {
+    "college": "University",
+    "year": 2013,
+    "rel": 0.452
+   },
+   {
+    "college": "Christ Church",
+    "year": 2013,
+    "rel": 0.306
+   },
+   {
+    "college": "Wadham",
+    "year": 2013,
+    "rel": 0.736
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2013,
+    "rel": 1.018
+   },
+   {
+    "college": "Wolfson",
+    "year": 2013,
+    "rel": 0.132
+   },
+   {
+    "college": "Oriel",
+    "year": 2013,
+    "rel": 0.391
+   },
+   {
+    "college": "Balliol",
+    "year": 2014,
+    "rel": -0.171
+   },
+   {
+    "college": "Pembroke",
+    "year": 2014,
+    "rel": 0.583
+   },
+   {
+    "college": "University",
+    "year": 2014,
+    "rel": 0.116
+   },
+   {
+    "college": "Christ Church",
+    "year": 2014,
+    "rel": 0.542
+   },
+   {
+    "college": "Wadham",
+    "year": 2014,
+    "rel": 1.094
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2014,
+    "rel": 0.389
+   },
+   {
+    "college": "Wolfson",
+    "year": 2014,
+    "rel": 1.505
+   },
+   {
+    "college": "Oriel",
+    "year": 2014,
+    "rel": -0.158
+   },
+   {
+    "college": "Balliol",
+    "year": 2015,
+    "rel": -0.606
+   },
+   {
+    "college": "Pembroke",
+    "year": 2015,
+    "rel": 1.123
+   },
+   {
+    "college": "University",
+    "year": 2015,
+    "rel": 1.354
+   },
+   {
+    "college": "Christ Church",
+    "year": 2015,
+    "rel": 0.559
+   },
+   {
+    "college": "Wadham",
+    "year": 2015,
+    "rel": 1.742
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2015,
+    "rel": 1.283
+   },
+   {
+    "college": "Wolfson",
+    "year": 2015,
+    "rel": 0.169
+   },
+   {
+    "college": "Oriel",
+    "year": 2015,
+    "rel": -0.998
+   },
+   {
+    "college": "Balliol",
+    "year": 2016,
+    "rel": 0.013
+   },
+   {
+    "college": "Pembroke",
+    "year": 2016,
+    "rel": 0.761
+   },
+   {
+    "college": "University",
+    "year": 2016,
+    "rel": 0.527
+   },
+   {
+    "college": "Christ Church",
+    "year": 2016,
+    "rel": 0.44
+   },
+   {
+    "college": "Wadham",
+    "year": 2016,
+    "rel": 1.396
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2016,
+    "rel": 0.885
+   },
+   {
+    "college": "Wolfson",
+    "year": 2016,
+    "rel": 1.039
+   },
+   {
+    "college": "Oriel",
+    "year": 2016,
+    "rel": 0.655
+   },
+   {
+    "college": "Balliol",
+    "year": 2017,
+    "rel": -0.623
+   },
+   {
+    "college": "Pembroke",
+    "year": 2017,
+    "rel": 0.765
+   },
+   {
+    "college": "University",
+    "year": 2017,
+    "rel": -0.126
+   },
+   {
+    "college": "Christ Church",
+    "year": 2017,
+    "rel": 0.781
+   },
+   {
+    "college": "Wadham",
+    "year": 2017,
+    "rel": 1.811
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2017,
+    "rel": 1.337
+   },
+   {
+    "college": "Wolfson",
+    "year": 2017,
+    "rel": 1.051
+   },
+   {
+    "college": "Oriel",
+    "year": 2017,
+    "rel": 0.386
+   },
+   {
+    "college": "Balliol",
+    "year": 2018,
+    "rel": -0.022
+   },
+   {
+    "college": "Pembroke",
+    "year": 2018,
+    "rel": 1.852
+   },
+   {
+    "college": "University",
+    "year": 2018,
+    "rel": 0.043
+   },
+   {
+    "college": "Christ Church",
+    "year": 2018,
+    "rel": 0.291
+   },
+   {
+    "college": "Wadham",
+    "year": 2018,
+    "rel": 1.11
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2018,
+    "rel": 1.74
+   },
+   {
+    "college": "Wolfson",
+    "year": 2018,
+    "rel": 1.71
+   },
+   {
+    "college": "Oriel",
+    "year": 2018,
+    "rel": 1.148
+   },
+   {
+    "college": "Oriel",
+    "year": 2019,
+    "rel": -0.088
+   },
+   {
+    "college": "Christ Church",
+    "year": 2019,
+    "rel": 0.148
+   },
+   {
+    "college": "Pembroke",
+    "year": 2019,
+    "rel": 0.676
+   },
+   {
+    "college": "Wadham",
+    "year": 2019,
+    "rel": 0.552
+   },
+   {
+    "college": "Wolfson",
+    "year": 2019,
+    "rel": 1.918
+   },
+   {
+    "college": "Balliol",
+    "year": 2019,
+    "rel": 0.602
+   },
+   {
+    "college": "University",
+    "year": 2019,
+    "rel": 0.537
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2019,
+    "rel": 1.778
+   },
+   {
+    "college": "Oriel",
+    "year": 2022,
+    "rel": 0.773
+   },
+   {
+    "college": "Pembroke",
+    "year": 2022,
+    "rel": -0.347
+   },
+   {
+    "college": "Christ Church",
+    "year": 2022,
+    "rel": 1.972
+   },
+   {
+    "college": "Wadham",
+    "year": 2022,
+    "rel": 0.258
+   },
+   {
+    "college": "Wolfson",
+    "year": 2022,
+    "rel": 0.297
+   },
+   {
+    "college": "Balliol",
+    "year": 2022,
+    "rel": -1.037
+   },
+   {
+    "college": "University",
+    "year": 2022,
+    "rel": 1.739
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2022,
+    "rel": 1.178
+   },
+   {
+    "college": "Oriel",
+    "year": 2023,
+    "rel": 1.453
+   },
+   {
+    "college": "Christ Church",
+    "year": 2023,
+    "rel": 1.347
+   },
+   {
+    "college": "Pembroke",
+    "year": 2023,
+    "rel": 0.777
+   },
+   {
+    "college": "Wolfson",
+    "year": 2023,
+    "rel": -1.366
+   },
+   {
+    "college": "Wadham",
+    "year": 2023,
+    "rel": -0.152
+   },
+   {
+    "college": "Balliol",
+    "year": 2023,
+    "rel": 1.26
+   },
+   {
+    "college": "University",
+    "year": 2023,
+    "rel": 0.423
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2023,
+    "rel": 0.781
+   },
+   {
+    "college": "Oriel",
+    "year": 2024,
+    "rel": -1.252
+   },
+   {
+    "college": "Christ Church",
+    "year": 2024,
+    "rel": 1.554
+   },
+   {
+    "college": "Wolfson",
+    "year": 2024,
+    "rel": 0.352
+   },
+   {
+    "college": "Pembroke",
+    "year": 2024,
+    "rel": 1.403
+   },
+   {
+    "college": "Balliol",
+    "year": 2024,
+    "rel": 1.209
+   },
+   {
+    "college": "University",
+    "year": 2024,
+    "rel": -0.015
+   },
+   {
+    "college": "Wadham",
+    "year": 2024,
+    "rel": 1.041
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2024,
+    "rel": -0.041
+   },
+   {
+    "college": "Oriel",
+    "year": 2025,
+    "rel": -0.576
+   },
+   {
+    "college": "Christ Church",
+    "year": 2025,
+    "rel": -0.429
+   },
+   {
+    "college": "Wolfson",
+    "year": 2025,
+    "rel": 0.781
+   },
+   {
+    "college": "Pembroke",
+    "year": 2025,
+    "rel": 1.681
+   },
+   {
+    "college": "University",
+    "year": 2025,
+    "rel": 0.502
+   },
+   {
+    "college": "Balliol",
+    "year": 2025,
+    "rel": 0.873
+   },
+   {
+    "college": "Wadham",
+    "year": 2025,
+    "rel": 0.291
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2025,
+    "rel": 0.002
+   },
+   {
+    "college": "Wolfson",
+    "year": 2026,
+    "rel": 0.306
+   },
+   {
+    "college": "Oriel",
+    "year": 2026,
+    "rel": 0.354
+   },
+   {
+    "college": "Pembroke",
+    "year": 2026,
+    "rel": 1.348
+   },
+   {
+    "college": "Christ Church",
+    "year": 2026,
+    "rel": -0.243
+   },
+   {
+    "college": "University",
+    "year": 2026,
+    "rel": 0.879
+   },
+   {
+    "college": "Balliol",
+    "year": 2026,
+    "rel": 1.32
+   },
+   {
+    "college": "Wadham",
+    "year": 2026,
+    "rel": -0.243
+   },
+   {
+    "college": "Green Templeton",
+    "year": 2026,
+    "rel": -1.092
+   }
+  ]
+ },
+ "latest": {
+  "men": {
+   "year": 2026,
+   "rows": [
+    {
+     "rank": 1,
+     "college": "Exeter",
+     "rel": 1.74,
+     "sd": 2.35
+    },
+    {
+     "rank": 2,
+     "college": "Worcester",
+     "rel": 1.68,
+     "sd": 2.2
+    },
+    {
+     "rank": 3,
+     "college": "Hertford",
+     "rel": 1.51,
+     "sd": 2.15
+    },
+    {
+     "rank": 4,
+     "college": "Oriel",
+     "rel": 1.28,
+     "sd": 2.18
+    },
+    {
+     "rank": 5,
+     "college": "Wolfson",
+     "rel": 1.06,
+     "sd": 2.26
+    },
+    {
+     "rank": 6,
+     "college": "St Anne's",
+     "rel": 1.0,
+     "sd": 2.17
+    },
+    {
+     "rank": 7,
+     "college": "New College",
+     "rel": 0.97,
+     "sd": 2.17
+    },
+    {
+     "rank": 8,
+     "college": "St Hilda's",
+     "rel": 0.88,
+     "sd": 2.23
+    },
+    {
+     "rank": 9,
+     "college": "St Edmund Hall",
+     "rel": 0.86,
+     "sd": 2.15
+    },
+    {
+     "rank": 10,
+     "college": "Balliol",
+     "rel": 0.79,
+     "sd": 2.03
+    },
+    {
+     "rank": 11,
+     "college": "Pembroke",
+     "rel": 0.61,
+     "sd": 2.25
+    },
+    {
+     "rank": 12,
+     "college": "Queen's",
+     "rel": 0.6,
+     "sd": 2.1
+    },
+    {
+     "rank": 13,
+     "college": "St Peter's",
+     "rel": 0.46,
+     "sd": 2.29
+    },
+    {
+     "rank": 14,
+     "college": "University",
+     "rel": 0.44,
+     "sd": 2.23
+    },
+    {
+     "rank": 15,
+     "college": "Somerville",
+     "rel": 0.14,
+     "sd": 2.09
+    },
+    {
+     "rank": 16,
+     "college": "Wadham",
+     "rel": 0.1,
+     "sd": 2.19
+    },
+    {
+     "rank": 17,
+     "college": "Brasenose",
+     "rel": -0.02,
+     "sd": 2.17
+    },
+    {
+     "rank": 18,
+     "college": "Mansfield",
+     "rel": -0.03,
+     "sd": 2.08
+    },
+    {
+     "rank": 19,
+     "college": "Lincoln",
+     "rel": -0.08,
+     "sd": 2.2
+    },
+    {
+     "rank": 20,
+     "college": "St John's",
+     "rel": -0.19,
+     "sd": 2.16
+    },
+    {
+     "rank": 21,
+     "college": "Keble",
+     "rel": -0.35,
+     "sd": 2.07
+    },
+    {
+     "rank": 22,
+     "college": "Merton",
+     "rel": -0.39,
+     "sd": 2.09
+    },
+    {
+     "rank": 23,
+     "college": "St Antony's",
+     "rel": -0.44,
+     "sd": 2.19
+    },
+    {
+     "rank": 24,
+     "college": "St Hugh's",
+     "rel": -0.48,
+     "sd": 2.09
+    },
+    {
+     "rank": 25,
+     "college": "Reuben",
+     "rel": -0.58,
+     "sd": 2.09
+    },
+    {
+     "rank": 26,
+     "college": "Magdalen",
+     "rel": -0.67,
+     "sd": 2.24
+    },
+    {
+     "rank": 27,
+     "college": "Lady Margaret Hall",
+     "rel": -0.67,
+     "sd": 2.18
+    },
+    {
+     "rank": 28,
+     "college": "Jesus",
+     "rel": -0.68,
+     "sd": 2.33
+    },
+    {
+     "rank": 29,
+     "college": "Trinity",
+     "rel": -0.76,
+     "sd": 2.12
+    },
+    {
+     "rank": 30,
+     "college": "St Catherine's",
+     "rel": -0.82,
+     "sd": 2.19
+    },
+    {
+     "rank": 31,
+     "college": "Linacre",
+     "rel": -1.09,
+     "sd": 2.15
+    },
+    {
+     "rank": 32,
+     "college": "Christ Church",
+     "rel": -1.1,
+     "sd": 2.1
+    },
+    {
+     "rank": 33,
+     "college": "Green Templeton",
+     "rel": -1.53,
+     "sd": 2.23
+    },
+    {
+     "rank": 34,
+     "college": "Corpus Christi",
+     "rel": -1.67,
+     "sd": 2.26
+    },
+    {
+     "rank": 35,
+     "college": "Regent's Park",
+     "rel": -2.57,
+     "sd": 2.21
+    }
+   ]
+  },
+  "women": {
+   "year": 2026,
+   "rows": [
+    {
+     "rank": 1,
+     "college": "Somerville",
+     "rel": 2.28,
+     "sd": 2.24
+    },
+    {
+     "rank": 2,
+     "college": "Pembroke",
+     "rel": 1.35,
+     "sd": 2.17
+    },
+    {
+     "rank": 3,
+     "college": "Balliol",
+     "rel": 1.32,
+     "sd": 2.17
+    },
+    {
+     "rank": 4,
+     "college": "Brasenose",
+     "rel": 1.15,
+     "sd": 2.23
+    },
+    {
+     "rank": 5,
+     "college": "University",
+     "rel": 0.88,
+     "sd": 2.13
+    },
+    {
+     "rank": 6,
+     "college": "St Hugh's",
+     "rel": 0.85,
+     "sd": 2.17
+    },
+    {
+     "rank": 7,
+     "college": "Exeter",
+     "rel": 0.83,
+     "sd": 2.3
+    },
+    {
+     "rank": 8,
+     "college": "Magdalen",
+     "rel": 0.83,
+     "sd": 2.21
+    },
+    {
+     "rank": 9,
+     "college": "Merton",
+     "rel": 0.81,
+     "sd": 2.18
+    },
+    {
+     "rank": 10,
+     "college": "Worcester",
+     "rel": 0.68,
+     "sd": 2.16
+    },
+    {
+     "rank": 11,
+     "college": "St Hilda's",
+     "rel": 0.6,
+     "sd": 2.24
+    },
+    {
+     "rank": 12,
+     "college": "St Catherine's",
+     "rel": 0.51,
+     "sd": 2.2
+    },
+    {
+     "rank": 13,
+     "college": "St Edmund Hall",
+     "rel": 0.46,
+     "sd": 2.19
+    },
+    {
+     "rank": 14,
+     "college": "St Anne's",
+     "rel": 0.36,
+     "sd": 2.15
+    },
+    {
+     "rank": 15,
+     "college": "Oriel",
+     "rel": 0.35,
+     "sd": 2.13
+    },
+    {
+     "rank": 16,
+     "college": "Linacre",
+     "rel": 0.34,
+     "sd": 2.15
+    },
+    {
+     "rank": 17,
+     "college": "Wolfson",
+     "rel": 0.31,
+     "sd": 2.1
+    },
+    {
+     "rank": 18,
+     "college": "New College",
+     "rel": 0.24,
+     "sd": 2.13
+    },
+    {
+     "rank": 19,
+     "college": "Lady Margaret Hall",
+     "rel": 0.18,
+     "sd": 2.19
+    },
+    {
+     "rank": 20,
+     "college": "Jesus",
+     "rel": 0.17,
+     "sd": 2.15
+    },
+    {
+     "rank": 21,
+     "college": "Lincoln",
+     "rel": 0.07,
+     "sd": 2.17
+    },
+    {
+     "rank": 22,
+     "college": "Wadham",
+     "rel": -0.24,
+     "sd": 2.11
+    },
+    {
+     "rank": 23,
+     "college": "Christ Church",
+     "rel": -0.24,
+     "sd": 2.19
+    },
+    {
+     "rank": 24,
+     "college": "Queen's",
+     "rel": -0.55,
+     "sd": 2.03
+    },
+    {
+     "rank": 25,
+     "college": "Keble",
+     "rel": -0.55,
+     "sd": 2.14
+    },
+    {
+     "rank": 26,
+     "college": "Mansfield",
+     "rel": -0.65,
+     "sd": 2.15
+    },
+    {
+     "rank": 27,
+     "college": "Hertford",
+     "rel": -1.02,
+     "sd": 2.15
+    },
+    {
+     "rank": 28,
+     "college": "Green Templeton",
+     "rel": -1.09,
+     "sd": 2.16
+    },
+    {
+     "rank": 29,
+     "college": "Reuben",
+     "rel": -1.14,
+     "sd": 2.08
+    },
+    {
+     "rank": 30,
+     "college": "St Peter's",
+     "rel": -1.43,
+     "sd": 2.21
+    },
+    {
+     "rank": 31,
+     "college": "Corpus Christi",
+     "rel": -1.43,
+     "sd": 2.05
+    },
+    {
+     "rank": 32,
+     "college": "Trinity",
+     "rel": -1.44,
+     "sd": 2.19
+    },
+    {
+     "rank": 33,
+     "college": "St John's",
+     "rel": -1.46,
+     "sd": 2.21
+    },
+    {
+     "rank": 34,
+     "college": "St Antony's",
+     "rel": -1.66,
+     "sd": 2.26
+    },
+    {
+     "rank": 35,
+     "college": "Regent's Park",
+     "rel": -1.67,
+     "sd": 2.18
+    }
+   ]
+  }
+ }
+}
