@@ -13,21 +13,34 @@ function draw(id, fn) { const el = document.getElementById(id); if (!el) return;
 function setText(id, s) { const el = document.getElementById(id); if (el) el.textContent = s; }
 function setHTML(id, s) { const el = document.getElementById(id); if (el) el.innerHTML = s; }
 
+/* Observable Plot 0.6.x collapses the main <svg> to 15px when `legend:true` is rendered
+   detached (as draw() does) before layout settles. Plot.legend() instead returns an HTML
+   swatch <div> that measures fine detached, so we render legends separately and stack them. */
+function legendBar(domain, range) { return P.legend({ color: { domain, range }, swatchSize: 12 }); }
+function stack(legendNode, plotNode) {
+  const d = document.createElement("div");
+  if (legendNode) { legendNode.style.margin = "0 0 4px 2px"; d.append(legendNode); }
+  d.append(plotNode);
+  return d;
+}
+
 /* reliability: predicted vs observed, with the y=x line; optional two-period overlay */
 function reliabilityChart(series, w, title) {
   const data = series.flatMap(s => s.rel.pred.map((px, i) => ({
     pred: px, obs: s.rel.obs[i], n: s.rel.count[i], grp: s.label })));
-  return P.plot({
+  const dom = series.map(s => s.label), rng = series.length > 1 ? [C.hist, C.recent] : [C.oxford];
+  const fig = P.plot({
     width: w, height: Math.round(w * 0.62), marginLeft: 46, marginBottom: 40, marginTop: title ? 26 : 10,
     title, style: { fontFamily: "Inter, sans-serif", fontSize: "12px", background: "transparent" },
     x: { domain: [0, 1], label: "model's predicted chance →", tickFormat: "%", grid: true },
     y: { domain: [0, 1], label: "↑ how often it happened", tickFormat: "%", grid: true },
-    color: { domain: series.map(s => s.label), range: series.length > 1 ? [C.hist, C.recent] : [C.oxford], legend: series.length > 1 },
+    color: { domain: dom, range: rng },
     marks: [
       P.line([[0, 0], [1, 1]], { stroke: "#b9b2a4", strokeDasharray: "4 4" }),
       P.dot(data, { x: "pred", y: "obs", r: d => 3 + Math.sqrt(d.n) / 3, fill: "grp", fillOpacity: 0.78, stroke: "white", strokeWidth: 0.6 }),
     ],
   });
+  return series.length > 1 ? stack(legendBar(dom, rng), fig) : fig;
 }
 
 function init(acc, bet) {
@@ -77,7 +90,7 @@ function init(acc, bet) {
   // ---- accuracy table: historical vs recent ----
   const rows = [["historical", A.historical], ["recent", A.recent]];
   setHTML("acc-table", `<table><thead><tr><th>window</th><th>crew-days</th><th>Brier</th><th>vs climatology</th><th>RPS</th><th>RPS skill</th></tr></thead><tbody>${
-    rows.map(([_, m]) => `<tr><td><strong>${m.label}</strong></td><td>${m.n.toLocaleString()}</td><td class="num">${m.brier}</td><td class="num">${m.brier_climatology}</td><td class="num">${m.rps}</td><td class="num">${"+" + Math.round(m.rps_skill * 100)}%</td></tr>`).join("")
+    rows.map(([_, m]) => `<tr><td><strong>${m.label}</strong></td><td>${m.n.toLocaleString()}</td><td class="num">${(+m.brier).toFixed(3)}</td><td class="num">${(+m.brier_climatology).toFixed(3)}</td><td class="num">${(+m.rps).toFixed(3)}</td><td class="num">${"+" + Math.round(m.rps_skill * 100)}%</td></tr>`).join("")
     }</tbody></table>`);
 
   // ---- Brier by day (recent) ----
@@ -103,10 +116,11 @@ function init(acc, bet) {
     const data = bet.years.flatMap(y => order.map(who => ({
       year: "" + y.year, who, crabs: who === "median human" ? y.median_human : who === "model" ? y.model : y.top_human })));
     const orac = bet.years.map(y => ({ year: "" + y.year, oracle: y.oracle }));
-    return P.plot({
+    const cr = order.map(o => fill[o]);
+    const fig = P.plot({
       width: w, height: Math.round(w * 0.5), marginLeft: 50, marginBottom: 42, marginTop: 26,
       style: { fontFamily: "Inter, sans-serif", fontSize: "12px" },
-      fx: { label: null }, color: { domain: order, range: order.map(o => fill[o]), legend: true },
+      fx: { label: null }, color: { domain: order, range: cr },
       x: { domain: order, axis: null }, y: { label: "↑ final crabs", grid: true, zero: true },
       marks: [
         P.barY(data, { fx: "year", x: "who", y: "crabs", fill: "who", rx: 1.5 }),
@@ -116,6 +130,7 @@ function init(acc, bet) {
         P.ruleY([0]),
       ],
     });
+    return stack(legendBar(order, cr), fig);
   });
   setHTML("betting-cap", `Final crabs each season for the typical player, the model, and the best human, with the perfect-foresight oracle dashed. Everyone starts at 2,000 (lower dotted line). The model clears the field median every year and reaches <strong>${champPct}%</strong> of the champion on average — about the <strong>top ${topX}%</strong> of the ${bet.years[bet.years.length - 1].n_human_teams.toLocaleString()}-odd entrants.`);
 
@@ -123,16 +138,18 @@ function init(acc, bet) {
   draw("chart-decomp", w => {
     const order = ["+1", "+2", "+3 or more"];
     const data = ["model", "oracle"].flatMap(who => order.map(mv => ({ who, mv, crabs: bet.decomposition[who][mv] || 0 })));
-    return P.plot({
+    const cr = [C.up, C.gold, C.down];
+    const fig = P.plot({
       width: w, height: Math.round(w * 0.42), marginLeft: 64, marginBottom: 34, marginTop: 24,
       style: { fontFamily: "Inter, sans-serif", fontSize: "12px" },
-      fx: { domain: ["model", "oracle"], label: null }, color: { domain: order, range: [C.up, C.gold, C.down], legend: true },
+      fx: { domain: ["model", "oracle"], label: null }, color: { domain: order, range: cr },
       x: { domain: order, axis: null }, y: { label: "↑ crabs earned (5 seasons)", grid: true, zero: true },
       marks: [
         P.barY(data, { fx: "who", x: "mv", y: "crabs", fill: "mv", rx: 1.5 }),
         P.ruleY([0]),
       ],
     });
+    return stack(legendBar(order, cr), fig);
   });
 
   // ---- the two honest tables ----
@@ -148,7 +165,8 @@ function init(acc, bet) {
 
 (async function () {
   try {
-    const [acc, bet] = await Promise.all([load("accuracy.json"), load("betting.json")]);
+    const [acc, bet] = await Promise.all([load("accuracy.json"), load("betting.json"),
+      (document.fonts && document.fonts.ready) || Promise.resolve()]);
     init(acc, bet);
     addEventListener("resize", () => { clearTimeout(window._rt); window._rt = setTimeout(() => init(acc, bet), 200); });
   } catch (e) { console.error(e); setHTML("kpis", "<p class='small'>Could not load the model data.</p>"); }

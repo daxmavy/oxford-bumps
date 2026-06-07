@@ -3,131 +3,131 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Forecasting Oxford Summer Eights bumps — calibration & betting (technical report)</title>
-<meta name="description" content="A technical report on a leak-free gradient-boosted model for Oxford Summer Eights bumps racing: objective, data, methodology and results — out-of-sample calibration, proper-scoring accuracy, and Fantasy Bumps betting performance against human players and a perfect-foresight oracle.">
-<meta property="og:title" content="Forecasting Oxford Summer Eights bumps — a technical report">
-<meta property="og:description" content="Objective, data, methodology and results for a calibrated bump-forecasting model and its Fantasy Bumps betting performance.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<title>Forecasting Oxford Summer Eights bumps — calibration & betting</title>
+<meta name="description" content="A leak-free statistical model of Oxford Summer Eights bumps racing: how accurate and well-calibrated its probabilities are, and whether they would make money in the Fantasy Bumps prediction market.">
 <script src="js/vendor/d3.min.js"></script>
 <script src="js/vendor/plot.umd.min.js"></script>
+<script src="js/vendor/distill.template.v2.js"></script>
+<link rel="stylesheet" href="css/report.css">
 </head>
 <body>
 
-<div class="draftnote"><strong>DRAFT</strong> — this report, the model and the analysis were produced by an AI system with a human directing it. It is a research experiment shared for interest, not a peer-reviewed or authoritative result.</div>
+<d-front-matter>
+  <script type="text/json">{
+    "title": "Forecasting Oxford Summer Eights bumps",
+    "description": "How accurately can a model predict bumps racing, and would its predictions make money? A leak-free model, graded out of sample and set loose on Fantasy Bumps.",
+    "published": "June 7, 2026",
+    "authors": [{ "author": "Max Davy", "authorURL": "https://github.com/daxmavy", "affiliations": [{ "name": "Independent" }] }],
+    "katex": { "delimiters": [] }
+  }</script>
+</d-front-matter>
 
-<header class="top">
-  <div class="wrap narrow">
-    <p class="kicker">Technical report</p>
-    <h1>Forecasting Oxford Summer Eights bumps: calibration and betting performance</h1>
-    <p class="metaline" id="byline">A leak-free probabilistic model, evaluated out of sample with proper scoring rules and tested as a Fantasy Bumps bettor.</p>
-    <p class="metaline" style="margin-top:3px"><a href="board.html">Live predictions board →</a> · <a href="ratings.html">College strength, all-time →</a> · <a href="report.html">Full analysis & code →</a></p>
-  </div>
-</header>
+<d-title>
+  <h1>Forecasting Oxford Summer Eights bumps</h1>
+  <p>Bumps racing is Oxford's strangest annual spectacle: college boats chase each other up a narrow river, and catching the boat ahead — a <em>bump</em> — moves you up the order for the next day. This report asks two questions of a statistical model of that racing. Can it predict the bumps, with honest probabilities? And would acting on those predictions make money?</p>
+</d-title>
 
-<main class="wrap report">
+<d-byline></d-byline>
 
-  <!-- ===== ABSTRACT ===== -->
-  <section class="abstract" aria-label="Abstract">
-    <h2 class="ab-h">Abstract</h2>
-    <p>We train a gradient-boosted classifier to predict, for every crew on every racing day of Oxford Summer Eights, a probability for each possible result — over-bumped, bumped, rowed over, bump, over-bump. The model is evaluated strictly out of sample: to score any season it is trained only on earlier seasons. Its probabilities are well-calibrated and skilful by proper scoring rules — a Brier score of <strong id="ab-brier">—</strong> against <strong id="ab-clim">—</strong> for predicting base rates alone, with a mean calibration error near <strong id="ab-ece">—</strong>, and the calibration holds on both a historical and a recent window. Used to play <a href="https://fantasybumps.org.uk">Fantasy Bumps</a> through an exactly-reconstructed market, the model reaches about <strong id="ab-champ">—</strong> of the single best human's score each season and ranks in the top <strong id="ab-decile">—</strong> of entrants, but does not beat the champion. The residual gap is attributable almost entirely to over-bumps, high-value events that are not predictable at the crew level.</p>
-    <div id="kpis" class="kpis"></div>
-  </section>
+<d-article>
 
-  <!-- ===== 1. OBJECTIVE ===== -->
-  <section class="rsec" aria-label="Objective">
-    <h2><span class="secno">1</span> Objective</h2>
-    <p>A probabilistic forecast is useful only if two things hold: its stated probabilities are honest — when it says 30%, the event happens about 30% of the time — and acting on them is profitable. This report evaluates both for a model of Oxford bumps racing. The first is a question of <em>calibration and accuracy</em>, measured with strictly proper scoring rules. The second is a question of <em>economic value</em>, measured by playing Fantasy Bumps, a public prediction market in which players buy and sell college crews each day and are paid when their crews bump or row over. Throughout, the benchmark is not a textbook baseline but real human players and a perfect-foresight upper bound.</p>
-  </section>
+  <p class="ai-note">This report, the model and the analysis were produced by an AI system directed by a human. Treat it as a research experiment shared for interest, not a peer-reviewed result. Every figure is reproducible from the raw data, and the workings are checked against the sources throughout.</p>
 
-  <!-- ===== 2. DATA ===== -->
-  <section class="rsec" aria-label="Data">
-    <h2><span class="secno">2</span> Data</h2>
-    <p>The unit of analysis is a <strong>crew-day</strong>: one college boat on one of the four racing days, whose outcome is the signed number of places it moved. Results come from two independent records of every Oxford bumps race — Anu Dudhia's archive and <a href="https://bumps.live">bumps.live</a> — which agree on 99.99% of the 20,617 races they both cover, back to 1826; crew lists, coxes and Blues come from bumps.live and Wikipedia. Modelling is restricted to the modern era (1996 onward), Summer Eights only, with same-year Torpids used as a predictor. The betting evaluation uses the live <a href="https://fantasybumps.org.uk">Fantasy Bumps</a> markets for 2022–2026 — crew prices, daily results and the final human leaderboards — and the Rowing-On and finishing-order documents published by OURCs. After exclusions the out-of-sample evaluation covers <strong id="d-n">—</strong> crew-days across the seasons 2015–2019 and 2022–2026 (2020–21 were cancelled).</p>
-  </section>
+  <p><strong>Abstract.</strong> We train a gradient-boosted model to predict, for every crew on every racing day, a probability for each possible result — over-bumped, bumped, rowed over, bump, over-bump. It is graded strictly out of sample: to score any season the model sees only earlier seasons. Its probabilities prove well-calibrated and skilful — a Brier score of <strong id="ab-brier">—</strong> against <strong id="ab-clim">—</strong> for predicting base rates alone, a mean calibration error near <strong id="ab-ece">—</strong>, and the calibration holds on both an older and a recent window. Set loose on <a href="https://fantasybumps.org.uk">Fantasy Bumps</a> — a real prediction market where players trade college crews each day — through an exactly-reconstructed engine, the model reaches about <strong id="ab-champ">—</strong> of the single best human's score each season and ranks in the top <strong id="ab-decile">—</strong> of entrants, but never beats the champion. The reason it cannot is the most interesting result, and it takes the rest of the report to earn.</p>
 
-  <!-- ===== 3. METHODOLOGY ===== -->
-  <section class="rsec" aria-label="Methodology">
-    <h2><span class="secno">3</span> Methodology</h2>
+  <div id="kpis" class="kpis l-body-outset"></div>
 
-    <h3>3.1 &ensp;Model and outcome</h3>
-    <p>For each crew-day the target is the day's places-moved, grouped into ordinal classes — over-bumped (≤ −2), bumped (−1), rowed over (0), bump (+1), over-bump (+2), multi-place over-bump (≥ +3). A gradient-boosted decision-tree classifier (histogram-based, multinomial) predicts a probability for each class. Unlike the interpretable skill-and-simulation model behind the <a href="board.html">live board</a>, this model is optimised purely for accurate, well-calibrated probabilities, not for being explainable.</p>
+  <h2 id="objective">Objective</h2>
+  <p>A forecast is worth something only if two things are true. Its probabilities must be <em>honest</em>: when it says a crew has a 30% chance of going up, that should happen about 30% of the time, no more and no less. And acting on them must <em>pay</em>: a forecast that is right on average but useless for any decision is a curiosity, not a tool. This report tests both claims for a model of bumps racing, and is careful to test them against demanding benchmarks rather than easy ones.</p>
+  <p>Calibration and accuracy we measure with strictly proper scoring rules — scores that a forecaster can improve only by being more honest, never by bluffing. Economic value we measure the hard way, by playing Fantasy Bumps: a public game, run alongside the real regatta, in which players are handed a budget of crabs<d-footnote>The game's currency, 🦀. Each player manages a men's and a women's boat of nine shares and starts each with 1,000 crabs; the markets lock 30 minutes before racing and reopen afterwards, so you rebuild your holdings every day.</d-footnote> and buy shares in the college crews they think will climb, selling and re-buying as the week unfolds. The benchmark there is not a textbook strawman but the recorded scores of hundreds of real players, and a perfect-foresight upper bound on what anyone could have won.</p>
 
-    <h3>3.2 &ensp;Features</h3>
-    <p>Each crew-day carries its own attributes — starting position and division, last year's finish, same-year Torpids form, squad continuity and Blue Boat members, and within-week momentum (places gained so far, whether it bumped the day before). The decisive additions are <strong>relational</strong>: the strength and recent form of the crew immediately ahead (its bump target) and immediately behind (its chaser), together with how far it out-rates the boats two and three places ahead, all recomputed from the current order each day. Bumps are inherently relational — a crew goes up only if it is faster than the boat in front — so these features carry most of the signal.</p>
+  <h2 id="data">Data</h2>
+  <p>The unit of analysis is a <strong>crew-day</strong>: one college boat on one of the four racing days, whose outcome is the signed number of places it moved that day. Results come from two records of every Oxford bumps race, compiled independently and in close agreement<d-footnote>Anu Dudhia's long-running archive and the live results service <a href="https://bumps.live">bumps.live</a>. Cross-checked, they agree on 99.99% of the 20,617 races they both cover, back to 1826 — a reassuring sign that the underlying results are right. bumps.live additionally supplies crew lists, coxes and coaches from 2007 on.</d-footnote>. Crew compositions and Oxford Blues come from the same source and from Wikipedia's Boat Race tables.</p>
+  <p>Although the records reach back two centuries, the model is fitted only on the modern era — 1996 onward, Summer Eights, with the Hilary-term Torpids regatta used purely as a same-year predictor<d-footnote>Pre-1900 results use a different convention and are excluded; so are composite boats that can't be attributed to a single college, and the rare data artefacts with implausibly large moves. Summer Eights and Torpids share the bumps format but differ in their rules, so only Eights is predicted.</d-footnote>. The betting evaluation draws on the live Fantasy Bumps markets for 2022–2026 — crew prices, daily results and the final human leaderboards — together with the Rowing-On qualification and finishing-order documents published by OURCs. After exclusions, the out-of-sample evaluation covers <strong id="d-n">—</strong> crew-days across the seasons 2015–2019 and 2022–2026; the 2020 and 2021 regattas were cancelled.</p>
 
-    <h3>3.3 &ensp;Training methodology</h3>
-    <p>Evaluation is a strict <strong>walk-forward</strong>: to predict a given season, the model is fitted only on crew-days from earlier seasons, so every figure in this report is on data the model never saw when it made the call. Within a week, day-<em>d</em> predictions are allowed to condition on the realised results of days 1…<em>d</em>−1 — information any forecaster would have — but never on the day's own outcome; the relational features above are rebuilt each morning from the standings to date. Hyper-parameters are fixed in advance (300 trees, depth-limited, learning rate 0.05, leaf regularisation) rather than tuned to the test seasons, to avoid fitting the evaluation. No class re-weighting is used; experiments that up-weighted rare high-value events or weighted the loss by stake-at-risk did not improve out-of-sample accuracy and were discarded.</p>
+  <h2 id="methodology">Methodology</h2>
 
-    <h3>3.4 &ensp;Evaluation of the probabilities</h3>
-    <p>Probabilities are graded with strictly proper scoring rules — the multiclass <strong>Brier score</strong> and the ordinal <strong>ranked probability score</strong> (RPS), both of which reward honesty rather than confidence — and compared to <em>climatology</em>, a baseline that predicts only the base rates by racing day. Calibration is assessed with reliability curves (predicted probability versus observed frequency), the expected calibration error, and the calibration slope. Uncertainty intervals are 95% block-bootstraps resampled by contest, because the crews in a single race are not independent — one crew's bump is another's being caught.</p>
+  <h3>The model</h3>
+  <p>For each crew-day the model predicts a probability for every possible result, treating the day's places-moved as an ordered outcome<d-footnote>The classes, in order, are: over-bumped (down two or more), bumped (−1), rowed over (0), bump (+1), over-bump (+2), and a multi-place over-bump (+3 or more). Treating them as <em>ordinal</em> rather than as unrelated labels matters for the ranked probability score, which then penalises a forecast for putting weight far from the truth — predicting a +3 surge when the crew rowed over is charged more than predicting a single bump.</d-footnote>. The predictor is a gradient-boosted ensemble of decision trees, which handles the many interacting, sometimes-missing inputs without hand-tuning. This is a deliberately different object from the interpretable skill-and-simulation model behind the <a href="board.html">live predictions board</a>: that one is built to be explainable, this one purely to be accurate and well-calibrated.</p>
 
-    <h3>3.5 &ensp;The betting test</h3>
-    <p>The Fantasy Bumps engine is reconstructed exactly — positional crew prices, the payout schedule (7% of value for a row-over, +14% per place gained; 17.5% for a headship row-over) and the daily buy/sell — and validated to the crab against the live site on every crew of every recent season. Each day, an integer program selects the nine crew-shares per boat that maximise expected crab return under the model's probabilities, subject to the budget; with full daily liquidation this myopic rule is optimal for expected final wealth. The <strong>oracle</strong> is the same optimiser given the actual results — the most any player could have made — and the human benchmark is the recorded Fantasy Bumps leaderboard. A risk-adjusted (mean-variance) objective and a multi-account portfolio were both tested; neither improved on expected-return maximisation (see §5).</p>
-  </section>
+  <h3>Features</h3>
+  <p>Each crew-day carries its own history — where it starts the week, how it finished last year, its same-year Torpids form, how much of its squad it kept, any Blue Boat oarsmen aboard, and its momentum so far this week. On their own these say surprisingly little, because a bump is not a solo effort but a <em>race against a specific opponent</em>. The features that carry most of the signal are therefore <strong>relational</strong>: the strength and recent form of the crew immediately ahead — the one you are chasing — and of the crew immediately behind, the one chasing you, recomputed from the live order each day, along with how far you out-rate the boats two and three places up the river<d-footnote>The full set: own start position, division and field size; last year's finish, net places and blades; three-year form trend; same-year Torpids finish, bumps and blades; retained-rower fraction and squad continuity; Blue Boat count; within-week places-so-far and whether it bumped or was bumped yesterday. The relational block mirrors all of these for the crews ahead and behind, plus signed differences (you-minus-target, you-minus-chaser) and a wider "local strength" read over the next few boats. Adding the relational block is the single biggest improvement over a crew's own features, lifting day-2 discrimination from roughly 0.79 to 0.87.</d-footnote>. Intuitively, you go up if and only if you are faster than the boat in front, so the model needs to know who that boat is and how good it is.</p>
 
-  <!-- ===== 4. RESULTS ===== -->
-  <section class="rsec" aria-label="Results">
-    <h2><span class="secno">4</span> Results</h2>
+  <h3>Training and out-of-sample protocol</h3>
+  <p>Everything in this report is scored on data the model never saw when it made the call. The evaluation is a strict <strong>walk-forward</strong>: to predict a given season, the model is fitted only on crew-days from earlier seasons, then asked to forecast the new one cold; the window then rolls forward a year and repeats. This is the discipline that separates a real forecast from hindsight, and it is easy to get subtly wrong<d-footnote>The most common leak is letting a feature peek at the future. Within a race week the model is allowed to use the realised results of earlier days — information any forecaster genuinely has by Thursday morning — but never the current day's own outcome, and the relational features are rebuilt each morning from the standings to date. Same-year Torpids is fair game because it is rowed in Hilary term, months before Eights. Hyper-parameters were fixed in advance — 300 trees, shallow, a learning rate of 0.05, with leaf and L2 regularisation — rather than tuned against the test seasons, which would quietly re-introduce the leak.</d-footnote>. We resisted the temptation to tune the model against the very seasons we then report on; several plausible tweaks that improved one window turned out to be noise across all of them<d-footnote>Up-weighting rare high-value events, weighting the loss by the crabs at stake, and adding an explicit "second-in-division can double-bump" flag each helped a narrow subgroup but did not improve the out-of-sample Brier score overall, so none were kept.</d-footnote>.</p>
 
-    <h3>4.1 &ensp;Calibration</h3>
-    <p>The model's stated probabilities track observed frequencies closely, and do so on both an early window (2015–2019) and a recent one (2022–2026), so the calibration is not an artefact of a single era. In Figure 1 the dots lie on the line of perfect calibration; Figure 2 shows the same for the individual outcomes the model prices.</p>
+  <h3>Grading the probabilities</h3>
+  <p>Probabilities are graded with two strictly proper scoring rules — the multiclass <strong>Brier score</strong> and the ordinal <strong>ranked probability score</strong><d-footnote>The Brier score is the mean squared error between the predicted probability vector and the one-hot truth; the ranked probability score is the same idea applied to the cumulative distribution, so it respects the ordering of the outcomes. Both are minimised, in expectation, only by reporting your true beliefs — there is no reward for false confidence.</d-footnote> — and against <em>climatology</em>, a baseline that knows only the base rates of each outcome by racing day and nothing about who is rowing<d-footnote>The term is borrowed from weather forecasting, where a "climatological" forecast predicts the historical average for the date and ignores today's conditions. It is the no-skill floor every real model must clear; here it gives every crew on a given day the same forecast — it cannot even tell that the Head of the River is unable to bump upwards.</d-footnote>. Calibration itself we read from reliability curves — predicted probability against observed frequency — summarised by the expected calibration error and the calibration slope. Uncertainty intervals are 95% block-bootstraps, resampled by contest rather than by crew, because the crews in a single race are not independent: one crew's bump is, by definition, another crew's being caught.</p>
+
+  <h3>The betting test</h3>
+  <p>To turn probabilities into money we reconstruct the Fantasy Bumps market exactly and feed it the model's forecasts. Crews are priced purely by their position on the river, and a holding pays out when its crew rows over or climbs<d-footnote>A row-over pays 7% of the crew's value and each place gained a further 14%, so a single bump returns about 21% and an over-bump of two about 35%; the head crew's row-over is worth 17.5% to compensate for the fact that it cannot bump. A bumped crew simply loses the value it sheds. The reconstructed engine reproduces the live site's own published payout figures to the crab for every crew of every recent season.</d-footnote>. Each day, an optimiser buys the nine shares per boat that maximise expected crab return under the model's probabilities, within the budget<d-footnote>Formally an integer program: choose how many of the nine shares to place on each crew to maximise expected return subject to cost. Because you fully liquidate and rebuild every day, maximising each day's expected return also maximises expected final wealth, so this myopic rule is optimal — a fact we lean on when testing risk-adjusted and multi-account variants later.</d-footnote>. Against this we set two yardsticks: the recorded human leaderboard, and an <strong>oracle</strong> — the same optimiser handed the actual results, i.e. the most any player could conceivably have won.</p>
+
+  <h2 id="results">Results</h2>
+
+  <h3>The probabilities are honest</h3>
+  <p>The model's stated chances track what actually happens, and they do so on both an early window (2015–2019) and a recent one (2022–2026), which rules out the calibration being a quirk of a single era. In Figure 1 the points sit on the line of perfect calibration; Figure 2 shows the same for the individual outcomes it prices. Numerically it roughly halves the error of climatology (Table 1).</p>
+
+  <figure class="l-page">
     <div class="cal-grid">
-      <div><p class="figlab">Figure 1. &ensp;Reliability of the move-up probability, by era.</p><div id="chart-rel-up" class="chart"></div><p class="small" id="rel-up-cap"></p></div>
-      <div><p class="figlab">Figure 2. &ensp;Reliability of each named outcome (all seasons).</p><div id="chart-rel-grid" class="chart"></div><p class="small">A single bump, an over-bump of two or more, and rowing over. Over-bumps are rare, so that panel has few points, but where the model commits a probability it holds.</p></div>
+      <div><div id="chart-rel-up" class="chart"></div></div>
+      <div><div id="chart-rel-grid" class="chart"></div></div>
     </div>
-    <p class="figlab">Table 1. &ensp;Out-of-sample scores by window (lower Brier and RPS are better).</p>
+    <figcaption><strong>Figure 1 (left).</strong> Reliability of the model's move-up probability, split by era — the seasons up to 2019 against the most recent four. <span id="rel-up-cap"></span> <strong>Figure 2 (right).</strong> The same check for a single bump, an over-bump of two or more, and rowing over (all seasons). Over-bumps are rare, so that panel has few points, but where the model commits a probability it holds.</figcaption>
+  </figure>
+
+  <figure class="l-body">
     <div id="acc-table" class="acctab"></div>
-    <p class="small">The model roughly halves the Brier score of climatology. "RPS skill" is the percentage reduction in ranked probability score relative to climatology. Intervals (omitted here for brevity, reported in the data) are 95% block-bootstraps by contest.</p>
+    <figcaption><strong>Table 1.</strong> Out-of-sample scores by window; lower Brier and ranked-probability scores are better. "RPS skill" is the percentage reduction relative to climatology. The model roughly halves climatology's Brier in both eras.</figcaption>
+  </figure>
 
-    <h3>4.2 &ensp;Accuracy through the week</h3>
-    <p>Crews are seeded by the previous year's order, so the first day pits each boat against the one most like it and is close to a toss-up; each subsequent day of racing sorts the genuinely quick from the rest, and the error falls accordingly (Figure 3).</p>
-    <p class="figlab">Figure 3. &ensp;Brier score by racing day (recent seasons).</p>
+  <h3>It sees further as the week unfolds</h3>
+  <p>The first day is the hardest call. Crews are seeded by the previous year's order, so on Wednesday each boat races the one most like itself, and the result is close to a coin toss. Each subsequent day of racing sorts the genuinely quick from the merely well-seeded, and the model's error falls accordingly (Figure 3).</p>
+  <figure class="l-body">
     <div id="chart-byday" class="chart"></div>
+    <figcaption><strong>Figure 3.</strong> Brier score on each racing day, recent seasons. Lower is better; Wednesday is the hardest day to forecast and Saturday the easiest.</figcaption>
+  </figure>
 
-    <h3>4.3 &ensp;Betting performance</h3>
-    <p>Started at 2,000 crabs like every entrant, the model's optimiser clears the field median every season and reaches roughly <strong id="r-champ">—</strong> of the single best human's score, placing it in the top decile of players (Figure 4). It does not, however, beat the champion in any season, and falls well short of the perfect-foresight oracle.</p>
-    <p class="figlab">Figure 4. &ensp;Final crabs by season: median human, model and best human, with the oracle ceiling (dashed).</p>
+  <h3>As a bettor: top-decile, but not the champion</h3>
+  <p>Started at the same 2,000 crabs as every entrant, the model's optimiser clears the field median every season and reaches roughly <strong id="r-champ">—</strong> of the single best human's score, placing it comfortably in the top decile of players (Figure 4). But it never wins. It does not beat the champion in any season, and it falls a long way short of the perfect-foresight oracle. That gap, not the respectable headline, is where the interesting physics is.</p>
+  <figure class="l-page">
     <div id="chart-betting" class="chart"></div>
-    <p class="small" id="betting-cap"></p>
+    <figcaption><strong>Figure 4.</strong> Final crabs by season for the typical player, the model and the best human, with the perfect-foresight oracle dashed above. Everyone starts at 2,000 (lower dotted line). <span id="betting-cap"></span></figcaption>
+  </figure>
 
-    <h3>4.4 &ensp;Where the residual gap lies</h3>
-    <p>Splitting realised returns by what the purchased crew actually did (Figure 5) localises the entire gap to the oracle. The model earns almost all of its crabs from reliable single bumps. A perfect-foresight player earns nearly half from over-bumps — the +2 and +3 days when the crew ahead bumps out. The model cannot bet those: it only ever knows the ~13% base odds, and at 13% an over-bump is a worse expected bet than a near-certain single bump. Capturing that value requires knowing <em>which</em> crew over-bumps, which is information no public data carries.</p>
-    <p class="figlab">Figure 5. &ensp;Crabs earned over five seasons, split by the bought crew's result — model vs oracle.</p>
+  <h3>The gap is all over-bumps — and nobody can predict those</h3>
+  <p>Splitting the realised returns by what the purchased crew actually did (Figure 5) localises the entire shortfall to the oracle. The model earns almost all of its crabs from reliable single bumps. A perfect player earns nearly half from <em>over-bumps</em> — the +2 and +3 days when the crew ahead bumps out and you sail through two places at once. The model cannot bet those, and not for want of trying: an over-bump happens about 13% of the time even for a well-placed crew, and at 13% it is simply a worse expected bet than a near-certain single bump, so the optimiser correctly passes it up. The champion catches them with private knowledge of who is quietly flying this week — exactly the information no public dataset carries.</p>
+  <figure class="l-body-outset">
     <div id="chart-decomp" class="chart"></div>
+    <figcaption><strong>Figure 5.</strong> Crabs earned over five seasons, split by the bought crew's result that day — model against oracle. The +2 and +3 bars are where a real forecaster and a clairvoyant part company.</figcaption>
+  </figure>
 
-    <h3>4.5 &ensp;Error analysis</h3>
-    <p>Two failure modes cost the bettor crabs: confidently backing a bump that does not come (Table 2), and dismissing a valuable over-bump that does (Table 3). The worst examples of each, all out of sample, are shown below.</p>
+  <p>The two ways a forecast bleeds crabs are worth seeing by name. It can back a bump with confidence — staking real shares — and the bump never comes (Table 2). Or it can wave away a valuable over-bump that then happens, leaving the payout on the table (Table 3). These are the worst of each, all out of sample.</p>
+  <figure class="l-page">
     <div class="ledger">
       <div class="ledger-col">
-        <p class="figlab">Table 2. &ensp;Confident bets that did not bump — crabs lost.</p>
         <div id="tab-fp" class="losstab"></div>
-        <p class="small">The model gave each a strong chance of bumping and the optimiser staked shares; the crew rowed over or was caught. "Crabs lost" is the shortfall versus the expected return on those shares.</p>
+        <p class="cap-sub"><strong>Table 2.</strong> Confident bets that didn't bump. The model gave each a strong chance and the optimiser staked shares; the crew rowed over or was caught. "Crabs lost" is the shortfall versus the expected return on those shares.</p>
       </div>
       <div class="ledger-col">
-        <p class="figlab">Table 3. &ensp;Over-bumps the model under-rated — crabs left on the table.</p>
         <div id="tab-fn" class="losstab"></div>
-        <p class="small">Each crew moved up two or more in a day — a high-payout over-bump — while the model assigned it almost no chance, so the optimiser held next to none. The figure is what a single share would have paid.</p>
+        <p class="cap-sub"><strong>Table 3.</strong> Over-bumps the model under-rated. Each crew climbed two or more in a day while the model gave it almost no chance, so the optimiser held next to none. The figure is what a single share would have paid.</p>
       </div>
     </div>
-  </section>
+  </figure>
 
-  <!-- ===== 5. LIMITATIONS ===== -->
-  <section class="rsec" aria-label="Limitations">
-    <h2><span class="secno">5</span> Limitations and the performance ceiling</h2>
-    <p id="ceiling-note"></p>
-    <p>Beyond the central finding, several limitations bound the result. The model cannot observe who is injured, ill or in unusually good form this week — precisely the edge the best human players hold. Every alternative lever we tested converged on the same ceiling: re-weighting the training loss toward high-value events, a risk-adjusted (mean-variance) selection objective, and a multi-account portfolio that needs only one account to win all left performance at, or below, expected-return maximisation. "Blues" counts the openweight Blue Boat only; reserve and lightweight squad membership is not in the data, and a scrape of external athlete records did not add usable signal. One numerical caveat: the 2022 oracle is a slight under-estimate because a handful of that season's crews could not be matched across data sources. All figures are reproducible from the raw data; the model, analysis and this report were produced with substantial AI assistance and checked against the sources throughout.</p>
-  </section>
+  <h2 id="limitations">Limitations and the ceiling</h2>
+  <p id="ceiling-note"></p>
+  <p>Several limits bound the result. The model cannot see who is injured, ill, or in unusually good form this week — precisely the edge the best human players hold, and the reason the system settles a notch below them. Every alternative lever we tried converged on the same ceiling rather than breaking through it<d-footnote>Tested and discarded: re-weighting the training loss toward high-value events; a risk-adjusted (mean-variance) selection objective, which only ever lost expected value because the bets are small relative to the bankroll, so there is little volatility drag to recover; and a multi-account portfolio that needs only one of several accounts to win — even with 400 accounts placing diverse risky bets it topped out near 85% of the champion, because all accounts can only bet on crews the model already rates highly, and the winning over-bumps are exactly the ones it rates low.</d-footnote>. "Blues" counts the openweight Blue Boat only; reserve and lightweight membership is not in the data, and a manual scrape of external athlete records added no usable signal. One numerical caveat: the 2022 oracle is a slight under-estimate, because a handful of that season's crews could not be matched cleanly across the data sources.</p>
+  <p>The honest summary is that the model extracts close to all of the <em>publicly predictable</em> signal in bumps racing, which is enough to forecast it honestly and to out-bet most humans — but not enough to beat the best, whose edge lives in information the river only reveals on the day.</p>
 
-</main>
+</d-article>
 
-<footer>
-  <div class="wrap narrow">
-    <p class="small">Independent analysis, not affiliated with OURCs, Fantasy Bumps or any college. <span id="footer-updated"></span></p>
-  </div>
-</footer>
+<d-appendix>
+  <h3>Footnotes</h3>
+  <d-footnote-list></d-footnote-list>
+  <h3>More</h3>
+  <p><a href="board.html">The live predictions board</a> (the interpretable model) · <a href="ratings.html">College strength, all-time</a> · <a href="report.html">The full underlying analysis and code</a>. Independent analysis, not affiliated with OURCs, Fantasy Bumps or any college. <span id="footer-updated"></span></p>
+</d-appendix>
 
 <script src="js/accuracy.js" defer></script>
 </body>
