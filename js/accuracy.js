@@ -37,12 +37,17 @@ function init(acc, bet) {
   const meanPctile = bet.years.reduce((s, y) => s + y.percentile_in_field, 0) / bet.years.length;
   const topX = Math.max(1, Math.round((1 - meanPctile) * 100));
   const kpis = [
-    { big: A.all.brier, lab: "Brier score", sub: `vs ${A.all.brier_climatology} for guessing the base rate · ${A.all.n.toLocaleString()} unseen crew-days` },
+    { big: (+A.all.brier).toFixed(2), lab: "Brier score", sub: `vs ${(+A.all.brier_climatology).toFixed(2)} for guessing the base rate · ${A.all.n.toLocaleString()} unseen crew-days` },
     { big: "±" + Math.round(ev["move up"].ece * 100) + "%", lab: "calibration error", sub: "average gap between a stated chance and what happened" },
     { big: "top " + topX + "%", lab: "as a Fantasy Bumps bettor", sub: `beats ~${Math.round(meanPctile * 100)}% of human players` },
     { big: champPct + "%", lab: "of the champion's score", sub: "strong, but can't beat the single best human" },
   ];
   setHTML("kpis", kpis.map(k => `<div class="kpi"><div class="kpi-big">${k.big}</div><div class="kpi-lab">${k.lab}</div><div class="kpi-sub">${k.sub}</div></div>`).join(""));
+  // inline figures in the abstract / data / results prose
+  setText("ab-brier", (+A.all.brier).toFixed(2)); setText("ab-clim", (+A.all.brier_climatology).toFixed(2));
+  setText("ab-ece", "~" + pct(ev["move up"].ece)); setText("ab-champ", champPct + "%");
+  setText("ab-decile", topX + "%"); setText("d-n", A.all.n.toLocaleString());
+  setText("r-champ", champPct + "%");
 
   // ---- calibration: move-up, historical vs recent overlaid ----
   draw("chart-rel-up", w => reliabilityChart([
