@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The bump board — live predictions — Oxford Summer Eights 2026</title>
+<meta name="description" content="Live head-to-head bump predictions for Oxford Summer Eights 2026, with per-crew factor attribution, and what two centuries of racing say about skill and luck.">
+<meta property="og:title" content="The bump board — Oxford Summer Eights 2026">
+<meta property="og:description" content="Live head-to-head bump predictions, with the analysis behind them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/vendor/d3.min.js"></script>
+<script src="js/vendor/plot.umd.min.js"></script>
+</head>
+<body>
+
+<div class="draftnote"><strong>DRAFT</strong> — this whole project (the analysis, the model and the writing) was built by an AI with a human steering it. Treat it as a rough experiment shared for interest, not a polished or authoritative product.</div>
+
+<header class="top">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <p class="kicker">Oxford Summer Eights 2026</p>
+        <h1>The bump board — <em id="day-label">next day</em></h1>
+      </div>
+      <span class="live"><span class="dot"></span>live · racing resumes</span>
+    </div>
+    <p class="metaline" id="model-meta">Loading model…</p>
+    <p class="metaline" style="margin-top:3px"><a href="index.html">← How accurate is this model, and could it make money? (model report)</a> · <a href="ratings.html">College strength →</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ===== HERO: the head-to-head predictions board ===== -->
+  <section aria-label="Bump predictions">
+    <div class="controls">
+      <div class="tabs">
+        <div class="tab active" data-g="men">Men</div>
+        <div class="tab" data-g="women">Women</div>
+      </div>
+      <div class="ctl-right">
+        <select id="college-hl" aria-label="Highlight a college"><option value="">Highlight a college…</option></select>
+        <div class="legend">
+          <span class="k"><span class="sw" style="background:var(--down)"></span>caught</span>
+          <span class="k"><span class="sw" style="background:var(--up)"></span>bump</span>
+          <span class="k">tap for why</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blades-watch">
+      <span class="lab">Blades watch</span>
+      <div id="blades-strip"><span class="small">…</span></div>
+    </div>
+
+    <div id="field-summary" class="field-summary"></div>
+
+    <div id="board"><p class="small">Loading the board…</p></div>
+
+    <p class="small" style="margin-top:10px">Each crew is shown chasing the boat directly ahead. The bar reads both ways from the centre — <span style="color:var(--up);font-weight:600">green</span> is its chance of bumping that boat on <span id="day-label-2">the next day</span>, <span style="color:var(--down);font-weight:600">red</span> its chance of being caught by the boat behind. The two are the same contest seen from each side, so a crew's green bar matches the next crew's red one. Most bars are short: between two crews seeded as near-equals, the day is close to a toss-up. Highlight a college to find its boats; tap any crew for the full breakdown, over-bumps included. The model reads relative form, squad and Blues — not who's injured or flying this week — so don't over-read any single one.</p>
+  </section>
+
+  <!-- ===== SKILL LADDER ===== -->
+  <section class="skill" aria-label="Crew skill estimates">
+    <p class="kicker">The model's read</p>
+    <h2>How fast is each crew — and how sure are we?</h2>
+    <p class="lead">Underneath every prediction is one number per crew: an estimate of its speed, with a band for how confident the model is. The estimate starts from the seeding and last year, then sharpens with each day's racing. Wide band, hard to call; narrow band, the model has made up its mind. Highlight a college to pick out its boats.</p>
+    <div id="chart-skill" class="chart"></div>
+    <p class="small">Each crew's estimated pace relative to the field average, in the model's own units; the line through it spans one standard deviation either side — the model's uncertainty. A crew well clear of the field with a tight band is a near-certainty to hold or climb; two crews whose bands overlap heavily are, on this evidence, a toss-up.</p>
+  </section>
+
+  <!-- ===== WHY PANELS ===== -->
+  <section class="why">
+    <p class="kicker">Behind the numbers</p>
+    <h2>What the board is reading</h2>
+    <p class="lead">The same approach, checked against two centuries of racing and scored only on years it had never seen, sits behind every figure above. Three things stand out.</p>
+
+    <div class="panels">
+
+      <div class="panel">
+        <span class="tag">What a crew brings to the start</span>
+        <h3>A Blue helps; the rest, less than a length</h3>
+        <div id="chart-factors" class="chart"></div>
+        <p>How many boat-lengths of pace the model has <em>learned</em> to credit each starting fact, from two centuries of results. It takes about a length (dashed line) to bump, and none of these reaches it alone — even raw seeding adds almost nothing once you know the order. What actually decides most days is how a crew rows this week, which the model only learns once racing starts.</p>
+      </div>
+
+      <div class="panel">
+        <span class="tag">How far ahead you can see</span>
+        <h3>Wednesday is a coin toss; Saturday isn't</h3>
+        <div id="chart-perday" class="chart"></div>
+        <p>Crews are seeded by last year's order, so on the first day the boat ahead is the one most like you — and the result is close to a flip. Each day's racing sorts the genuinely quick from the rest: the model goes from barely better than a guess to picking the bumping crew in better than five times in six, and its read on each crew's speed tightens with every result.</p>
+      </div>
+
+      <div class="panel">
+        <span class="tag">Skill and the draw</span>
+        <h3>You can't fluke blades</h3>
+        <div id="chart-luck" class="chart"></div>
+        <p>With every crew equally fast, four bumps in a row would be about <strong id="l-excess">9×</strong> rarer than it actually is — so blades take genuine speed. But the rest is the draw. Whether you bump turns mostly on the crew ahead: caught and sitting in front of you, you go through about three times in five; bumped out and clear up the river, nearer one in twenty. Which is why blades barely repeat — <strong id="l-repeat">84%</strong> of this year's winners didn't have them last year.</p>
+      </div>
+
+      <div class="panel">
+        <span class="tag">Do the percentages mean it?</span>
+        <h3>When it says 30%, it happens 30% of the time</h3>
+        <div id="chart-calib" class="chart"></div>
+        <p>A probability is only worth anything if it's honest. Across <strong>11,000</strong> bumps the model never saw when it made the call, its predicted chances line up with how often the bump actually came: say 20% and it lands about one time in five; say 70% and it lands about seven times in ten. The dots sit on the dashed line of perfect calibration, off by an average of just <strong id="cal-ece">2.3%</strong>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <details class="methods">
+    <summary>How this works, and what it can't tell you</summary>
+    <div>
+      <h3>Where the numbers come from</h3>
+      <p>Every Oxford bumps race, from two records kept independently — Anu Dudhia's archive and <a href="https://bumps.live">bumps.live</a> — which agree on 99.99% of the 20,617 races they both cover, back to 1826. Crew lists, coxes and coaches (2007 on) come from bumps.live, Oxford Blues from Wikipedia's Boat Race tables, and the weather from the Radcliffe Observatory.</p>
+      <h3>How the predictions are made</h3>
+      <p>Each crew is given an estimate of its speed — its skill, in boat-lengths — as a Bayesian belief with a margin of error. How much each input is worth (Torpids form, last year's finish, a Blue or two aboard) is <em>learned</em> from two centuries of results, not set by hand; each day's racing then updates the estimate, so it sharpens through the week, and how much of the squad a crew kept sets how tightly it's pinned. The skills feed one race simulator — each run draws every crew's true speed from its estimate, then races the remaining days — and <em>every</em> number on the board is read off that single simulation: bumps, over-bumps, being caught, blades. Because it's one simulation, the figures agree with each other — a crew's chance of bumping the boat ahead is exactly that boat's chance of being caught. The simulator also honours the real rules: a crew can only catch the boat it's actually chasing, and divisions are joined only by the sandwich boat, so no crew leapfrogs boats it never races. Tap a crew to see where its edge comes from.</p>
+      <h3>What it can't tell you</h3>
+      <p>The model can't see who's injured, ill or flying this week, so take any single number as a lean, not a verdict. "Blues" means the openweight Blue Boat only — reserves and lightweights aren't in the data yet. And races before 1900, where the old records get patchy, are left out of the headline figures.</p>
+      <p class="small"><a href="report.html">The full analysis and code →</a> Every figure here is reproducible from the raw data, and was made with substantial help from an AI system, checked against the sources throughout.</p>
+    </div>
+  </details>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="small">Independent analysis, not affiliated with OURCs or any college. Figures cover Summer Eights; Torpids is used only as a predictor. Live predictions are a position-and-form model and update as results come in. <span id="footer-updated"></span></p>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

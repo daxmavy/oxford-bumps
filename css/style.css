@@ -144,3 +144,25 @@ footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 50px;colo
   .ctl-right{gap:8px;width:100%}
   #college-hl{flex:1}
 }
+
+/* ===== accuracy & betting report ===== */
+.chart{width:100%;margin:12px 0 6px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:18px}
+.kpi{background:#fff;border:1px solid var(--line);border-top:3px solid var(--oxford);border-radius:12px;padding:16px 16px 13px}
+.kpi-big{font-family:var(--serif);font-weight:600;font-size:1.85rem;line-height:1;color:var(--oxford);letter-spacing:-.02em}
+.kpi-lab{font-size:.82rem;font-weight:600;color:var(--ink);margin-top:6px}
+.kpi-sub{font-size:.76rem;color:var(--muted);margin-top:4px;line-height:1.4}
+.cal-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:14px}
+@media (max-width:760px){.cal-grid{grid-template-columns:1fr}}
+.acctab,.losstab{margin-top:12px;overflow-x:auto}
+.acctab table,.losstab table{width:100%;border-collapse:collapse;font-size:.86rem}
+.acctab th,.losstab th{text-align:left;font-family:var(--sans);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700;padding:6px 10px;border-bottom:1.5px solid var(--line)}
+.acctab td,.losstab td{padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.acctab td.num,.losstab td.num,.acctab th.num,.losstab th.num{text-align:right;font-variant-numeric:tabular-nums}
+.losstab td.bad{font-weight:700;color:var(--down)}
+.losstab tr:last-child td{border-bottom:none}
+.ledger{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:14px}
+@media (max-width:760px){.ledger{grid-template-columns:1fr}}
+.ledger-col h3{font-size:1rem}
+.lc-note{font-family:var(--sans);font-weight:600;font-size:.8rem;color:var(--down)}
+#ceiling-note{background:var(--paper2);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 16px;font-size:1rem}
