@@ -105,7 +105,7 @@ function overBumpRecal(reliab, w) {
   const series = [["gbm", "raw GBM"], ["gbm_recal", "recalibrated"]];
   const rows = series.flatMap(([k, lab]) => {
     const e = reliab[k]["over-bump up (>=+2)"];
-    return e.pred.map((px, i) => ({ who: lab, pred: px, obs: e.obs[i], n: e.count[i] }));
+    return e.pred.map((px, i) => ({ who: lab, pred: px, obs: e.obs[i], lo: e.lo[i], hi: e.hi[i], n: e.count[i] }));
   });
   const cr = [C.oxford, C.recal];
   const fig = P.plot({
@@ -116,7 +116,8 @@ function overBumpRecal(reliab, w) {
     y: { domain: [0, 0.16], label: "↑ observed", tickFormat: "%", grid: true },
     marks: [
       P.line([[0, 0], [0.16, 0.16]], { stroke: "#b9b2a4", strokeDasharray: "4 4" }),
-      P.dot(rows, { x: "pred", y: "obs", fill: "who", r: d => 3 + Math.sqrt(d.n) / 4, fillOpacity: .8, stroke: "white", strokeWidth: .5 }),
+      P.ruleX(rows, { x: "pred", y1: "lo", y2: "hi", stroke: "who", strokeOpacity: 0.45, strokeWidth: 1 }),
+      P.dot(rows, { x: "pred", y: "obs", fill: "who", r: d => 3 + Math.sqrt(d.n) / 4, fillOpacity: .85, stroke: "white", strokeWidth: .5 }),
     ],
   });
   return stack(legendBar(series.map(s => s[1]), cr), fig);
@@ -185,8 +186,13 @@ function init(A, B) {
   setText("r-ablation-rps", `${sgn3(AB.rps.diff)} (95% CI ${sgn3(AB.rps.ci[0])} to ${sgn3(AB.rps.ci[1])})`);
   // §3 coherence + joint
   setText("r-coh-gbm", f2(CO.gbm.sd)); setText("r-coh-joint", f2(CO.joint.sd));
+  setText("r-coh-floor", f2(CO.oracle_floor.sd));
   setText("r-joint-brier", f3(M.joint.brier.mean)); setText("r-joint-auc", f2(M.joint.move_up_auc.mean));
   setText("r-joint-ob-auc", f2(OB.joint.auc.mean));
+  const PRJ = A.paired_rel_joint;
+  setText("r-pair-rps", `${sgn3(PRJ.rps.diff)} (95% CI ${sgn3(PRJ.rps.ci[0])} to ${sgn3(PRJ.rps.ci[1])})`);
+  setText("r-pair-brier", `${sgn3(PRJ.brier.diff)} (95% CI ${sgn3(PRJ.brier.ci[0])} to ${sgn3(PRJ.brier.ci[1])})`);
+  setText("r-pair-auc", `${sgn3(PRJ.auc.diff)} (95% CI ${sgn3(PRJ.auc.ci[0])} to ${sgn3(PRJ.auc.ci[1])})`);
   // §4 by-day
   setText("r-auc-d1", f2(A.by_day_auc[1].gbm.mean)); setText("r-auc-d4", f2(A.by_day_auc[4].gbm.mean));
   setText("auc-cap", grp(A.by_day_auc[1].n));
@@ -198,16 +204,20 @@ function init(A, B) {
   // §6 market
   const evrel = B.frontier.find(r => r.model === "rel" && r.strategy === "EV-max");
   const evcal = B.frontier.find(r => r.model === "relcal" && r.strategy === "EV-max");
-  const maxp = Math.max(...B.frontier.map(r => r.max_p_beat_champion));
+  const maxMean = Math.max(...B.frontier.map(r => r.mean_p_beat_champion));   // best strategy's season-mean
+  const maxCell = Math.max(...B.frontier.map(r => r.max_p_beat_champion));    // single best model x strategy x season
   setText("r-champ", pct(evrel.mean_pct_of_champion));
   setText("r-champ-range", ndash(pct(evrel.pct_range[0]), pct(evrel.pct_range[1])));
+  const shortfalls = B.seasons.map(s => 1 - s.pct_of_champion);
+  setText("r-shortfall", ndash(pct(Math.min(...shortfalls)), pct(Math.max(...shortfalls))));
   const pctiles = B.seasons.map(s => 1 - (s.rank - 1) / s.n_teams);
   setText("r-pctile", nth(pctiles.reduce((a, b) => a + b, 0) / pctiles.length));
   setText("r-nteams", grp(B.seasons.reduce((a, s) => a + s.n_teams, 0) / B.seasons.length));
+  setText("r-realwins", B.seasons.filter(s => s.model > s.champion).length + "/" + B.seasons.length);
   setText("r-pbeat", pct1(evrel.mean_p_beat_champion)); setText("r-pbeat-recal", pct1(evcal.mean_p_beat_champion));
-  setText("r-pbeat-max", pct1(maxp));
+  setText("r-pbeat-max", pct1(maxMean)); setText("r-pbeat-maxcell", pct1(maxCell));
   setText("r-champ-infl", pct1(B.champion_inflation_vs_ranks2_5));
-  setText("ab-champ", pct(evrel.mean_pct_of_champion)); setText("ab-pbeat", pct1(maxp));
+  setText("ab-champ", pct(evrel.mean_pct_of_champion)); setText("ab-pbeat", pct1(maxMean));
   // discussion / appendix
   setHTML("ceiling-note", "All figures and tables regenerate from the primary data by the analysis pipeline; the out-of-sample predictions, the scoring harness, the joint simulator, the recalibration and the market engine are in the source repository.");
   setText("footer-updated", "Figures regenerate from the primary data; last built " + new Date().getFullYear() + ".");
