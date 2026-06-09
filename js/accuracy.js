@@ -224,7 +224,7 @@ function init(A, B) {
 
   // ---- figures ----
   draw("chart-reliability", w => reliabilityFacets(A.reliability, w));
-  setHTML("rel-cap", `Across <strong>${grp(A.n)}</strong> out-of-sample crew-days, observed frequency tracks predicted probability for the common outcome classes; bars are 95% Wilson intervals and point area is proportional to the number of crew-days. The over-bump panel is the exception treated in Fig. 4.`);
+  setHTML("rel-cap", `Across <strong>${grp(A.n)}</strong> out-of-sample crew-days, observed frequency tracks predicted probability for the common outcome classes; bars are 95% Wilson intervals and point area is proportional to the number of crew-days. The over-bump panel is the exception treated in Fig. 3.`);
   draw("chart-modelbrier", w => modelBrier(M, w));
   draw("chart-aucday", w => aucByDay(A.by_day_auc, w));
   draw("chart-overbump", w => overBumpRecal(A.reliability, w));
